@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using CarSumo.Input.Swipes;
 using Sirenix.OdinInspector;
 
 namespace CarSumo.Input.Debugging
 {
-    public class SwipePanelDebugger : SerializedMonoBehaviour
+    public class SwipeInputPanelDebugger : SerializedMonoBehaviour
     {
         [SerializeField] private ISwipePanel _panel;
 
@@ -20,17 +19,17 @@ namespace CarSumo.Input.Debugging
             _panel.Released -= OnPanelSwipeReleased;
         }
 
-        private void OnPanelSwipeReleased(SwipeData data) 
+        private void OnPanelSwipeReleased(SwipeData data)
             => PrintSwipeInfo(data, "Released");
 
-        private void OnPanelSwiping(SwipeData data) 
+        private void OnPanelSwiping(SwipeData data)
             => PrintSwipeInfo(data, "Swiping");
 
         private void PrintSwipeInfo(SwipeData data, string state)
         {
-            Debug.Log($"{state}\n" + 
+            Debug.Log($"{state}\n" +
+                      $"Axis Value: {_panel.GetAxisValue(1)}" +
                       $"Delta: {data.Delta}\n" +
-                      $"Drag Time: {data.DragTime}\n" +
                       $"Start Position: {data.StartPosition}\n" +
                       $"End Position {data.EndPosition}");
         }
