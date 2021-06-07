@@ -1,4 +1,5 @@
 ﻿using System;
+using CarSumo.Data;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,7 +7,7 @@ namespace CarSumo.Input
 {
     public class SwipeInputPanel : MonoBehaviour, ISwipePanel
     {
-        [SerializeField] private float _deltaDivider = 10;
+        [SerializeField] private InputSettings _settings;
 
         public event Action<SwipeData> Begun;
 
@@ -14,31 +15,31 @@ namespace CarSumo.Input
 
         public event Action<SwipeData> Released;
 
-        private SwipeData _data;
+        private SwipeData _sendingData;
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            _data.StartPosition = eventData.position;
-            _data.EndPosition = eventData.position;
-            _data.Delta = Vector2.zero;
+            _sendingData.StartPosition = eventData.position;
+            _sendingData.Delta = eventData.delta;
+            _sendingData.EndPosition = eventData.position;
 
-            Begun?.Invoke(_data);
+            Begun?.Invoke(_sendingData);
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            _data.Delta = eventData.delta;
-            _data.EndPosition = eventData.position;
+            _sendingData.Delta = eventData.delta;
+            _sendingData.EndPosition = eventData.position;
 
-            Swiping?.Invoke(_data);
+            Swiping?.Invoke(_sendingData);
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            _data.EndPosition = eventData.position;
-            _data.Delta = Vector2.zero;
+            _sendingData.EndPosition = eventData.position;
+            _sendingData.Delta = Vector2.zero;
 
-            Released?.Invoke(_data);
+            Released?.Invoke(_sendingData);
         }
 
         public float GetAxisValue(int axis)
@@ -46,7 +47,7 @@ namespace CarSumo.Input
             if (axis != 0)
                 return 0.0f;
 
-            var xAxis = _data.Delta.x / _deltaDivider;
+            var xAxis = _sendingData.Delta.x / _settings.SwipeDeltaDivider;
 
             return Mathf.Clamp(xAxis, -1.0f, 1.0f);
         }

@@ -10,6 +10,7 @@ namespace CarSumo.Input
         public Vector2 Delta { get; set; }
 
         public float Distance => Vector2.Distance(StartPosition, EndPosition);
-        public float DistanceClamped => Mathf.Clamp01(Distance);
+
+        public Vector2 Direction => EndPosition - StartPosition;
     }
 }

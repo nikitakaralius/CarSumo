@@ -19,5 +19,10 @@ namespace CarSumo.Extensions
         {
             return gameObject.GetComponent<T>() != null;
         }
+
+        public static Vector3 GetRelativeDirection(this Component component, Vector3 originalDirection)
+        {
+            return component.transform.TransformDirection(originalDirection);
+        }
     }
 }
