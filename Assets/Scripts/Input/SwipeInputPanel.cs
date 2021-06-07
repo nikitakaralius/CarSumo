@@ -8,6 +8,8 @@ namespace CarSumo.Input
     {
         [SerializeField] private float _deltaDivider = 10;
 
+        public event Action<SwipeData> Begun;
+
         public event Action<SwipeData> Swiping;
 
         public event Action<SwipeData> Released;
@@ -17,7 +19,10 @@ namespace CarSumo.Input
         public void OnBeginDrag(PointerEventData eventData)
         {
             _data.StartPosition = eventData.position;
+            _data.EndPosition = eventData.position;
             _data.Delta = Vector2.zero;
+
+            Begun?.Invoke(_data);
         }
 
         public void OnDrag(PointerEventData eventData)
