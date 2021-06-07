@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+
+using UnityEngine;
 using Sirenix.OdinInspector;
 
 namespace CarSumo.Input.Debugging
@@ -35,3 +37,5 @@ namespace CarSumo.Input.Debugging
         }
     }
 }
+
+#endif

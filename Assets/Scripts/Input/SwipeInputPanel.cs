@@ -37,11 +37,8 @@ namespace CarSumo.Input
 
         public float GetAxisValue(int axis)
         {
-            if (axis < 0 || axis > 2)
-                throw new ArgumentOutOfRangeException(nameof(axis));
-
-            if (axis != 1)
-                throw new NotImplementedException(nameof(axis));
+            if (axis != 0)
+                return 0.0f;
 
             var xAxis = _data.Delta.x / _deltaDivider;
 

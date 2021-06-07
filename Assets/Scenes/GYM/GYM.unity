@@ -241,7 +241,7 @@ MonoBehaviour:
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
-    m_DecelTime: 0.1
+    m_DecelTime: 0.3
     m_InputAxisName: 
     m_InputAxisValue: 0
     m_InvertInput: 1
@@ -1174,6 +1174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1777856715}
   - component: {fileID: 1777856714}
+  - component: {fileID: 1777856716}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -1238,6 +1239,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
+--- !u!114 &1777856716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777856713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c1823647c844d6a31f8e8e41bafe85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1810015356}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _provider
+      Entry: 10
+      Data: 0
 --- !u!1 &1800503517
 GameObject:
   m_ObjectHideFlags: 0
