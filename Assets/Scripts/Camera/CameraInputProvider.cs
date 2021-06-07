@@ -3,7 +3,7 @@ using Cinemachine;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-namespace CarSumo.Camera
+namespace CarSumo.Cameras
 {
     public class CameraInputProvider : SerializedMonoBehaviour, AxisState.IInputAxisProvider
     {
