@@ -30,7 +30,7 @@ namespace CarSumo.Input.Debugging
         private void PrintSwipeInfo(SwipeData data, string state)
         {
             Debug.Log($"{state}\n" +
-                      $"Axis Value: {_panel.GetAxisValue(1)}" +
+                      $"Axis Value: {_panel.GetAxisValue(0)}" +
                       $"Delta: {data.Delta}\n" +
                       $"Start Position: {data.StartPosition}\n" +
                       $"End Position {data.EndPosition}");

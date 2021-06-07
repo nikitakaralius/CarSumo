@@ -17,6 +17,7 @@ namespace CarSumo.Input
         public void OnBeginDrag(PointerEventData eventData)
         {
             _data.StartPosition = eventData.position;
+            _data.Delta = Vector2.zero;
         }
 
         public void OnDrag(PointerEventData eventData)
