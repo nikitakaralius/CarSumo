@@ -2,7 +2,7 @@
 
 namespace CarSumo.Data
 {
-    [CreateAssetMenu(fileName = "Vehicle Data", menuName = "CarSumo/Vehicles/Data")]
+    [CreateAssetMenu(fileName = "Unit Data", menuName = "CarSumo/Units/Data")]
     public class UnitData : ScriptableObject
     {
         [SerializeField] private float _rotationSpeed = 25.0f;

@@ -2,7 +2,7 @@
 
 namespace CarSumo.Data
 {
-    [CreateAssetMenu(fileName = "Unit Selector Settings", menuName = "CarSumo/Providers/Unit Selector", order = 0)]
+    [CreateAssetMenu(fileName = "Unit Selector Data Provider", menuName = "CarSumo/Providers/Unit Selector", order = 0)]
     public class UnitSelectorDataProvider : ScriptableObject
     {
         [SerializeField] private float _minSelectDistance = 100.0f;

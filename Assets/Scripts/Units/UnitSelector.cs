@@ -9,12 +9,12 @@ namespace CarSumo.Units
 {
     public class UnitSelector : SerializedMonoBehaviour
     {
+        [SerializeField] private UnitSelectorDataProvider _dataProvider;
+
         [Header("Components")]
         [SerializeField] private ISwipePanel _panel;
         [SerializeField] private Camera _camera;
-
-        [SerializeField] private UnitSelectorDataProvider _dataProvider;
-
+        
         private Unit _selectedUnit;
 
         private void OnEnable()
