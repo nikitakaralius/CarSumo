@@ -1,18 +1,27 @@
-﻿using CarSumo.Data;
+﻿using System;
+using CarSumo.Data;
 using CarSumo.Extensions;
 using UnityEngine;
 using CarSumo.Input;
+using CarSumo.Teams;
 using Cinemachine.Utility;
 using Sirenix.OdinInspector;
 
 namespace CarSumo.Units
 {
-    public class UnitSelector : SerializedMonoBehaviour
+    public class UnitSelector : SerializedMonoBehaviour, ITeamChangeSender
     {
+        public event Action ChangeSent
+        {
+            add => _selectedUnit.ChangeSent += value;
+            remove => _selectedUnit.ChangeSent -= value;
+        }
+
         [SerializeField] private UnitSelectorDataProvider _dataProvider;
 
         [Header("Components")]
         [SerializeField] private ISwipePanel _panel;
+        [SerializeField] private ITeamChangeHandler _handler;
         [SerializeField] private Camera _camera;
         
         private Unit _selectedUnit;
@@ -39,6 +48,9 @@ namespace CarSumo.Units
                 return;
 
             if (hit.collider.TryGetComponent<Unit>(out var unit) == false)
+                return;
+
+            if (unit.Team != _handler.Team)
                 return;
 
             _selectedUnit = unit;

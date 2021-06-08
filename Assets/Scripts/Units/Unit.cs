@@ -11,7 +11,10 @@ namespace CarSumo.Units
     {
         public event Action ChangeSent;
 
+        public Team Team => _team;
+
         [SerializeField] private UnitData _data;
+        [SerializeField] private Team _team;
 
         private Rigidbody _rigidbody;
         
