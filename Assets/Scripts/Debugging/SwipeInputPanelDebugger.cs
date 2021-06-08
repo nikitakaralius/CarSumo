@@ -1,9 +1,10 @@
 ﻿#if UNITY_EDITOR
 
+using CarSumo.Input;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-namespace CarSumo.Input.Debugging
+namespace CarSumo.Debugging
 {
     public class SwipeInputPanelDebugger : SerializedMonoBehaviour
     {

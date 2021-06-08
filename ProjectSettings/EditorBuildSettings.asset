@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: 
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1
-    path: Assets/Scenes/Test.unity
-    guid: 7fafd616a1e084d4e92d00d99527dbbe
-  - enabled: 1
     path: Assets/Scenes/GYM/GYM.unity
     guid: ad982ed531136ed4b8744d51df57a66c
+  - enabled: 1
+    path: Assets/Scenes/UI.unity
+    guid: 94331f1711a20034ca52c7820e269088
   m_configObjects: {}
