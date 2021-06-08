@@ -11,11 +11,7 @@ namespace CarSumo.Units
 {
     public class UnitSelector : SerializedMonoBehaviour, ITeamChangeSender
     {
-        public event Action ChangeSent
-        {
-            add => _selectedUnit.ChangeSent += value;
-            remove => _selectedUnit.ChangeSent -= value;
-        }
+        public event Action ChangeSent;
 
         [SerializeField] private UnitSelectorDataProvider _dataProvider;
 
@@ -25,6 +21,8 @@ namespace CarSumo.Units
         [SerializeField] private Camera _camera;
         
         private Unit _selectedUnit;
+
+        private bool _isMoveCompleted = true;
 
         private void OnEnable()
         {
@@ -53,7 +51,11 @@ namespace CarSumo.Units
             if (unit.Team != _handler.Team)
                 return;
 
+            if (!_isMoveCompleted)
+                return;
+
             _selectedUnit = unit;
+            _selectedUnit.ChangeSent += InvokeTeamChangeRequest;
         }
 
         private void OnPanelSwiping(SwipeData data)
@@ -82,10 +84,20 @@ namespace CarSumo.Units
             if (_selectedUnit is null)
                 return;
 
+            _isMoveCompleted = false;
+
             var multiplier = _dataProvider.CalculateMultiplier(data.Distance);
 
             _selectedUnit.Push(multiplier);
+        }
+
+        private void InvokeTeamChangeRequest()
+        {
+            ChangeSent?.Invoke();
+            _selectedUnit.ChangeSent -= InvokeTeamChangeRequest;
             _selectedUnit = null;
+
+            _isMoveCompleted = true;
         }
     }
 }

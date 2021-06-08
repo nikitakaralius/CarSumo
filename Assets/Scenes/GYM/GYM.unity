@@ -1399,6 +1399,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 943512607}
+    - {fileID: 1966019082}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -1408,8 +1409,8 @@ MonoBehaviour:
       Entry: 10
       Data: 0
     - Name: _handler
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 1
   _dataProvider: {fileID: 11400000, guid: e1f0f25b6dca3094a9e267bc77906160, type: 2}
   _camera: {fileID: 627056648}
 --- !u!1001 &1066637016

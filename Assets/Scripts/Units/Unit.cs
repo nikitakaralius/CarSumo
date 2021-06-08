@@ -23,6 +23,11 @@ namespace CarSumo.Units
             _rigidbody = GetComponent<Rigidbody>();
         }
 
+        private void OnDestroy()
+        {
+            ChangeSent?.Invoke();
+        }
+
         public void Push(float forceMultiplier)
         {
             var force = -transform.forward * _data.PushForce * forceMultiplier;
@@ -39,8 +44,9 @@ namespace CarSumo.Units
 
         private IEnumerator WaitForZeroSpeedRoutine()
         {
-            while (_rigidbody.velocity.magnitude >= 0.0f)
+            while (_rigidbody.velocity.magnitude > 0.0f)
                 yield return null;
+
 
             ChangeSent?.Invoke();
         }

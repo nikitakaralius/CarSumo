@@ -27,13 +27,15 @@ namespace CarSumo.Teams
         private void OnChangeTeamSent()
         {
             var newTeam = _onGameDefiner.DefineTeam(Team);
-            ChangeTeam(Team);
+            ChangeTeam(newTeam);
         }
 
         private void ChangeTeam(Team team)
         {
             Team = team;
             TeamChanged?.Invoke(Team);
+
+            Debug.Log(Team);
         }
     }
 }
