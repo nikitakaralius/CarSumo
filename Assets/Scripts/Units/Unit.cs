@@ -23,11 +23,6 @@ namespace CarSumo.Units
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        private void OnDestroy()
-        {
-            ChangeSent?.Invoke();
-        }
-
         public void Push(float forceMultiplier)
         {
             var force = -transform.forward * _data.PushForce * forceMultiplier;
@@ -40,6 +35,12 @@ namespace CarSumo.Units
         {
             transform.forward = Vector3.MoveTowards(transform.forward,
                 direction, Time.deltaTime * _data.RotationSpeed);
+        }
+
+        public void Destroy()
+        {
+            Destroy(gameObject);
+            ChangeSent?.Invoke();
         }
 
         private IEnumerator WaitForZeroSpeedRoutine()

@@ -684,6 +684,8 @@ GameObject:
   - component: {fileID: 512711845}
   - component: {fileID: 512711844}
   - component: {fileID: 512711843}
+  - component: {fileID: 512711842}
+  - component: {fileID: 512711846}
   m_Layer: 0
   m_Name: Fog Plane
   m_TagString: Untagged
@@ -691,6 +693,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &512711842
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512711841}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.1, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &512711843
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -754,6 +769,18 @@ Transform:
   m_Father: {fileID: 1199883080}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &512711846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512711841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d07f5027912425398b2e7924d8ccacb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &541886440 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100006, guid: 02b8d9f7d6a82cb458b98538d1ff0819, type: 3}
