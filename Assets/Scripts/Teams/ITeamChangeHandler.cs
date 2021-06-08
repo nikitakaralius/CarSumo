@@ -7,7 +7,7 @@ namespace CarSumo.Teams
         Team Team { get; }
     }
 
-    public interface IReactiveChangeHandler : ITeamChangeHandler
+    public interface IReactiveTeamChangeHandler : ITeamChangeHandler
     {
         event Action<Team> TeamChanged;
     }

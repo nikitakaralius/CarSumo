@@ -4,6 +4,6 @@ namespace CarSumo.Teams
 {
     public interface ITeamChangeSender
     {
-        event Action Changed;
+        event Action Sent;
     }
 }
