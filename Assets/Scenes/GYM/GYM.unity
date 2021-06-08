@@ -877,7 +877,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627056646}
-  m_LocalRotation: {x: 0.31172824, y: -0.000000016349004, z: 0.000000005363714, w: 0.9501713}
+  m_LocalRotation: {x: 0.31172824, y: -0.00000001634901, z: 0.0000000053637152, w: 0.9501713}
   m_LocalPosition: {x: 0, y: 25, z: -34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2266,6 +2266,7 @@ GameObject:
   - component: {fileID: 1777856715}
   - component: {fileID: 1777856714}
   - component: {fileID: 1777856716}
+  - component: {fileID: 1777856717}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -2322,7 +2323,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777856713}
-  m_LocalRotation: {x: 0.31172824, y: -0.000000016349004, z: 0.000000005363714, w: 0.9501713}
+  m_LocalRotation: {x: 0.31172824, y: -0.00000001634901, z: 0.0000000053637152, w: 0.9501713}
   m_LocalPosition: {x: 0, y: 25, z: -34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2355,6 +2356,82 @@ MonoBehaviour:
     - Name: _provider
       Entry: 10
       Data: 0
+--- !u!114 &1777856717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777856713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f4734012b6417cafa77e68beb6c6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1966019082}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _changeHandler
+      Entry: 10
+      Data: 0
+    - Name: _teamCameraPositions
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[CarSumo.Teams.Team, Assembly-CSharp],[System.Single,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[CarSumo.Teams.Team,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 4
+      Data: 180
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _camera: {fileID: 1777856714}
 --- !u!1 &1800503517
 GameObject:
   m_ObjectHideFlags: 0
