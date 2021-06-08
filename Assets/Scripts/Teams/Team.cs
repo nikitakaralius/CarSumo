@@ -1,4 +1,6 @@
-﻿namespace CarSumo.Teams
+﻿using System;
+
+namespace CarSumo.Teams
 {
     public enum Team
     {
