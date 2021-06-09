@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using CarSumo.Data;
 using CarSumo.Extensions;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace CarSumo.Units
 
         [Header("FX")] 
         [SerializeField] private EnablersEmitter _targetCircle;
+        [SerializeField] private Text3DEmitter _pushForceTextEmitter;
         
         private Unit _selectedUnit;
 
@@ -62,6 +64,7 @@ namespace CarSumo.Units
             _selectedUnit.ChangeSent += InvokeTeamChangeRequest;
 
             _targetCircle.Emit(_selectedUnit.transform);
+            _pushForceTextEmitter.Emit(_selectedUnit.transform);
         }
 
         private void OnPanelSwiping(SwipeData data)
@@ -83,6 +86,7 @@ namespace CarSumo.Units
                                                     .normalized;
 
             _selectedUnit.Rotate(transformedDirection);
+            _pushForceTextEmitter.SetText($"{(int)data.Distance}");
         }
 
         private void OnPanelSwipeReleased(SwipeData data)
@@ -95,6 +99,8 @@ namespace CarSumo.Units
             var multiplier = _dataProvider.CalculateMultiplier(data.Distance);
 
             _targetCircle.Stop();
+            _pushForceTextEmitter.Stop();
+
             _selectedUnit.Push(multiplier);
         }
 

@@ -1209,6 +1209,7 @@ MonoBehaviour:
   _dataProvider: {fileID: 11400000, guid: e1f0f25b6dca3094a9e267bc77906160, type: 2}
   _camera: {fileID: 627056648}
   _targetCircle: {fileID: 11400000, guid: ed0188b6249b7654092627cf3c8ede75, type: 2}
+  _pushForceTextEmitter: {fileID: 11400000, guid: faee757f847e3484e81fc0ab0fda9047, type: 2}
 --- !u!1001 &1008318690
 PrefabInstance:
   m_ObjectHideFlags: 0

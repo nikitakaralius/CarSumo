@@ -45,7 +45,7 @@ namespace CarSumo.VFX
         private float GetSizeMultiplier()
         {
             return Mathf.Abs(
-                Trigonometry.CosHarmonicMotion(Time.time, _amplitude, _frequency, 0) + _bias);
+                Trigonometry.CosHarmonicMotion(Time.time, _amplitude, _frequency, 0)) + _bias;
         }
     }
 }
