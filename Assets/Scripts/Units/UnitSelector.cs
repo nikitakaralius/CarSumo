@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using CarSumo.Data;
 using CarSumo.Extensions;
 using UnityEngine;
@@ -29,6 +28,7 @@ namespace CarSumo.Units
         private Unit _selectedUnit;
 
         private bool _isMoveCompleted = true;
+        private bool _canceled;
 
         private void OnEnable()
         {
@@ -57,11 +57,12 @@ namespace CarSumo.Units
             if (unit.Team != _handler.Team)
                 return;
 
-            if (!_isMoveCompleted)
+            if (_isMoveCompleted == false)
                 return;
 
+            _canceled = false;
+
             _selectedUnit = unit;
-            _selectedUnit.ChangeSent += InvokeTeamChangeRequest;
 
             _targetCircle.Emit(_selectedUnit.transform);
             _pushForceTextEmitter.Emit(_selectedUnit.transform);
@@ -71,6 +72,12 @@ namespace CarSumo.Units
         {
             if (_selectedUnit is null)
                 return;
+
+            var percentage = _dataProvider.CalculatePercentage(data.Distance);
+            _canceled = percentage <= _dataProvider.CancelDistancePercent;
+
+            _pushForceTextEmitter.SetText($"{(int)percentage}%");
+            _pushForceTextEmitter.SetForwardVector(_camera.transform.forward);
 
             if (data.Distance <= _dataProvider.MinSelectDistance)
                 return;
@@ -86,9 +93,6 @@ namespace CarSumo.Units
                                                     .normalized;
 
             _selectedUnit.Rotate(transformedDirection);
-
-            _pushForceTextEmitter.SetText($"{(int)data.Distance}");
-            _pushForceTextEmitter.SetForwardVector(_camera.transform.forward);
         }
 
         private void OnPanelSwipeReleased(SwipeData data)
@@ -98,11 +102,18 @@ namespace CarSumo.Units
 
             _isMoveCompleted = false;
 
-            var multiplier = _dataProvider.CalculateMultiplier(data.Distance);
-
             _targetCircle.Stop();
             _pushForceTextEmitter.Stop();
 
+            if (_canceled)
+            {
+                _isMoveCompleted = true;
+                _selectedUnit = null;
+                return;
+            }
+
+            _selectedUnit.ChangeSent += InvokeTeamChangeRequest;
+            var multiplier = _dataProvider.CalculateAccelerationMultiplier(data.Distance);
             _selectedUnit.Push(multiplier);
         }
 
