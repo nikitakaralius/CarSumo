@@ -24,6 +24,7 @@ namespace CarSumo.Units
         [Header("FX")] 
         [SerializeField] private EnablersEmitter _targetCircle;
         [SerializeField] private Text3DEmitter _pushForceTextEmitter;
+        [SerializeField] private ParticlesEmitter _directionParticlesEmitter;
         
         private Unit _selectedUnit;
 
@@ -66,6 +67,7 @@ namespace CarSumo.Units
 
             _targetCircle.Emit(_selectedUnit.transform);
             _pushForceTextEmitter.Emit(_selectedUnit.transform);
+            _directionParticlesEmitter.Emit(_selectedUnit.transform);
         }
 
         private void OnPanelSwiping(SwipeData data)
@@ -104,6 +106,7 @@ namespace CarSumo.Units
 
             _targetCircle.Stop();
             _pushForceTextEmitter.Stop();
+            _directionParticlesEmitter.Stop();
 
             if (_canceled)
             {

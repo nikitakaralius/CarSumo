@@ -1210,6 +1210,7 @@ MonoBehaviour:
   _camera: {fileID: 627056648}
   _targetCircle: {fileID: 11400000, guid: ed0188b6249b7654092627cf3c8ede75, type: 2}
   _pushForceTextEmitter: {fileID: 11400000, guid: faee757f847e3484e81fc0ab0fda9047, type: 2}
+  _directionParticlesEmitter: {fileID: 11400000, guid: 62e20bcb44fd9014bb6c17f2d5b37755, type: 2}
 --- !u!1001 &1008318690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1379,7 +1380,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082807754}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b2a1e02793343d7a5a433a425089a16, type: 3}
   m_Name: 
