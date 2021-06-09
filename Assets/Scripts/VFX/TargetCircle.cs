@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using CarSumo.Abstract;
+using UnityEngine;
 using CarSumo.Utilities;
 
-namespace Assets.Scripts.VFX
+namespace CarSumo.VFX
 {
-    public class TargetCircle : MonoBehaviour
+    public class TargetCircle : Enabler
     {
         [SerializeField] private float _rotationSpeed;
         [SerializeField] private float _frequency;
@@ -18,6 +19,16 @@ namespace Assets.Scripts.VFX
         {
             ChangeSize();
             Rotate();
+        }
+
+        public override void Enable()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public override void Disable()
+        {
+            Destroy(gameObject);
         }
 
         private void ChangeSize()

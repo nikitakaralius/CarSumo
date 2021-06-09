@@ -7,13 +7,8 @@ namespace CarSumo.VFX
     public class ParticlesFactory : FactoryScriptableObject<ParticleSystem>
     {
         [SerializeField] private ParticleSystem _particles;
-
-        public override ParticleSystem Create()
-        {
-            return Instantiate(_particles);
-        }
-
-        public ParticleSystem Create(Transform parent)
+        
+        public override ParticleSystem Create(Transform parent = null)
         {
             return Instantiate(_particles, parent);
         }

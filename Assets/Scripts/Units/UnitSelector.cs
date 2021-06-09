@@ -4,6 +4,7 @@ using CarSumo.Extensions;
 using UnityEngine;
 using CarSumo.Input;
 using CarSumo.Teams;
+using CarSumo.VFX;
 using Cinemachine.Utility;
 using Sirenix.OdinInspector;
 
@@ -19,6 +20,9 @@ namespace CarSumo.Units
         [SerializeField] private ISwipePanel _panel;
         [SerializeField] private ITeamChangeHandler _handler;
         [SerializeField] private Camera _camera;
+
+        [Header("FX")] 
+        [SerializeField] private EnablersEmitter _targetCircle;
         
         private Unit _selectedUnit;
 
@@ -56,6 +60,8 @@ namespace CarSumo.Units
 
             _selectedUnit = unit;
             _selectedUnit.ChangeSent += InvokeTeamChangeRequest;
+
+            _targetCircle.Emit(_selectedUnit.transform);
         }
 
         private void OnPanelSwiping(SwipeData data)
@@ -88,6 +94,7 @@ namespace CarSumo.Units
 
             var multiplier = _dataProvider.CalculateMultiplier(data.Distance);
 
+            _targetCircle.Stop();
             _selectedUnit.Push(multiplier);
         }
 
