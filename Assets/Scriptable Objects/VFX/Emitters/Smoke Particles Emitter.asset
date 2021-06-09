@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Smoke Particles Emitter
   m_EditorClassIdentifier: 
   _factory: {fileID: 11400000, guid: a70b918ae233a6a4ab5deb872de000e6, type: 2}
-  _destroyDelay: 1
+  _destroyDelay: 5
