@@ -86,7 +86,9 @@ namespace CarSumo.Units
                                                     .normalized;
 
             _selectedUnit.Rotate(transformedDirection);
+
             _pushForceTextEmitter.SetText($"{(int)data.Distance}");
+            _pushForceTextEmitter.SetForwardVector(_camera.transform.forward);
         }
 
         private void OnPanelSwipeReleased(SwipeData data)

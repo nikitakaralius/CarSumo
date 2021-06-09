@@ -21,6 +21,11 @@ namespace CarSumo.VFX
             _instance.text = value;
         }
 
+        public void SetForwardVector(Vector3 vector)
+        {
+            _instance.transform.forward = vector;
+        }
+
         public override void Stop()
         {
             Destroy(_instance.gameObject);
