@@ -18,7 +18,7 @@ namespace CarSumo.Units
         [SerializeField] private UnitData _data;
 
         [Header("Particles")]
-        [SerializeField] private ParticlesBehaviour _smokeParticles;
+        [SerializeField] private FXBehaviour _smokeParticles;
 
         private Rigidbody _rigidbody;
         

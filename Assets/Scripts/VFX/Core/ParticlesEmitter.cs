@@ -11,11 +11,7 @@ namespace CarSumo.VFX
 
         private ParticleSystem _particlesInstance;
 
-        public override void Emit()
-        {
-            _particlesInstance = _factory.Create();
-        }
-        public void Emit(Transform parent)
+        public override void Emit(Transform parent = null)
         {
             _particlesInstance = _factory.Create(parent);
         }
