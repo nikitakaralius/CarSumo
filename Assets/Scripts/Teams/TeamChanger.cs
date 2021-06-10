@@ -34,8 +34,6 @@ namespace CarSumo.Teams
         {
             Team = team;
             TeamChanged?.Invoke(Team);
-
-            Debug.Log(Team);
         }
     }
 }
