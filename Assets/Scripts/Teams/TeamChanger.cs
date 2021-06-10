@@ -20,9 +20,9 @@ namespace CarSumo.Teams
             ChangeTeam(newTeam);
         }
 
-        private void OnEnable() => _changeSender.ChangeSent += OnChangeTeamSent;
+        private void OnEnable() => _changeSender.ChangePerformed += OnChangeTeamSent;
 
-        private void OnDisable() => _changeSender.ChangeSent -= OnChangeTeamSent;
+        private void OnDisable() => _changeSender.ChangePerformed -= OnChangeTeamSent;
 
         private void OnChangeTeamSent()
         {

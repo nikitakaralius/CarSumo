@@ -22,3 +22,4 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _factory: {fileID: 11400000, guid: 994569d58baca0f44bac4504a20b0fc8, type: 2}
+  _format: '{0}%'

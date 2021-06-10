@@ -738,7 +738,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627056646}
-  m_LocalRotation: {x: 0.31172824, y: 0.000000016349004, z: -0.000000005363714, w: 0.9501713}
+  m_LocalRotation: {x: 0.31172824, y: -0.00000001634901, z: 0.0000000053637152, w: 0.9501713}
   m_LocalPosition: {x: 0, y: 25, z: -34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1203,14 +1203,16 @@ MonoBehaviour:
     - Name: _panel
       Entry: 10
       Data: 0
-    - Name: _handler
+    - Name: _teamChangeHandler
       Entry: 10
       Data: 1
   _dataProvider: {fileID: 11400000, guid: e1f0f25b6dca3094a9e267bc77906160, type: 2}
   _camera: {fileID: 627056648}
-  _targetCircle: {fileID: 11400000, guid: ed0188b6249b7654092627cf3c8ede75, type: 2}
   _pushForceTextEmitter: {fileID: 11400000, guid: faee757f847e3484e81fc0ab0fda9047, type: 2}
-  _directionParticlesEmitter: {fileID: 11400000, guid: 62e20bcb44fd9014bb6c17f2d5b37755, type: 2}
+  _unitSelectedEmitters:
+  - {fileID: 11400000, guid: 62e20bcb44fd9014bb6c17f2d5b37755, type: 2}
+  - {fileID: 11400000, guid: faee757f847e3484e81fc0ab0fda9047, type: 2}
+  - {fileID: 11400000, guid: ed0188b6249b7654092627cf3c8ede75, type: 2}
 --- !u!1 &983416401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,7 +2011,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777856713}
-  m_LocalRotation: {x: 0.31172824, y: 0.000000016349004, z: -0.000000005363714, w: 0.9501713}
+  m_LocalRotation: {x: 0.31172824, y: -0.00000001634901, z: 0.0000000053637152, w: 0.9501713}
   m_LocalPosition: {x: 0, y: 25, z: -34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2366,7 +2368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1887200076}
   m_Layer: 0
-  m_Name: Center
+  m_Name: Center [Camera Look Point]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

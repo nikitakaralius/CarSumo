@@ -10,7 +10,7 @@ namespace CarSumo.Units
     [RequireComponent(typeof(Rigidbody))]
     public class Unit : MonoBehaviour, ITeamChangeSender
     {
-        public event Action ChangeSent;
+        public event Action ChangePerformed;
 
         public Team Team => _team;
 
@@ -18,21 +18,18 @@ namespace CarSumo.Units
         [SerializeField] private UnitData _data;
 
         [Header("Particles")]
-        [SerializeField] private FXBehaviour _smokeParticles;
+        [SerializeField] private FXBehaviour _pushSmokeParticles;
 
         private Rigidbody _rigidbody;
         
-        private void Start()
-        {
-            _rigidbody = GetComponent<Rigidbody>();
-        }
+        private void Start() => _rigidbody = GetComponent<Rigidbody>();
 
         public void Push(float forceMultiplier)
         {
             var force = -transform.forward * _data.PushForce * forceMultiplier;
             _rigidbody.AddForce(force, ForceMode.Impulse);
 
-            _smokeParticles.Emit();
+            _pushSmokeParticles.Emit();
 
             StartCoroutine(WaitForZeroSpeedRoutine());
         }
@@ -46,7 +43,7 @@ namespace CarSumo.Units
         public void Destroy()
         {
             Destroy(gameObject);
-            ChangeSent?.Invoke();
+            ChangePerformed?.Invoke();
         }
 
         private IEnumerator WaitForZeroSpeedRoutine()
@@ -54,9 +51,9 @@ namespace CarSumo.Units
             while (_rigidbody.velocity.magnitude > 0.0f)
                 yield return null;
 
-            _smokeParticles.Stop();
+            _pushSmokeParticles.Stop();
 
-            ChangeSent?.Invoke();
+            ChangePerformed?.Invoke();
         }
     }
 }
