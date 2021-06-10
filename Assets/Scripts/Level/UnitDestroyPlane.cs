@@ -12,10 +12,9 @@ namespace CarSumo.Level
 
         private void OnTriggerEnter(Collider other)
         {
-            other.HandleComponent<Unit>(unit =>
+            other.HandleComponent<Vehicle>(vehicle =>
             {
-                _storage.Remove(unit);
-                unit.Destroy();
+                vehicle.Destroy();
             });
         }
     }

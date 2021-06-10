@@ -21,7 +21,7 @@ namespace CarSumo.Processors
 
         private void OnStorageEmptied(Unit unit)
         {
-            Debug.Log($"{unit.Team} Lose");
+            //Debug.Log($"{unit.Team} Lose");
         }
     }
 }

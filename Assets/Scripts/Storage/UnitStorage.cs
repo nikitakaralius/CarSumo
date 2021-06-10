@@ -24,38 +24,38 @@ namespace CarSumo.Storage
 
         public void Add(Unit element)
         {
-            if (element.Team == Team.First)
-            {
-                _firstTeamUnitsAlive.Add(element);
-            }
-            else
-            {
-                _secondTeamUnitsAlive.Add(element);
-            }
+            //if (element.Team == Team.First)
+            //{
+            //    _firstTeamUnitsAlive.Add(element);
+            //}
+            //else
+            //{
+            //    _secondTeamUnitsAlive.Add(element);
+            //}
 
-            Added?.Invoke(element);
+            //Added?.Invoke(element);
         }
 
         public void Remove(Unit element)
         {
-            if (element.Team == Team.First)
-            {
-                _firstTeamUnitsAlive.Remove(element);
-            }
-            else
-            {
-                _secondTeamUnitsAlive.Remove(element);
-            }
+            //if (element.Team == Team.First)
+            //{
+            //    _firstTeamUnitsAlive.Remove(element);
+            //}
+            //else
+            //{
+            //    _secondTeamUnitsAlive.Remove(element);
+            //}
 
-            Removed?.Invoke(element);
+            //Removed?.Invoke(element);
 
-            if (_firstTeamUnitsAlive.Count == 0 || _secondTeamUnitsAlive.Count == 0)
-                Emptied?.Invoke(element);
+            //if (_firstTeamUnitsAlive.Count == 0 || _secondTeamUnitsAlive.Count == 0)
+            //    Emptied?.Invoke(element);
         }
 
         private IEnumerable<Unit> FindUnitsByTeam(Team team)
         {
-            return FindObjectsOfType<Unit>().Where(unit => unit.Team == team);
+            return FindObjectsOfType<Unit>();//.Where(unit => unit.Team == team);
         }
     }
 }

@@ -1,15 +1,12 @@
-﻿using UnityEngine;
-
-namespace CarSumo.Units.Stats
+﻿namespace CarSumo.Units.Stats
 {
-    public abstract class VehicleStatsDecorator : ScriptableObject, IVehicleStatsProvider
+    public abstract class VehicleStatsDecorator : IVehicleStatsProvider
     {
-        protected IVehicleStatsProvider WrappedEntity;
+        protected readonly IVehicleStatsProvider WrappedEntity;
 
-        public IVehicleStatsProvider Init(IVehicleStatsProvider wrappedEntity)
+        protected VehicleStatsDecorator(IVehicleStatsProvider wrappedEntity)
         {
             WrappedEntity = wrappedEntity;
-            return this;
         }
 
         public VehicleStats GetStats()

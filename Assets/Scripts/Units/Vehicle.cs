@@ -45,14 +45,15 @@ namespace CarSumo.Units
         }
 
 
-        public void Init(IVehicleStatsProvider statsProvider)
+        public void Init(Team team)
         {
-            _statsProvider = _typeStats.Init(statsProvider);
+            _statsProvider = _typeStats.Init();
+            _statsProvider = new VehicleTeamStats(_statsProvider, team);
         }
 
         public void PushForward(float extraForceModifier)
         {
-            var force = -transform.forward * GetStats().PushForceModifier * extraForceModifier;
+            var force = transform.forward * GetStats().PushForceModifier * extraForceModifier;
             _rigidbody.AddForce(force, ForceMode.Impulse);
 
             Pushed?.Invoke();
