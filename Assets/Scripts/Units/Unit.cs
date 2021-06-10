@@ -1,59 +1,43 @@
-﻿using System;
-using System.Collections;
-using CarSumo.Data;
-using CarSumo.Teams;
-using CarSumo.VFX;
+﻿using CarSumo.Teams;
+using CarSumo.Units.Factory;
+using CarSumo.Units.Stats;
 using UnityEngine;
 
 namespace CarSumo.Units
 {
-    [RequireComponent(typeof(Rigidbody))]
-    public class Unit : MonoBehaviour, ITeamChangeSender
+    public class Unit : MonoBehaviour, IVehicleStatsProvider
     {
-        public event Action ChangePerformed;
-
-        public Team Team => _team;
-
         [SerializeField] private Team _team;
-        [SerializeField] private UnitData _data;
+        [SerializeField] private VehicleFactory _startVehicle;
 
-        [Header("Particles")]
-        [SerializeField] private FXBehaviour _pushSmokeParticles;
-
-        private Rigidbody _rigidbody;
-        
-        private void Start() => _rigidbody = GetComponent<Rigidbody>();
-
-        public void Push(float forceMultiplier)
+        private void Start()
         {
-            var force = -transform.forward * _data.PushForce * forceMultiplier;
-            _rigidbody.AddForce(force, ForceMode.Impulse);
-
-            _pushSmokeParticles.Emit();
-
-            StartCoroutine(WaitForZeroSpeedRoutine());
+            CreteVehicleInstance(_startVehicle);      
         }
 
-        public void Rotate(Vector3 direction)
+        public VehicleStats GetStats()
         {
-            transform.forward = Vector3.MoveTowards(transform.forward,
-                direction, Time.deltaTime * _data.RotationSpeed);
+            return new VehicleStats {Team = _team};
         }
 
-        public void Destroy()
+        private void CreteVehicleInstance(VehicleFactory factory)
         {
-            Destroy(gameObject);
-            ChangePerformed?.Invoke();
+            var vehicle = factory.Create(transform, this);
+
+            void DestroySelf()
+            {
+                vehicle.Destroying -= DestroySelf;
+                vehicle.Upgrading -= Upgrade;
+                Destroy(gameObject);
+            }
+
+            vehicle.Destroying += DestroySelf;
+            vehicle.Upgrading += Upgrade;
         }
 
-        private IEnumerator WaitForZeroSpeedRoutine()
+        private void Upgrade()
         {
-            while (_rigidbody.velocity.magnitude > 0.0f)
-                yield return null;
-
-            _pushSmokeParticles.Stop();
-
-            ChangePerformed?.Invoke();
+            Debug.Log($"{name} was upgraded");
         }
     }
 }
