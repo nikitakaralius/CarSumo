@@ -10,7 +10,7 @@ namespace CarSumo.Units
     [RequireComponent(typeof(Rigidbody))]
     public class Unit : MonoBehaviour, ITeamChangeSender
     {
-        public event Action ChangeSent;
+        public event Action ChangePerformed;
 
         public Team Team => _team;
 
@@ -46,7 +46,7 @@ namespace CarSumo.Units
         public void Destroy()
         {
             Destroy(gameObject);
-            ChangeSent?.Invoke();
+            ChangePerformed?.Invoke();
         }
 
         private IEnumerator WaitForZeroSpeedRoutine()
@@ -56,7 +56,7 @@ namespace CarSumo.Units
 
             _smokeParticles.Stop();
 
-            ChangeSent?.Invoke();
+            ChangePerformed?.Invoke();
         }
     }
 }

@@ -12,13 +12,13 @@ namespace CarSumo.Units
 {
     public class UnitSelector : SerializedMonoBehaviour, ITeamChangeSender
     {
-        public event Action ChangeSent;
+        public event Action ChangePerformed;
 
         [SerializeField] private UnitSelectorDataProvider _dataProvider;
 
         [Header("Components")]
         [SerializeField] private ISwipePanel _panel;
-        [SerializeField] private ITeamChangeHandler _handler;
+        [SerializeField] private ITeamChangeHandler _teamChangeHandler;
         [SerializeField] private Camera _camera;
 
         [Header("FX")] 
@@ -29,7 +29,7 @@ namespace CarSumo.Units
         private Unit _selectedUnit;
 
         private bool _isMoveCompleted = true;
-        private bool _canceled;
+        private bool _pushCanceled;
 
         private void OnEnable()
         {
@@ -47,27 +47,14 @@ namespace CarSumo.Units
 
         private void OnPanelSwipeBegun(SwipeData data)
         {
-            var ray = _camera.ScreenPointToRay(data.EndPosition);
-
-            if (Physics.Raycast(ray, out var hit) == false)
+            if (_camera.TryGetComponentWithRaycast(data.EndPosition, out Unit unit) == false)
                 return;
 
-            if (hit.collider.TryGetComponent<Unit>(out var unit) == false)
+            if (CanPickUnit(unit) == false)
                 return;
-
-            if (unit.Team != _handler.Team)
-                return;
-
-            if (_isMoveCompleted == false)
-                return;
-
-            _canceled = false;
 
             _selectedUnit = unit;
-
-            _targetCircle.Emit(_selectedUnit.transform);
-            _pushForceTextEmitter.Emit(_selectedUnit.transform);
-            _directionParticlesEmitter.Emit(_selectedUnit.transform);
+            EmitAllParticles(_selectedUnit.transform);
         }
 
         private void OnPanelSwiping(SwipeData data)
@@ -75,25 +62,16 @@ namespace CarSumo.Units
             if (_selectedUnit is null)
                 return;
 
-            var percentage = _dataProvider.CalculatePercentage(data.Distance);
-            _canceled = percentage <= _dataProvider.CancelDistancePercent;
+            var pushPercentage = _dataProvider.CalculatePercentage(data.Distance);
+            _pushCanceled = pushPercentage <= _dataProvider.CancelDistancePercent;
 
-            _pushForceTextEmitter.SetText($"{(int)percentage}%");
+            _pushForceTextEmitter.SetText((int)pushPercentage);
             _pushForceTextEmitter.SetForwardVector(_camera.transform.forward);
 
             if (data.Distance <= _dataProvider.MinSelectDistance)
                 return;
-            
-            var direction = new Vector3
-            {
-                x = data.Direction.x,
-                z = data.Direction.y
-            };
-            
-            var transformedDirection = _camera.GetRelativeDirection(direction)
-                                                    .ProjectOntoPlane(Vector3.up)
-                                                    .normalized;
 
+            var transformedDirection = GetTransformedDirection(data.Direction);
             _selectedUnit.Rotate(transformedDirection);
         }
 
@@ -104,29 +82,65 @@ namespace CarSumo.Units
 
             _isMoveCompleted = false;
 
-            _targetCircle.Stop();
-            _pushForceTextEmitter.Stop();
-            _directionParticlesEmitter.Stop();
+            StopAllParticles();
 
-            if (_canceled)
+            if (_pushCanceled)
             {
-                _isMoveCompleted = true;
-                _selectedUnit = null;
+                CompleteMove();
                 return;
             }
 
-            _selectedUnit.ChangeSent += InvokeTeamChangeRequest;
+            _selectedUnit.ChangePerformed += InvokeTeamChangeRequest;
             var multiplier = _dataProvider.CalculateAccelerationMultiplier(data.Distance);
             _selectedUnit.Push(multiplier);
         }
 
         private void InvokeTeamChangeRequest()
         {
-            ChangeSent?.Invoke();
-            _selectedUnit.ChangeSent -= InvokeTeamChangeRequest;
-            _selectedUnit = null;
+            ChangePerformed?.Invoke();
+            _selectedUnit.ChangePerformed -= InvokeTeamChangeRequest;
+            CompleteMove();
+        }
 
+        private void CompleteMove()
+        {
+            _selectedUnit = null;
             _isMoveCompleted = true;
+        }
+
+        private bool CanPickUnit(Unit unit)
+        {
+            return unit.Team == _teamChangeHandler.Team
+                   && _isMoveCompleted;
+        }
+
+        private void EmitAllParticles(Transform unitTransform)
+        {
+            _targetCircle.Emit(unitTransform);
+            _pushForceTextEmitter.Emit(unitTransform);
+            _directionParticlesEmitter.Emit(unitTransform);
+        }
+
+        private void StopAllParticles()
+        {
+            _targetCircle.Stop();
+            _pushForceTextEmitter.Stop();
+            _directionParticlesEmitter.Stop();
+        }
+
+        private Vector3 GetTransformedDirection(Vector2 swipeDirection)
+        {
+            var direction = new Vector3
+            {
+                x = swipeDirection.x,
+                z = swipeDirection.y
+            };
+
+            var transformedDirection = _camera.GetRelativeDirection(direction)
+                                                    .ProjectOntoPlane(Vector3.up)
+                                                    .normalized;
+
+            return transformedDirection;
         }
     }
 }

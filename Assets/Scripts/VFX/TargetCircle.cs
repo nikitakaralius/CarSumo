@@ -21,15 +21,9 @@ namespace CarSumo.VFX
             Rotate();
         }
 
-        public override void Enable()
-        {
-            gameObject.SetActive(true);
-        }
+        public override void Enable() => gameObject.SetActive(true);
 
-        public override void Disable()
-        {
-            Destroy(gameObject);
-        }
+        public override void Disable() => Destroy(gameObject);
 
         private void ChangeSize()
         {
@@ -44,8 +38,8 @@ namespace CarSumo.VFX
 
         private float GetSizeMultiplier()
         {
-            return Mathf.Abs(
-                Trigonometry.CosHarmonicMotion(Time.time, _amplitude, _frequency, 0)) + _bias;
+            return Mathf.Abs(Trigonometry.CosHarmonicMotion(Time.time, _amplitude, _frequency, 0))
+                   + _bias;
         }
     }
 }

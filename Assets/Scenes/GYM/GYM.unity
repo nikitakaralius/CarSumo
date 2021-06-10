@@ -738,7 +738,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627056646}
-  m_LocalRotation: {x: 0.31172824, y: 0.000000016349004, z: -0.000000005363714, w: 0.9501713}
+  m_LocalRotation: {x: 0.31172824, y: -0.00000001634901, z: 0.0000000053637152, w: 0.9501713}
   m_LocalPosition: {x: 0, y: 25, z: -34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1203,7 +1203,7 @@ MonoBehaviour:
     - Name: _panel
       Entry: 10
       Data: 0
-    - Name: _handler
+    - Name: _teamChangeHandler
       Entry: 10
       Data: 1
   _dataProvider: {fileID: 11400000, guid: e1f0f25b6dca3094a9e267bc77906160, type: 2}
@@ -2009,7 +2009,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777856713}
-  m_LocalRotation: {x: 0.31172824, y: 0.000000016349004, z: -0.000000005363714, w: 0.9501713}
+  m_LocalRotation: {x: 0.31172824, y: -0.00000001634901, z: 0.0000000053637152, w: 0.9501713}
   m_LocalPosition: {x: 0, y: 25, z: -34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

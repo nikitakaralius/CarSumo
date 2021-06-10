@@ -8,6 +8,7 @@ namespace CarSumo.VFX
     public class Text3DEmitter : EmitterScriptableObject
     {
         [SerializeField] private Text3DFactory _factory;
+        [SerializeField] private string _format = string.Empty;
 
         private TMP_Text _instance;
 
@@ -16,9 +17,9 @@ namespace CarSumo.VFX
             _instance = _factory.Create(parent);
         }
 
-        public void SetText(string value)
+        public void SetText(params object[] args)
         {
-            _instance.text = value;
+            _instance.text = string.Format(_format, args);
         }
 
         public void SetForwardVector(Vector3 vector)
