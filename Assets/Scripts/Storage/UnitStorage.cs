@@ -2,9 +2,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using CarSumo.Extensions;
 using CarSumo.Teams;
 using CarSumo.Units;
-using Sirenix.Utilities;
 
 namespace CarSumo.Storage
 {
@@ -20,11 +20,11 @@ namespace CarSumo.Storage
         private void Awake()
         {
             _firstTeamUnitsAlive = FindUnitsByTeam(Team.First)
-                .ForEach(unit => unit.Destroying += RemoveFromStorage)
+                .Every(unit => unit.Destroying += RemoveFromStorage)
                 .ToList();
 
             _secondTeamUnitsAlive = FindUnitsByTeam(Team.Second)
-                .ForEach(unit => unit.Destroying += RemoveFromStorage)
+                .Every(unit => unit.Destroying += RemoveFromStorage)
                 .ToList();
         }
 
