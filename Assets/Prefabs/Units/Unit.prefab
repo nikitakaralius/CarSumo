@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6401360856999958230}
   - component: {fileID: 1591137442847466927}
+  - component: {fileID: 8001161428446676203}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -45,3 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _team: 0
   _startVehicle: {fileID: 11400000, guid: a1400acff9d77f54b9064ca340a2135e, type: 2}
+--- !u!114 &8001161428446676203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6931218521379405126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38e15a517c9a4feb8e4d60de0686f8b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _material: {fileID: 2100000, guid: 4d440fbcd32fdc74690ab3cb88a29e9f, type: 2}

@@ -54,7 +54,7 @@ namespace CarSumo.Units
             if (_camera.TryGetComponentWithRaycast(data.EndPosition, out Vehicle vehicle) == false)
                 return;
 
-            if (CanPickUnit(vehicle) == false)
+            if (CanPickVehicle(vehicle) == false)
                 return;
 
             _selectedVehicle = vehicle;
@@ -64,6 +64,9 @@ namespace CarSumo.Units
         private void OnPanelSwiping(SwipeData data)
         {
             if (_selectedVehicle is null)
+                return;
+
+            if (_isMoveCompleted == false)
                 return;
 
             var pushPercentage = _dataProvider.CalculatePercentage(data.Distance);
@@ -111,7 +114,7 @@ namespace CarSumo.Units
             _isMoveCompleted = true;
         }
 
-        private bool CanPickUnit(IVehicleStatsProvider vehicle)
+        private bool CanPickVehicle(IVehicleStatsProvider vehicle)
         {
             return vehicle.GetStats().Team == _teamChangeHandler.Team
                    && _isMoveCompleted;

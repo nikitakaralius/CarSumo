@@ -14,7 +14,7 @@ namespace CarSumo.Units
         [SerializeField] private Team _team;
         [SerializeField] private VehicleFactory _startVehicle;
 
-        private void Start()
+        private void Awake()
         {
             CreteVehicleInstance(_startVehicle);
         }
