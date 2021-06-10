@@ -1,12 +1,14 @@
 ﻿using System;
 using CarSumo.Data;
 using CarSumo.Extensions;
+using CarSumo.Factory;
 using UnityEngine;
 using CarSumo.Input;
 using CarSumo.Teams;
 using CarSumo.VFX;
 using Cinemachine.Utility;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 
 namespace CarSumo.Units
 {
@@ -21,10 +23,11 @@ namespace CarSumo.Units
         [SerializeField] private ITeamChangeHandler _teamChangeHandler;
         [SerializeField] private Camera _camera;
 
-        [Header("FX")] 
-        [SerializeField] private EnablersEmitter _targetCircle;
+        [Header("FX")]
         [SerializeField] private Text3DEmitter _pushForceTextEmitter;
-        [SerializeField] private ParticlesEmitter _directionParticlesEmitter;
+
+        [InfoBox("Unit Selected Emitters require to copy particles from other FX fields")]
+        [SerializeField] private EmitterScriptableObject[] _unitSelectedEmitters;
         
         private Unit _selectedUnit;
 
@@ -54,7 +57,7 @@ namespace CarSumo.Units
                 return;
 
             _selectedUnit = unit;
-            EmitAllParticles(_selectedUnit.transform);
+            _unitSelectedEmitters.ForEach(emitter => emitter.Emit(_selectedUnit.transform));
         }
 
         private void OnPanelSwiping(SwipeData data)
@@ -81,8 +84,7 @@ namespace CarSumo.Units
                 return;
 
             _isMoveCompleted = false;
-
-            StopAllParticles();
+            _unitSelectedEmitters.ForEach(emitter => emitter.Stop());
 
             if (_pushCanceled)
             {
@@ -112,20 +114,6 @@ namespace CarSumo.Units
         {
             return unit.Team == _teamChangeHandler.Team
                    && _isMoveCompleted;
-        }
-
-        private void EmitAllParticles(Transform unitTransform)
-        {
-            _targetCircle.Emit(unitTransform);
-            _pushForceTextEmitter.Emit(unitTransform);
-            _directionParticlesEmitter.Emit(unitTransform);
-        }
-
-        private void StopAllParticles()
-        {
-            _targetCircle.Stop();
-            _pushForceTextEmitter.Stop();
-            _directionParticlesEmitter.Stop();
         }
 
         private Vector3 GetTransformedDirection(Vector2 swipeDirection)
