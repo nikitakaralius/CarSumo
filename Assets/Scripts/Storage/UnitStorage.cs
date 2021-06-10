@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CarSumo.Teams;
 using CarSumo.Units;
+using Sirenix.Utilities;
 
 namespace CarSumo.Storage
 {
@@ -18,44 +19,56 @@ namespace CarSumo.Storage
 
         private void Awake()
         {
-            _firstTeamUnitsAlive = FindUnitsByTeam(Team.First).ToList();
-            _secondTeamUnitsAlive = FindUnitsByTeam(Team.Second).ToList();
+            _firstTeamUnitsAlive = FindUnitsByTeam(Team.First)
+                .ForEach(unit => unit.Destroying += RemoveFromStorage)
+                .ToList();
+
+            _secondTeamUnitsAlive = FindUnitsByTeam(Team.Second)
+                .ForEach(unit => unit.Destroying += RemoveFromStorage)
+                .ToList();
         }
 
         public void Add(Unit element)
         {
-            //if (element.Team == Team.First)
-            //{
-            //    _firstTeamUnitsAlive.Add(element);
-            //}
-            //else
-            //{
-            //    _secondTeamUnitsAlive.Add(element);
-            //}
+            if (element.Team == Team.First)
+            {
+                _firstTeamUnitsAlive.Add(element);
+            }
+            else
+            {
+                _secondTeamUnitsAlive.Add(element);
+            }
 
-            //Added?.Invoke(element);
+            element.Destroying += RemoveFromStorage;
+            Added?.Invoke(element);
         }
 
         public void Remove(Unit element)
         {
-            //if (element.Team == Team.First)
-            //{
-            //    _firstTeamUnitsAlive.Remove(element);
-            //}
-            //else
-            //{
-            //    _secondTeamUnitsAlive.Remove(element);
-            //}
+            if (element.Team == Team.First)
+            {
+                _firstTeamUnitsAlive.Remove(element);
+            }
+            else
+            {
+                _secondTeamUnitsAlive.Remove(element);
+            }
 
-            //Removed?.Invoke(element);
+            Removed?.Invoke(element);
 
-            //if (_firstTeamUnitsAlive.Count == 0 || _secondTeamUnitsAlive.Count == 0)
-            //    Emptied?.Invoke(element);
+            if (_firstTeamUnitsAlive.Count == 0 || _secondTeamUnitsAlive.Count == 0)
+                Emptied?.Invoke(element);
         }
 
         private IEnumerable<Unit> FindUnitsByTeam(Team team)
         {
-            return FindObjectsOfType<Unit>();//.Where(unit => unit.Team == team);
+            return FindObjectsOfType<Unit>().Where(unit => unit.Team == team);
+        }
+
+        private void RemoveFromStorage(Unit unit)
+        {
+            Remove(unit);
+            unit.Destroying -= RemoveFromStorage;
         }
     }
 }

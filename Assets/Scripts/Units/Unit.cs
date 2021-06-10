@@ -1,4 +1,5 @@
-﻿using CarSumo.Teams;
+﻿using System;
+using CarSumo.Teams;
 using CarSumo.Units.Factory;
 using UnityEngine;
 
@@ -6,6 +7,10 @@ namespace CarSumo.Units
 {
     public class Unit : MonoBehaviour
     {
+        public event Action<Unit> Destroying;
+
+        public Team Team => _team;
+
         [SerializeField] private Team _team;
         [SerializeField] private VehicleFactory _startVehicle;
 
@@ -20,6 +25,7 @@ namespace CarSumo.Units
 
             void DestroySelf()
             {
+                Destroying?.Invoke(this);
                 vehicle.Destroying -= DestroySelf;
                 vehicle.Upgrading -= Upgrade;
                 Destroy(gameObject);

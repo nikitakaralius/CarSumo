@@ -8,8 +8,6 @@ namespace CarSumo.Level
 {
     public class UnitDestroyPlane : SerializedMonoBehaviour
     {
-        [SerializeField] private IReactiveUnitStorage _storage;
-
         private void OnTriggerEnter(Collider other)
         {
             other.HandleComponent<Vehicle>(vehicle =>
