@@ -4,6 +4,7 @@ using CarSumo.Extensions;
 using UnityEngine;
 using CarSumo.Input;
 using CarSumo.Teams;
+using CarSumo.VFX;
 using Cinemachine.Utility;
 using Sirenix.OdinInspector;
 
@@ -19,10 +20,16 @@ namespace CarSumo.Units
         [SerializeField] private ISwipePanel _panel;
         [SerializeField] private ITeamChangeHandler _handler;
         [SerializeField] private Camera _camera;
+
+        [Header("FX")] 
+        [SerializeField] private EnablersEmitter _targetCircle;
+        [SerializeField] private Text3DEmitter _pushForceTextEmitter;
+        [SerializeField] private ParticlesEmitter _directionParticlesEmitter;
         
         private Unit _selectedUnit;
 
         private bool _isMoveCompleted = true;
+        private bool _canceled;
 
         private void OnEnable()
         {
@@ -51,17 +58,28 @@ namespace CarSumo.Units
             if (unit.Team != _handler.Team)
                 return;
 
-            if (!_isMoveCompleted)
+            if (_isMoveCompleted == false)
                 return;
 
+            _canceled = false;
+
             _selectedUnit = unit;
-            _selectedUnit.ChangeSent += InvokeTeamChangeRequest;
+
+            _targetCircle.Emit(_selectedUnit.transform);
+            _pushForceTextEmitter.Emit(_selectedUnit.transform);
+            _directionParticlesEmitter.Emit(_selectedUnit.transform);
         }
 
         private void OnPanelSwiping(SwipeData data)
         {
             if (_selectedUnit is null)
                 return;
+
+            var percentage = _dataProvider.CalculatePercentage(data.Distance);
+            _canceled = percentage <= _dataProvider.CancelDistancePercent;
+
+            _pushForceTextEmitter.SetText($"{(int)percentage}%");
+            _pushForceTextEmitter.SetForwardVector(_camera.transform.forward);
 
             if (data.Distance <= _dataProvider.MinSelectDistance)
                 return;
@@ -86,8 +104,19 @@ namespace CarSumo.Units
 
             _isMoveCompleted = false;
 
-            var multiplier = _dataProvider.CalculateMultiplier(data.Distance);
+            _targetCircle.Stop();
+            _pushForceTextEmitter.Stop();
+            _directionParticlesEmitter.Stop();
 
+            if (_canceled)
+            {
+                _isMoveCompleted = true;
+                _selectedUnit = null;
+                return;
+            }
+
+            _selectedUnit.ChangeSent += InvokeTeamChangeRequest;
+            var multiplier = _dataProvider.CalculateAccelerationMultiplier(data.Distance);
             _selectedUnit.Push(multiplier);
         }
 

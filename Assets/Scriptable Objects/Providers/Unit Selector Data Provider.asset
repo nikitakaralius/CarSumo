@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Unit Selector Data Provider
   m_EditorClassIdentifier: 
   _minSelectDistance: 100
-  _distanceDivider: 100
-  _minDistanceValue: 0
-  _maxDistanceValue: 10
+  _maxSelectDistanceValue: 400
+  _cancelDistancePercent: 2
+  _maxAccelerationMultiplier: 4.8

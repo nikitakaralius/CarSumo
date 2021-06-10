@@ -2,6 +2,7 @@
 using System.Collections;
 using CarSumo.Data;
 using CarSumo.Teams;
+using CarSumo.VFX;
 using UnityEngine;
 
 namespace CarSumo.Units
@@ -13,8 +14,11 @@ namespace CarSumo.Units
 
         public Team Team => _team;
 
-        [SerializeField] private UnitData _data;
         [SerializeField] private Team _team;
+        [SerializeField] private UnitData _data;
+
+        [Header("Particles")]
+        [SerializeField] private FXBehaviour _smokeParticles;
 
         private Rigidbody _rigidbody;
         
@@ -27,6 +31,8 @@ namespace CarSumo.Units
         {
             var force = -transform.forward * _data.PushForce * forceMultiplier;
             _rigidbody.AddForce(force, ForceMode.Impulse);
+
+            _smokeParticles.Emit();
 
             StartCoroutine(WaitForZeroSpeedRoutine());
         }
@@ -48,6 +54,7 @@ namespace CarSumo.Units
             while (_rigidbody.velocity.magnitude > 0.0f)
                 yield return null;
 
+            _smokeParticles.Stop();
 
             ChangeSent?.Invoke();
         }
