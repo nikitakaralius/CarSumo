@@ -351,6 +351,10 @@ PrefabInstance:
       propertyPath: _team
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
     - target: {fileID: 6401360856999958230, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -640,7 +644,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 512711841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d07f5027912425398b2e7924d8ccacb, type: 3}
+  m_Script: {fileID: 11500000, guid: b7d894bd02070b048be6e031c1348435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -663,6 +667,10 @@ PrefabInstance:
       propertyPath: _team
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
     - target: {fileID: 6401360856999958230, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -791,7 +799,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627056646}
-  m_LocalRotation: {x: 0.31172824, y: 0.000000016349004, z: -0.000000005363714, w: 0.9501713}
+  m_LocalRotation: {x: 0.31172824, y: -0.00000001634901, z: 0.0000000053637152, w: 0.9501713}
   m_LocalPosition: {x: 0, y: 25, z: -34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -879,6 +887,10 @@ PrefabInstance:
       propertyPath: _team
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
     - target: {fileID: 6401360856999958230, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1307,7 +1319,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &983416403
 AudioSource:
@@ -1508,7 +1520,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1082807756
 MonoBehaviour:
@@ -1630,7 +1642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1187974270
 PrefabInstance:
@@ -1647,6 +1659,10 @@ PrefabInstance:
       propertyPath: _team
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
     - target: {fileID: 6401360856999958230, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -2023,7 +2039,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777856713}
-  m_LocalRotation: {x: 0.31172824, y: 0.000000016349004, z: -0.000000005363714, w: 0.9501713}
+  m_LocalRotation: {x: 0.31172824, y: -0.00000001634901, z: 0.0000000053637152, w: 0.9501713}
   m_LocalPosition: {x: 0, y: 25, z: -34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2147,6 +2163,10 @@ PrefabInstance:
       propertyPath: _team
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
     - target: {fileID: 6401360856999958230, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -2537,6 +2557,51 @@ MonoBehaviour:
     - Name: _changeSender
       Entry: 10
       Data: 0
+--- !u!1 &2045443551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2045443552}
+  - component: {fileID: 2045443553}
+  m_Layer: 0
+  m_Name: UnitEnhancer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2045443552
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045443551}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2045443553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045443551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d975b886d808e84283a17766d49be62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destroyer: {fileID: 512711846}
+  _selector: {fileID: 943512608}
 --- !u!1001 &2102885792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2548,6 +2613,10 @@ PrefabInstance:
       propertyPath: _team
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
     - target: {fileID: 6401360856999958230, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_RootOrder
       value: 7

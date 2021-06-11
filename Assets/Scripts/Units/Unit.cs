@@ -12,16 +12,21 @@ namespace CarSumo.Units
         public Team Team => _team;
 
         [SerializeField] private Team _team;
-        [SerializeField] private VehicleFactory _startVehicle;
+        [SerializeField] private VehicleHierarchyFactory _hierarchy;
+
+        private int _generation = -1;
 
         private void Awake()
         {
-            CreteVehicleInstance(_startVehicle);
+            CreteVehicleInstance(new WorldPlacement(transform.position, -transform.forward));
         }
 
-        private void CreteVehicleInstance(VehicleFactory factory)
+        private void CreteVehicleInstance(WorldPlacement worldPlacement)
         {
+            _generation++;
+            var factory = _hierarchy.ClampedGetVehicleFactoryByIndex(_generation);
             var vehicle = factory.Create(transform, _team);
+            vehicle.SetWorldPlacement(worldPlacement);
 
             void DestroySelf()
             {
@@ -35,9 +40,10 @@ namespace CarSumo.Units
             vehicle.Upgrading += Upgrade;
         }
 
-        private void Upgrade()
+        private void Upgrade(WorldPlacement worldPlacement)
         {
             Debug.Log($"{name} was upgraded");
+            CreteVehicleInstance(worldPlacement);
         }
     }
 }

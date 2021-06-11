@@ -17,6 +17,8 @@ namespace CarSumo.Units
     {
         public event Action ChangePerformed;
 
+        public Vehicle LastActingVehicle { get; private set; }
+
         [SerializeField] private UnitSelectorDataProvider _dataProvider;
 
         [Header("Components")]
@@ -97,6 +99,7 @@ namespace CarSumo.Units
             }
 
             _selectedVehicle.ChangePerformed += InvokeTeamChangeRequest;
+            LastActingVehicle = _selectedVehicle;
             var multiplier = _dataProvider.CalculateAccelerationMultiplier(data.Distance);
             _selectedVehicle.PushForward(multiplier);
         }

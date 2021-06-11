@@ -16,7 +16,7 @@ namespace CarSumo.Units
         }
 
         public event Action Destroying;
-        public event Action Upgrading;
+        public event Action<WorldPlacement> Upgrading;
 
         private event Action Pushed;
         private event Action Stopped;
@@ -69,7 +69,14 @@ namespace CarSumo.Units
 
         public void SendUpgradeRequest()
         {
-            Upgrading?.Invoke();
+            var worldPlacement = new WorldPlacement()
+            {
+                Position = transform.position,
+                ForwardVector = transform.forward
+            };
+
+            Upgrading?.Invoke(worldPlacement);
+            Destroy(gameObject);
         }
 
         public void Destroy()
@@ -77,6 +84,12 @@ namespace CarSumo.Units
             Stopped?.Invoke();
             Destroying?.Invoke();
             Destroy(gameObject);
+        }
+
+        public void SetWorldPlacement(WorldPlacement placement)
+        {
+            transform.position = placement.Position;
+            transform.forward = placement.ForwardVector;
         }
 
         public VehicleStats GetStats()
