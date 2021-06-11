@@ -25,7 +25,7 @@ namespace CarSumo.Processors
         {
             var vehicleToUpgrade = _selector.LastActingVehicle;
 
-            if (_allowSuicide || IsSuicide(destroyingEntity, vehicleToUpgrade))
+            if (_allowSuicide == false && IsSuicide(destroyingEntity, vehicleToUpgrade))
                 return;
 
             vehicleToUpgrade.SendUpgradeRequest();
