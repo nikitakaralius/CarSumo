@@ -1,59 +1,55 @@
 ﻿using System;
-using System.Collections;
-using CarSumo.Data;
 using CarSumo.Teams;
-using CarSumo.VFX;
+using CarSumo.Units.Factory;
 using UnityEngine;
 
 namespace CarSumo.Units
 {
-    [RequireComponent(typeof(Rigidbody))]
-    public class Unit : MonoBehaviour, ITeamChangeSender
+    public class Unit : MonoBehaviour
     {
-        public event Action ChangePerformed;
+        public event Action<Unit> Destroying;
 
         public Team Team => _team;
 
         [SerializeField] private Team _team;
-        [SerializeField] private UnitData _data;
+        [SerializeField] private VehicleHierarchyFactory _hierarchy;
 
-        [Header("Particles")]
-        [SerializeField] private FXBehaviour _pushSmokeParticles;
+        private int _generation = -1;
 
-        private Rigidbody _rigidbody;
-        
-        private void Start() => _rigidbody = GetComponent<Rigidbody>();
-
-        public void Push(float forceMultiplier)
+        private void Awake()
         {
-            var force = -transform.forward * _data.PushForce * forceMultiplier;
-            _rigidbody.AddForce(force, ForceMode.Impulse);
-
-            _pushSmokeParticles.Emit();
-
-            StartCoroutine(WaitForZeroSpeedRoutine());
+            CreteVehicleInstance(new WorldPlacement(transform.position, -transform.forward));
         }
 
-        public void Rotate(Vector3 direction)
+        private void CreteVehicleInstance(WorldPlacement worldPlacement)
         {
-            transform.forward = Vector3.MoveTowards(transform.forward,
-                direction, Time.deltaTime * _data.RotationSpeed);
+            _generation++;
+
+            if (_hierarchy.TryGetVehicleFactoryByIndex(_generation, out var factory) == false)
+                return;
+
+            var vehicle = factory.Create(transform, _team);
+            vehicle.SetWorldPlacement(worldPlacement);
+
+            void DestroySelf()
+            {
+                Destroying?.Invoke(this);
+                vehicle.Destroying -= DestroySelf;
+                vehicle.Upgrading -= Upgrade;
+                Destroy(gameObject);
+            }
+
+            vehicle.Destroying += DestroySelf;
+            vehicle.Upgrading += Upgrade;
         }
 
-        public void Destroy()
+        private void Upgrade(Vehicle vehicle)
         {
-            Destroy(gameObject);
-            ChangePerformed?.Invoke();
-        }
+            if (_generation + 1 >= _hierarchy.Count)
+                return;
 
-        private IEnumerator WaitForZeroSpeedRoutine()
-        {
-            while (_rigidbody.velocity.magnitude > 0.0f)
-                yield return null;
-
-            _pushSmokeParticles.Stop();
-
-            ChangePerformed?.Invoke();
+            vehicle.Destroy(destroyWithUnit: false);
+            CreteVehicleInstance(vehicle.WorldPlacement);
         }
     }
 }
