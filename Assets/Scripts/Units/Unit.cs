@@ -24,7 +24,10 @@ namespace CarSumo.Units
         private void CreteVehicleInstance(WorldPlacement worldPlacement)
         {
             _generation++;
-            var factory = _hierarchy.ClampedGetVehicleFactoryByIndex(_generation);
+
+            if (_hierarchy.TryGetVehicleFactoryByIndex(_generation, out var factory) == false)
+                return;
+
             var vehicle = factory.Create(transform, _team);
             vehicle.SetWorldPlacement(worldPlacement);
 
@@ -40,10 +43,13 @@ namespace CarSumo.Units
             vehicle.Upgrading += Upgrade;
         }
 
-        private void Upgrade(WorldPlacement worldPlacement)
+        private void Upgrade(Vehicle vehicle)
         {
-            Debug.Log($"{name} was upgraded");
-            CreteVehicleInstance(worldPlacement);
+            if (_generation + 1 >= _hierarchy.Count)
+                return;
+
+            vehicle.Destroy(destroyWithUnit: false);
+            CreteVehicleInstance(vehicle.WorldPlacement);
         }
     }
 }

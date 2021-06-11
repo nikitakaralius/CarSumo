@@ -9,6 +9,7 @@ namespace CarSumo.Processors
     {
         [SerializeField] private VehicleDestroyer _destroyer;
         [SerializeField] private VehicleSelector _selector;
+        [SerializeField] private bool _allowSuicide = false;
 
         private void OnEnable()
         {
@@ -24,7 +25,7 @@ namespace CarSumo.Processors
         {
             var vehicleToUpgrade = _selector.LastActingVehicle;
 
-            if (IsSuicide(destroyingEntity, vehicleToUpgrade))
+            if (_allowSuicide || IsSuicide(destroyingEntity, vehicleToUpgrade))
                 return;
 
             vehicleToUpgrade.SendUpgradeRequest();

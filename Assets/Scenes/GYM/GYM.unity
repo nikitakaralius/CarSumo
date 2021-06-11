@@ -2602,6 +2602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _destroyer: {fileID: 512711846}
   _selector: {fileID: 943512608}
+  _allowSuicide: 1
 --- !u!1001 &2102885792
 PrefabInstance:
   m_ObjectHideFlags: 0

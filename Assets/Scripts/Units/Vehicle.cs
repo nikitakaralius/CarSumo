@@ -16,10 +16,12 @@ namespace CarSumo.Units
         }
 
         public event Action Destroying;
-        public event Action<WorldPlacement> Upgrading;
+        public event Action<Vehicle> Upgrading;
 
         private event Action Pushed;
         private event Action Stopped;
+
+        public WorldPlacement WorldPlacement => new WorldPlacement(transform.position, transform.forward);
 
         [Header("Preferences")]
         [SerializeField] private VehicleTypeStats _typeStats;
@@ -69,21 +71,17 @@ namespace CarSumo.Units
 
         public void SendUpgradeRequest()
         {
-            var worldPlacement = new WorldPlacement()
-            {
-                Position = transform.position,
-                ForwardVector = transform.forward
-            };
-
-            Upgrading?.Invoke(worldPlacement);
-            Destroy(gameObject);
+            Upgrading?.Invoke(this);
         }
 
-        public void Destroy()
+        public void Destroy(bool destroyWithUnit = true)
         {
             Stopped?.Invoke();
-            Destroying?.Invoke();
-            Destroy(gameObject);
+
+            if (destroyWithUnit)
+                Destroying?.Invoke();
+            
+            GameObject.Destroy(gameObject);
         }
 
         public void SetWorldPlacement(WorldPlacement placement)

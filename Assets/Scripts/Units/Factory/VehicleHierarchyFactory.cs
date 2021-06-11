@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 
 namespace CarSumo.Units.Factory
@@ -6,20 +7,27 @@ namespace CarSumo.Units.Factory
     [CreateAssetMenu(fileName = "Vehicles Hierarchy", menuName = "CarSumo/Vehicles/Hierarchy")]
     public class VehicleHierarchyFactory : ScriptableObject
     {
-        [SerializeField] private List<VehicleFactory> _hierarchy;
+        public int Count => _hierarchy.Count;
 
-        public VehicleFactory ClampedGetVehicleFactoryByIndex(int index)
-        {
-            int clampedIndex = Mathf.Clamp(index, 0, _hierarchy.Count - 1);
-            return GetVehicleFactoryByIndex(clampedIndex);
-        }
+        [SerializeField] private List<VehicleFactory> _hierarchy;
 
         public VehicleFactory GetVehicleFactoryByIndex(int index)
         {
             if (index < 0 || index >= _hierarchy.Count)
-                throw new System.ArgumentOutOfRangeException(nameof(index));
+                throw new ArgumentOutOfRangeException(nameof(index));
 
             return _hierarchy[index];
+        }
+
+        public bool TryGetVehicleFactoryByIndex(int index, out VehicleFactory factory)
+        {
+            factory = null;
+
+            if (index < 0 || index >= _hierarchy.Count)
+                return false;
+
+            factory = _hierarchy[index];
+            return true;
         }
     }
 }
