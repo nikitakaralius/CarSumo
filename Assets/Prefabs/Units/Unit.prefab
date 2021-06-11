@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _team: 0
   _startVehicle: {fileID: 11400000, guid: 45a3394dd1f71a543bc7b945edba7f01, type: 2}
+  _materialSetter: {fileID: 0}

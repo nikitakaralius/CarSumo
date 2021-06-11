@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
 
 namespace CarSumo.Units.Stats
 {
-    public abstract class VehicleStatsDecoratorScriptableObject : ScriptableObject, IVehicleStatsProvider
+    public abstract class VehicleStatsDecoratorScriptableObject : SerializedScriptableObject, IVehicleStatsProvider
     {
         public abstract VehicleTypeStats Init();
 

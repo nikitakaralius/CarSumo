@@ -49,6 +49,8 @@ namespace CarSumo.Units
         {
             _statsProvider = _typeStats.Init();
             _statsProvider = new VehicleTeamStats(_statsProvider, team);
+
+            GetComponent<MeshRenderer>().material = _typeStats.GetMaterialByTeam(team);
         }
 
         public void PushForward(float extraForceModifier)

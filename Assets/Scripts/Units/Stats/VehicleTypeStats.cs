@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using CarSumo.Teams;
+using UnityEngine;
 
 namespace CarSumo.Units.Stats
 {
@@ -7,6 +9,7 @@ namespace CarSumo.Units.Stats
     {
         [SerializeField] private float _pushForceModifier = 5.0f;
         [SerializeField] private float _rotationSpeed = 25.0f;
+        [SerializeField] private Dictionary<Team, Material> _materials;
 
         public override VehicleTypeStats Init()
         {
@@ -20,6 +23,11 @@ namespace CarSumo.Units.Stats
                 PushForceModifier = _pushForceModifier,
                 RotationSpeed = _rotationSpeed
             };
+        }
+
+        public Material GetMaterialByTeam(Team team)
+        {
+            return _materials[team];
         }
     }
 }
