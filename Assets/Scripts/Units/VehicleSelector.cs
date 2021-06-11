@@ -5,6 +5,7 @@ using CarSumo.Factory;
 using UnityEngine;
 using CarSumo.Input;
 using CarSumo.Teams;
+using CarSumo.Units.Stats;
 using CarSumo.VFX;
 using Cinemachine.Utility;
 using Sirenix.OdinInspector;
@@ -12,9 +13,11 @@ using Sirenix.Utilities;
 
 namespace CarSumo.Units
 {
-    public class UnitSelector : SerializedMonoBehaviour, ITeamChangeSender
+    public class VehicleSelector : SerializedMonoBehaviour, ITeamChangeSender
     {
         public event Action ChangePerformed;
+
+        public Vehicle LastActingVehicle { get; private set; }
 
         [SerializeField] private UnitSelectorDataProvider _dataProvider;
 
@@ -29,7 +32,7 @@ namespace CarSumo.Units
         [InfoBox("Unit Selected Emitters require to copy particles from other FX fields")]
         [SerializeField] private EmitterScriptableObject[] _unitSelectedEmitters;
         
-        private Unit _selectedUnit;
+        private Vehicle _selectedVehicle;
 
         private bool _isMoveCompleted = true;
         private bool _pushCanceled;
@@ -50,19 +53,22 @@ namespace CarSumo.Units
 
         private void OnPanelSwipeBegun(SwipeData data)
         {
-            if (_camera.TryGetComponentWithRaycast(data.EndPosition, out Unit unit) == false)
+            if (_camera.TryGetComponentWithRaycast(data.EndPosition, out Vehicle vehicle) == false)
                 return;
 
-            if (CanPickUnit(unit) == false)
+            if (CanPickVehicle(vehicle) == false)
                 return;
 
-            _selectedUnit = unit;
-            _unitSelectedEmitters.ForEach(emitter => emitter.Emit(_selectedUnit.transform));
+            _selectedVehicle = vehicle;
+            _unitSelectedEmitters.ForEach(emitter => emitter.Emit(_selectedVehicle.transform));
         }
 
         private void OnPanelSwiping(SwipeData data)
         {
-            if (_selectedUnit is null)
+            if (_selectedVehicle is null)
+                return;
+
+            if (_isMoveCompleted == false)
                 return;
 
             var pushPercentage = _dataProvider.CalculatePercentage(data.Distance);
@@ -75,12 +81,12 @@ namespace CarSumo.Units
                 return;
 
             var transformedDirection = GetTransformedDirection(data.Direction);
-            _selectedUnit.Rotate(transformedDirection);
+            _selectedVehicle.RotateByForwardVector(transformedDirection);
         }
 
         private void OnPanelSwipeReleased(SwipeData data)
         {
-            if (_selectedUnit is null)
+            if (_selectedVehicle is null)
                 return;
 
             _isMoveCompleted = false;
@@ -92,27 +98,28 @@ namespace CarSumo.Units
                 return;
             }
 
-            _selectedUnit.ChangePerformed += InvokeTeamChangeRequest;
+            _selectedVehicle.ChangePerformed += InvokeTeamChangeRequest;
+            LastActingVehicle = _selectedVehicle;
             var multiplier = _dataProvider.CalculateAccelerationMultiplier(data.Distance);
-            _selectedUnit.Push(multiplier);
+            _selectedVehicle.PushForward(multiplier);
         }
 
         private void InvokeTeamChangeRequest()
         {
             ChangePerformed?.Invoke();
-            _selectedUnit.ChangePerformed -= InvokeTeamChangeRequest;
+            _selectedVehicle.ChangePerformed -= InvokeTeamChangeRequest;
             CompleteMove();
         }
 
         private void CompleteMove()
         {
-            _selectedUnit = null;
+            _selectedVehicle = null;
             _isMoveCompleted = true;
         }
 
-        private bool CanPickUnit(Unit unit)
+        private bool CanPickVehicle(IVehicleStatsProvider vehicle)
         {
-            return unit.Team == _teamChangeHandler.Team
+            return vehicle.GetStats().Team == _teamChangeHandler.Team
                    && _isMoveCompleted;
         }
 

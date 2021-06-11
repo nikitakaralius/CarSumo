@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using CarSumo.Extensions;
 using CarSumo.Teams;
 using CarSumo.Units;
 
@@ -18,8 +19,13 @@ namespace CarSumo.Storage
 
         private void Awake()
         {
-            _firstTeamUnitsAlive = FindUnitsByTeam(Team.First).ToList();
-            _secondTeamUnitsAlive = FindUnitsByTeam(Team.Second).ToList();
+            _firstTeamUnitsAlive = FindUnitsByTeam(Team.First)
+                .Every(unit => unit.Destroying += RemoveFromStorage)
+                .ToList();
+
+            _secondTeamUnitsAlive = FindUnitsByTeam(Team.Second)
+                .Every(unit => unit.Destroying += RemoveFromStorage)
+                .ToList();
         }
 
         public void Add(Unit element)
@@ -33,6 +39,7 @@ namespace CarSumo.Storage
                 _secondTeamUnitsAlive.Add(element);
             }
 
+            element.Destroying += RemoveFromStorage;
             Added?.Invoke(element);
         }
 
@@ -56,6 +63,12 @@ namespace CarSumo.Storage
         private IEnumerable<Unit> FindUnitsByTeam(Team team)
         {
             return FindObjectsOfType<Unit>().Where(unit => unit.Team == team);
+        }
+
+        private void RemoveFromStorage(Unit unit)
+        {
+            Remove(unit);
+            unit.Destroying -= RemoveFromStorage;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace CarSumo.VFX
         public override void Stop()
         {
             _particlesInstance.Stop();
-            Destroy(_particlesInstance, _destroyDelay);
+            Destroy(_particlesInstance.gameObject, _destroyDelay);
         }
     }
 }
