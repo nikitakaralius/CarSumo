@@ -10,7 +10,7 @@ namespace CarSumo.Cameras
     {
         [SerializeField] private IReactiveTeamChangeHandler _changeHandler;
         [SerializeField] private CinemachineVirtualCamera _camera;
-        [SerializeField] private IReadOnlyDictionary<Team, float> _teamCameraPositions;
+        [SerializeField] private IDictionary<Team, float> _teamCameraPositions;
 
         private CinemachineOrbitalTransposer _transposer;
 
@@ -31,6 +31,8 @@ namespace CarSumo.Cameras
 
         private void ChangeCameraPosition(Team team)
         {
+            var previousTeam = team == Team.First ? Team.Second : Team.First;
+            _teamCameraPositions[previousTeam] = _transposer.m_XAxis.Value;
             _transposer.m_XAxis.Value = _teamCameraPositions[team];
         }
     }
