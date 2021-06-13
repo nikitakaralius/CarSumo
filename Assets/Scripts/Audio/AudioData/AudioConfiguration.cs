@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 namespace CarSumo.Audio.AudioData
 {
     [CreateAssetMenu(menuName = "Audio/Audio Configuration")]
-    public class AudioConfigurationScriptableObject : ScriptableObject
+    public class AudioConfiguration : ScriptableObject
     {
         [SerializeField] public AudioMixerGroup _outputAudioMixerGroup;
 
