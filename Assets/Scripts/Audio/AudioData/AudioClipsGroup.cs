@@ -9,13 +9,34 @@ namespace CarSumo.Audio.AudioData
         public SequenceMode SequenceMode = SequenceMode.Sequential;
         public AudioClip[] AudioClips;
 
-        private SequenceData _sequenceData = new SequenceData();
+        private int _nextClipToPlay;
+        private int _lastClipPlayed = -1;
 
         public AudioClip GetNextClip()
         {
             return AudioClips.Length == 1
                 ? AudioClips[0]
-                : AudioSequence.GetSequence(SequenceMode, AudioClips, _sequenceData).GetNextClip();
+                : GetSequence(SequenceMode).GetNextClip();
         }
+
+        private AudioSequence GetSequence(SequenceMode mode)
+        {
+            return mode switch
+            {
+                SequenceMode.Sequential => new SequentialAudioSequence(AudioClips, ref _nextClipToPlay,
+                    ref _lastClipPlayed),
+                SequenceMode.Random => new RandomAudioSequence(AudioClips, ref _nextClipToPlay, ref _lastClipPlayed),
+                SequenceMode.RandomNoImmediateRepeat
+                    => new RandomNoImmediateRepeatAudioSequence(AudioClips, ref _nextClipToPlay, ref _lastClipPlayed),
+                _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
+            };
+        }
+    }
+
+    public enum SequenceMode
+    {
+        Sequential,
+        Random,
+        RandomNoImmediateRepeat
     }
 }
