@@ -14,6 +14,8 @@ namespace CarSumo.Cameras
 
         private CinemachineOrbitalTransposer _transposer;
 
+        private bool _isInitial = true;
+
         private void Awake()
         {
             _transposer = _camera.GetCinemachineComponent<CinemachineOrbitalTransposer>();
@@ -31,9 +33,20 @@ namespace CarSumo.Cameras
 
         private void ChangeCameraPosition(Team team)
         {
-            var previousTeam = team == Team.First ? Team.Second : Team.First;
-            _teamCameraPositions[previousTeam] = _transposer.m_XAxis.Value;
+            if (_isInitial == false)
+            {
+                var previousTeam = DeterminePreviousTeam(team);
+                _teamCameraPositions[previousTeam] = _transposer.m_XAxis.Value;
+            }
+
+            _isInitial = false;
+
             _transposer.m_XAxis.Value = _teamCameraPositions[team];
+        }
+
+        private Team DeterminePreviousTeam(Team currentTeam)
+        {
+            return currentTeam == Team.First ? Team.Second : Team.First;
         }
     }
 }
