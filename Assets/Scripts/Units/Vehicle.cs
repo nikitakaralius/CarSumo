@@ -9,7 +9,7 @@ namespace CarSumo.Units
 {
     public class Vehicle : MonoBehaviour, ITeamChangeSender, IVehicleStatsProvider
     {
-        public event Action ChangePerformed;
+        public event Action TeamChangePerformed;
 
         public event Action Destroying;
         public event Action Upgrading;
@@ -72,7 +72,7 @@ namespace CarSumo.Units
 
         public void Destroy()
         {
-            ChangePerformed?.Invoke();
+            TeamChangePerformed?.Invoke();
             Destroying?.Invoke();
             
             Destroy(gameObject);
@@ -97,7 +97,7 @@ namespace CarSumo.Units
         {
             yield return new WaitWhile(() => _rigidbody.velocity.magnitude > 0.0f);
             Stopped?.Invoke();
-            ChangePerformed?.Invoke();
+            TeamChangePerformed?.Invoke();
         }
 
         private void StartWaitingForZeroSpeed() => StartCoroutine(WaitForZeroSpeed());

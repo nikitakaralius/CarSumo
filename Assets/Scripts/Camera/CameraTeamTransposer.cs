@@ -33,19 +33,19 @@ namespace CarSumo.Cameras
 
         private void ChangeCameraPosition(Team team)
         {
-            var previousTeam = DeterminePreviousTeam(team);
-            _teamCameraPositions[previousTeam] = _transposer.m_XAxis.Value;
+            if (_isInitial == false)
+            {
+                var previousTeam = DeterminePreviousTeam(team);
+                _teamCameraPositions[previousTeam] = _transposer.m_XAxis.Value;
+            }
+
+            _isInitial = false;
+
             _transposer.m_XAxis.Value = _teamCameraPositions[team];
         }
 
         private Team DeterminePreviousTeam(Team currentTeam)
         {
-            if (_isInitial)
-            {
-                _isInitial = false;
-                return currentTeam;
-            }
-
             return currentTeam == Team.First ? Team.Second : Team.First;
         }
     }

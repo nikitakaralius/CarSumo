@@ -15,7 +15,7 @@ namespace CarSumo.Units
 {
     public class VehicleSelector : SerializedMonoBehaviour, ITeamChangeSender
     {
-        public event Action ChangePerformed;
+        public event Action TeamChangePerformed;
 
         public Vehicle LastActingVehicle { get; private set; }
 
@@ -53,6 +53,9 @@ namespace CarSumo.Units
 
         private void OnPanelSwipeBegun(SwipeData data)
         {
+            if (_isMoveCompleted == false)
+                return;
+
             if (_camera.TryGetComponentWithRaycast(data.EndPosition, out Vehicle vehicle) == false)
                 return;
 
@@ -98,7 +101,7 @@ namespace CarSumo.Units
                 return;
             }
 
-            _selectedVehicle.ChangePerformed += InvokeTeamChangeRequest;
+            _selectedVehicle.TeamChangePerformed += InvokeTeamChangeRequest;
             LastActingVehicle = _selectedVehicle;
             var multiplier = _dataProvider.CalculateAccelerationMultiplier(data.Distance);
             _selectedVehicle.PushForward(multiplier);
@@ -106,8 +109,8 @@ namespace CarSumo.Units
 
         private void InvokeTeamChangeRequest()
         {
-            ChangePerformed?.Invoke();
-            _selectedVehicle.ChangePerformed -= InvokeTeamChangeRequest;
+            TeamChangePerformed?.Invoke();
+            _selectedVehicle.TeamChangePerformed -= InvokeTeamChangeRequest;
             CompleteMove();
         }
 
@@ -119,8 +122,7 @@ namespace CarSumo.Units
 
         private bool CanPickVehicle(IVehicleStatsProvider vehicle)
         {
-            return vehicle.GetStats().Team == _teamChangeHandler.Team
-                   && _isMoveCompleted;
+            return vehicle.GetStats().Team == _teamChangeHandler.Team;
         }
 
         private Vector3 GetTransformedDirection(Vector2 swipeDirection)
