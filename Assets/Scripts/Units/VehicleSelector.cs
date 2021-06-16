@@ -92,6 +92,9 @@ namespace CarSumo.Units
             if (_selectedVehicle is null)
                 return;
 
+            if (_isMoveCompleted == false)
+                return;
+
             _isMoveCompleted = false;
             _unitSelectedEmitters.ForEach(emitter => emitter.Stop());
 
