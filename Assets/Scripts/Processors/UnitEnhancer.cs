@@ -28,7 +28,7 @@ namespace CarSumo.Processors
             if (_allowSuicide == false && IsSuicide(destroyingEntity, vehicleToUpgrade))
                 return;
 
-            vehicleToUpgrade.SendUpgradeRequest();
+            vehicleToUpgrade.Upgrade();
         }
 
         private bool IsSuicide(IVehicleStatsProvider first, IVehicleStatsProvider second)

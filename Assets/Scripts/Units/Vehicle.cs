@@ -12,7 +12,7 @@ namespace CarSumo.Units
         public event Action ChangePerformed;
 
         public event Action Destroying;
-        public event Action<Vehicle> Upgrading;
+        public event Action Upgrading;
 
         private event Action Pushed;
         private event Action Stopped;
@@ -65,20 +65,20 @@ namespace CarSumo.Units
             transform.forward = Vector3.MoveTowards(transform.forward, forwardVector, speed);
         }
 
-        public void SendUpgradeRequest()
+        public void Upgrade()
         {
-            Upgrading?.Invoke(this);
+            Upgrading?.Invoke();
         }
 
-        public void Destroy(bool destroyWithUnit = true)
+        public void Destroy()
         {
             ChangePerformed?.Invoke();
-
-            if (destroyWithUnit)
-                Destroying?.Invoke();
+            Destroying?.Invoke();
             
-            GameObject.Destroy(gameObject);
+            Destroy(gameObject);
         }
+
+        public void DestroyWithoutNotification() => Destroy(gameObject);
 
         public void SetWorldPlacement(WorldPlacement placement)
         {
