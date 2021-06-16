@@ -16,9 +16,21 @@ namespace CarSumo.Units
 
         private int _generation = -1;
 
+        private Vehicle _controlledVehicle;
+
         private void Awake()
         {
-            CreteVehicleInstance(new WorldPlacement(transform.position, -transform.forward));
+            /*todo: check -transform.forward in case of changing vehicle assets.
+            In current pack vehicles have broken forward vector which directed backwards instead*/
+
+            var unitWorldPlacement = new WorldPlacement(transform.position, -transform.forward);
+            CreteVehicleInstance(unitWorldPlacement);
+        }
+
+        private void OnDisable()
+        {
+            _controlledVehicle.Destroying -= DestroyUnitInstance;
+            _controlledVehicle.Upgrading -= UpgradeVehicle;
         }
 
         private void CreteVehicleInstance(WorldPlacement worldPlacement)
@@ -28,28 +40,27 @@ namespace CarSumo.Units
             if (_hierarchy.TryGetVehicleFactoryByIndex(_generation, out var factory) == false)
                 return;
 
-            var vehicle = factory.Create(transform, _team);
-            vehicle.SetWorldPlacement(worldPlacement);
+            _controlledVehicle = factory.Create(transform, _team);
+            _controlledVehicle.SetWorldPlacement(worldPlacement);
 
-            void DestroySelf()
-            {
-                Destroying?.Invoke(this);
-                vehicle.Destroying -= DestroySelf;
-                vehicle.Upgrading -= Upgrade;
-                Destroy(gameObject);
-            }
-
-            vehicle.Destroying += DestroySelf;
-            vehicle.Upgrading += Upgrade;
+            _controlledVehicle.Destroying += DestroyUnitInstance;
+            _controlledVehicle.Upgrading += UpgradeVehicle;
         }
 
-        private void Upgrade(Vehicle vehicle)
+        private void UpgradeVehicle()
         {
             if (_generation + 1 >= _hierarchy.Count)
                 return;
 
-            vehicle.Destroy(destroyWithUnit: false);
-            CreteVehicleInstance(vehicle.WorldPlacement);
+            var worldPlacement = _controlledVehicle.WorldPlacement;
+            _controlledVehicle.DestroyWithoutNotification();
+            CreteVehicleInstance(worldPlacement);
+        }
+
+        private void DestroyUnitInstance()
+        {
+            Destroying?.Invoke(this);
+            Destroy(gameObject);
         }
     }
 }

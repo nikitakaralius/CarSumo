@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 6176875462422370234}
   - component: {fileID: 4130409856531668409}
   - component: {fileID: 8362240469481968610}
+  - component: {fileID: 6280742898295346}
   m_Layer: 0
   m_Name: OldCar
   m_TagString: Untagged
@@ -556,5 +557,18 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.8997068, y: 2.3449602, z: 6.172388}
-  m_Center: {x: 0.009013414, y: 1.728612, z: -1.5741854}
+  m_Size: {x: 2.8997068, y: 2.3539736, z: 3.0280666}
+  m_Center: {x: 0.009013414, y: 1.7331187, z: -0.029065609}
+--- !u!65 &6280742898295346
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467291192999450154}
+  m_Material: {fileID: 13400000, guid: 2562893ed2ad58d4da252abc01aeb239, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9718142, y: 1.4183105, z: 2.922615}
+  m_Center: {x: -0, y: 1.2411749, z: -2.9916291}

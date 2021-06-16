@@ -9,10 +9,10 @@ namespace CarSumo.Units
 {
     public class Vehicle : MonoBehaviour, ITeamChangeSender, IVehicleStatsProvider
     {
-        public event Action ChangePerformed;
+        public event Action TeamChangePerformed;
 
         public event Action Destroying;
-        public event Action<Vehicle> Upgrading;
+        public event Action Upgrading;
 
         private event Action Pushed;
         private event Action Stopped;
@@ -65,20 +65,20 @@ namespace CarSumo.Units
             transform.forward = Vector3.MoveTowards(transform.forward, forwardVector, speed);
         }
 
-        public void SendUpgradeRequest()
+        public void Upgrade()
         {
-            Upgrading?.Invoke(this);
+            Upgrading?.Invoke();
         }
 
-        public void Destroy(bool destroyWithUnit = true)
+        public void Destroy()
         {
-            ChangePerformed?.Invoke();
-
-            if (destroyWithUnit)
-                Destroying?.Invoke();
+            TeamChangePerformed?.Invoke();
+            Destroying?.Invoke();
             
-            GameObject.Destroy(gameObject);
+            Destroy(gameObject);
         }
+
+        public void DestroyWithoutNotification() => Destroy(gameObject);
 
         public void SetWorldPlacement(WorldPlacement placement)
         {
@@ -97,7 +97,7 @@ namespace CarSumo.Units
         {
             yield return new WaitWhile(() => _rigidbody.velocity.magnitude > 0.0f);
             Stopped?.Invoke();
-            ChangePerformed?.Invoke();
+            TeamChangePerformed?.Invoke();
         }
 
         private void StartWaitingForZeroSpeed() => StartCoroutine(WaitForZeroSpeed());
