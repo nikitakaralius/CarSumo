@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 6535506333711805849}
   - component: {fileID: 6535506333711805861}
   - component: {fileID: 6790279581595241672}
+  - component: {fileID: 6807055362367978473}
   m_Layer: 0
   m_Name: Sedan
   m_TagString: Untagged
@@ -161,8 +162,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5515342, y: 2.0392058, z: 5.7400665}
-  m_Center: {x: 0.010514736, y: 1.3666853, z: 0}
+  m_Size: {x: 2.5515342, y: 2.0392058, z: 2.8291984}
+  m_Center: {x: 0.010514736, y: 1.3666853, z: 0.19512147}
 --- !u!114 &6790279581595241672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +179,19 @@ MonoBehaviour:
   _typeStats: {fileID: 11400000, guid: 3a0c708b94d12fe4ca6ad3155c2c85bd, type: 2}
   _rigidbody: {fileID: 6535506333711805849}
   _pushSmokeParticles: {fileID: 6535506332581914134}
+--- !u!65 &6807055362367978473
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6535506333388847201}
+  m_Material: {fileID: 13400000, guid: 2562893ed2ad58d4da252abc01aeb239, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.546701, y: 1.0915227, z: 5.6085415}
+  m_Center: {x: 0.013048649, y: 0.9273845, z: 0.017935276}
 --- !u!1 &6535506333388847209
 GameObject:
   m_ObjectHideFlags: 0
