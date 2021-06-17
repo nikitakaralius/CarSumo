@@ -14,7 +14,7 @@ namespace CarSumo.Audio.AudioData
             var resultingClips = new AudioClip[clipsCount];
 
             for (int i = 0; i < clipsCount; i++) 
-                resultingClips[i] = _audioClipsGroups[i].GetNextClip();
+                resultingClips[i] = _audioClipsGroups[i].NextClip();
 
             return resultingClips;
         }
