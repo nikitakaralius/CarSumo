@@ -597,8 +597,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6707019462470282931}
   - component: {fileID: 4981554408067214475}
-  - component: {fileID: 3347539243793801611}
   - component: {fileID: 3111959360414081110}
+  - component: {fileID: 7830355697507250712}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -716,18 +716,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3347539243793801611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7397310901040393843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c0cfbff6a8c4e28a189bf8cf02f900e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3111959360414081110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,6 +728,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5ef6c1d1b94cfbaebe2e656fc92297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _configuration: {fileID: 11400000, guid: 006c7cd1195b92244b4b53e488a1c38d, type: 2}
-  _soundEmitter: {fileID: 3347539243793801611}
   _collisionCue: {fileID: 11400000, guid: 7e299c52cea90e1478d6cdc36b1361ce, type: 2}
+  _soundEmitter: {fileID: 7830355697507250712}
+--- !u!114 &7830355697507250712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7397310901040393843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a819f736fb90f649922ae0887b470d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
