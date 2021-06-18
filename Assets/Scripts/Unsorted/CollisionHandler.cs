@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace CarSumo.Units
+namespace CarSumo
 {
     public class CollisionHandler : MonoBehaviour
     {

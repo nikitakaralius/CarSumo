@@ -18,12 +18,12 @@ namespace CarSumo.Units
         private void OnEnable()
         {
             _vehicle = GetComponentInParent<Vehicle>();
-            _vehicle.Pushed += PlayEngineSound;
+            _vehicle.Pushed += PlayHornSound;
         }
 
         private void OnDisable()
         {
-            _vehicle.Pushed -= PlayEngineSound;
+            _vehicle.Pushed -= PlayHornSound;
         }
 
         public void PlayCollisionSound()
@@ -31,9 +31,9 @@ namespace CarSumo.Units
             _collisionSoundEmitter.Play(_collisionCue);
         }
 
-        public void PlayEngineSound()
+        public void PlayHornSound()
         {
-            _collisionSoundEmitter.Play(_hornCue);
+            _hornSoundEmitter.Play(_hornCue);
         }
     }
 }

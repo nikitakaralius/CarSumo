@@ -8,6 +8,7 @@ MonoImporter:
   - _hornSoundEmitter: {instanceID: 0}
   - _collisionCue: {fileID: 11400000, guid: 7e299c52cea90e1478d6cdc36b1361ce, type: 2}
   - _hornCue: {fileID: 11400000, guid: 290b18f99364dea469dbc9aa9e542c58, type: 2}
+  - _explodeCue: {fileID: 11400000, guid: 99ef8a9ab6b6ae349a6ee635cd48d1ec, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
