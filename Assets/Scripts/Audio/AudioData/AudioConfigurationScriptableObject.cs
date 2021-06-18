@@ -26,7 +26,7 @@ namespace CarSumo.Audio.AudioData
 		[Range(0f, 1f)] [SerializeField] private float _spatialBlend = 1f;
         [SerializeField] private AudioRolloffMode _rolloffMode = AudioRolloffMode.Logarithmic;
 		[Range(0.1f, 5f)] [SerializeField] private float _minDistance = 0.1f;
-		[Range(5f, 100f)] [SerializeField] private float _maxDistance = 50f;
+		[Range(5f, 1000f)] [SerializeField] private float _maxDistance = 50f;
 		[Range(0, 360)] [SerializeField] private int _spread = 0;
 		[Range(0f, 5f)] [SerializeField] private float _dopplerLevel = 1f;
 
