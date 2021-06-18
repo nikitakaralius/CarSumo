@@ -9,12 +9,80 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4bee7357c6d4fbba9dd5791e1597420, type: 3}
+  m_Script: {fileID: 11500000, guid: bc61423e4a0f6b940b3a31b0be24b1eb, type: 3}
   m_Name: Vehicle Collision Cue
   m_EditorClassIdentifier: 
-  _audioClipsGroup:
-    _sequenceMode: 2
-    _audioClips:
-    - {fileID: 8300000, guid: 4145528bdebed8b4eb8a0074c406faec, type: 3}
-    - {fileID: 8300000, guid: 88b29ff1667083444ba3a899c20213f4, type: 3}
-    - {fileID: 8300000, guid: 9319169c9cc8d3041829698f5d29d1c6, type: 3}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 4816600840464237289, guid: 9135c199162cab043a886512bc81c57b, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _configurations
+      Entry: 7
+      Data: 0|AdvancedAudioSystem.Configuration.AudioConfigurationList, Assembly-CSharp-firstpass
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: 1|AdvancedAudioSystem.Configuration.OutputMixerGroupConfiguration, Assembly-CSharp-firstpass
+    - Name: _outputAudioMixerGroup
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|AdvancedAudioSystem.Configuration.DistanceConfiguration, Assembly-CSharp-firstpass
+    - Name: _minDistance
+      Entry: 4
+      Data: 2
+    - Name: _maxDistance
+      Entry: 4
+      Data: 500
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|AdvancedAudioSystem.Configuration.SpreadConfiguration, Assembly-CSharp-firstpass
+    - Name: _spread
+      Entry: 3
+      Data: 360
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|AdvancedAudioSystem.Configuration.SpatialBlendConfiguration, Assembly-CSharp-firstpass
+    - Name: _spatialBlend
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|AdvancedAudioSystem.Configuration.RandomPitchConfiguration, Assembly-CSharp-firstpass
+    - Name: _minPitch
+      Entry: 4
+      Data: 0.9
+    - Name: _maxPitch
+      Entry: 4
+      Data: 1.1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _audioClips: {fileID: 11400000, guid: 728d82ec02e66e2418a5c7a540c1c675, type: 2}
