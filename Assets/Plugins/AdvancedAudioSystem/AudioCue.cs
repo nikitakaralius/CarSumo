@@ -18,5 +18,13 @@ namespace AdvancedAudioSystem
                 configuration.ApplyTo(source);
             }
         }
+
+        public void PlayOn(AudioSource source)
+        {
+            ApplyConfiguration(source);
+            source.clip = Clip;
+            source.time = 0.0f;
+            source.Play();
+        }
     }
 }
