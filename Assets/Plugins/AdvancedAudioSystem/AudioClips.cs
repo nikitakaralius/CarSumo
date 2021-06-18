@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using AdvancedAudioSystem.Sequences;
 
 namespace AdvancedAudioSystem
 {
@@ -10,6 +11,13 @@ namespace AdvancedAudioSystem
         public AudioClips() : this(0) { }
 
         public AudioClips(int capacity) : base(capacity) { }
+
+        public AudioClip NextClipBySequence(IAudioSequence sequenceMode)
+        {
+            var clipsMember = sequenceMode.NextClipMember(this);
+            LastClipPlayedIndex = clipsMember.Index;
+            return clipsMember.Clip;
+        }
     }
 
     public sealed class AudioClipsMember
