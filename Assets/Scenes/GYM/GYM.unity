@@ -746,9 +746,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 300
-  field of view: 70
+  field of view: 75
   orthographic: 0
-  orthographic size: 50
+  orthographic size: 40
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -771,7 +771,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627056646}
-  m_LocalRotation: {x: 0.4178568, y: -0.0000000270758, z: 0.000000012453105, w: 0.90851295}
+  m_LocalRotation: {x: 0.41785684, y: 4.041276e-15, z: -3.0997484e-15, w: 0.90851295}
   m_LocalPosition: {x: 0, y: 35, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1578,7 +1578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &983416402
 Transform:
   m_ObjectHideFlags: 0
@@ -1922,7 +1922,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1167097242}
   m_Layer: 0
-  m_Name: ---------------Temp--------------
+  m_Name: ---------------Audio--------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2314,8 +2314,8 @@ MonoBehaviour:
   m_LookAt: {fileID: 1887200076}
   m_Follow: {fileID: 1887200076}
   m_Lens:
-    FieldOfView: 70
-    OrthographicSize: 50
+    FieldOfView: 75
+    OrthographicSize: 40
     NearClipPlane: 0.3
     FarClipPlane: 300
     Dutch: 0
@@ -2335,7 +2335,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777856713}
-  m_LocalRotation: {x: 0.4178568, y: -0.0000000270758, z: 0.000000012453105, w: 0.90851295}
+  m_LocalRotation: {x: 0.41785684, y: 4.041276e-15, z: -3.0997484e-15, w: 0.90851295}
   m_LocalPosition: {x: 0, y: 35, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
