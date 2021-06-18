@@ -5,7 +5,7 @@ namespace AdvancedAudioSystem
 {
     public class AudioClips : List<AudioClip>
     {
-        public int LastClipPlayed { get; private set; } = -1;
+        public int LastClipPlayedIndex { get; private set; } = -1;
 
         public AudioClips() : this(0) { }
 
