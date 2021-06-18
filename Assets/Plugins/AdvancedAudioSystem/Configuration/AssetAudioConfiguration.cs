@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace AdvancedAudioSystem.Configuration
 {
+    [System.Serializable]
     public class AssetAudioConfiguration : IAudioConfigurationEnumerable
     {
         [SerializeField] private AudioConfigurationScriptableObject _configuration;
