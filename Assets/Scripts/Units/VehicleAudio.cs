@@ -1,20 +1,17 @@
-﻿using CarSumo.Audio.AudioData;
-using CarSumo.Audio.AudioData.Emitters;
-using UnityEngine;
+﻿using UnityEngine;
+using AdvancedAudioSystem;
+using AdvancedAudioSystem.Emitters;
 
 namespace CarSumo.Units
 {
     public class VehicleAudio : MonoBehaviour
     {
-        [SerializeField] private AudioConfigurationScriptableObject _configuration;
-        [SerializeField] private MonoSoundEmitter _soundEmitter;
-        
-        [Header("Audio Cues")]
         [SerializeField] private AudioCue _collisionCue;
+        [SerializeField] private MonoSoundEmitter _soundEmitter;
 
         public void PlayCollisionSound()
         {
-            _soundEmitter.PlayAudioClip(_collisionCue.Clip, _configuration, false);
+            _soundEmitter.Play(_collisionCue);
         }
     }
 }
