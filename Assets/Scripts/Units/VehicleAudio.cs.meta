@@ -1,3 +1,15 @@
-﻿fileFormatVersion: 2
+fileFormatVersion: 2
 guid: 7c5ef6c1d1b94cfbaebe2e656fc92297
-timeCreated: 1623952603
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _collisionSoundEmitter: {instanceID: 0}
+  - _hornSoundEmitter: {instanceID: 0}
+  - _collisionCue: {fileID: 11400000, guid: 7e299c52cea90e1478d6cdc36b1361ce, type: 2}
+  - _hornCue: {fileID: 11400000, guid: 290b18f99364dea469dbc9aa9e542c58, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -6,15 +6,18 @@ namespace CarSumo.Units
 {
     public class VehicleAudio : MonoBehaviour
     {
-        [SerializeField] private MonoSoundEmitter _soundEmitter;
-        [SerializeField] private Vehicle _vehicle;
+        [SerializeField] private MonoSoundEmitter _collisionSoundEmitter;
+        [SerializeField] private MonoSoundEmitter _hornSoundEmitter;
         
         [Header("Audio Cues")]
         [SerializeField] private AudioCue _collisionCue;
-        [SerializeField] private AudioCue _engineCue;
+        [SerializeField] private AudioCue _hornCue;
+
+        private Vehicle _vehicle;
 
         private void OnEnable()
         {
+            _vehicle = GetComponentInParent<Vehicle>();
             _vehicle.Pushed += PlayEngineSound;
         }
 
@@ -25,12 +28,12 @@ namespace CarSumo.Units
 
         public void PlayCollisionSound()
         {
-            _soundEmitter.Play(_collisionCue);
+            _collisionSoundEmitter.Play(_collisionCue);
         }
 
         public void PlayEngineSound()
         {
-            _soundEmitter.Play(_engineCue);
+            _collisionSoundEmitter.Play(_hornCue);
         }
     }
 }
