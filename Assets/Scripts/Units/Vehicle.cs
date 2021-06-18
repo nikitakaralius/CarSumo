@@ -14,8 +14,8 @@ namespace CarSumo.Units
         public event Action Destroying;
         public event Action Upgrading;
 
-        private event Action Pushed;
-        private event Action Stopped;
+        public event Action Pushed;
+        public event Action Stopped;
 
         public WorldPlacement WorldPlacement => new WorldPlacement(transform.position, transform.forward);
 
