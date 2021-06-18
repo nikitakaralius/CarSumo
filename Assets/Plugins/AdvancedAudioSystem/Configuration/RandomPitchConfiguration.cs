@@ -9,7 +9,7 @@ namespace AdvancedAudioSystem.Configuration
 
         public void ApplyTo(AudioSource audioSource)
         {
-            audioSource.pitch = Random.Range(_minPitch, _minPitch);
+            audioSource.pitch = Random.Range(_minPitch, _maxPitch);
         }
     }
 }
