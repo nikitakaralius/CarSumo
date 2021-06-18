@@ -1,4 +1,5 @@
 ﻿using System;
+using CarSumo.Sequences;
 using UnityEngine;
 
 namespace CarSumo.Audio.AudioData
@@ -6,28 +7,35 @@ namespace CarSumo.Audio.AudioData
     [Serializable]
     public class AudioClipsGroup
     {
-        public SequenceMode SequenceMode = SequenceMode.Sequential;
-        public AudioClip[] AudioClips;
+        [SerializeField] private SequenceMode _sequenceMode;
+        [SerializeField] private AudioClip[] _audioClips;
 
-        private int _nextClipToPlay;
         private int _lastClipPlayed = -1;
 
-        public AudioClip GetNextClip()
+        public AudioClip NextClip()
         {
-            return AudioClips.Length == 1
-                ? AudioClips[0]
-                : GetSequence(SequenceMode).GetNextClip();
+            return _audioClips.Length == 1
+                ? _audioClips[0]
+                : NextClip(_sequenceMode);
         }
 
-        private AudioSequence GetSequence(SequenceMode mode)
+        private AudioClip NextClip(SequenceMode mode)
         {
+            var sequence = CreateSequence(mode);
+            var index = sequence.Next();
+            _lastClipPlayed = index;
+            return _audioClips[index];
+        }
+
+        private ISequence CreateSequence(SequenceMode mode)
+        {
+            int maxValue = _audioClips.Length;
+
             return mode switch
             {
-                SequenceMode.Sequential => new SequentialAudioSequence(AudioClips, ref _nextClipToPlay,
-                    ref _lastClipPlayed),
-                SequenceMode.Random => new RandomAudioSequence(AudioClips, ref _nextClipToPlay, ref _lastClipPlayed),
-                SequenceMode.RandomNoImmediateRepeat
-                    => new RandomNoImmediateRepeatAudioSequence(AudioClips, ref _nextClipToPlay, ref _lastClipPlayed),
+                SequenceMode.Sequential => new SequentialSequence(_lastClipPlayed, maxValue),
+                SequenceMode.Random => new RandomSequence(maxValue),
+                SequenceMode.RandomNoImmediateRepeat => new RandomNoImmediateRepeatSequence(_lastClipPlayed, maxValue),
                 _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
             };
         }
