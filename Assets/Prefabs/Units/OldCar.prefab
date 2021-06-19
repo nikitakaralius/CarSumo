@@ -771,6 +771,7 @@ Transform:
   m_Children:
   - {fileID: 4335473348544321098}
   - {fileID: 2109731643412856069}
+  - {fileID: 2130303924166500437}
   m_Father: {fileID: 1467291192999610890}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -783,8 +784,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8807435264979010524}
-  - component: {fileID: 2493807081002335142}
-  - component: {fileID: 7099883196146226638}
   - component: {fileID: 7277975444727679635}
   m_Layer: 0
   m_Name: Audio
@@ -807,13 +806,67 @@ Transform:
   m_Father: {fileID: 1467291192999610890}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &2493807081002335142
-AudioSource:
+--- !u!114 &7277975444727679635
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2511933526302378747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c5ef6c1d1b94cfbaebe2e656fc92297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collisionSoundEmitter: {fileID: 7602436670726657699}
+  _hornSoundEmitter: {fileID: 1454953581476569348}
+  _engineSoundEmitter: {fileID: 7332963727181527168}
+  _collisionCue: {fileID: 11400000, guid: 7e299c52cea90e1478d6cdc36b1361ce, type: 2}
+  _hornCue: {fileID: 11400000, guid: 290b18f99364dea469dbc9aa9e542c58, type: 2}
+  _engineCue: {fileID: 11400000, guid: 579f254fa01e78045b6e075aa8d815c0, type: 2}
+  _minVolume: 0
+  _maxVolume: 1
+  _minPitch: 0.7
+  _maxPitch: 1.2
+--- !u!1 &2893812156125804025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2130303924166500437}
+  - component: {fileID: 6637195083229409011}
+  - component: {fileID: 7332963727181527168}
+  m_Layer: 0
+  m_Name: Engine Emitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2130303924166500437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2893812156125804025}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2251846288948927569}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &6637195083229409011
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2893812156125804025}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -903,35 +956,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7099883196146226638
+--- !u!114 &7332963727181527168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2511933526302378747}
+  m_GameObject: {fileID: 2893812156125804025}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a819f736fb90f649922ae0887b470d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7277975444727679635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2511933526302378747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c5ef6c1d1b94cfbaebe2e656fc92297, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _collisionSoundEmitter: {fileID: 7602436670726657699}
-  _hornSoundEmitter: {fileID: 1454953581476569348}
-  _collisionCue: {fileID: 11400000, guid: 7e299c52cea90e1478d6cdc36b1361ce, type: 2}
-  _hornCue: {fileID: 11400000, guid: 290b18f99364dea469dbc9aa9e542c58, type: 2}
-  _engineCue: {fileID: 11400000, guid: 579f254fa01e78045b6e075aa8d815c0, type: 2}
 --- !u!1 &7971383907496712819
 GameObject:
   m_ObjectHideFlags: 0

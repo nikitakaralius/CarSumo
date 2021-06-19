@@ -15,7 +15,11 @@ namespace CarSumo.Units
         public event Action Upgrading;
 
         public event Action Pushed;
+        public event Action Unpicked;
         public event Action Stopped;
+
+        public event Action Picked;
+        public event Action<float> StartingUp;
 
         public WorldPlacement WorldPlacement => new WorldPlacement(transform.position, transform.forward);
 
@@ -31,6 +35,7 @@ namespace CarSumo.Units
         private void OnEnable()
         {
             Pushed += StartWaitingForZeroSpeed;
+            Pushed += StartCalculatingEnginePower;
             Pushed += EmitPushSmokeParticles;
             Stopped += StopPushSmokeParticles;
         }
@@ -38,10 +43,10 @@ namespace CarSumo.Units
         private void OnDisable()
         {
             Pushed -= StartWaitingForZeroSpeed;
+            Pushed -= StartCalculatingEnginePower;
             Pushed -= EmitPushSmokeParticles;
             Stopped -= StopPushSmokeParticles;
         }
-
 
         public void Init(Team team)
         {
@@ -49,6 +54,16 @@ namespace CarSumo.Units
             _statsProvider = new VehicleTeamStats(_statsProvider, team);
 
             GetComponent<MeshRenderer>().material = _typeStats.GetMaterialByTeam(team);
+        }
+
+        public void Pick()
+        {
+            Picked?.Invoke();
+        }
+
+        public void Unpick()
+        {
+            Unpicked?.Invoke();
         }
 
         public void PushForward(float extraForceModifier)
@@ -92,15 +107,40 @@ namespace CarSumo.Units
         }
 
         public IVehicleStatsProvider GetStatsProvider() => _statsProvider;
+        
+        public void PassPowerPercentage(float percentage)
+        {
+            StartingUp?.Invoke(percentage);
+        }
+
+        private IEnumerator CalculateEnginePower()
+        {
+            var maxSpeed = _rigidbody.velocity.magnitude;
+
+            yield return new WaitForSeconds(0.2f);
+
+            while (_rigidbody.velocity.magnitude > 0.0f)
+            {
+                maxSpeed = Math.Max(maxSpeed, _rigidbody.velocity.magnitude);
+
+                var percentage = Converter.MapToPercents(_rigidbody.velocity.magnitude, 0.0f, maxSpeed);
+                PassPowerPercentage(percentage);
+                yield return null;
+            }
+        }
 
         private IEnumerator WaitForZeroSpeed()
         {
+            yield return new WaitForSeconds(0.2f);
+
             yield return new WaitWhile(() => _rigidbody.velocity.magnitude > 0.0f);
+
             Stopped?.Invoke();
             TeamChangePerformed?.Invoke();
         }
 
         private void StartWaitingForZeroSpeed() => StartCoroutine(WaitForZeroSpeed());
+        private void StartCalculatingEnginePower() => StartCoroutine(CalculateEnginePower());
         private void EmitPushSmokeParticles() => _pushSmokeParticles.Emit();
         private void StopPushSmokeParticles() => _pushSmokeParticles.Stop();
     }

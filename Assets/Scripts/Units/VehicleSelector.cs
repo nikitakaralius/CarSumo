@@ -25,7 +25,6 @@ namespace CarSumo.Units
         [SerializeField] private ISwipePanel _panel;
         [SerializeField] private ITeamChangeHandler _teamChangeHandler;
         [SerializeField] private Camera _camera;
-        [SerializeField] private VehicleSelectorAudio _audio;
 
         [Header("FX")]
         [SerializeField] private Text3DEmitter _pushForceTextEmitter;
@@ -69,9 +68,9 @@ namespace CarSumo.Units
                 return;
 
             _selectedVehicle = vehicle;
+            _selectedVehicle.Pick();
             _unitSelectedEmitters.ForEach(emitter => emitter.Emit(_selectedVehicle.transform));
             AddVehicleToList(_selectedVehicle);
-            _audio.PlayEngineCueOnVehicle(_selectedVehicle);
         }
 
         private void OnPanelSwiping(SwipeData data)
@@ -93,7 +92,7 @@ namespace CarSumo.Units
 
             var transformedDirection = GetTransformedDirection(data.Direction);
             _selectedVehicle.RotateByForwardVector(transformedDirection);
-            _audio.ConfigureVolumeByPercentage(pushPercentage);
+            _selectedVehicle.PassPowerPercentage(pushPercentage);
         }
 
         private void OnPanelSwipeReleased(SwipeData data)
@@ -109,8 +108,8 @@ namespace CarSumo.Units
 
             if (_pushCanceled)
             {
+                _selectedVehicle.Unpick();
                 CompleteMove();
-                _audio.StopEngineCue();
                 return;
             }
 
@@ -118,7 +117,6 @@ namespace CarSumo.Units
             _selectedVehicle.Upgrading += OnVehicleUpgrade;
             var multiplier = _dataProvider.CalculateAccelerationMultiplier(data.Distance);
             _selectedVehicle.PushForward(multiplier);
-            _audio.StopEngineCue();
         }
 
         private void InvokeTeamChangeRequest()
