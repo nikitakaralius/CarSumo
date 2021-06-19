@@ -42,7 +42,7 @@ MonoBehaviour:
       Data: 2|AdvancedAudioSystem.Configuration.DistanceConfiguration, Assembly-CSharp-firstpass
     - Name: _minDistance
       Entry: 4
-      Data: 2
+      Data: 5
     - Name: _maxDistance
       Entry: 4
       Data: 500
