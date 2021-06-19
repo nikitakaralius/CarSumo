@@ -62,7 +62,7 @@ namespace CarSumo.Units
         public void RotateByForwardVector(Vector3 forwardVector)
         {
             var speed = GetStats().RotationSpeed * Time.deltaTime;
-            transform.forward = Vector3.MoveTowards(transform.forward, forwardVector, speed);
+            transform.forward = Vector3.MoveTowards(transform.forward, forwardVector, speed);   
         }
 
         public void Upgrade()
