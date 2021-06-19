@@ -115,6 +115,7 @@ namespace CarSumo.Units
             }
 
             _selectedVehicle.TeamChangePerformed += InvokeTeamChangeRequest;
+            _selectedVehicle.Upgrading += OnVehicleUpgrade;
             var multiplier = _dataProvider.CalculateAccelerationMultiplier(data.Distance);
             _selectedVehicle.PushForward(multiplier);
             _audio.StopEngineCue();
@@ -122,8 +123,22 @@ namespace CarSumo.Units
 
         private void InvokeTeamChangeRequest()
         {
+            if (_selectedVehicle is null)
+                return;
+
             TeamChangePerformed?.Invoke();
+            _selectedVehicle.Upgrading -= OnVehicleUpgrade;
             _selectedVehicle.TeamChangePerformed -= InvokeTeamChangeRequest;
+            CompleteMove();
+        }
+
+        private void OnVehicleUpgrade()
+        {
+            if (_selectedVehicle is null)
+                return;
+
+            _selectedVehicle.TeamChangePerformed -= InvokeTeamChangeRequest;
+            _selectedVehicle.Upgrading -= OnVehicleUpgrade;
             CompleteMove();
         }
 
