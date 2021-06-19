@@ -1,4 +1,5 @@
 ﻿using CarSumo.Level;
+using CarSumo.Teams;
 using CarSumo.Units;
 using CarSumo.Units.Stats;
 using UnityEngine;
@@ -9,7 +10,6 @@ namespace CarSumo.Processors
     {
         [SerializeField] private VehicleDestroyer _destroyer;
         [SerializeField] private VehicleSelector _selector;
-        [SerializeField] private bool _allowSuicide = false;
 
         private void OnEnable()
         {
@@ -23,9 +23,13 @@ namespace CarSumo.Processors
 
         private void OnVehicleDestroying(IVehicleStatsProvider destroyingEntity)
         {
-            var vehicleToUpgrade = _selector.LastActingVehicle;
+            var upgradeTeam = new SequentialTeamDefiner().DefineTeam(destroyingEntity.GetStats().Team);
+            var vehicleToUpgrade = _selector.LastActingVehicles[(int)upgradeTeam];
 
-            if (_allowSuicide == false && IsSuicide(destroyingEntity, vehicleToUpgrade))
+            if (vehicleToUpgrade is null)
+                return;
+
+            if (IsSuicide(destroyingEntity, vehicleToUpgrade))
                 return;
 
             vehicleToUpgrade.Upgrade();

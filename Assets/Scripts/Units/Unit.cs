@@ -7,6 +7,7 @@ namespace CarSumo.Units
 {
     public class Unit : MonoBehaviour
     {
+        public event Action Upgraded;
         public event Action<Unit> Destroying;
 
         public Team Team => _team;
@@ -55,6 +56,7 @@ namespace CarSumo.Units
             var worldPlacement = _controlledVehicle.WorldPlacement;
             _controlledVehicle.DestroyWithoutNotification();
             CreteVehicleInstance(worldPlacement);
+            Upgraded?.Invoke();
         }
 
         private void DestroyUnitInstance()

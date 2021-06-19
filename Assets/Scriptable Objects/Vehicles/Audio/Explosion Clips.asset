@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 084f90e706ecc5046982a1c3fe08cd7f, type: 3}
+  m_Name: Explosion Clips
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 8300000, guid: c401d00c96b512e488d2e3bf5d111509, type: 3}
+    - {fileID: 8300000, guid: f01c623f724825e44a923d1ae50256f2, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _audioClips
+      Entry: 7
+      Data: 0|AdvancedAudioSystem.AudioClips, Assembly-CSharp-firstpass
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _sequenceMode
+      Entry: 7
+      Data: 1|AdvancedAudioSystem.Sequences.RandomAudioSequence, Assembly-CSharp-firstpass
+    - Name: 
+      Entry: 8
+      Data: 
