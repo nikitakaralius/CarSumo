@@ -16,13 +16,19 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 33cd010dc7692af4186b38478194374e, type: 2}
+    - {fileID: 11400000, guid: 99cb4af0320b96f49a4a0b1505acd433, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
     - Name: _configurations
+      Entry: 7
+      Data: 0|AdvancedAudioSystem.Configuration.AssetAudioConfiguration, Assembly-CSharp-firstpass
+    - Name: _configuration
       Entry: 10
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
   _audioClips: {fileID: 11400000, guid: 055d7731ee995e24088f019896dbf8d6, type: 2}

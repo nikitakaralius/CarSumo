@@ -75,8 +75,6 @@ namespace CarSumo.Units
 
             _engineSoundEmitter.AudioSource.volume = Converter.MapByPercentsRange(percentage, _minVolume, _maxVolume);
             _engineSoundEmitter.AudioSource.pitch = Converter.MapByPercentsRange(percentage, _minPitch, _maxPitch);
-
-            Debug.Log("Configuring");
         }
 
         private void StopEngineSound()

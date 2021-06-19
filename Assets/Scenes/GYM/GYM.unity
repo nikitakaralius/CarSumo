@@ -1743,7 +1743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da92c077bd27494d89f5fad74f3e393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundMusicCue: {fileID: 11400000, guid: 7009b93593f53b34f8dda6b79ead0b7d, type: 2}
+  _backgroundMusicCue: {fileID: 11400000, guid: 43e817c7b8f1e444f90d5211d3f49f39, type: 2}
   _soundEmitter: {fileID: 983416403}
 --- !u!1001 &1066637016
 PrefabInstance:
