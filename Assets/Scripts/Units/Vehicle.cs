@@ -36,7 +36,8 @@ namespace CarSumo.Units
         {
             Pushed += StartWaitingForZeroSpeed;
             Pushed += StartCalculatingEnginePower;
-            Pushed += EmitPushSmokeParticles;
+            Picked += EmitPushSmokeParticles;
+            Unpicked += StopPushSmokeParticles;
             Stopped += StopPushSmokeParticles;
         }
 
@@ -44,7 +45,8 @@ namespace CarSumo.Units
         {
             Pushed -= StartWaitingForZeroSpeed;
             Pushed -= StartCalculatingEnginePower;
-            Pushed -= EmitPushSmokeParticles;
+            Picked -= EmitPushSmokeParticles;
+            Unpicked -= StopPushSmokeParticles;
             Stopped -= StopPushSmokeParticles;
         }
 
