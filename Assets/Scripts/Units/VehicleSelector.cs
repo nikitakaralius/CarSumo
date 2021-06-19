@@ -17,7 +17,7 @@ namespace CarSumo.Units
     {
         public event Action TeamChangePerformed;
 
-        public Vehicle LastActingVehicle { get; private set; }
+        public Vehicle[] LastActingVehicles { get; private set; }
 
         [SerializeField] private UnitSelectorDataProvider _dataProvider;
 
@@ -25,6 +25,7 @@ namespace CarSumo.Units
         [SerializeField] private ISwipePanel _panel;
         [SerializeField] private ITeamChangeHandler _teamChangeHandler;
         [SerializeField] private Camera _camera;
+        [SerializeField] private VehicleSelectorAudio _audio;
 
         [Header("FX")]
         [SerializeField] private Text3DEmitter _pushForceTextEmitter;
@@ -36,6 +37,11 @@ namespace CarSumo.Units
 
         private bool _isMoveCompleted = true;
         private bool _pushCanceled;
+
+        private void Awake()
+        {
+            LastActingVehicles = new Vehicle[2];
+        }
 
         private void OnEnable()
         {
@@ -64,6 +70,8 @@ namespace CarSumo.Units
 
             _selectedVehicle = vehicle;
             _unitSelectedEmitters.ForEach(emitter => emitter.Emit(_selectedVehicle.transform));
+            AddVehicleToList(_selectedVehicle);
+            _audio.PlayEngineCueOnVehicle(_selectedVehicle);
         }
 
         private void OnPanelSwiping(SwipeData data)
@@ -85,6 +93,7 @@ namespace CarSumo.Units
 
             var transformedDirection = GetTransformedDirection(data.Direction);
             _selectedVehicle.RotateByForwardVector(transformedDirection);
+            _audio.ConfigureVolumeByPercentage(pushPercentage);
         }
 
         private void OnPanelSwipeReleased(SwipeData data)
@@ -101,13 +110,14 @@ namespace CarSumo.Units
             if (_pushCanceled)
             {
                 CompleteMove();
+                _audio.StopEngineCue();
                 return;
             }
 
             _selectedVehicle.TeamChangePerformed += InvokeTeamChangeRequest;
-            LastActingVehicle = _selectedVehicle;
             var multiplier = _dataProvider.CalculateAccelerationMultiplier(data.Distance);
             _selectedVehicle.PushForward(multiplier);
+            _audio.StopEngineCue();
         }
 
         private void InvokeTeamChangeRequest()
@@ -141,6 +151,12 @@ namespace CarSumo.Units
                                                     .normalized;
 
             return transformedDirection;
+        }
+
+        private void AddVehicleToList(Vehicle vehicle)
+        {
+            var index = (int)vehicle.GetStats().Team;
+            LastActingVehicles[index] = vehicle;
         }
     }
 }

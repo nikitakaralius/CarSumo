@@ -9,27 +9,27 @@ namespace AdvancedAudioSystem.Emitters
     {
         public event Action FinishedPlaying;
 
-        private AudioSource _audioSource;
+        public AudioSource AudioSource { get; private set; }
 
         private void Awake()
         {
-            _audioSource = GetComponent<AudioSource>();
-            _audioSource.playOnAwake = false;
+            AudioSource = GetComponent<AudioSource>();
+            AudioSource.playOnAwake = false;
         }
 
         public void Play(AudioCue audioCue)
         {
-            audioCue.PlayOn(_audioSource);
+            audioCue.PlayOn(AudioSource);
 
-            if (_audioSource.loop)
+            if (AudioSource.loop)
                 return;
 
-            StartCoroutine(FinishPlaying(_audioSource.clip.length));
+            StartCoroutine(FinishPlaying(AudioSource.clip.length));
         }
 
         public void Stop()
         {
-            _audioSource.Stop();
+            AudioSource.Stop();
         }
 
         private IEnumerator FinishPlaying(float clipLength)
@@ -38,5 +38,5 @@ namespace AdvancedAudioSystem.Emitters
 
             FinishedPlaying?.Invoke();
         }
-    }
+    }    
 }

@@ -821,7 +821,7 @@ MonoBehaviour:
   _hornSoundEmitter: {fileID: 5818051547568940163}
   _collisionCue: {fileID: 11400000, guid: 7e299c52cea90e1478d6cdc36b1361ce, type: 2}
   _hornCue: {fileID: 11400000, guid: 290b18f99364dea469dbc9aa9e542c58, type: 2}
-  _explodeCue: {fileID: 11400000, guid: 99ef8a9ab6b6ae349a6ee635cd48d1ec, type: 2}
+  _engineCue: {fileID: 11400000, guid: 579f254fa01e78045b6e075aa8d815c0, type: 2}
 --- !u!1 &8641675005451579981
 GameObject:
   m_ObjectHideFlags: 0

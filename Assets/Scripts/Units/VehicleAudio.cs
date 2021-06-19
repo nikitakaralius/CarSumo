@@ -15,9 +15,13 @@ namespace CarSumo.Units
 
         private Vehicle _vehicle;
 
-        private void OnEnable()
+        private void Awake()
         {
             _vehicle = GetComponentInParent<Vehicle>();
+        }
+
+        private void OnEnable()
+        {
             _vehicle.Pushed += PlayHornSound;
         }
 
