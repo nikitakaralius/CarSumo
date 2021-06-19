@@ -19,7 +19,7 @@ namespace CarSumo.Audio
             _soundEmitter.FinishedPlaying -= PlayNextClip;
         }
 
-        private void Awake()
+        private void Start()
         {
             PlayNextClip();
         }
