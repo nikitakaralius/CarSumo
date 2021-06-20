@@ -73,5 +73,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  _pushForceModifier: -8
+  _pushForceModifier: -6
   _rotationSpeed: 20
