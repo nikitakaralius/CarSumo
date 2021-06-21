@@ -322,7 +322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5985787972163028470}
-  - component: {fileID: 2678008268262443795}
+  - component: {fileID: 89429709363405533}
   m_Layer: 0
   m_Name: Vehicle Audio
   m_TagString: Untagged
@@ -345,7 +345,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2678008268262443795
+--- !u!114 &89429709363405533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7542777079072965942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c5ef6c1d1b94cfbaebe2e656fc92297, type: 3}
+  m_Script: {fileID: 11500000, guid: 008caa63c540aa84f832283d9ec09551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _collisionSoundEmitter: {fileID: 8967548055108977844}
@@ -363,7 +363,7 @@ MonoBehaviour:
   _collisionCue: {fileID: 11400000, guid: 7e299c52cea90e1478d6cdc36b1361ce, type: 2}
   _hornCue: {fileID: 11400000, guid: 290b18f99364dea469dbc9aa9e542c58, type: 2}
   _engineCue: {fileID: 11400000, guid: 579f254fa01e78045b6e075aa8d815c0, type: 2}
-  _minVolume: 0
+  _minVolume: 0.5
   _maxVolume: 1
   _minPitch: 0.7
   _maxPitch: 1.2

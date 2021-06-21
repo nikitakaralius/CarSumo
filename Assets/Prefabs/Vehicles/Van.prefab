@@ -393,8 +393,8 @@ GameObject:
   - component: {fileID: 7697197111582562203}
   - component: {fileID: 9160356879076007002}
   - component: {fileID: 5623087962104830745}
-  - component: {fileID: 621333443355491069}
   - component: {fileID: 5290473230051483170}
+  - component: {fileID: 6046463715981182888}
   m_Layer: 0
   m_Name: Van
   m_TagString: Untagged
@@ -500,21 +500,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &621333443355491069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7697197111584491867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 563619309bd94f108d62c57e6ab6747a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _typeStats: {fileID: 11400000, guid: a4000f813580db045a6d99c8b77c9641, type: 2}
-  _rigidbody: {fileID: 5623087962104830745}
-  _pushSmokeParticles: {fileID: 4987952348141339275}
 --- !u!114 &5290473230051483170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,8 +515,8 @@ MonoBehaviour:
   _collisionEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3914834749018310516}
-        m_TargetAssemblyTypeName: CarSumo.Units.VehicleAudio, Assembly-CSharp
+      - m_Target: {fileID: 1316120892051877562}
+        m_TargetAssemblyTypeName: CarSumo.Vehicles.VehicleAudio, Assembly-CSharp
         m_MethodName: PlayCollisionSound
         m_Mode: 1
         m_Arguments:
@@ -542,6 +527,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6046463715981182888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7697197111584491867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0283e2b05ebfaad4385a8029e67fefb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _typeStats: {fileID: 11400000, guid: a4000f813580db045a6d99c8b77c9641, type: 2}
+  _rigidbody: {fileID: 5623087962104830745}
+  _pushSmokeParticles: {fileID: 4987952348141339275}
 --- !u!1001 &1404695522542881895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -604,15 +604,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5985787972163028470, guid: b38cd34ecdbf43040b940017ba1bcf4d, type: 3}
   m_PrefabInstance: {fileID: 1404695522542881895}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3914834749018310516 stripped
+--- !u!114 &1316120892051877562 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2678008268262443795, guid: b38cd34ecdbf43040b940017ba1bcf4d, type: 3}
+  m_CorrespondingSourceObject: {fileID: 89429709363405533, guid: b38cd34ecdbf43040b940017ba1bcf4d, type: 3}
   m_PrefabInstance: {fileID: 1404695522542881895}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c5ef6c1d1b94cfbaebe2e656fc92297, type: 3}
+  m_Script: {fileID: 11500000, guid: 008caa63c540aa84f832283d9ec09551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4859122967922968196

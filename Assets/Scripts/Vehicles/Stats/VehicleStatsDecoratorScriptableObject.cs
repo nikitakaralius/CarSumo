@@ -1,6 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 
-namespace CarSumo.Units.Stats
+namespace CarSumo.Vehicles.Stats
 {
     public abstract class VehicleStatsDecoratorScriptableObject : SerializedScriptableObject, IVehicleStatsProvider
     {

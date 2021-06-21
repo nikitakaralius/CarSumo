@@ -2,10 +2,11 @@
 using System.Collections;
 using CarSumo.Teams;
 using UnityEngine;
-using CarSumo.Units.Stats;
+using CarSumo.Vehicles.Stats;
 using CarSumo.VFX;
+using CarSumo.Data;
 
-namespace CarSumo.Units
+namespace CarSumo.Vehicles
 {
     public class Vehicle : MonoBehaviour, ITeamChangeSender, IVehicleStatsProvider
     {

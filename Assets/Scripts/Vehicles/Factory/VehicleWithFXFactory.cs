@@ -1,7 +1,7 @@
 ﻿using CarSumo.VFX;
 using UnityEngine;
 
-namespace CarSumo.Units.Factory
+namespace CarSumo.Vehicles.Factory
 {
     [CreateAssetMenu(fileName = "VehicleFX Factory", menuName = "CarSumo/Vehicles/FactoryFX")]
     public class VehicleWithFXFactory : VehicleFactory

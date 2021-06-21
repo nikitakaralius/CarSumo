@@ -1,4 +1,4 @@
-﻿namespace CarSumo.Units.Stats
+﻿namespace CarSumo.Vehicles.Stats
 {
     public interface IVehicleStatsProvider
     {

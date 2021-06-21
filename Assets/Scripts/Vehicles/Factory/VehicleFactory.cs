@@ -1,9 +1,8 @@
 ﻿using CarSumo.Factory;
 using CarSumo.Teams;
-using CarSumo.Units.Stats;
 using UnityEngine;
 
-namespace CarSumo.Units.Factory
+namespace CarSumo.Vehicles.Factory
 {
     [CreateAssetMenu(fileName = "Vehicle Factory", menuName = "CarSumo/Vehicles/Factory")]
     public class VehicleFactory : FactoryScriptableObject<Vehicle>

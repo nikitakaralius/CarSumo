@@ -21,4 +21,4 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  _vehiclePrefab: {fileID: 5298006807694897806, guid: aaf0394749ce2314584a6dff11dfb6ab, type: 3}
+  _vehiclePrefab: {fileID: 243337243671832554, guid: aaf0394749ce2314584a6dff11dfb6ab, type: 3}

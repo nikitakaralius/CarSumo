@@ -5,13 +5,13 @@ using CarSumo.Factory;
 using UnityEngine;
 using CarSumo.Input;
 using CarSumo.Teams;
-using CarSumo.Units.Stats;
+using CarSumo.Vehicles.Stats;
 using CarSumo.VFX;
 using Cinemachine.Utility;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 
-namespace CarSumo.Units
+namespace CarSumo.Vehicles
 {
     public class VehicleSelector : SerializedMonoBehaviour, ITeamChangeSender
     {

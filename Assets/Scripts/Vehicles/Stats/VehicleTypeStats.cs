@@ -2,7 +2,7 @@
 using CarSumo.Teams;
 using UnityEngine;
 
-namespace CarSumo.Units.Stats
+namespace CarSumo.Vehicles.Stats
 {
     [CreateAssetMenu(fileName = "Vehicle Type Stats", menuName = "CarSumo/Vehicles/Type Stats")]
     public class VehicleTypeStats : VehicleStatsDecoratorScriptableObject

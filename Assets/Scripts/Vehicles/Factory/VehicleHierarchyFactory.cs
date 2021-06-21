@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace CarSumo.Units.Factory
+namespace CarSumo.Vehicles.Factory
 {
     [CreateAssetMenu(fileName = "Vehicles Hierarchy", menuName = "CarSumo/Vehicles/Hierarchy")]
     public class VehicleHierarchyFactory : ScriptableObject

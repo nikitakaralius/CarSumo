@@ -2,7 +2,7 @@
 using AdvancedAudioSystem.Emitters;
 using UnityEngine;
 
-namespace CarSumo.Units
+namespace CarSumo.Vehicles
 {
     public class VehicleSelectorAudio : MonoBehaviour
     {

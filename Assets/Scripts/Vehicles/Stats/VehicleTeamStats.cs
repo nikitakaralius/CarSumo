@@ -1,6 +1,6 @@
 ﻿using CarSumo.Teams;
 
-namespace CarSumo.Units.Stats
+namespace CarSumo.Vehicles.Stats
 {
     public class VehicleTeamStats : VehicleStatsDecorator
     {

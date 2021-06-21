@@ -2,7 +2,7 @@
 using AdvancedAudioSystem;
 using AdvancedAudioSystem.Emitters;
 
-namespace CarSumo.Units
+namespace CarSumo.Vehicles
 {
     public class VehicleAudio : MonoBehaviour
     {

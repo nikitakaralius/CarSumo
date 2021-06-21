@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CarSumo.Units
+namespace CarSumo.Data
 {
     public struct WorldPlacement
     {

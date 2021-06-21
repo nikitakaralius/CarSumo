@@ -1,7 +1,7 @@
 ﻿using CarSumo.Level;
 using CarSumo.Teams;
-using CarSumo.Units;
-using CarSumo.Units.Stats;
+using CarSumo.Vehicles;
+using CarSumo.Vehicles.Stats;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
