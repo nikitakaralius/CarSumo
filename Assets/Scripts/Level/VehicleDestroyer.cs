@@ -14,10 +14,18 @@ namespace CarSumo.Level
 
         [SerializeField] private CinemachineImpulseSource _impulseSource;
 
+        private Vehicle _previousVehicle;
+
         private void OnTriggerEnter(Collider other)
         {
             other.HandleComponent<Vehicle>(vehicle =>
             {
+                //OnTriggerEnter sometimes calls twice. This check was made to prevent such situations
+                if (vehicle == _previousVehicle)
+                    return;
+
+                _previousVehicle = vehicle;
+
                 _impulseSource.GenerateImpulse();
                 VehicleDestroying?.Invoke(vehicle);
                 vehicle.Destroy();

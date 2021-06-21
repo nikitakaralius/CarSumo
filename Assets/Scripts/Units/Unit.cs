@@ -15,7 +15,7 @@ namespace CarSumo.Units
         [SerializeField] private Team _team;
         [SerializeField] private VehicleHierarchyFactory _hierarchy;
 
-        private int _generation = -1;
+        private int _generation = 0;
 
         private Vehicle _controlledVehicle;
 
@@ -36,10 +36,10 @@ namespace CarSumo.Units
 
         private void CreteVehicleInstance(WorldPlacement worldPlacement)
         {
-            _generation++;
-
             if (_hierarchy.TryGetVehicleFactoryByIndex(_generation, out var factory) == false)
                 return;
+            
+            _generation++;
 
             _controlledVehicle = factory.Create(transform, _team);
             _controlledVehicle.SetWorldPlacement(worldPlacement);

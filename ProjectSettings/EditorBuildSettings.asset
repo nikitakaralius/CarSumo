@@ -14,16 +14,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Test.unity
     guid: c3a350f858efd2e44b8279dfba7e3db0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Demigiant/DOTweenPro Examples/DOTweenPath.unity
     guid: a351b59ca54a0bc4083c35844da13a61
-  - enabled: 1
+  - enabled: 0
     path: Assets/Demigiant/DOTweenPro Examples/DOTweenAnimation_Advanced.unity
     guid: a5f7a56d339da84449899ecf95fbe33d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Demigiant/DOTweenPro Examples/DOTweenAnimation_Basics.unity
     guid: 6a2ad353325ffe64983c28d69a8738f5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Third Party/Assets/SimpleTown/DemoScene/SimpleTown_DemoScene.unity
     guid: 21ba8959b0b9c5e41889da424bb00b0b
   m_configObjects: {}
