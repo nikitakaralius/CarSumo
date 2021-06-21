@@ -37,9 +37,8 @@ namespace CarSumo.Cameras
             {
                 var previousTeam = DeterminePreviousTeam(team);
                 _teamCameraPositions[previousTeam] = _transposer.m_XAxis.Value;
+                _isInitial = false;
             }
-
-            _isInitial = false;
 
             _transposer.m_XAxis.Value = _teamCameraPositions[team];
         }
