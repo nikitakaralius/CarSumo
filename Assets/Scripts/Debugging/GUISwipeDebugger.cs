@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+
 using CarSumo.Input;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -23,3 +24,5 @@ namespace CarSumo.Debugging
         }
     }
 }
+
+#endif
