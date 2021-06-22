@@ -8,6 +8,7 @@ using CarSumo.Data;
 
 namespace CarSumo.Vehicles
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class Vehicle : MonoBehaviour, ITeamChangeSender, IVehicleStatsProvider
     {
         public event Action TeamChangePerformed;
@@ -26,29 +27,25 @@ namespace CarSumo.Vehicles
 
         [Header("Preferences")]
         [SerializeField] private VehicleTypeStats _typeStats;
-        [SerializeField] private Rigidbody _rigidbody;
-
-        [Header("VFX")]
-        [SerializeField] private FXBehaviour _pushSmokeParticles;
 
         private IVehicleStatsProvider _statsProvider;
+        private Rigidbody _rigidbody;
+
+        private void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody>();
+        }
 
         private void OnEnable()
         {
             Pushed += StartWaitingForZeroSpeed;
             Pushed += StartCalculatingEnginePower;
-            Picked += EmitPushSmokeParticles;
-            Unpicked += StopPushSmokeParticles;
-            Stopped += StopPushSmokeParticles;
         }
 
         private void OnDisable()
         {
             Pushed -= StartWaitingForZeroSpeed;
             Pushed -= StartCalculatingEnginePower;
-            Picked -= EmitPushSmokeParticles;
-            Unpicked -= StopPushSmokeParticles;
-            Stopped -= StopPushSmokeParticles;
         }
 
         public void Init(Team team)
@@ -144,7 +141,5 @@ namespace CarSumo.Vehicles
 
         private void StartWaitingForZeroSpeed() => StartCoroutine(WaitForZeroSpeed());
         private void StartCalculatingEnginePower() => StartCoroutine(CalculateEnginePower());
-        private void EmitPushSmokeParticles() => _pushSmokeParticles.Emit();
-        private void StopPushSmokeParticles() => _pushSmokeParticles.Stop();
     }
 }
