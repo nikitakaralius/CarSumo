@@ -39,7 +39,7 @@ namespace CarSumo.Input
         public void OnEndDrag(PointerEventData eventData)
         {
             var sendingData = new SwipeData(_startPosition, eventData.position, eventData.delta);
-            _delta = eventData.delta;
+            _delta = Vector2.zero;
 
             Released?.Invoke(sendingData);
         }

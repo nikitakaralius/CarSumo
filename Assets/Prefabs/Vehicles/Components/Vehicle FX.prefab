@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _factory: {fileID: 11400000, guid: a70b918ae233a6a4ab5deb872de000e6, type: 2}
-  _destroyDelay: 1
+  _destroyDelay: 5
 --- !u!1 &5155273479440985642
 GameObject:
   m_ObjectHideFlags: 0
