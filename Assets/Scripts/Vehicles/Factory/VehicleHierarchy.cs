@@ -7,6 +7,11 @@ namespace CarSumo.Vehicles.Factory
     {
         [SerializeField] private VehicleFactory[] _factoriesHierarchy;
 
+        public bool CanCreate(int generation)
+        {
+            return generation < _factoriesHierarchy.Length;
+        }
+
         public VehicleFactory GetVehicleFactoryByGeneration(int generation)
         {
             if (TryGetVehicleFactoryByGeneration(generation, out var factory) == false)

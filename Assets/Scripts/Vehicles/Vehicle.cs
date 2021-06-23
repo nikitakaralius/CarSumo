@@ -26,7 +26,7 @@ namespace CarSumo.Vehicles
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        public void Init(Team team, WorldPlacement placement, IVehicleUpgrader upgrader, IVehicleDestroyer destroyer)
+        public Vehicle Init(Team team, WorldPlacement placement, IVehicleUpgrader upgrader, IVehicleDestroyer destroyer)
         {
             _statsProvider = _typeStats;
             _statsProvider = new VehicleTeamStats(_statsProvider, team);
@@ -42,6 +42,8 @@ namespace CarSumo.Vehicles
 
             _upgrader = upgrader;
             _destroyer = destroyer;
+
+            return this;
         }
 
         public VehicleStats GetStats()
