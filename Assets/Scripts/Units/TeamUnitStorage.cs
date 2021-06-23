@@ -1,25 +1,20 @@
 ﻿using CarSumo.Teams;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace CarSumo.Units
 {
     public class TeamUnitStorage : MonoBehaviour, ITeamUnitStorage
     {
-        private readonly Dictionary<Team, List<Unit>> _units = new Dictionary<Team, List<Unit>>
-        {
-            { Team.First, new List<Unit>() }, 
-            { Team.Second, new List<Unit>() }
-        };
+        private readonly TeamUnitList _storage = new TeamUnitList();
 
         public void Add(Unit unit, Team team)
         {
-            _units[team].Add(unit);
+            _storage.Add(unit, team);
         }
 
         public void Remove(Unit unit, Team team)
         {
-            _units[team].Remove(unit);
+            _storage.Remove(unit, team);
         }
     }
 }
