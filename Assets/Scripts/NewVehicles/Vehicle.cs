@@ -8,7 +8,7 @@ namespace CarSumo.NewVehicles
     [RequireComponent(typeof(VehicleEngine))]
     public class Vehicle : MonoBehaviour
     {
-        public VehicleEngine Engine { get; private set; }
+        public IVehicleEngine Engine { get; private set; }
 
         [SerializeField] private VehicleTypeStats _typeStats;
 
@@ -17,8 +17,10 @@ namespace CarSumo.NewVehicles
 
         private void Awake()
         {
+            var coroutineExecutor = new CoroutineExecutor(this);
+
             _rigidbody = GetComponent<Rigidbody>();
-            Engine = GetComponent<VehicleEngine>();
+            Engine = GetComponent<VehicleEngine>().Init(_rigidbody, coroutineExecutor);
         }
 
         public void Init(Team team)
