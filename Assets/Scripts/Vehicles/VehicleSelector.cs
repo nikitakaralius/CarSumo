@@ -92,7 +92,7 @@ namespace CarSumo.Vehicles
 
             var transformedDirection = GetTransformedDirection(data.Direction);
             _selectedVehicle.RotateByForwardVector(transformedDirection);
-            _selectedVehicle.PassPowerPercentage(pushPercentage);
+            _selectedVehicle.TurnOnEngineWithPower(pushPercentage);
         }
 
         private void OnPanelSwipeReleased(SwipeData data)
@@ -100,11 +100,12 @@ namespace CarSumo.Vehicles
             if (_selectedVehicle is null)
                 return;
 
+            _unitSelectedEmitters.ForEach(emitter => emitter.Stop());
+
             if (_isMoveCompleted == false)
                 return;
 
             _isMoveCompleted = false;
-            _unitSelectedEmitters.ForEach(emitter => emitter.Stop());
 
             if (_pushCanceled)
             {
@@ -113,8 +114,7 @@ namespace CarSumo.Vehicles
                 return;
             }
 
-            _selectedVehicle.TeamChangePerformed += InvokeTeamChangeRequest;
-            _selectedVehicle.Upgrading += OnVehicleUpgrade;
+            _selectedVehicle.Stopped += InvokeTeamChangeRequest;
             var multiplier = _dataProvider.CalculateAccelerationMultiplier(data.Distance);
             _selectedVehicle.PushForward(multiplier);
         }
@@ -125,18 +125,7 @@ namespace CarSumo.Vehicles
                 return;
 
             TeamChangePerformed?.Invoke();
-            _selectedVehicle.Upgrading -= OnVehicleUpgrade;
-            _selectedVehicle.TeamChangePerformed -= InvokeTeamChangeRequest;
-            CompleteMove();
-        }
-
-        private void OnVehicleUpgrade()
-        {
-            if (_selectedVehicle is null)
-                return;
-
-            _selectedVehicle.TeamChangePerformed -= InvokeTeamChangeRequest;
-            _selectedVehicle.Upgrading -= OnVehicleUpgrade;
+            _selectedVehicle.Stopped -= InvokeTeamChangeRequest;
             CompleteMove();
         }
 

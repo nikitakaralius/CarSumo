@@ -21,7 +21,7 @@ namespace CarSumo.Vehicles
             _vehicle.Stopped += StopPushSmokeParticles;
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             _vehicle.Picked -= EmitPushSmokeParticles;
             _vehicle.Unpicked -= StopPushSmokeParticles;

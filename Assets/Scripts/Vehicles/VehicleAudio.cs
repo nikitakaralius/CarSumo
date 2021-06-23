@@ -38,7 +38,7 @@ namespace CarSumo.Vehicles
         private void OnEnable()
         {
             _vehicle.Picked += PlayEngineSound;
-            _vehicle.StartingUp += ConfigureEngineByPowerPercentage;
+            _vehicle.EngineWorking += ConfigureEngineByPowerPercentage;
             _vehicle.Pushed += PlayHornSound;
             _vehicle.Stopped += StopEngineSound;
             _vehicle.Unpicked += StopEngineSound;
@@ -47,7 +47,7 @@ namespace CarSumo.Vehicles
         private void OnDisable()
         {
             _vehicle.Picked -= PlayEngineSound;
-            _vehicle.StartingUp -= ConfigureEngineByPowerPercentage;
+            _vehicle.EngineWorking -= ConfigureEngineByPowerPercentage;
             _vehicle.Pushed -= PlayHornSound;
             _vehicle.Stopped -= StopEngineSound;
             _vehicle.Unpicked -= StopEngineSound;
@@ -70,9 +70,6 @@ namespace CarSumo.Vehicles
 
         private void ConfigureEngineByPowerPercentage(float percentage)
         {
-            if (percentage < 0.0f || percentage > 100.0f)
-                throw new System.ArgumentOutOfRangeException(nameof(percentage));
-
             _engineSoundEmitter.AudioSource.volume = Converter.MapByPercentsRange(percentage, _minVolume, _maxVolume);
             _engineSoundEmitter.AudioSource.pitch = Converter.MapByPercentsRange(percentage, _minPitch, _maxPitch);
         }
