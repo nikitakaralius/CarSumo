@@ -18,12 +18,15 @@ namespace CarSumo.NewVehicles
         private Rigidbody _rigidbody;
         private IVehicleStatsProvider _statsProvider;
 
+        private IVehicleUpgrader _upgrader;
+        private IVehicleDestroyer _destroyer;
+        
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        public void Init(Team team, WorldPlacement placement)
+        public void Init(Team team, WorldPlacement placement, IVehicleUpgrader upgrader, IVehicleDestroyer destroyer)
         {
             _statsProvider = _typeStats;
             _statsProvider = new VehicleTeamStats(_statsProvider, team);
@@ -36,6 +39,13 @@ namespace CarSumo.NewVehicles
 
             transform.position = placement.Position;
             transform.forward = placement.ForwardVector;
+
+            _upgrader = upgrader;
+            _destroyer = destroyer;
         }
+
+        public void Destroy() => _destroyer.Destroy(this);
+
+        public void Upgrade() => _upgrader.Upgrade(this);
     }
 }
