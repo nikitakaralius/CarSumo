@@ -2,9 +2,9 @@
 
 namespace CarSumo.Units
 {
-    public interface IUnitStorage
+    public interface ITeamUnitStorage
     {
         void Add(Unit unit, Team team);
-        void Remove(Unit unit);
+        void Remove(Unit unit, Team team);
     }
 }

@@ -2,19 +2,23 @@
 using CarSumo.Teams;
 using CarSumo.Vehicles;
 using CarSumo.Vehicles.Factory;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace CarSumo.Units
 {
-    public class Unit : MonoBehaviour, IVehicleUpgrader, IVehicleDestroyer
+    public class Unit : SerializedMonoBehaviour, IVehicleUpgrader, IVehicleDestroyer
     {
         [SerializeField] private Team _team;
         [SerializeField] private VehicleHierarchy _vehicleHierarchy;
+        [SerializeField] private ITeamUnitStorage _unitStorage;
 
         private int _generation = -1;
 
         private void Awake()
         {
+            _unitStorage.Add(this, _team);
+
             //todo: check -transofrm.forward if you changed the assets
             var worldPlacement = new WorldPlacement(transform.position, -transform.forward);
             CreateVehicleInstance(worldPlacement);
@@ -22,6 +26,8 @@ namespace CarSumo.Units
 
         public void Destroy(Vehicle vehicle)
         {
+            _unitStorage.Remove(this, _team);
+
             Destroy(vehicle.gameObject);
             Destroy(gameObject);
         }
