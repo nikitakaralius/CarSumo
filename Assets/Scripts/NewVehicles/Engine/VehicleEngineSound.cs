@@ -24,9 +24,9 @@ namespace CarSumo.NewVehicles
             _emitter = GetComponent<MonoSoundEmitter>();
         }
 
-        public void Play(Func<bool> cancel, IVehicleSpeedometer speedometer)
+        public void PlayUntil(Func<bool> cancel, IVehicleSpeedometer speedometer)
         {
-            StartCoroutine(PlayUntil(cancel, speedometer));
+            StartCoroutine(PlayUntilRoutine(cancel, speedometer));
         }
 
         public void Stop() => _emitter.Stop();
@@ -37,7 +37,7 @@ namespace CarSumo.NewVehicles
             _emitter.AudioSource.pitch = Converter.MapByPercentsRange(enginePowerPercentage, _pitchRange);
         }
 
-        private IEnumerator PlayUntil(Func<bool> cancel, IVehicleSpeedometer speedometer)
+        private IEnumerator PlayUntilRoutine(Func<bool> cancel, IVehicleSpeedometer speedometer)
         {
             _emitter.Play(_engineCue);
 

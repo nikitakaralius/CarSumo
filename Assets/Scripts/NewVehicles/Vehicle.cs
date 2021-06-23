@@ -20,7 +20,7 @@ namespace CarSumo.NewVehicles
             var coroutineExecutor = new CoroutineExecutor(this);
 
             _rigidbody = GetComponent<Rigidbody>();
-            Engine = GetComponent<VehicleEngine>().Init(_rigidbody, coroutineExecutor);
+            Engine = GetComponent<VehicleEngine>().Init(_statsProvider, _rigidbody, coroutineExecutor);
         }
 
         public void Init(Team team)
