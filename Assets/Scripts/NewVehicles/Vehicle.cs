@@ -7,7 +7,7 @@ using CarSumo.NewVehicles.Rotation;
 namespace CarSumo.NewVehicles
 {
     [RequireComponent(typeof(Rigidbody), typeof(MeshRenderer))]
-    [RequireComponent(typeof(VehicleEngine))]
+    [RequireComponent(typeof(VehicleEngine), typeof(VehicleCollision))]
     public class Vehicle : MonoBehaviour
     {
         public IVehicleEngine Engine { get; private set; }
