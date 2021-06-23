@@ -5,7 +5,6 @@ namespace CarSumo.VFX
     public class FXEmitter : MonoBehaviour
     {
         [SerializeField] private ParticlesFactory _factory;
-        [SerializeField] private float _destroyDelay;
 
         private ParticleSystem _entityInstance;
 
