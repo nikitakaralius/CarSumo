@@ -2,6 +2,7 @@
 using CarSumo.VFX;
 using CarSumo.NewVehicles.Speedometers;
 using CarSumo.NewVehicles.Stats;
+using AdvancedAudioSystem;
 
 namespace CarSumo.NewVehicles
 {
@@ -10,6 +11,7 @@ namespace CarSumo.NewVehicles
         [Header("Components")]
         [SerializeField] private FXEmitter _exhaustParticles;
         [SerializeField] private VehicleEngineSound _engineSound;
+        [SerializeField] private MonoAudioCuePlayer _hornSound;
 
         private Rigidbody _rigidbody;
         private CoroutineExecutor _executor;
@@ -40,6 +42,8 @@ namespace CarSumo.NewVehicles
             _engineSound.Stop();
             _engineSound.PlayUntil(() => _rigidbody.velocity.magnitude == 0.0f,
                               new MagnitudeSpeedometer(_rigidbody, _executor));
+
+            _hornSound.Play();
         }
     }
 }
