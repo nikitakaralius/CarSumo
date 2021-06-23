@@ -1,4 +1,6 @@
-﻿namespace CarSumo.NewVehicles
+﻿using CarSumo.NewVehicles.Speedometers;
+
+namespace CarSumo.NewVehicles
 {
     public interface IVehicleEngine
     {
