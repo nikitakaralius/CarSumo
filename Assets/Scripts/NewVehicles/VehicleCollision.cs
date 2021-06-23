@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using AdvancedAudioSystem;
 
-namespace CarSumo.NewVehicles
+namespace CarSumo.Vehicles
 {
     public class VehicleCollision : MonoBehaviour
     {

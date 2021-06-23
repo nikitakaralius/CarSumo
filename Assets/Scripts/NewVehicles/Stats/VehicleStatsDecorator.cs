@@ -1,4 +1,4 @@
-﻿namespace CarSumo.NewVehicles.Stats
+﻿namespace CarSumo.Vehicles.Stats
 {
     public abstract class VehicleStatsDecorator : IVehicleStatsProvider
     {

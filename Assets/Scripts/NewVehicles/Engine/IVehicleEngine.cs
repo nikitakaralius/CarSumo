@@ -1,6 +1,6 @@
-﻿using CarSumo.NewVehicles.Speedometers;
+﻿using CarSumo.Vehicles.Speedometers;
 
-namespace CarSumo.NewVehicles
+namespace CarSumo.Vehicles
 {
     public interface IVehicleEngine
     {

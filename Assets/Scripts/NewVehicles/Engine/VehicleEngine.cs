@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using CarSumo.VFX;
-using CarSumo.NewVehicles.Speedometers;
-using CarSumo.NewVehicles.Stats;
+using CarSumo.Vehicles.Speedometers;
+using CarSumo.Vehicles.Stats;
 using AdvancedAudioSystem;
 
-namespace CarSumo.NewVehicles
+namespace CarSumo.Vehicles
 {
     public class VehicleEngine : MonoBehaviour, IVehicleEngine
     {

@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
-using CarSumo.NewVehicles.Stats;
+using CarSumo.Vehicles.Stats;
 using CarSumo.Teams;
 using CarSumo.Data;
-using CarSumo.NewVehicles.Rotation;
+using CarSumo.Vehicles.Rotation;
 
-namespace CarSumo.NewVehicles
+namespace CarSumo.Vehicles
 {
     [RequireComponent(typeof(Rigidbody), typeof(MeshRenderer))]
     [RequireComponent(typeof(VehicleEngine), typeof(VehicleCollision))]
-    public class Vehicle : MonoBehaviour
+    public class Vehicle : MonoBehaviour, IVehicleStatsProvider
     {
         public IVehicleEngine Engine { get; private set; }
         public IRotation Rotation { get; private set;  }
@@ -42,6 +42,11 @@ namespace CarSumo.NewVehicles
 
             _upgrader = upgrader;
             _destroyer = destroyer;
+        }
+
+        public VehicleStats GetStats()
+        {
+            return _statsProvider.GetStats();
         }
 
         public void Destroy() => _destroyer.Destroy(this);

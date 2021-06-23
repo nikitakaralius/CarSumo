@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace CarSumo.NewVehicles.Speedometers
+namespace CarSumo.Vehicles.Speedometers
 {
     public class MagnitudeSpeedometer : IVehicleSpeedometer
     {

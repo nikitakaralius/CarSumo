@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using CarSumo.NewVehicles.Stats;
+using CarSumo.Vehicles.Stats;
 
-namespace CarSumo.NewVehicles.Rotation
+namespace CarSumo.Vehicles.Rotation
 {
     public class ForwardVectorVehicleRotation : IRotation
     {

@@ -1,4 +1,4 @@
-﻿namespace CarSumo.NewVehicles
+﻿namespace CarSumo.Vehicles
 {
     public interface IVehicleDestroyer
     {

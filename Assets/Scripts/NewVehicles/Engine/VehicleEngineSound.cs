@@ -3,9 +3,9 @@ using AdvancedAudioSystem.Emitters;
 using AdvancedAudioSystem;
 using System.Collections;
 using System;
-using CarSumo.NewVehicles.Speedometers;
+using CarSumo.Vehicles.Speedometers;
 
-namespace CarSumo.NewVehicles
+namespace CarSumo.Vehicles
 {
     [RequireComponent(typeof(MonoSoundEmitter))]
     public class VehicleEngineSound : MonoBehaviour

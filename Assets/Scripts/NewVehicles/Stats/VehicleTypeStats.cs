@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using CarSumo.Teams;
 
-namespace CarSumo.NewVehicles.Stats
+namespace CarSumo.Vehicles.Stats
 {
     [CreateAssetMenu(fileName = "[Vehicle] Type Stats", menuName = "CarSumo/Vehicles/Type Stats")]
     public class VehicleTypeStats : VehicleStatsDecoratorSO

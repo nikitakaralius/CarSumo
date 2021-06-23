@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CarSumo.NewVehicles.Rotation
+namespace CarSumo.Vehicles.Rotation
 {
     public interface IRotation
     {

@@ -1,6 +1,6 @@
 ﻿using CarSumo.Teams;
 
-namespace CarSumo.NewVehicles.Stats
+namespace CarSumo.Vehicles.Stats
 {
     public interface IVehicleStatsProvider
     {
