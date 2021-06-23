@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using CarSumo.Teams;
 using UnityEngine;
 using CarSumo.Vehicles.Stats;
@@ -27,22 +26,22 @@ namespace CarSumo.Vehicles
 
         private IVehicleStatsProvider _statsProvider;
         private Rigidbody _rigidbody;
+        private VehicleEngine _engine;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            _engine = new VehicleEngine(_rigidbody, this, EngineWorking, Stopped);
         }
 
         private void OnEnable()
         {
-            Pushed += StartWaitingForZeroSpeed;
-            Pushed += StartCalculatingEnginePower;
+            Pushed += _engine.StartCalculatingEnginePower;
         }
 
         private void OnDisable()
         {
-            Pushed -= StartWaitingForZeroSpeed;
-            Pushed -= StartCalculatingEnginePower;
+            Pushed -= _engine.StartCalculatingEnginePower;
         }
 
         public void Init(Team team)
@@ -77,6 +76,8 @@ namespace CarSumo.Vehicles
             transform.forward = Vector3.MoveTowards(transform.forward, forwardVector, speed);   
         }
 
+        public void TurnOnEngineWithPower(float percentage) => _engine.TurnOnEngineWithPower(percentage);
+
         public void Upgrade()
         {
             Stopped?.Invoke();
@@ -106,41 +107,5 @@ namespace CarSumo.Vehicles
         }
 
         public IVehicleStatsProvider GetStatsProvider() => _statsProvider;
-        
-        public void TurnOnEngineWithPower(float percentage)
-        {
-            if (percentage < 0.0f || percentage > 100.0f)
-                throw new ArgumentOutOfRangeException(nameof(percentage));
-
-            EngineWorking?.Invoke(percentage);
-        }
-
-        private IEnumerator CalculateEnginePower()
-        {
-            var maxSpeed = _rigidbody.velocity.magnitude;
-
-            yield return new WaitForSmallDelay();
-
-            while (_rigidbody.velocity.magnitude > 0.0f)
-            {
-                maxSpeed = Math.Max(maxSpeed, _rigidbody.velocity.magnitude);
-
-                var percentage = Converter.MapToPercents(_rigidbody.velocity.magnitude, 0.0f, maxSpeed);
-                TurnOnEngineWithPower(percentage);
-                yield return null;
-            }
-        }
-
-        private IEnumerator WaitForZeroSpeed()
-        {
-            yield return new WaitForSmallDelay();
-
-            yield return new WaitWhile(() => _rigidbody.velocity.magnitude > 0.0f);
-
-            Stopped?.Invoke();
-        }
-
-        private void StartWaitingForZeroSpeed() => StartCoroutine(WaitForZeroSpeed());
-        private void StartCalculatingEnginePower() => StartCoroutine(CalculateEnginePower());
     }
 }

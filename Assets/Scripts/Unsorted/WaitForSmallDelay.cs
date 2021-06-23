@@ -12,6 +12,6 @@ namespace CarSumo
             _startTime = Time.time;
         }
 
-        public override bool keepWaiting => Time.time < _startTime + _delay; 
+        public override bool keepWaiting => Time.time < _startTime + _delay;
     }
 }
