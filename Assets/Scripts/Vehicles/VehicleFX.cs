@@ -5,7 +5,7 @@ namespace CarSumo.Vehicles
 {
     public class VehicleFX : MonoBehaviour
     {
-        [SerializeField] private FXBehaviour _pushSmokeParticles;
+        [SerializeField] private FXEmitter _pushSmokeParticles;
 
         private Vehicle _vehicle;
 
