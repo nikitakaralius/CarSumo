@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
-using CarSumo.VFX;
 using CarSumo.Vehicles.Stats;
 using AdvancedAudioSystem;
 using CarSumo.Vehicles.Speedometers;
 using System;
 
-namespace CarSumo.Vehicles
+namespace CarSumo.Vehicles.Engine
 {
     public class VehicleEngine : MonoBehaviour, IVehicleEngine
     {
         [Header("Components")]
-        [SerializeField] private FXEmitter _exhaustParticles;
+        [SerializeField] private VehicleEngineParticles _particles;
         [SerializeField] private VehicleEngineSound _engineSound;
         [SerializeField] private MonoAudioCuePlayer _hornSound;
 
@@ -30,13 +29,13 @@ namespace CarSumo.Vehicles
         public void TurnOn(IVehicleSpeedometer speedometer)
         {
             _engineSound.PlayUntil(() => false, speedometer);
-            _exhaustParticles.Emit();
+            _particles.EmitEngineTurnedOnParticles(speedometer);
         }
 
         public void TurnOff()
         {
             _engineSound.Stop();
-            _exhaustParticles.Stop();
+            _particles.StopAllParticles();
         }
 
         public void SpeedUp(float forceModifier)
@@ -51,8 +50,8 @@ namespace CarSumo.Vehicles
             _engineSound.Stop();
             _engineSound.PlayUntil(cancel,new MagnitudeSpeedometer(_rigidbody, _executor));
 
-            _exhaustParticles.Stop();
-            _exhaustParticles.EmitUntil(cancel);
+            _particles.StopAllParticles();
+            _particles.EmitExhaustParticlesUntil(cancel);
 
             _hornSound.Play();
         }

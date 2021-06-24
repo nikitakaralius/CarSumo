@@ -1,10 +1,11 @@
-﻿using System;
+﻿using CarSumo.VFX.Core;
+using System;
 using System.Collections;
 using UnityEngine;
 
 namespace CarSumo.VFX
 {
-    public class FXEmitter : MonoBehaviour
+    public class FXEmitter : MonoEmitter
     {
         [SerializeField] private ParticlesFactory _factory;
 
@@ -16,12 +17,12 @@ namespace CarSumo.VFX
             _entityInstance.Stop();
         }
 
-        public void Emit()
+        public override void Emit()
         {
             _entityInstance.Play();
         }
 
-        public void Stop()
+        public override void Stop()
         {
             _entityInstance.Stop();
         }
