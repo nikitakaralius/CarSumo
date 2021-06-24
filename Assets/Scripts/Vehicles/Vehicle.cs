@@ -22,8 +22,6 @@ namespace CarSumo.Vehicles
         private IVehicleUpgrader _upgrader;
         private IVehicleDestroyer _destroyer;
 
-        private bool _initialized;
-        
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
