@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a4dc2172c88bd45a03e5add89c657b, type: 3}
+  m_Name: Vehicle Hierarchy
+  m_EditorClassIdentifier: 
+  _factoriesHierarchy:
+  - {fileID: 11400000, guid: 00ce94d0d2e88ca4dbe28715f6c1d441, type: 2}
+  - {fileID: 11400000, guid: caf1547353e5db84aa1e6f756682ecdf, type: 2}

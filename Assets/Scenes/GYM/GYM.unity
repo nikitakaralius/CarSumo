@@ -347,18 +347,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1591137442847466927, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-      propertyPath: _team
-      value: 0
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-      propertyPath: serializationData.Prefab
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"_unitStorage","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-    - target: {fileID: 5889509887923236462, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-      propertyPath: serializationData.Prefab
-      value: 
-      objectReference: {fileID: 5889509887923236462, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      objectReference: {fileID: 915234541}
     - target: {fileID: 6401360856999958230, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -407,64 +415,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[First] Unit'
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _team
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
---- !u!1 &327497623
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 327497624}
-  - component: {fileID: 327497625}
-  m_Layer: 0
-  m_Name: WinnerDeterminant
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &327497624
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 327497623}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 24
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &327497625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 327497623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ff51da4874d41ec97ed297b2f119a60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 915234541}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _storage
-      Entry: 10
-      Data: 0
 --- !u!1001 &368589106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -631,18 +591,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1591137442847466927, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-      propertyPath: _team
-      value: 0
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-      propertyPath: serializationData.Prefab
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"_unitStorage","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-    - target: {fileID: 5889509887923236462, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-      propertyPath: serializationData.Prefab
-      value: 
-      objectReference: {fileID: 5889509887923236462, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      objectReference: {fileID: 915234541}
     - target: {fileID: 6401360856999958230, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -690,6 +658,14 @@ PrefabInstance:
     - target: {fileID: 6931218521379405126, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_Name
       value: '[First] Unit (1)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _team
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: serializationData.Prefab
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
@@ -771,7 +747,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627056646}
-  m_LocalRotation: {x: 0.4278271, y: -0.000000007145592, z: 0.000000003382243, w: 0.9038606}
+  m_LocalRotation: {x: 0.42782706, y: 0.00000004720051, z: -0.000000022341558, w: 0.9038607}
   m_LocalPosition: {x: 0, y: 42.7, z: -35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -884,7 +860,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 677822511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10559a31b0bc7b640890252b7722a746, type: 3}
+  m_Script: {fileID: 11500000, guid: 3862be0e375a1ea4b903aab923b06e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -901,16 +877,11 @@ MonoBehaviour:
     - Name: _panel
       Entry: 10
       Data: 0
-    - Name: _teamChangeHandler
+    - Name: _changeHandler
       Entry: 10
       Data: 1
-  _dataProvider: {fileID: 11400000, guid: e1f0f25b6dca3094a9e267bc77906160, type: 2}
+  _data: {fileID: 11400000, guid: e1f0f25b6dca3094a9e267bc77906160, type: 2}
   _camera: {fileID: 627056648}
-  _pushForceTextEmitter: {fileID: 11400000, guid: faee757f847e3484e81fc0ab0fda9047, type: 2}
-  _unitSelectedEmitters:
-  - {fileID: 11400000, guid: 62e20bcb44fd9014bb6c17f2d5b37755, type: 2}
-  - {fileID: 11400000, guid: faee757f847e3484e81fc0ab0fda9047, type: 2}
-  - {fileID: 11400000, guid: ed0188b6249b7654092627cf3c8ede75, type: 2}
 --- !u!1001 &683507170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -918,22 +889,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1591137442847466927, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-      propertyPath: Team
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1591137442847466927, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: _team
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-    - target: {fileID: 5889509887923236462, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-      propertyPath: serializationData.Prefab
+      objectReference: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"_unitStorage","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 5889509887923236462, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      objectReference: {fileID: 915234541}
     - target: {fileID: 6401360856999958230, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -982,10 +961,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Second] Unit'
       objectReference: {fileID: 0}
-    - target: {fileID: 8001161428446676203, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+    - target: {fileID: 0}
+      propertyPath: Team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: _material
       value: 
       objectReference: {fileID: 2100000, guid: 6f1f3276414868540a290258ccbc7adf, type: 2}
+    - target: {fileID: 0}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
 --- !u!1 &694737580
@@ -1358,7 +1349,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 915234539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffacc2e86cc14c7f95b35bff1c7d247f, type: 3}
+  m_Script: {fileID: 11500000, guid: 81649479de2aedd40ba4067097f3c7e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &943512603
@@ -1623,7 +1614,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &983416403
 MonoBehaviour:
@@ -1910,7 +1901,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1082807756
 MonoBehaviour:
@@ -1991,7 +1982,7 @@ MonoBehaviour:
       m_Right: 0
       m_Top: 0
       m_Bottom: 0
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 3}
     m_FontSize: 50
     m_FontStyle: 1
     m_Alignment: 0
@@ -2032,7 +2023,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1187974270
 PrefabInstance:
@@ -2041,22 +2032,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1591137442847466927, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-      propertyPath: Team
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1591137442847466927, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: _team
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-    - target: {fileID: 5889509887923236462, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-      propertyPath: serializationData.Prefab
+      objectReference: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"_unitStorage","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 5889509887923236462, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      objectReference: {fileID: 915234541}
     - target: {fileID: 6401360856999958230, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -2105,10 +2104,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Second] Unit'
       objectReference: {fileID: 0}
-    - target: {fileID: 8001161428446676203, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+    - target: {fileID: 0}
+      propertyPath: Team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: _material
       value: 
       objectReference: {fileID: 2100000, guid: 6f1f3276414868540a290258ccbc7adf, type: 2}
+    - target: {fileID: 0}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
 --- !u!1 &1196202940
@@ -2427,7 +2438,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777856713}
-  m_LocalRotation: {x: 0.4278271, y: -0.000000007145592, z: 0.000000003382243, w: 0.9038606}
+  m_LocalRotation: {x: 0.42782706, y: 0.00000004720051, z: -0.000000022341558, w: 0.9038607}
   m_LocalPosition: {x: 0, y: 42.7, z: -35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2558,22 +2569,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1591137442847466927, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-      propertyPath: Team
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1591137442847466927, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: _team
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-    - target: {fileID: 5889509887923236462, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-      propertyPath: serializationData.Prefab
+      objectReference: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"_unitStorage","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 5889509887923236462, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      objectReference: {fileID: 915234541}
     - target: {fileID: 6401360856999958230, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -2622,10 +2641,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Second] Unit'
       objectReference: {fileID: 0}
-    - target: {fileID: 8001161428446676203, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+    - target: {fileID: 0}
+      propertyPath: Team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: _material
       value: 
       objectReference: {fileID: 2100000, guid: 6f1f3276414868540a290258ccbc7adf, type: 2}
+    - target: {fileID: 0}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
 --- !u!1 &1800503517
@@ -2942,8 +2973,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 677822513}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -2961,9 +2991,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: _changeSender
-      Entry: 10
-      Data: 0
 --- !u!1 &2045443551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2993,7 +3020,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2045443553
 MonoBehaviour:
@@ -3031,18 +3058,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1591137442847466927, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-      propertyPath: _team
-      value: 0
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-      propertyPath: serializationData.Prefab
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"_unitStorage","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 4092441415687734045, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-    - target: {fileID: 5889509887923236462, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-      propertyPath: serializationData.Prefab
-      value: 
-      objectReference: {fileID: 5889509887923236462, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      objectReference: {fileID: 915234541}
     - target: {fileID: 6401360856999958230, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -3090,6 +3125,14 @@ PrefabInstance:
     - target: {fileID: 6931218521379405126, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_Name
       value: '[First] Unit (2)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _team
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: serializationData.Prefab
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 
 namespace CarSumo.VFX
 {
@@ -10,7 +12,7 @@ namespace CarSumo.VFX
 
         private void Awake()
         {
-            _entityInstance = _factory.Create();
+            _entityInstance = _factory.Create(transform);
             _entityInstance.Stop();
         }
 
@@ -21,6 +23,20 @@ namespace CarSumo.VFX
 
         public void Stop()
         {
+            _entityInstance.Stop();
+        }
+
+        public void EmitUntil(Func<bool> predicate)
+        {
+            StartCoroutine(EmitUntilRoutine(predicate));
+        }
+
+        private IEnumerator EmitUntilRoutine(Func<bool> predicate)
+        {
+            _entityInstance.Play();
+
+            yield return new WaitUntil(predicate);
+
             _entityInstance.Stop();
         }
     }

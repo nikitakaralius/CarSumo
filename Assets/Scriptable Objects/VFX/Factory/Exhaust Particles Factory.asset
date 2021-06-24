@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d8248eed779484ba0c4eba3cdb28d9c, type: 3}
-  m_Name: Smoke Particles Factory
+  m_Name: Exhaust Particles Factory
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
