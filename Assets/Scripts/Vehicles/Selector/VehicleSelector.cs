@@ -3,8 +3,6 @@ using CarSumo.Teams;
 using CarSumo.Input;
 using Sirenix.OdinInspector;
 using CarSumo.Vehicles.Speedometers;
-using CarSumo.Extensions;
-using Cinemachine.Utility;
 
 namespace CarSumo.Vehicles.Selector
 {
@@ -20,6 +18,7 @@ namespace CarSumo.Vehicles.Selector
         [SerializeField] private Camera _camera;
 
         private VehiclePicker _vehiclePicker;
+        private VehicleBoostConfiguration _boost;
         private SelectorSpeedometer _speedometer;
 
         private Vehicle _selectedVehicle;
@@ -29,7 +28,9 @@ namespace CarSumo.Vehicles.Selector
         {
             LastValidVehicles = new VehicleCollection();
             _speedometer = new SelectorSpeedometer(_data);
+
             _vehiclePicker = new VehiclePicker(_camera, LastValidVehicles, _speedometer, _changeHandler);
+            _boost = new VehicleBoostConfiguration(_camera, _speedometer);
         }
 
         private void OnEnable()
@@ -57,30 +58,56 @@ namespace CarSumo.Vehicles.Selector
             if (_isMoveCompleted == false)
                 return;
 
-            if (_vehiclePicker.IsValid() == false)
+            if (_vehiclePicker.IsValid(_selectedVehicle) == false)
                 return;
 
             if (swipeData.Distance <= _data.MinSelectDistance)
                 return;
 
-            var transformedDirection = GetTransformedDirection(swipeData.Direction);
-            _selectedVehicle.Rotation.RotateBy(transformedDirection);
-            _speedometer.CalculatePowerBySwipeData(swipeData);
+            _boost.ConfigureBoost(_selectedVehicle, swipeData);
         }
 
-        private Vector3 GetTransformedDirection(Vector2 swipeDirection)
+        private void OnPanelSwipeReleased(SwipeData swipeData)
         {
-            var direction = new Vector3
-            {
-                x = swipeDirection.x,
-                z = swipeDirection.y
-            };
+            if (_isMoveCompleted == false)
+                return;
 
-            var transformedDirection = _camera.GetRelativeDirection(direction)
-                                                    .ProjectOntoPlane(Vector3.up)
-                                                    .normalized;
+            if (_vehiclePicker.IsValid(_selectedVehicle) == false)
+                return;
 
-            return transformedDirection;
+            _isMoveCompleted = false;
+        }
+    }
+
+    public class SelectorMoveHandler
+    {
+        private readonly ITeamChangeHandler _changeHandler;
+        private readonly IVehicleSpeedometer _speedometer;
+        private readonly VehicleSelectorData _data;
+        private readonly CoroutineExecutor _executor;
+
+        private bool _isMovePerforming = false;
+
+        public SelectorMoveHandler(ITeamChangeHandler changeHandler,
+                                IVehicleSpeedometer speedometer,
+                                VehicleSelectorData data,
+                                CoroutineExecutor executor)
+        {
+            _changeHandler = changeHandler;
+            _speedometer = speedometer;
+            _data = data;
+            _executor = executor;
+        }
+
+        public void HadnleVehiclePush(Vehicle vehicle, SwipeData swipeData)
+        {
+            if (_isMovePerforming)
+                return;
+
+            if (_speedometer.PowerPercentage <= _data.CancelDistancePercent)
+                return;
+
+            _isMovePerforming = true;
         }
     }
 }

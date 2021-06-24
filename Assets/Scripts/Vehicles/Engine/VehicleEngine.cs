@@ -32,6 +32,11 @@ namespace CarSumo.Vehicles
             _exhaustParticles.Emit();
         }
 
+        public void TurnOff()
+        {
+            _exhaustParticles.Stop();
+        }
+
         public void PushForward(float forceModifier)
         {
             var enginePower = _statsProvider.GetStats().EnginePower;

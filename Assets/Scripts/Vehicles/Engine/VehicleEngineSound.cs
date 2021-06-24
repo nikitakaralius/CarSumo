@@ -18,6 +18,7 @@ namespace CarSumo.Vehicles
         [SerializeField] private Range _pitchRange;
 
         private MonoSoundEmitter _emitter;
+        private bool _shouldStop = false;
 
         private void Awake()
         {
@@ -29,7 +30,10 @@ namespace CarSumo.Vehicles
             StartCoroutine(PlayUntilRoutine(cancel, speedometer));
         }
 
-        public void Stop() => _emitter.Stop();
+        public void Stop()
+        {
+            _shouldStop = true;
+        }
 
         public void ConfigureEngineSound(float enginePowerPercentage)
         {
@@ -41,13 +45,14 @@ namespace CarSumo.Vehicles
         {
             _emitter.Play(_engineCue);
 
-            while (cancel.Invoke() == false)
+            while (cancel.Invoke() == false && _shouldStop == false)
             {
                 ConfigureEngineSound(speedometer.PowerPercentage);
                 yield return null;
             }
 
             _emitter.Stop();
+            _shouldStop = false;
         }
     }
 }

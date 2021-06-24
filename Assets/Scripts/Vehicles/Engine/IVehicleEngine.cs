@@ -5,5 +5,6 @@ namespace CarSumo.Vehicles
     public interface IVehicleEngine
     {
         void TurnOn(IVehicleSpeedometer speedometer);
+        void TurnOff();
     }
 }

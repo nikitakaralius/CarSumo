@@ -13,8 +13,6 @@ namespace CarSumo.Vehicles.Selector
         private readonly IVehicleSpeedometer _speedometer;
         private readonly ITeamChangeHandler _changeHandler;
 
-        private Vehicle _selectedVehicle;
-
         public VehiclePicker(Camera camera, 
                             VehicleCollection lastValidVehicles, 
                             IVehicleSpeedometer speedometer, 
@@ -35,14 +33,12 @@ namespace CarSumo.Vehicles.Selector
                 _lastValidVehicles[team] = vehicle;
             }
 
-            _selectedVehicle = vehicle;
-
             return vehicle;
         }
 
-        public bool IsValid()
+        public bool IsValid(Vehicle vehicle)
         {
-            return _selectedVehicle != null && CanPickVehicle(_selectedVehicle);
+            return vehicle != null && CanPickVehicle(vehicle);
         }
 
         public bool TryPickVehicle(SwipeData swipeData, out Vehicle vehicle)
