@@ -1,6 +1,6 @@
 ﻿using CarSumo.Level;
 using CarSumo.Teams;
-using CarSumo.Vehicles;
+using CarSumo.Vehicles.Selector;
 using CarSumo.Vehicles.Stats;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -28,10 +28,7 @@ namespace CarSumo.Processors
             var entityTeam = destroyingEntity.GetStats().Team;
             var teamToUpgrage = _upgradeTeamDefiner.DefineTeam(entityTeam);
 
-            var vehicleToUpgrade = _selector.LastActingVehicles[(int)teamToUpgrage];
-
-            if (vehicleToUpgrade is null)
-                return;
+            var vehicleToUpgrade = _selector.LastValidVehicles[teamToUpgrage];
 
             if (IsSuicide(destroyingEntity, vehicleToUpgrade))
                 return;

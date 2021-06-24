@@ -12,7 +12,6 @@ namespace CarSumo.Teams
 
         [SerializeField] private ITeamDefiner _onAwakeDefiner;
         [SerializeField] private ITeamDefiner _onGameDefiner;
-        [SerializeField] private ITeamChangeSender _changeSender;
 
         private void Awake()
         {
@@ -20,14 +19,9 @@ namespace CarSumo.Teams
             ChangeTeam(newTeam);
         }
 
-        private void OnEnable() => _changeSender.TeamChangePerformed += OnChangeTeamSent;
-
-        private void OnDisable() => _changeSender.TeamChangePerformed -= OnChangeTeamSent;
-
-        private void OnChangeTeamSent()
+        public void ChangeTeam()
         {
-            var newTeam = _onGameDefiner.DefineTeam(Team);
-            ChangeTeam(newTeam);
+            ChangeTeam(_onGameDefiner.DefineTeam(Team));
         }
 
         private void ChangeTeam(Team team)
