@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _factoriesHierarchy:
   - {fileID: 11400000, guid: 00ce94d0d2e88ca4dbe28715f6c1d441, type: 2}
-  - {fileID: 11400000, guid: caf1547353e5db84aa1e6f756682ecdf, type: 2}
+  - {fileID: 11400000, guid: 9b1234f304f04f747a190ec42d92eb65, type: 2}
+  - {fileID: 11400000, guid: b52c9324dc677ab4b859ec8bc2b66d30, type: 2}
+  - {fileID: 11400000, guid: ca8f504dbf0bf5444b5bccdebeb4e3ff, type: 2}
+  - {fileID: 11400000, guid: 35f9ae48925a26f4ea59d543af6152c0, type: 2}

@@ -348,9 +348,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: _vehicleHierarchy
+      value: 
+      objectReference: {fileID: 11400000, guid: 762351d9789cf774191cc92d7a694752, type: 2}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
       value: 1
@@ -414,14 +418,6 @@ PrefabInstance:
     - target: {fileID: 6931218521379405126, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_Name
       value: '[First] Unit'
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _team
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: serializationData.Prefab
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
@@ -592,9 +588,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: _vehicleHierarchy
+      value: 
+      objectReference: {fileID: 11400000, guid: 762351d9789cf774191cc92d7a694752, type: 2}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
       value: 1
@@ -658,14 +658,6 @@ PrefabInstance:
     - target: {fileID: 6931218521379405126, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_Name
       value: '[First] Unit (1)'
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _team
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: serializationData.Prefab
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
@@ -894,9 +886,13 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: _vehicleHierarchy
+      value: 
+      objectReference: {fileID: 11400000, guid: 762351d9789cf774191cc92d7a694752, type: 2}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
       value: 1
@@ -960,22 +956,6 @@ PrefabInstance:
     - target: {fileID: 6931218521379405126, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_Name
       value: '[Second] Unit'
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: Team
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _team
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _material
-      value: 
-      objectReference: {fileID: 2100000, guid: 6f1f3276414868540a290258ccbc7adf, type: 2}
-    - target: {fileID: 0}
-      propertyPath: serializationData.Prefab
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
@@ -2037,9 +2017,13 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: _vehicleHierarchy
+      value: 
+      objectReference: {fileID: 11400000, guid: 762351d9789cf774191cc92d7a694752, type: 2}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
       value: 1
@@ -2103,22 +2087,6 @@ PrefabInstance:
     - target: {fileID: 6931218521379405126, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_Name
       value: '[Second] Unit'
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: Team
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _team
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _material
-      value: 
-      objectReference: {fileID: 2100000, guid: 6f1f3276414868540a290258ccbc7adf, type: 2}
-    - target: {fileID: 0}
-      propertyPath: serializationData.Prefab
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
@@ -2574,9 +2542,13 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: _vehicleHierarchy
+      value: 
+      objectReference: {fileID: 11400000, guid: 762351d9789cf774191cc92d7a694752, type: 2}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
       value: 1
@@ -2640,22 +2612,6 @@ PrefabInstance:
     - target: {fileID: 6931218521379405126, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_Name
       value: '[Second] Unit'
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: Team
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _team
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _material
-      value: 
-      objectReference: {fileID: 2100000, guid: 6f1f3276414868540a290258ccbc7adf, type: 2}
-    - target: {fileID: 0}
-      propertyPath: serializationData.Prefab
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
@@ -3059,9 +3015,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      propertyPath: _vehicleHierarchy
+      value: 
+      objectReference: {fileID: 11400000, guid: 762351d9789cf774191cc92d7a694752, type: 2}
+    - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
       value: 1
@@ -3125,14 +3085,6 @@ PrefabInstance:
     - target: {fileID: 6931218521379405126, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
       propertyPath: m_Name
       value: '[First] Unit (2)'
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _team
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: serializationData.Prefab
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
