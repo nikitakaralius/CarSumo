@@ -19,35 +19,41 @@ namespace CarSumo.Vehicles.Selector
 
         private VehiclePicker _vehiclePicker;
         private VehicleBoostConfiguration _boost;
+        private SelectorMoveHandler _moveHandler;
+
         private SelectorSpeedometer _speedometer;
 
         private Vehicle _selectedVehicle;
-        private bool _isMoveCompleted = true;
 
         private void Awake()
         {
+            var executor = new CoroutineExecutor(this);
+
             LastValidVehicles = new VehicleCollection();
             _speedometer = new SelectorSpeedometer(_data);
 
             _vehiclePicker = new VehiclePicker(_camera, LastValidVehicles, _speedometer, _changeHandler);
             _boost = new VehicleBoostConfiguration(_camera, _speedometer);
+            _moveHandler = new SelectorMoveHandler(_changeHandler, _speedometer, _data, executor);
         }
 
         private void OnEnable()
         {
             _panel.Begun += OnPanelSwipeBegun;
             _panel.Swiping += OnPanelSwiping;
+            _panel.Released += OnPanelSwipeReleased;
         }
 
         private void OnDisable()
         {
             _panel.Begun -= OnPanelSwipeBegun;
             _panel.Swiping -= OnPanelSwiping;
+            _panel.Released -= OnPanelSwipeReleased;
         }
 
         private void OnPanelSwipeBegun(SwipeData swipeData)
         {
-            if (_isMoveCompleted == false)
+            if (_moveHandler.CanPeformMove() == false)
                 return;
 
             _selectedVehicle = _vehiclePicker.GetVehicleBySwipe(swipeData);
@@ -55,7 +61,7 @@ namespace CarSumo.Vehicles.Selector
 
         private void OnPanelSwiping(SwipeData swipeData)
         {
-            if (_isMoveCompleted == false)
+            if (_moveHandler.CanPeformMove() == false)
                 return;
 
             if (_vehiclePicker.IsValid(_selectedVehicle) == false)
@@ -69,45 +75,13 @@ namespace CarSumo.Vehicles.Selector
 
         private void OnPanelSwipeReleased(SwipeData swipeData)
         {
-            if (_isMoveCompleted == false)
+            if (_moveHandler.CanPeformMove() == false)
                 return;
 
             if (_vehiclePicker.IsValid(_selectedVehicle) == false)
                 return;
 
-            _isMoveCompleted = false;
-        }
-    }
-
-    public class SelectorMoveHandler
-    {
-        private readonly ITeamChangeHandler _changeHandler;
-        private readonly IVehicleSpeedometer _speedometer;
-        private readonly VehicleSelectorData _data;
-        private readonly CoroutineExecutor _executor;
-
-        private bool _isMovePerforming = false;
-
-        public SelectorMoveHandler(ITeamChangeHandler changeHandler,
-                                IVehicleSpeedometer speedometer,
-                                VehicleSelectorData data,
-                                CoroutineExecutor executor)
-        {
-            _changeHandler = changeHandler;
-            _speedometer = speedometer;
-            _data = data;
-            _executor = executor;
-        }
-
-        public void HadnleVehiclePush(Vehicle vehicle, SwipeData swipeData)
-        {
-            if (_isMovePerforming)
-                return;
-
-            if (_speedometer.PowerPercentage <= _data.CancelDistancePercent)
-                return;
-
-            _isMovePerforming = true;
+            _moveHandler.HadnleVehiclePush(_selectedVehicle, swipeData);
         }
     }
 }

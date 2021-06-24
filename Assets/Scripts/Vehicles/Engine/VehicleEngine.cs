@@ -34,10 +34,11 @@ namespace CarSumo.Vehicles
 
         public void TurnOff()
         {
+            _engineSound.Stop();
             _exhaustParticles.Stop();
         }
 
-        public void PushForward(float forceModifier)
+        public void SpeedUp(float forceModifier)
         {
             var enginePower = _statsProvider.GetStats().EnginePower;
             var forceToAdd = transform.forward * forceModifier * enginePower;
