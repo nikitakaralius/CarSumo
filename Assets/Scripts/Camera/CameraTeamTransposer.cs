@@ -11,10 +11,11 @@ namespace CarSumo.Cameras
         [SerializeField] private IReactiveTeamChangeHandler _changeHandler;
         [SerializeField] private CinemachineVirtualCamera _camera;
         [SerializeField] private IDictionary<Team, float> _teamCameraPositions;
+        [SerializeField] private ITeamDefiner _previousTeamDefiner;
 
         private CinemachineOrbitalTransposer _transposer;
 
-        private bool _isInitial = true;
+        private int _times = 0;
 
         private void Awake()
         {
@@ -33,19 +34,19 @@ namespace CarSumo.Cameras
 
         private void ChangeCameraPosition(Team team)
         {
-            if (_isInitial == false)
+            if (_times > 0)
             {
                 var previousTeam = DeterminePreviousTeam(team);
                 _teamCameraPositions[previousTeam] = _transposer.m_XAxis.Value;
-                _isInitial = false;
             }
 
+            _times++;
             _transposer.m_XAxis.Value = _teamCameraPositions[team];
         }
 
         private Team DeterminePreviousTeam(Team currentTeam)
         {
-            return currentTeam == Team.First ? Team.Second : Team.First;
+            return _previousTeamDefiner.DefineTeam(currentTeam);
         }
     }
 }
