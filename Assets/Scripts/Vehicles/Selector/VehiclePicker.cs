@@ -2,18 +2,47 @@
 using CarSumo.Teams;
 using CarSumo.Input;
 using CarSumo.Extensions;
+using CarSumo.Vehicles.Speedometers;
 
 namespace CarSumo.Vehicles.Selector
 {
     public class VehiclePicker
     {
         private readonly Camera _camera;
+        private readonly VehicleCollection _lastValidVehicles;
+        private readonly IVehicleSpeedometer _speedometer;
         private readonly ITeamChangeHandler _changeHandler;
 
-        public VehiclePicker(Camera camera, ITeamChangeHandler changeHandler)
+        private Vehicle _selectedVehicle;
+
+        public VehiclePicker(Camera camera, 
+                            VehicleCollection lastValidVehicles, 
+                            IVehicleSpeedometer speedometer, 
+                            ITeamChangeHandler changeHandler)
         {
             _camera = camera;
+            _lastValidVehicles = lastValidVehicles;
+            _speedometer = speedometer;
             _changeHandler = changeHandler;
+        }
+
+        public Vehicle GetVehicleBySwipe(SwipeData swipeData)
+        {
+            if (TryPickVehicle(swipeData, out var vehicle))
+            {
+                vehicle.Engine.TurnOn(_speedometer);
+                var team = vehicle.GetStats().Team;
+                _lastValidVehicles[team] = vehicle;
+            }
+
+            _selectedVehicle = vehicle;
+
+            return vehicle;
+        }
+
+        public bool IsValid()
+        {
+            return _selectedVehicle != null && CanPickVehicle(_selectedVehicle);
         }
 
         public bool TryPickVehicle(SwipeData swipeData, out Vehicle vehicle)
