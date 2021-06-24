@@ -3,6 +3,7 @@ using CarSumo.VFX;
 using CarSumo.Vehicles.Stats;
 using AdvancedAudioSystem;
 using CarSumo.Vehicles.Speedometers;
+using System;
 
 namespace CarSumo.Vehicles
 {
@@ -45,9 +46,13 @@ namespace CarSumo.Vehicles
 
             _rigidbody.AddForce(forceToAdd, ForceMode.Impulse);
 
+            Func<bool> cancel = () => _rigidbody.velocity.magnitude == 0.0f;
+
             _engineSound.Stop();
-            _engineSound.PlayUntil(() => _rigidbody.velocity.magnitude == 0.0f,
-                              new MagnitudeSpeedometer(_rigidbody, _executor));
+            _engineSound.PlayUntil(cancel,new MagnitudeSpeedometer(_rigidbody, _executor));
+
+            _exhaustParticles.Stop();
+            _exhaustParticles.EmitUntil(cancel);
 
             _hornSound.Play();
         }

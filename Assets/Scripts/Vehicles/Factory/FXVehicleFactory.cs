@@ -12,9 +12,12 @@ namespace CarSumo.Vehicles.Factory
 
         public override Vehicle Create(Transform parent = null)
         {
-            _instantiateParticles.Create(parent).Play();
-            _insantiateSound.PlayOn(parent);
-            return base.Create(parent);
+            var instance = base.Create(parent);
+
+            _instantiateParticles.Create(instance.transform).Play();
+            _insantiateSound.PlayOn(instance.transform);
+
+            return instance;
         }
     }
 }
