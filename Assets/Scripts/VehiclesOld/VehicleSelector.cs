@@ -11,7 +11,7 @@ using Cinemachine.Utility;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 
-namespace CarSumo.Vehicles
+namespace CarSumo.VehiclesOld
 {
     public class VehicleSelector : SerializedMonoBehaviour, ITeamChangeSender
     {
@@ -19,7 +19,7 @@ namespace CarSumo.Vehicles
 
         public Vehicle[] LastActingVehicles { get; private set; }
 
-        [SerializeField] private UnitSelectorDataProvider _dataProvider;
+        [SerializeField] private VehicleSelectorData _dataProvider;
 
         [Header("Components")]
         [SerializeField] private ISwipePanel _panel;

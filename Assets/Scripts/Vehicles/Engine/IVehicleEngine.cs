@@ -1,4 +1,4 @@
-﻿using CarSumo.Vehicles.Speedometers;
+﻿using .Assets.Scripts.Vehicles.Speedometers;
 
 namespace CarSumo.Vehicles
 {

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using CarSumo.VFX;
-using CarSumo.Vehicles.Speedometers;
 using CarSumo.Vehicles.Stats;
 using AdvancedAudioSystem;
+using CarSumo.Vehicles.Speedometers;
 
 namespace CarSumo.Vehicles
 {

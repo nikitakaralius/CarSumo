@@ -5,6 +5,7 @@ namespace CarSumo.Teams
     public interface ITeamChangeHandler
     {
         Team Team { get; }
+        void ChangeTeam();
     }
 
     public interface IReactiveTeamChangeHandler : ITeamChangeHandler
