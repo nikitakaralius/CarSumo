@@ -1,6 +1,5 @@
 ﻿using CarSumo.Teams;
 using System;
-using UnityEngine;
 
 namespace CarSumo.Vehicles.Selector
 {

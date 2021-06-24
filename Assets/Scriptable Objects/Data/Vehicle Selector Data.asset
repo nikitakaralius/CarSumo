@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07780cb10628452f98dea3411c8c8c7e, type: 3}
-  m_Name: Unit Selector Data Provider
+  m_Name: Vehicle Selector Data
   m_EditorClassIdentifier: 
   _minSelectDistance: 100
-  _maxSelectDistanceValue: 300
-  _cancelDistancePercent: 0
+  _maxSelectDistance: 300
+  _cancelDistancePercent: 0.9
   _maxAccelerationMultiplier: 4.8
+  _timeForMove: 2
