@@ -8,6 +8,8 @@ namespace CarSumo.Vehicles.Selector
 {
     public class VehicleSelector : SerializedMonoBehaviour
     {
+        public VehicleCollection LastValidVehicles { get; private set; }
+
         [SerializeField] private VehicleSelectorData _data;
 
         [Header("Components")]
@@ -16,15 +18,16 @@ namespace CarSumo.Vehicles.Selector
         [SerializeField] private Camera _camera;
 
         private VehiclePicker _vehiclePicker;
-        private SelectorSpeedometer _spedometer;
+        private SelectorSpeedometer _speedometer;
 
         private Vehicle _selectedVehicle;
         private bool _isMoveCompleted = true;
 
         private void Awake()
         {
+            LastValidVehicles = new VehicleCollection();
             _vehiclePicker = new VehiclePicker(_camera, _changeHandler);
-            _spedometer = new SelectorSpeedometer(_data);
+            _speedometer = new SelectorSpeedometer(_data);
         }
 
         private void OnEnable()
@@ -44,6 +47,8 @@ namespace CarSumo.Vehicles.Selector
 
             if (_vehiclePicker.TryPickVehicle(swipeData, out _selectedVehicle) == false)
                 return;
+
+            _selectedVehicle.Engine.TurnOn(_speedometer);
 
         }
     }

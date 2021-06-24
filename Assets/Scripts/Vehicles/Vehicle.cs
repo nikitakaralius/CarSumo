@@ -8,7 +8,7 @@ namespace CarSumo.Vehicles
 {
     [RequireComponent(typeof(Rigidbody), typeof(MeshRenderer))]
     [RequireComponent(typeof(VehicleEngine), typeof(VehicleCollision))]
-    public class Vehicle : MonoBehaviour, IVehicleStatsProvider
+    public class Vehicle : MonoBehaviour, IVehicle
     {
         public IVehicleEngine Engine { get; private set; }
         public IRotation Rotation { get; private set;  }

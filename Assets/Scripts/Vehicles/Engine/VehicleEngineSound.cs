@@ -3,7 +3,7 @@ using AdvancedAudioSystem.Emitters;
 using AdvancedAudioSystem;
 using System.Collections;
 using System;
-using .Assets.Scripts.Vehicles.Speedometers;
+using CarSumo.Vehicles.Speedometers;
 
 namespace CarSumo.Vehicles
 {
