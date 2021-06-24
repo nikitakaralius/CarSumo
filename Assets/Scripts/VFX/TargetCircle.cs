@@ -1,10 +1,10 @@
-﻿using CarSumo.Abstract;
-using UnityEngine;
+﻿using UnityEngine;
 using CarSumo.Utilities;
+using CarSumo.VFX.Core;
 
 namespace CarSumo.VFX
 {
-    public class TargetCircle : Enabler
+    public class TargetCircle : MonoEnableEmitter
     {
         [SerializeField] private float _rotationSpeed;
         [SerializeField] private float _frequency;
@@ -20,10 +20,6 @@ namespace CarSumo.VFX
             ChangeSize();
             Rotate();
         }
-
-        public override void Enable() => gameObject.SetActive(true);
-
-        public override void Disable() => Destroy(gameObject);
 
         private void ChangeSize()
         {

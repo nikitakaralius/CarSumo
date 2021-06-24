@@ -1,68 +1,55 @@
-﻿using System;
+﻿using CarSumo.Data;
 using CarSumo.Teams;
-using CarSumo.Units.Factory;
+using CarSumo.Vehicles;
+using CarSumo.Vehicles.Factory;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace CarSumo.Units
 {
-    public class Unit : MonoBehaviour
+    public class Unit : SerializedMonoBehaviour, IVehicleUpgrader, IVehicleDestroyer
     {
-        public event Action Upgraded;
-        public event Action<Unit> Destroying;
-
-        public Team Team => _team;
-
         [SerializeField] private Team _team;
-        [SerializeField] private VehicleHierarchyFactory _hierarchy;
+        [SerializeField] private VehicleHierarchy _vehicleHierarchy;
+        [SerializeField] private ITeamUnitStorage _unitStorage;
 
-        private int _generation = 0;
-
-        private Vehicle _controlledVehicle;
+        private int _generation = -1;
 
         private void Awake()
         {
-            /*todo: check -transform.forward in case of changing vehicle assets.
-            In current pack vehicles have broken forward vector which directed backwards instead*/
+            _unitStorage.Add(this, _team);
 
-            var unitWorldPlacement = new WorldPlacement(transform.position, -transform.forward);
-            CreteVehicleInstance(unitWorldPlacement);
+            //todo: check -transofrm.forward if you changed the assets
+            var worldPlacement = new WorldPlacement(transform.position, -transform.forward);
+            CreateVehicleInstance(worldPlacement);
         }
 
-        private void OnDisable()
+        public void Destroy(Vehicle vehicle)
         {
-            _controlledVehicle.Destroying -= DestroyUnitInstance;
-            _controlledVehicle.Upgrading -= UpgradeVehicle;
-        }
+            _unitStorage.Remove(this, _team);
 
-        private void CreteVehicleInstance(WorldPlacement worldPlacement)
-        {
-            if (_hierarchy.TryGetVehicleFactoryByIndex(_generation, out var factory) == false)
-                return;
-            
-            _generation++;
-
-            _controlledVehicle = factory.Create(transform, _team);
-            _controlledVehicle.SetWorldPlacement(worldPlacement);
-
-            _controlledVehicle.Destroying += DestroyUnitInstance;
-            _controlledVehicle.Upgrading += UpgradeVehicle;
-        }
-
-        private void UpgradeVehicle()
-        {
-            if (_generation + 1 >= _hierarchy.Count)
-                return;
-
-            var worldPlacement = _controlledVehicle.WorldPlacement;
-            _controlledVehicle.DestroyWithoutNotification();
-            CreteVehicleInstance(worldPlacement);
-            Upgraded?.Invoke();
-        }
-
-        private void DestroyUnitInstance()
-        {
-            Destroying?.Invoke(this);
+            Destroy(vehicle.gameObject);
             Destroy(gameObject);
+        }
+
+        public void Upgrade(Vehicle vehicle)
+        {
+            if (_vehicleHierarchy.CanCreate(_generation + 1) == false)
+                return;
+
+            var transform = vehicle.transform;
+            var worldPlacement = new WorldPlacement(transform.position, transform.forward);
+
+            Destroy(vehicle.gameObject);
+
+            CreateVehicleInstance(worldPlacement);
+        }
+
+        private void CreateVehicleInstance(WorldPlacement worldPlacement)
+        {
+            var factory = _vehicleHierarchy.GetVehicleFactoryByGeneration(++_generation);
+
+            factory.Create(transform).Init(_team, worldPlacement, this, this);
         }
     }
 }

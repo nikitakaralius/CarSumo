@@ -12,6 +12,11 @@
             return Map(value, 0.0f, 100.0f, min, max);
         }
 
+        public static float MapByPercentsRange(float value, Range range)
+        {
+            return Map(value, 0.0f, 100.0f, range.Min, range.Max);
+        }
+
         public static float MapToPercents(float value, float min, float max)
         {
             return Map(value, min, max, 0.0f, 100.0f);

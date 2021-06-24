@@ -15,31 +15,33 @@ namespace CarSumo.Input
 
         public event Action<SwipeData> Released;
 
-        private SwipeData _sendingData;
+        private Vector2 _startPosition;
+        private Vector2 _delta;
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            _sendingData.StartPosition = eventData.position;
-            _sendingData.Delta = eventData.delta;
-            _sendingData.EndPosition = eventData.position;
+            _startPosition = eventData.position;
 
-            Begun?.Invoke(_sendingData);
+            var sendingData = new SwipeData(_startPosition, eventData.position, eventData.delta);
+            _delta = eventData.delta;
+
+            Begun?.Invoke(sendingData);
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            _sendingData.Delta = eventData.delta;
-            _sendingData.EndPosition = eventData.position;
+            var sendingData = new SwipeData(_startPosition, eventData.position, eventData.delta);
+            _delta = eventData.delta;
 
-            Swiping?.Invoke(_sendingData);
+            Swiping?.Invoke(sendingData);
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            _sendingData.EndPosition = eventData.position;
-            _sendingData.Delta = Vector2.zero;
+            var sendingData = new SwipeData(_startPosition, eventData.position, eventData.delta);
+            _delta = Vector2.zero;
 
-            Released?.Invoke(_sendingData);
+            Released?.Invoke(sendingData);
         }
 
         public float GetAxisValue(int axis)
@@ -47,7 +49,7 @@ namespace CarSumo.Input
             if (axis != 0)
                 return 0.0f;
 
-            var xAxis = _sendingData.Delta.x / _settings.SwipeDeltaDivider;
+            var xAxis = _delta.x / _settings.SwipeDeltaDivider;
 
             return Mathf.Clamp(xAxis, -1.0f, 1.0f);
         }

@@ -1,15 +1,17 @@
 ﻿using CarSumo.Level;
 using CarSumo.Teams;
-using CarSumo.Units;
-using CarSumo.Units.Stats;
+using CarSumo.Vehicles.Selector;
+using CarSumo.Vehicles.Stats;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace CarSumo.Processors
 {
-    public class UnitEnhancer : MonoBehaviour
+    public class UnitEnhancer : SerializedMonoBehaviour
     {
         [SerializeField] private VehicleDestroyer _destroyer;
         [SerializeField] private VehicleSelector _selector;
+        [SerializeField] private ITeamDefiner _upgradeTeamDefiner = new SequentialTeamDefiner();
 
         private void OnEnable()
         {
@@ -23,11 +25,10 @@ namespace CarSumo.Processors
 
         private void OnVehicleDestroying(IVehicleStatsProvider destroyingEntity)
         {
-            var upgradeTeam = new SequentialTeamDefiner().DefineTeam(destroyingEntity.GetStats().Team);
-            var vehicleToUpgrade = _selector.LastActingVehicles[(int)upgradeTeam];
+            var entityTeam = destroyingEntity.GetStats().Team;
+            var teamToUpgrage = _upgradeTeamDefiner.DefineTeam(entityTeam);
 
-            if (vehicleToUpgrade is null)
-                return;
+            var vehicleToUpgrade = _selector.LastValidVehicles[teamToUpgrage];
 
             if (IsSuicide(destroyingEntity, vehicleToUpgrade))
                 return;
