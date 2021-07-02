@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using CarSumo.Teams;
 
 namespace CarSumo.Vehicles.Selector
 {
-    public class VehicleCollection
+    public class VehicleCollection : IEnumerable<IVehicle>
     {
         private static readonly int s_teamCount = Enum.GetValues(typeof(Team)).Length;
 
@@ -38,6 +40,17 @@ namespace CarSumo.Vehicles.Selector
                 return new IVehicle.FakeVehicle(team);
 
             return _vehicles[index];
+        }
+
+        public IEnumerator<IVehicle> GetEnumerator()
+        {
+            foreach (IVehicle vehicle in _vehicles)
+                yield return vehicle;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
