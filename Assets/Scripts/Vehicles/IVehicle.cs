@@ -5,18 +5,17 @@ namespace CarSumo.Vehicles
 {
     public interface IVehicle : IVehicleStatsProvider
     {
-        Team Team { get; }
         void Upgrade();
         void Destroy();
 
         public class FakeVehicle : IVehicle
         {
+            private readonly Team _team;
+
             public FakeVehicle(Team team)
             {
-                Team = team;
+                _team = team;
             }
-
-            public Team Team { get; }
 
             public void Destroy()
             {
@@ -24,7 +23,7 @@ namespace CarSumo.Vehicles
 
             public VehicleStats GetStats()
             {
-                return new VehicleStats(Team, 0.0f, 0.0f);
+                return new VehicleStats(_team, 0.0f, 0.0f);
             }
 
             public void Upgrade()

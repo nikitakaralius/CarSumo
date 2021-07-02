@@ -46,7 +46,7 @@ namespace CarSumo.Vehicles.Selector
 
         public void Add(IVehicle vehicle)
         {
-            Add(vehicle, vehicle.Team);
+            Add(vehicle, vehicle.GetStats().Team);
         }
 
         public void Add(IVehicle vehicle, Team team)
@@ -54,7 +54,7 @@ namespace CarSumo.Vehicles.Selector
             if (vehicle is null)
                 throw new NullReferenceException();
 
-            if (vehicle.Team != team)
+            if (vehicle.GetStats().Team != team)
                 throw new InvalidOperationException(nameof(team));
 
             _vehicles[(int)team] = vehicle;
