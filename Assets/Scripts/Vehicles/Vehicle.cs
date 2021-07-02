@@ -23,6 +23,8 @@ namespace CarSumo.Vehicles
 
         public IRotation Rotation { get; private set; }
 
+        public Team Team => GetStats().Team;
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
