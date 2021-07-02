@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-using CarSumo.Vehicles.Stats;
+﻿using CarSumo.Data;
 using CarSumo.Teams;
-using CarSumo.Data;
-using CarSumo.Vehicles.Rotation;
 using CarSumo.Vehicles.Engine;
+using CarSumo.Vehicles.Rotation;
+using CarSumo.Vehicles.Stats;
+using UnityEngine;
 
 namespace CarSumo.Vehicles
 {
@@ -11,9 +11,6 @@ namespace CarSumo.Vehicles
     [RequireComponent(typeof(VehicleEngine), typeof(VehicleCollision))]
     public class Vehicle : MonoBehaviour, IVehicle
     {
-        public IVehicleEngine Engine { get; private set; }
-        public IRotation Rotation { get; private set;  }
-
         [SerializeField] private VehicleTypeStats _typeStats;
 
         private Rigidbody _rigidbody;
@@ -21,6 +18,10 @@ namespace CarSumo.Vehicles
 
         private IVehicleUpgrader _upgrader;
         private IVehicleDestroyer _destroyer;
+
+        public IVehicleEngine Engine { get; private set; }
+
+        public IRotation Rotation { get; private set; }
 
         private void Awake()
         {

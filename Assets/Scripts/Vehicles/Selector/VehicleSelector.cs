@@ -1,15 +1,13 @@
-﻿using UnityEngine;
+﻿using CarSumo.Input;
 using CarSumo.Teams;
-using CarSumo.Input;
-using Sirenix.OdinInspector;
 using CarSumo.Vehicles.Speedometers;
+using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace CarSumo.Vehicles.Selector
 {
     public class VehicleSelector : SerializedMonoBehaviour
     {
-        public VehicleCollection LastValidVehicles { get; private set; }
-
         [SerializeField] private VehicleSelectorData _data;
 
         [Header("Components")]
@@ -24,6 +22,8 @@ namespace CarSumo.Vehicles.Selector
         private SelectorSpeedometer _speedometer;
 
         private Vehicle _selectedVehicle;
+
+        public VehicleCollection LastValidVehicles { get; private set; }
 
         private void Awake()
         {

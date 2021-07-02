@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using Cinemachine;
+﻿using System.Collections.Generic;
 using CarSumo.Teams;
+using Cinemachine;
 using Sirenix.OdinInspector;
-using System.Collections.Generic;
+using UnityEngine;
 
 namespace CarSumo.Cameras
 {
