@@ -9,7 +9,7 @@ public class VehicleTeamCollectionTests
     [Test]
     public void VehicleTeamCollection_DoesNotContainsNullElementsByDefaultOnInitialize()
     {
-        var collection = new VehicleTeamCollection();
+        var collection = new VehicleCollection();
 
         foreach (IVehicle vehicle in collection)
         {
@@ -17,27 +17,31 @@ public class VehicleTeamCollectionTests
         }
     }
 
-    public void VehicleTeamCollection_ReturnsSomeInstanceWhenItsNull()
+    [Test]
+    public void VehicleTeamCollection_CanNotAddNull()
     {
-        var collection = new VehicleTeamCollection();
-        collection[Team.First] = null;
+        var collection = new VehicleCollection();
 
-        Assert.IsNotNull(collection[Team.First]);
+        Assert.Throws<NullReferenceException>(() => collection.Add(null));
+        Assert.Throws<NullReferenceException>(() => collection.Add(null));
     }
 
+    [Test]
     public void VehicleTeamCollection_HasSlotsForAllTeams()
     {
-        var collection = new VehicleTeamCollection();
+        var collection = new VehicleCollection();
 
         var teamsCount = Enum.GetNames(typeof(Team)).Length;
 
         Assert.AreEqual(teamsCount, collection.Count);
     }
 
-    public void VehicleTeamCollection_AddingWorksCorrectly()
+    [Test]
+    public void VehicleTeamCollection_ÑanNotAddVehicleWithOtherTeam()
     {
-        var collection = new VehicleTeamCollection();
+        var collection = new VehicleCollection();
 
-        collection[Team.First] = ;
+        Assert.Throws<InvalidOperationException>(() => collection[Team.First] = new IVehicle.FakeVehicle(Team.Second));
+        Assert.Throws<InvalidOperationException>(() => collection.Add(new IVehicle.FakeVehicle(Team.First), Team.Second));
     }
 }

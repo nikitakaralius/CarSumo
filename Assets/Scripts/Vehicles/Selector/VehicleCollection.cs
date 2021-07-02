@@ -25,7 +25,7 @@ namespace CarSumo.Vehicles.Selector
         public IVehicle this[Team team]
         {
             get => GetVehicle(team);
-            set => AddVehilce(value, team);
+            set => Add(value, team);
         }
 
         public IVehicle GetVehicle(Team team)
@@ -34,7 +34,7 @@ namespace CarSumo.Vehicles.Selector
 
             // it doesn't work and I've no idea why (condition is true in debug mode, but is skips anyway)
 
-            // if (_vehicles[index] == null)
+            //if (_vehicles[index] == null)
             //    return new IVehicle.FakeVehicle(team);
 
             // but this works perfectly
@@ -44,13 +44,16 @@ namespace CarSumo.Vehicles.Selector
             return _vehicles[index];
         }
 
-        public void AddVehicle(IVehicle vehicle)
+        public void Add(IVehicle vehicle)
         {
-            AddVehilce(vehicle, vehicle.Team);
+            Add(vehicle, vehicle.Team);
         }
 
-        public void AddVehilce(IVehicle vehicle, Team team)
+        public void Add(IVehicle vehicle, Team team)
         {
+            if (vehicle is null)
+                throw new NullReferenceException();
+
             if (vehicle.Team != team)
                 throw new InvalidOperationException(nameof(team));
 
