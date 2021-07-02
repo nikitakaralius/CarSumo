@@ -23,13 +23,13 @@ namespace CarSumo.Vehicles.Selector
 
         private Vehicle _selectedVehicle;
 
-        public VehicleCollection LastValidVehicles { get; private set; }
+        public VehicleTeamCollection LastValidVehicles { get; private set; }
 
         private void Awake()
         {
             var executor = new CoroutineExecutor(this);
 
-            LastValidVehicles = new VehicleCollection();
+            LastValidVehicles = new VehicleTeamCollection();
             _speedometer = new SelectorSpeedometer(_data);
 
             _vehiclePicker = new VehiclePicker(_camera, LastValidVehicles, _speedometer, _changeHandler);

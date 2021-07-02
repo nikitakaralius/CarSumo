@@ -9,13 +9,13 @@ namespace CarSumo.Vehicles.Selector
     public class VehiclePicker
     {
         private readonly Camera _camera;
-        private readonly VehicleCollection _lastValidVehicles;
+        private readonly VehicleTeamCollection _lastValidVehicles;
         private readonly IVehicleSpeedometer _speedometer;
         private readonly ITeamChangeHandler _changeHandler;
 
         public VehiclePicker(
             Camera camera,
-            VehicleCollection lastValidVehicles,
+            VehicleTeamCollection lastValidVehicles,
             IVehicleSpeedometer speedometer,
             ITeamChangeHandler changeHandler)
         {

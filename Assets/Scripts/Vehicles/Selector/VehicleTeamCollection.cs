@@ -5,13 +5,13 @@ using CarSumo.Teams;
 
 namespace CarSumo.Vehicles.Selector
 {
-    public class VehicleCollection : IEnumerable<IVehicle>
+    public class VehicleTeamCollection : IEnumerable<IVehicle>
     {
         private static readonly int s_teamCount = Enum.GetValues(typeof(Team)).Length;
 
         private readonly IVehicle[] _vehicles = new IVehicle[s_teamCount];
 
-        public VehicleCollection()
+        public VehicleTeamCollection()
         {
             for (int i = 0; i < _vehicles.Length; i++)
             {
