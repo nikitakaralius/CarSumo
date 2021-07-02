@@ -1,7 +1,6 @@
-﻿using System;
-using Cinemachine;
-using UnityEngine;
+﻿using Cinemachine;
 using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace CarSumo.Cameras
 {

@@ -5,7 +5,7 @@ namespace CarSumo.Extensions
 {
     public static class ComponentExtensions
     {
-        public static void HandleComponent<T>(this Component gameObject, Action<T> handler)
+        public static void HandleComponent<T>(this Component gameObject, Action<T> handler) where T : Component
         {
             var component = gameObject.GetComponent<T>();
 
@@ -15,7 +15,7 @@ namespace CarSumo.Extensions
             handler?.Invoke(component);
         }
 
-        public static bool HasComponent<T>(this Component gameObject)
+        public static bool HasComponent<T>(this Component gameObject) where T : Component
         {
             return gameObject.GetComponent<T>() != null;
         }

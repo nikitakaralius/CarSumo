@@ -8,7 +8,7 @@ namespace AdvancedAudioSystem
     public class AudioCue : SerializedScriptableObject
     {
         [SerializeField] private AudioClipsGroup _audioClips;
-        [SerializeField] private readonly IAudioConfigurationEnumerable _configurations;
+        [SerializeField] private IAudioConfigurationEnumerable _configurations;
         public AudioClip Clip => _audioClips.NextClip();
 
         public void ApplyConfiguration(AudioSource source)

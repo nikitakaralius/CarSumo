@@ -1,11 +1,11 @@
-﻿using CarSumo.Teams;
-using System;
+﻿using System;
+using CarSumo.Teams;
 
 namespace CarSumo.Vehicles.Selector
 {
     public class VehicleCollection
     {
-        private static int s_teamCount = Enum.GetValues(typeof(Team)).Length;
+        private static readonly int s_teamCount = Enum.GetValues(typeof(Team)).Length;
 
         private readonly IVehicle[] _vehicles = new IVehicle[s_teamCount];
 
@@ -28,12 +28,12 @@ namespace CarSumo.Vehicles.Selector
         {
             int index = (int)team;
 
-            //it doesn't work and I've no idea why (condition is true in debug mode, but is skips anyway)
+            // it doesn't work and I've no idea why (condition is true in debug mode, but is skips anyway)
 
-            //if (_vehicles[index] == null)
+            // if (_vehicles[index] == null)
             //    return new IVehicle.FakeVehicle(team);
 
-            //but this works perfectly
+            // but this works perfectly
             if (_vehicles[index].ToString() == "null")
                 return new IVehicle.FakeVehicle(team);
 

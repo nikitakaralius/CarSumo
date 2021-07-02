@@ -19,7 +19,7 @@ namespace CarSumo.Units
         {
             _unitStorage.Add(this, _team);
 
-            //todo: check -transofrm.forward if you changed the assets
+            // Todo: check -transofrm.forward if you changed the assets
             var worldPlacement = new WorldPlacement(transform.position, -transform.forward);
             CreateVehicleInstance(worldPlacement);
         }

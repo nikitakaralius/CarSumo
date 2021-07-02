@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using CarSumo.Vehicles.Stats;
-using AdvancedAudioSystem;
+﻿using AdvancedAudioSystem;
 using CarSumo.Vehicles.Speedometers;
-using System;
+using CarSumo.Vehicles.Stats;
+using UnityEngine;
 
 namespace CarSumo.Vehicles.Engine
 {
@@ -41,19 +40,22 @@ namespace CarSumo.Vehicles.Engine
         public void SpeedUp(float forceModifier)
         {
             var enginePower = _statsProvider.GetStats().EnginePower;
-            var forceToAdd = transform.forward * forceModifier * enginePower;
+            var forceToAdd = enginePower * forceModifier * transform.forward;
 
             _rigidbody.AddForce(forceToAdd, ForceMode.Impulse);
 
-            Func<bool> cancel = () => _rigidbody.velocity.magnitude == 0.0f;
-
             _engineSound.Stop();
-            _engineSound.PlayUntil(cancel,new MagnitudeSpeedometer(_rigidbody, _executor));
+            _engineSound.PlayUntil(IsVehicleStopped, new MagnitudeSpeedometer(_rigidbody, _executor));
 
             _particles.StopAllParticles();
-            _particles.EmitExhaustParticlesUntil(cancel);
+            _particles.EmitExhaustParticlesUntil(IsVehicleStopped);
 
             _hornSound.Play();
+        }
+
+        private bool IsVehicleStopped()
+        {
+            return _rigidbody.velocity.magnitude == 0.0f;
         }
     }
 }

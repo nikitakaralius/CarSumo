@@ -1,6 +1,6 @@
-﻿using CarSumo.VFX.Core;
-using System;
+﻿using System;
 using System.Collections;
+using CarSumo.VFX.Core;
 using UnityEngine;
 
 namespace CarSumo.VFX

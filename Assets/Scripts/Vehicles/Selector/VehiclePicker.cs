@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using CarSumo.Teams;
+﻿using CarSumo.Extensions;
 using CarSumo.Input;
-using CarSumo.Extensions;
+using CarSumo.Teams;
 using CarSumo.Vehicles.Speedometers;
+using UnityEngine;
 
 namespace CarSumo.Vehicles.Selector
 {
@@ -13,10 +13,11 @@ namespace CarSumo.Vehicles.Selector
         private readonly IVehicleSpeedometer _speedometer;
         private readonly ITeamChangeHandler _changeHandler;
 
-        public VehiclePicker(Camera camera, 
-                            VehicleCollection lastValidVehicles, 
-                            IVehicleSpeedometer speedometer, 
-                            ITeamChangeHandler changeHandler)
+        public VehiclePicker(
+            Camera camera,
+            VehicleCollection lastValidVehicles,
+            IVehicleSpeedometer speedometer,
+            ITeamChangeHandler changeHandler)
         {
             _camera = camera;
             _lastValidVehicles = lastValidVehicles;

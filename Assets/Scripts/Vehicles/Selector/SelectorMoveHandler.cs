@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using CarSumo.Teams;
+﻿using System.Collections;
 using CarSumo.Input;
+using CarSumo.Teams;
 using CarSumo.Vehicles.Speedometers;
-using System.Collections;
+using UnityEngine;
 
 namespace CarSumo.Vehicles.Selector
 {
@@ -15,10 +15,11 @@ namespace CarSumo.Vehicles.Selector
 
         private bool _isMovePerforming = false;
 
-        public SelectorMoveHandler(ITeamChangeHandler changeHandler,
-                                IVehicleSpeedometer speedometer,
-                                VehicleSelectorData data,
-                                CoroutineExecutor executor)
+        public SelectorMoveHandler(
+            ITeamChangeHandler changeHandler,
+            IVehicleSpeedometer speedometer,
+            VehicleSelectorData data,
+            CoroutineExecutor executor)
         {
             _changeHandler = changeHandler;
             _speedometer = speedometer;
