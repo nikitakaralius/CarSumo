@@ -20,6 +20,8 @@ namespace CarSumo.Vehicles.Selector
             }
         }
 
+        public int Count => _vehicles.Length;
+
         public IVehicle this[Team team]
         {
             get => GetVehicle(team);
