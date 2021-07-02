@@ -23,7 +23,8 @@ public class VehicleTeamCollectionTests
         var collection = new VehicleCollection();
 
         Assert.Throws<NullReferenceException>(() => collection.Add(null));
-        Assert.Throws<NullReferenceException>(() => collection.Add(null));
+        Assert.Throws<NullReferenceException>(() => collection.Add(null, Team.First));
+        Assert.Throws<NullReferenceException>(() => collection[Team.First] = null);
     }
 
     [Test]
