@@ -5,13 +5,13 @@ using CarSumo.Teams;
 
 namespace CarSumo.Vehicles.Selector
 {
-    public class VehicleTeamCollection : IEnumerable<IVehicle>
+    public class VehicleCollection : IEnumerable<IVehicle>
     {
         private static readonly int s_teamCount = Enum.GetValues(typeof(Team)).Length;
 
         private readonly IVehicle[] _vehicles = new IVehicle[s_teamCount];
 
-        public VehicleTeamCollection()
+        public VehicleCollection()
         {
             for (int i = 0; i < _vehicles.Length; i++)
             {
@@ -25,7 +25,7 @@ namespace CarSumo.Vehicles.Selector
         public IVehicle this[Team team]
         {
             get => GetVehicle(team);
-            set => _vehicles[(int)team] = value;
+            set => AddVehilce(value, team);
         }
 
         public IVehicle GetVehicle(Team team)
@@ -42,6 +42,19 @@ namespace CarSumo.Vehicles.Selector
                 return new IVehicle.FakeVehicle(team);
 
             return _vehicles[index];
+        }
+
+        public void AddVehicle(IVehicle vehicle)
+        {
+            AddVehilce(vehicle, vehicle.Team);
+        }
+
+        public void AddVehilce(IVehicle vehicle, Team team)
+        {
+            if (vehicle.Team != team)
+                throw new InvalidOperationException(nameof(team));
+
+            _vehicles[(int)team] = vehicle;
         }
 
         public IEnumerator<IVehicle> GetEnumerator()
