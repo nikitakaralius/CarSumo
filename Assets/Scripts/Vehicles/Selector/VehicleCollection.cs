@@ -34,7 +34,7 @@ namespace CarSumo.Vehicles.Selector
 
             // it doesn't work and I've no idea why (condition is true in debug mode, but is skips anyway)
 
-            //if (_vehicles[index] == null)
+            // if (_vehicles[index] == null)
             //    return new IVehicle.FakeVehicle(team);
 
             // but this works perfectly
