@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace CarSumo.Utilities
+namespace CarSumo.Calculations
 {
-    public static class Trigonometry
+    public static class HarmonicMotion
     {
         public static float CosHarmonicMotion(float x, float amplitude, float frequency, float startPhase)
         {

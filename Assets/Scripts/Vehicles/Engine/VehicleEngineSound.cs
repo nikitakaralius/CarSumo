@@ -4,6 +4,7 @@ using AdvancedAudioSystem;
 using System.Collections;
 using System;
 using CarSumo.Vehicles.Speedometers;
+using CarSumo.Calculations;
 
 namespace CarSumo.Vehicles
 {
@@ -37,8 +38,8 @@ namespace CarSumo.Vehicles
 
         public void ConfigureEngineSound(float enginePowerPercentage)
         {
-            _emitter.AudioSource.volume = Converter.MapByPercentsRange(enginePowerPercentage, _volumeRange);
-            _emitter.AudioSource.pitch = Converter.MapByPercentsRange(enginePowerPercentage, _pitchRange);
+            _emitter.AudioSource.volume = Map.MapFromPercentRange(enginePowerPercentage, _volumeRange);
+            _emitter.AudioSource.pitch = Map.MapFromPercentRange(enginePowerPercentage, _pitchRange);
         }
 
         private IEnumerator PlayUntilRoutine(Func<bool> cancel, IVehicleSpeedometer speedometer)
