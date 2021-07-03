@@ -25,7 +25,7 @@ namespace CarSumo.Vehicles.Selector
         public IVehicle this[Team team]
         {
             get => GetVehicle(team);
-            set => Add(value, team);
+            set => AddVehicle(value, team);
         }
 
         public IVehicle GetVehicle(Team team)
@@ -44,12 +44,12 @@ namespace CarSumo.Vehicles.Selector
             return _vehicles[index];
         }
 
-        public void Add(IVehicle vehicle)
+        public void AddVehicle(IVehicle vehicle)
         {
-            Add(vehicle, vehicle.GetStats().Team);
+            AddVehicle(vehicle, vehicle.GetStats().Team);
         }
 
-        public void Add(IVehicle vehicle, Team team)
+        public void AddVehicle(IVehicle vehicle, Team team)
         {
             if (vehicle is null)
                 throw new NullReferenceException();

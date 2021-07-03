@@ -22,8 +22,8 @@ public class VehicleCollectionTests
     {
         var collection = new VehicleCollection();
 
-        Assert.Throws<NullReferenceException>(() => collection.Add(null));
-        Assert.Throws<NullReferenceException>(() => collection.Add(null, Team.First));
+        Assert.Throws<NullReferenceException>(() => collection.AddVehicle(null));
+        Assert.Throws<NullReferenceException>(() => collection.AddVehicle(null, Team.First));
         Assert.Throws<NullReferenceException>(() => collection[Team.First] = null);
     }
 
@@ -43,6 +43,6 @@ public class VehicleCollectionTests
         var collection = new VehicleCollection();
 
         Assert.Throws<InvalidOperationException>(() => collection[Team.First] = new IVehicle.FakeVehicle(Team.Second));
-        Assert.Throws<InvalidOperationException>(() => collection.Add(new IVehicle.FakeVehicle(Team.First), Team.Second));
+        Assert.Throws<InvalidOperationException>(() => collection.AddVehicle(new IVehicle.FakeVehicle(Team.First), Team.Second));
     }
 }
