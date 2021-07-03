@@ -5,7 +5,7 @@ using CarSumo.Vehicles.Stats;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace CarSumo.Processors
+namespace CarSumo.Units
 {
     public class UnitEnhancer : SerializedMonoBehaviour
     {
