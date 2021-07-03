@@ -19,7 +19,8 @@ public class VehicleCollectionTests
 
         yield return new WaitForSeconds(1.0f);
 
-        Assert.NotNull(collection.GetVehicle(Team.First));
-        Assert.NotNull(collection.GetVehicle(Team.First));
+        var vehicleFromCollection = collection.GetVehicle(Team.First);
+
+        Assert.DoesNotThrow(() => vehicleFromCollection.Upgrade());
     }
 }
