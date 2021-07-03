@@ -4,10 +4,10 @@ using CarSumo.Vehicles.Selector;
 using NUnit.Framework;
 using System;
 
-public class VehicleTeamCollectionTests
+public class VehicleCollectionTests
 {
     [Test]
-    public void VehicleTeamCollection_DoesNotContainsNullElementsByDefaultOnInitialize()
+    public void VehicleCollection_DoesNotContainsNullElementsByDefaultOnInitialize()
     {
         var collection = new VehicleCollection();
 
@@ -18,7 +18,7 @@ public class VehicleTeamCollectionTests
     }
 
     [Test]
-    public void VehicleTeamCollection_CanNotAddNull()
+    public void VehicleCollection_CanNotAddNull()
     {
         var collection = new VehicleCollection();
 
@@ -28,7 +28,7 @@ public class VehicleTeamCollectionTests
     }
 
     [Test]
-    public void VehicleTeamCollection_HasSlotsForAllTeams()
+    public void VehicleCollection_HasSlotsForAllTeams()
     {
         var collection = new VehicleCollection();
 
@@ -38,7 +38,7 @@ public class VehicleTeamCollectionTests
     }
 
     [Test]
-    public void VehicleTeamCollection_ÑanNotAddVehicleWithOtherTeam()
+    public void VehicleCollection_ÑanNotAddVehicleWithOtherTeam()
     {
         var collection = new VehicleCollection();
 
