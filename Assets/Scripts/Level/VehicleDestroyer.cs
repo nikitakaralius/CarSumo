@@ -13,6 +13,7 @@ namespace CarSumo.Level
         public event Action<IVehicleStatsProvider> VehicleDestroying;
 
         [SerializeField] private CinemachineImpulseSource _impulseSource;
+        [SerializeField] private VehicleDestroyerAudio _audio;
 
         private Vehicle _previousVehicle;
 
@@ -28,6 +29,7 @@ namespace CarSumo.Level
 
                 _impulseSource.GenerateImpulse();
                 VehicleDestroying?.Invoke(vehicle);
+                _audio.PlayExplosionSound(other);
                 vehicle.Destroy();
             });
         }
