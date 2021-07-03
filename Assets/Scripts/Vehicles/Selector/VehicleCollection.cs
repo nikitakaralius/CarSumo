@@ -32,13 +32,7 @@ namespace CarSumo.Vehicles.Selector
         {
             int index = (int)team;
 
-            // it doesn't work and I've no idea why (condition is true in debug mode, but is skips anyway)
-
-            // if (_vehicles[index] == null)
-            //    return new IVehicle.FakeVehicle(team);
-
-            // but this works perfectly
-            if (_vehicles[index].ToString() == "null")
+            if (IsDestroyed(_vehicles[index]))
                 return new IVehicle.FakeVehicle(team);
 
             return _vehicles[index];
@@ -69,6 +63,16 @@ namespace CarSumo.Vehicles.Selector
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+
+        private bool IsDestroyed(IVehicle vehilce)
+        {
+            // this doesn't work, probably because Unity is destroying it but doesn't set the object to null
+            // (condition is true in debug mode but is skips anyway)
+
+            // return vehilce is null;
+
+            return vehilce.ToString() == "null";
         }
     }
 }

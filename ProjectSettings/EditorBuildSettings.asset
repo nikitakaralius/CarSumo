@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Third Party/Assets/SimpleTown/DemoScene/SimpleTown_DemoScene.unity
     guid: 21ba8959b0b9c5e41889da424bb00b0b
+  - enabled: 1
+    path: Assets/InitTestScene637609056881765053.unity
+    guid: 2a73771a3f1e1ed46ac7517f26d867c2
   m_configObjects: {}

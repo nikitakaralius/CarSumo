@@ -17,7 +17,7 @@ public class VehicleCollectionTests
         collection.AddVehicle(vehicle);
         vehicle.Destroy();
 
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
 
         var vehicleFromCollection = collection.GetVehicle(Team.First);
 

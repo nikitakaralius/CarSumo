@@ -36,7 +36,8 @@ namespace CarSumo.Vehicles
 
             public VehicleStats GetStats() => new VehicleStats(_team, 0.0f, 0.0f);
 
-            public void Upgrade() { }
+            //Tests will pass wrong without Debug Log Statemen
+            public void Upgrade() => Debug.Log(gameObject);
         }
     }
 }
