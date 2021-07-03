@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CarSumo.Calculations;
+using CarSumo.Coroutines;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -22,7 +24,7 @@ namespace CarSumo.Vehicles.Speedometers
             while (rigidbody.velocity.magnitude > 0.0f)
             {
                 maxSpeed = Math.Max(maxSpeed, rigidbody.velocity.magnitude);
-                PowerPercentage = Converter.MapToPercents(rigidbody.velocity.magnitude, 0.0f, maxSpeed);
+                PowerPercentage = Map.MapToPercentsRange(rigidbody.velocity.magnitude, 0.0f, maxSpeed);
                 yield return null;
             }
         }

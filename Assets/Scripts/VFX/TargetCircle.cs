@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using CarSumo.Utilities;
 using CarSumo.VFX.Core;
+using CarSumo.Calculations;
 
 namespace CarSumo.VFX
 {
@@ -34,7 +34,7 @@ namespace CarSumo.VFX
 
         private float GetSizeMultiplier()
         {
-            return Mathf.Abs(Trigonometry.CosHarmonicMotion(Time.time, _amplitude, _frequency, 0))
+            return Mathf.Abs(HarmonicMotion.CosHarmonicMotion(Time.time, _amplitude, _frequency, 0))
                    + _bias;
         }
     }

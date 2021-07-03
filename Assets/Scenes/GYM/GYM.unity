@@ -739,7 +739,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627056646}
-  m_LocalRotation: {x: 0.4278271, y: -0.000000007145592, z: 0.000000003382243, w: 0.9038606}
+  m_LocalRotation: {x: 0.42782706, y: 0.00000004720051, z: -0.000000022341558, w: 0.9038607}
   m_LocalPosition: {x: 0, y: 42.7, z: -35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1002,9 +1002,8 @@ GameObject:
   - component: {fileID: 722156930}
   - component: {fileID: 722156931}
   - component: {fileID: 722156932}
-  - component: {fileID: 722156933}
-  - component: {fileID: 722156934}
   - component: {fileID: 722156935}
+  - component: {fileID: 722156933}
   m_Layer: 0
   m_Name: Vehicle Destroyer
   m_TagString: Untagged
@@ -1062,6 +1061,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _impulseSource: {fileID: 722156933}
+  _audio: {fileID: 722156935}
 --- !u!114 &722156933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1104,33 +1104,6 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 1000
     m_PropagationSpeed: 343
---- !u!114 &722156934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 722156929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ae30e691758ca143b34b5f2fb8291d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _triggerEntered:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 722156935}
-        m_TargetAssemblyTypeName: CarSumo.Level.VehicleDestroyerAudio, Assembly-CSharp
-        m_MethodName: PlayExplosionSound
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &722156935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2406,7 +2379,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777856713}
-  m_LocalRotation: {x: 0.4278271, y: -0.000000007145592, z: 0.000000003382243, w: 0.9038606}
+  m_LocalRotation: {x: 0.42782706, y: 0.00000004720051, z: -0.000000022341558, w: 0.9038607}
   m_LocalPosition: {x: 0, y: 42.7, z: -35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2466,12 +2439,12 @@ MonoBehaviour:
       Data: 0
     - Name: _teamCameraPositions
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[CarSumo.Teams.Team, Assembly-CSharp],[System.Single,
+      Data: 0|System.Collections.Generic.Dictionary`2[[CarSumo.Teams.Team, Scripts],[System.Single,
         mscorlib]], mscorlib
     - Name: comparer
       Entry: 7
       Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[CarSumo.Teams.Team,
-        Assembly-CSharp]], mscorlib
+        Scripts]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -2516,7 +2489,7 @@ MonoBehaviour:
       Data: 
     - Name: _previousTeamDefiner
       Entry: 7
-      Data: 2|CarSumo.Teams.PreviousSequentialTeamDefiner, Assembly-CSharp
+      Data: 2|CarSumo.Teams.PreviousSequentialTeamDefiner, Scripts
     - Name: 
       Entry: 8
       Data: 
@@ -2943,13 +2916,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _onAwakeDefiner
       Entry: 7
-      Data: 0|CarSumo.Teams.RandomTeamDefiner, Assembly-CSharp
+      Data: 0|CarSumo.Teams.RandomTeamDefiner, Scripts
     - Name: 
       Entry: 8
       Data: 
     - Name: _onGameDefiner
       Entry: 7
-      Data: 1|CarSumo.Teams.SequentialTeamDefiner, Assembly-CSharp
+      Data: 1|CarSumo.Teams.SequentialTeamDefiner, Scripts
     - Name: 
       Entry: 8
       Data: 
@@ -3007,7 +2980,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _upgradeTeamDefiner
       Entry: 7
-      Data: 0|CarSumo.Teams.SequentialTeamDefiner, Assembly-CSharp
+      Data: 0|CarSumo.Teams.SequentialTeamDefiner, Scripts
     - Name: 
       Entry: 8
       Data: 

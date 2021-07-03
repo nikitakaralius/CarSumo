@@ -1,5 +1,6 @@
 ﻿using CarSumo.Teams;
 using CarSumo.Vehicles.Stats;
+using UnityEngine;
 
 namespace CarSumo.Vehicles
 {
@@ -12,23 +13,31 @@ namespace CarSumo.Vehicles
         {
             private readonly Team _team;
 
-            public FakeVehicle(Team team)
+            public FakeVehicle(Team team) => _team = team;
+
+            public void Destroy() { }
+
+            public VehicleStats GetStats() => new VehicleStats(_team, 0.0f, 0.0f);
+
+            public void Upgrade() { }
+        }
+
+        public class FakeVehicleMono : MonoBehaviour, IVehicle
+        {
+            private Team _team;
+
+            public FakeVehicleMono Init(Team team)
             {
                 _team = team;
+                return this;
             }
 
-            public void Destroy()
-            {
-            }
+            public void Destroy() => Destroy(gameObject);
 
-            public VehicleStats GetStats()
-            {
-                return new VehicleStats(_team, 0.0f, 0.0f);
-            }
+            public VehicleStats GetStats() => new VehicleStats(_team, 0.0f, 0.0f);
 
-            public void Upgrade()
-            {
-            }
+            //Tests will pass wrong without Debug Log Statemen
+            public void Upgrade() => Debug.Log(gameObject);
         }
     }
 }

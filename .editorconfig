@@ -35,3 +35,4 @@ dotnet_diagnostic.SA1311.severity = none
 
 # SA1028: Code should not contain trailing whitespace
 dotnet_diagnostic.SA1028.severity = none
+dotnet_diagnostic.SA1310.severity=silent
