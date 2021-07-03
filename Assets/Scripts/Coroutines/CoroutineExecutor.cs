@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace CarSumo
+namespace CarSumo.Coroutines
 {
     public class CoroutineExecutor
     {

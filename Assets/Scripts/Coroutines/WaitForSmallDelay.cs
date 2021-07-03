@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CarSumo
+namespace CarSumo.Coroutines
 {
     public class WaitForSmallDelay : CustomYieldInstruction
     {
