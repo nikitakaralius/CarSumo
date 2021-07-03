@@ -12,23 +12,13 @@ namespace CarSumo.Vehicles
         {
             private readonly Team _team;
 
-            public FakeVehicle(Team team)
-            {
-                _team = team;
-            }
+            public FakeVehicle(Team team) => _team = team;
 
-            public void Destroy()
-            {
-            }
+            public void Destroy() { }
 
-            public VehicleStats GetStats()
-            {
-                return new VehicleStats(_team, 0.0f, 0.0f);
-            }
+            public VehicleStats GetStats() => new VehicleStats(_team, 0.0f, 0.0f);
 
-            public void Upgrade()
-            {
-            }
+            public void Upgrade() { }
         }
     }
 }

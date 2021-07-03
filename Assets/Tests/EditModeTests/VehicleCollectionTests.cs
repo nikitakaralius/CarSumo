@@ -1,8 +1,8 @@
+using System;
 using CarSumo.Vehicles;
 using CarSumo.Teams;
 using CarSumo.Vehicles.Selector;
 using NUnit.Framework;
-using System;
 
 public class VehicleCollectionTests
 {
