@@ -1,6 +1,6 @@
 using System;
-using CarSumo.Vehicles;
 using CarSumo.Teams;
+using CarSumo.Vehicles;
 using CarSumo.Vehicles.Selector;
 using NUnit.Framework;
 
