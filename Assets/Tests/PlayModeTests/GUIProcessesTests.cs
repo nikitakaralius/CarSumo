@@ -79,6 +79,50 @@ public class GUIProcessesTests
         AreVectorsEqual(rectTransform.anchoredPosition, data.Range.Min);
     }
 
+    [UnityTest]
+    public IEnumerator ImageTransparencyTween_SetImageVisible_And_UnvisibleAfterReuse()
+    {
+        var image = new GameObject("Image").AddComponent<Image>();
+
+        float duration = 0.5f;
+
+        IGUIProcess process = new ImageTransparencyTween(new[] { image }, duration, false);
+
+        process.ApplyProcess();
+
+        yield return new WaitForSeconds(duration);
+
+        Assert.AreEqual(image.color.a, 0.0f);
+
+        process.ApplyProcess();
+
+        yield return new WaitForSeconds(duration);
+
+        Assert.AreEqual(image.color.a, 1.0f);
+    }
+
+    [UnityTest]
+    public IEnumerator ImageTransparencyTween_SetImageVisible_And_UnvisibleAfterReuse_IfTransparentOnStart()
+    {
+        var image = new GameObject("Image").AddComponent<Image>();
+
+        float duration = 0.5f;
+
+        IGUIProcess process = new ImageTransparencyTween(new[] { image }, duration, true);
+
+        process.ApplyProcess();
+
+        yield return new WaitForSeconds(duration);
+
+        Assert.AreEqual(image.color.a, 1.0f);
+
+        process.ApplyProcess();
+
+        yield return new WaitForSeconds(duration);
+
+        Assert.AreEqual(image.color.a, 0.0f);
+    }
+
     private void AreVectorsEqual(Vector2 a, Vector2 b)
     {
         Assert.AreEqual(a.x, b.x, Vector2.kEpsilon);
