@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace CarSumo.GUI
+namespace CarSumo.GUI.Processes
 {
     public class ImageTransparencyTween : ITweenProcess
     {
