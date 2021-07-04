@@ -16,7 +16,7 @@ using AdvancedAudioSystem.Emitters;
 public class GUIProcessesTests
 {
     [UnityTest]
-    public IEnumerator VerticalLayoutSpacingTween_ChangesSpacingToMaxAndReturnsItToMin_AfterAnotherApplyProcess()
+    public IEnumerator VerticalLayoutSpacingTween_ChangesSpacingToMaxAndReturnsItToMin_AfterReuse()
     {
         VerticalLayoutGroup group = new GameObject("VerticalLayoutSpacingTweenTests").AddComponent<VerticalLayoutGroup>();
         var duration = 0.5f;
@@ -54,5 +54,34 @@ public class GUIProcessesTests
         yield return new WaitForSeconds(0.1f);
 
         Assert.IsTrue(soundEmitter.AudioSource.isPlaying);
+    }
+
+    [UnityTest]
+    public IEnumerator AnchorPositionTween_ChangesPositionToMaxAndReturnsItToMin_AfterReuse()
+    {
+        var rectTransform = new GameObject("Rect transform").AddComponent<RectTransform>();
+        var range = new Range<Vector2>(Vector2.one * -10, Vector2.one * 10);
+        var duration = 0.5f;
+        var data = new TweenData<Vector2>(range, duration, Ease.Unset);
+
+        IGUIProcess process = new AnchorPositionTween(new[] { rectTransform }, data);
+
+        process.ApplyProcess();
+
+        yield return new WaitForSeconds(duration);
+
+        AreVectorsEqual(rectTransform.anchoredPosition, data.Range.Max);
+
+        process.ApplyProcess();
+
+        yield return new WaitForSeconds(duration);
+
+        AreVectorsEqual(rectTransform.anchoredPosition, data.Range.Min);
+    }
+
+    private void AreVectorsEqual(Vector2 a, Vector2 b)
+    {
+        Assert.AreEqual(a.x, b.x, Vector2.kEpsilon);
+        Assert.AreEqual(a.y, b.y, Vector2.kEpsilon);
     }
 }
