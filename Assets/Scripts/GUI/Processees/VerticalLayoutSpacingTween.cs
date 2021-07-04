@@ -10,17 +10,17 @@ namespace CarSumo.GUI.Processes
         [SerializeField] private VerticalLayoutGroup _group;
         [SerializeField] private TweenData _data;
 
-        private TweenData _wrappedData;
+        private TweenData _manageableData;
 
         public void Init()
         {
-            _wrappedData = _data;
+            _manageableData = _data;
         }
 
         public void ApplyProcess()
         {
-            TranslateSpacing(_wrappedData);
-            _wrappedData = _wrappedData.Inverted;
+            TranslateSpacing(_manageableData);
+            _manageableData = _manageableData.Inverted;
         }
 
         public void TranslateSpacing(TweenData tweenData)
