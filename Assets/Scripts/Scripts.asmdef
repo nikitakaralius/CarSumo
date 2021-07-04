@@ -1,6 +1,6 @@
 {
     "name": "Scripts",
-    "rootNamespace": "CarSump",
+    "rootNamespace": "CarSumo",
     "references": [
         "GUID:ad7e7af67c8da3145861d481d09dcb7e",
         "GUID:c7d7270800d61f04ea925315ff726aa7",

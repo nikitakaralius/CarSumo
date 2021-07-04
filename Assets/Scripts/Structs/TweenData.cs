@@ -26,12 +26,6 @@ namespace CarSumo.Structs
         public Ease Ease => _ease;
 
         public TweenData<T> Inverted => new TweenData<T>(Range.Inverted, Duration, Ease);
-
-
-        public static implicit operator TweenData<T>(TweenData value)
-        {
-            return new TweenData(value.Range, value.Duration, value.Ease);
-        }
     }
 
     [Serializable]
@@ -56,10 +50,5 @@ namespace CarSumo.Structs
         public Ease Ease => _ease;
 
         public TweenData Inverted => new TweenData(Range.Inverted, Duration, Ease);
-
-        public static implicit operator TweenData(TweenData<float> value)
-        {
-            return new TweenData(value.Range, value.Duration, value.Ease);
-        }
     }
 }
