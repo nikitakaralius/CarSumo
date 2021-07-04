@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using CarSumo;
 using CarSumo.GUI;
 using CarSumo.GUI.Processes;
@@ -15,11 +14,8 @@ public class VerticalLayoutSpacingTweenTests
     [UnityTest]
     public IEnumerator VerticalLayout_ChangesSpacingToMaxAndReturnsItToMin_AfterAnotherApplyProcess()
     {
-        var gameObject = new GameObject("VerticalLayoutSpacingTweenTests");
-        VerticalLayoutGroup group = gameObject.AddComponent<VerticalLayoutGroup>();
-
+        VerticalLayoutGroup group = new GameObject("VerticalLayoutSpacingTweenTests").AddComponent<VerticalLayoutGroup>();
         var duration = 0.5f;
-
         var range = new Range(-50, 50);
         var tweenData = new TweenData(range, 0.5f, Ease.Unset);
 
