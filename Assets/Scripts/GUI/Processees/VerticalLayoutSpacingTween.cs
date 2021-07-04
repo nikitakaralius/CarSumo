@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace CarSumo.GUI.Processes
 {
-    public class VerticalLayoutSpacingTween : ITweenProcess
+    public class VerticalLayoutSpacingTween : IGUIProcess
     {
         [SerializeField] private VerticalLayoutGroup _group;
         [SerializeField] private TweenData _data;

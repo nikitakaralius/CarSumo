@@ -3,13 +3,13 @@ using Sirenix.OdinInspector;
 
 namespace CarSumo.GUI.Core
 {
-    public class TweenElement : SerializedMonoBehaviour
+    public class GUIElement : SerializedMonoBehaviour
     {
-        [SerializeField] private ITweenProcess[] _processes = new ITweenProcess[0];
+        [SerializeField] private IGUIProcess[] _processes = new IGUIProcess[0];
 
         private void Awake()
         {
-            foreach (ITweenProcess process in _processes)
+            foreach (IGUIProcess process in _processes)
             {
                 process.Init();
             }
@@ -17,7 +17,7 @@ namespace CarSumo.GUI.Core
 
         public void Process()
         {
-            foreach (ITweenProcess process in _processes)
+            foreach (IGUIProcess process in _processes)
             {
                 process.ApplyProcess();
             }

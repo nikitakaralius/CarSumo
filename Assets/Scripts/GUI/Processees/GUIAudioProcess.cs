@@ -1,0 +1,21 @@
+﻿using AdvancedAudioSystem;
+using AdvancedAudioSystem.Emitters;
+using UnityEngine;
+
+namespace CarSumo.GUI.Processees
+{
+    public class GUIAudioProcess : IGUIProcess
+    {
+        [SerializeField] private ISoundEmitter _soundEmitter;
+        [SerializeField] private AudioCue _audioCue;
+
+        public void Init()
+        {
+        }
+
+        public void ApplyProcess()
+        {
+            _soundEmitter.Play(_audioCue);
+        }
+    }
+}

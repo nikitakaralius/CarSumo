@@ -1,6 +1,6 @@
 namespace CarSumo.GUI
 {
-    public interface ITweenProcess
+    public interface IGUIProcess
     {
         void Init();
         void ApplyProcess();
