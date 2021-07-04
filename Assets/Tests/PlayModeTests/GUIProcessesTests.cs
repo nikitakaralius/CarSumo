@@ -8,11 +8,15 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
+using UnityEditor;
+using AdvancedAudioSystem;
+using CarSumo.GUI.Processees;
+using AdvancedAudioSystem.Emitters;
 
-public class VerticalLayoutSpacingTweenTests
+public class GUIProcessesTests
 {
     [UnityTest]
-    public IEnumerator VerticalLayout_ChangesSpacingToMaxAndReturnsItToMin_AfterAnotherApplyProcess()
+    public IEnumerator VerticalLayoutSpacingTween_ChangesSpacingToMaxAndReturnsItToMin_AfterAnotherApplyProcess()
     {
         VerticalLayoutGroup group = new GameObject("VerticalLayoutSpacingTweenTests").AddComponent<VerticalLayoutGroup>();
         var duration = 0.5f;
@@ -32,5 +36,23 @@ public class VerticalLayoutSpacingTweenTests
         yield return new WaitForSeconds(duration);
 
         Assert.AreEqual(tweenData.Range.Min, group.spacing);
+    }
+
+    [UnityTest]
+    public IEnumerator GUIAudioProcess_PlaysAudioCueOnSoundEmitter()
+    {
+        var assetPath = "Assets/Tests/Resources/Explosion Cue Test.asset";
+
+        var audioCue = (AudioCue) AssetDatabase.LoadAssetAtPath(assetPath, typeof(AudioCue));
+
+        var soundEmitter = new GameObject("Sound Emitter").AddComponent<MonoSoundEmitter>();
+
+        IGUIProcess process = new GUIAudioProcess(soundEmitter, audioCue);
+
+        process.ApplyProcess();
+
+        yield return new WaitForSeconds(0.1f);
+
+        Assert.IsTrue(soundEmitter.AudioSource.isPlaying);
     }
 }

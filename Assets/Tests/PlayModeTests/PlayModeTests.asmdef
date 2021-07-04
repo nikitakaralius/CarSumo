@@ -5,7 +5,9 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Scripts",
-        "DOTween.Modules"
+        "DOTween.Modules",
+        "AdvancedAudioSystem",
+        ""
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -13,7 +15,8 @@
     "overrideReferences": true,
     "precompiledReferences": [
         "nunit.framework.dll",
-        "DOTween.dll"
+        "DOTween.dll",
+        "Sirenix.Serialization.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [

@@ -23,7 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Third Party/GUI Kit Casual Game/Scenes/DemoScene.unity
     guid: d4c163488452a4eac85e796eefcfbf5d
-  - enabled: 1
-    path: Assets/InitTestScene637610186433861491.unity
-    guid: a656d3e5a1274074a863c6a211f7dc9a
   m_configObjects: {}
