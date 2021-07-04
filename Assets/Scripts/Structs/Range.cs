@@ -44,5 +44,10 @@ namespace CarSumo
         public T Max => _max;
 
         public Range<T> Inverted => new Range<T>(_max, _min);
+
+        public static implicit operator Range<T>(Range value)
+        {
+            return new Range(value.Min, value.Max);
+        }
     }
 }
