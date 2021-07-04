@@ -17,6 +17,8 @@ namespace CarSumo.GUI.Processes
             _images = images;
             _duration = duration;
             _transparentOnStart = transparentOnStart;
+
+            Init();
         }
 
         public void Init()

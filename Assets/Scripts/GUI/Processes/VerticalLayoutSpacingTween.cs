@@ -16,6 +16,8 @@ namespace CarSumo.GUI.Processes
         {
             _group = group;
             _data = data;
+
+            Init();
         }
 
         public void Init()

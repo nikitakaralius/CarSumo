@@ -15,6 +15,8 @@ namespace CarSumo.GUI.Processees
         {
             _rectTransforms = rectTransforms;
             _data = data;
+
+            Init();
         }
 
         public void Init()
