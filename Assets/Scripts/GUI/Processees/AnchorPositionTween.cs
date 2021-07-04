@@ -11,6 +11,12 @@ namespace CarSumo.GUI.Processees
 
         private TweenData<Vector2> _manageableData;
 
+        public AnchorPositionTween(RectTransform[] rectTransforms, TweenData<Vector2> data)
+        {
+            _rectTransforms = rectTransforms;
+            _data = data;
+        }
+
         public void Init()
         {
             _manageableData = _data;

@@ -12,6 +12,12 @@ namespace CarSumo.GUI.Processes
 
         private TweenData _manageableData;
 
+        public VerticalLayoutSpacingTween(VerticalLayoutGroup group, TweenData data)
+        {
+            _group = group;
+            _data = data;
+        }
+
         public void Init()
         {
             _manageableData = _data;

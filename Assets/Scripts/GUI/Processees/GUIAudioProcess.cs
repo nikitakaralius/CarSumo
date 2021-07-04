@@ -9,6 +9,12 @@ namespace CarSumo.GUI.Processees
         [SerializeField] private ISoundEmitter _soundEmitter;
         [SerializeField] private AudioCue _audioCue;
 
+        public GUIAudioProcess(ISoundEmitter soundEmitter, AudioCue audioCue)
+        {
+            _soundEmitter = soundEmitter;
+            _audioCue = audioCue;
+        }
+
         public void Init()
         {
         }

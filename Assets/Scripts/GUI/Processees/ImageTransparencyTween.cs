@@ -12,6 +12,13 @@ namespace CarSumo.GUI.Processes
 
         private bool _transparent;
 
+        public ImageTransparencyTween(Image[] images, float duration, bool transparentOnStart)
+        {
+            _images = images;
+            _duration = duration;
+            _transparentOnStart = transparentOnStart;
+        }
+
         public void Init()
         {
             _transparent = _transparentOnStart;
