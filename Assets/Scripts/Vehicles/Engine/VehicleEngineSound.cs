@@ -38,8 +38,8 @@ namespace CarSumo.Vehicles
 
         public void ConfigureEngineSound(float enginePowerPercentage)
         {
-            _emitter.AudioSource.volume = Map.MapFromPercentRange(enginePowerPercentage, _volumeRange);
-            _emitter.AudioSource.pitch = Map.MapFromPercentRange(enginePowerPercentage, _pitchRange);
+            _emitter.AudioSourceProperty.Volume = Map.MapFromPercentRange(enginePowerPercentage, _volumeRange);
+            _emitter.AudioSourceProperty.Pitch = Map.MapFromPercentRange(enginePowerPercentage, _pitchRange);
         }
 
         private IEnumerator PlayUntilRoutine(Func<bool> cancel, IVehicleSpeedometer speedometer)

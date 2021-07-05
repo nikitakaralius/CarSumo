@@ -53,7 +53,7 @@ public class GUIProcessesTests
 
         yield return new WaitForSeconds(0.1f);
 
-        Assert.IsTrue(soundEmitter.AudioSource.isPlaying);
+        Assert.IsTrue(soundEmitter.AudioSourceProperty.IsPlaying);
     }
 
     [UnityTest]
