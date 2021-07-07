@@ -1,4 +1,6 @@
-﻿using CarSumo;
+﻿using AdvancedAudioSystem.Emitters;
+using CarSumo;
+using CarSumo.GUI.Processees;
 using CarSumo.GUI.Processes;
 using CarSumo.Structs;
 using DG.Tweening;
@@ -17,9 +19,16 @@ public static class Configure
 
     public static VerticalLayoutSpacingTween VerticalLayoutSpacingTween(out VerticalLayoutGroup group, out TweenData data)
     {
-        group = Create.VerticalLayoutGroup();
+        @group = Create.VerticalLayoutGroup();
         data = Configure.TweenData();
         
-        return new VerticalLayoutSpacingTween(group, data);
+        return new VerticalLayoutSpacingTween(@group, data);
+    }
+
+    public static GUIAudioProcess GUIAudioProcess(out MonoSoundEmitter soundEmitter)
+    {
+        var audioCue = Create.AudioCue();
+        soundEmitter = Create.MonoSoundEmitter();
+        return new GUIAudioProcess(soundEmitter, audioCue);
     }
 }

@@ -16,25 +16,6 @@ using AdvancedAudioSystem.Emitters;
 public class GUIProcessesTests
 {
     [UnityTest]
-    public IEnumerator GUIAudioProcess_PlaysAudioCueOnSoundEmitter()
-    {
-        var assetPath = "Explosion Cue Test";
-
-        var audioCue = Resources.Load<AudioCue>(assetPath);
-
-        var soundEmitter = new GameObject("Sound Emitter").AddComponent<MonoSoundEmitter>();
-        var audioListener = new GameObject("Audio Listener").AddComponent<AudioListener>();
-
-        IGUIProcess process = new GUIAudioProcess(soundEmitter, audioCue);
-
-        process.ApplyProcess();
-
-        yield return new WaitForSeconds(0.1f);
-
-        Assert.IsTrue(soundEmitter.AudioSourceProperty.IsPlaying);
-    }
-
-    [UnityTest]
     public IEnumerator AnchorPositionTween_ChangesPositionToMaxAndReturnsItToMin_AfterReuse()
     {
         var rectTransform = new GameObject("Rect transform").AddComponent<RectTransform>();
