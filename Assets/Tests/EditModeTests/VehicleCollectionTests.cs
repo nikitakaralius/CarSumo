@@ -3,6 +3,7 @@ using CarSumo.Teams;
 using CarSumo.Vehicles;
 using CarSumo.Vehicles.Selector;
 using NUnit.Framework;
+using FluentAssertions;
 
 public class VehicleCollectionTests
 {
@@ -34,11 +35,13 @@ public class VehicleCollectionTests
 
         var teamsCount = Enum.GetNames(typeof(Team)).Length;
 
-        Assert.AreEqual(teamsCount, collection.Count);
+        //Assert.AreEqual(teamsCount, collection.Count);
+
+        collection.Count.Should().Be(teamsCount);
     }
 
     [Test]
-    public void VehicleCollection_ÑanNotAddVehicleWithOtherTeam()
+    public void VehicleCollection_Ð¡anNotAddVehicleWithOtherTeam()
     {
         var collection = new VehicleCollection();
 

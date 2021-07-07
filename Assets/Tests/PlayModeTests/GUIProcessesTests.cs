@@ -41,11 +41,12 @@ public class GUIProcessesTests
     [UnityTest]
     public IEnumerator GUIAudioProcess_PlaysAudioCueOnSoundEmitter()
     {
-        var assetPath = "Assets/Tests/Resources/Explosion Cue Test.asset";
+        var assetPath = "Explosion Cue Test";
 
-        var audioCue = (AudioCue) AssetDatabase.LoadAssetAtPath(assetPath, typeof(AudioCue));
+        var audioCue = Resources.Load<AudioCue>(assetPath);
 
         var soundEmitter = new GameObject("Sound Emitter").AddComponent<MonoSoundEmitter>();
+        var audioListener = new GameObject("Audio Listener").AddComponent<AudioListener>();
 
         IGUIProcess process = new GUIAudioProcess(soundEmitter, audioCue);
 
@@ -80,7 +81,7 @@ public class GUIProcessesTests
     }
 
     [UnityTest]
-    public IEnumerator ImageTransparencyTween_SetImageVisible_And_UnvisibleAfterReuse()
+    public IEnumerator ImageTransparencyTween_SetImageVisible_And_InvisibleAfterReuse()
     {
         var image = new GameObject("Image").AddComponent<Image>();
 
@@ -102,7 +103,7 @@ public class GUIProcessesTests
     }
 
     [UnityTest]
-    public IEnumerator ImageTransparencyTween_SetImageVisible_And_UnvisibleAfterReuse_IfTransparentOnStart()
+    public IEnumerator ImageTransparencyTween_SetImageVisible_And_InvisibleAfterReuse_IfTransparentOnStart()
     {
         var image = new GameObject("Image").AddComponent<Image>();
 

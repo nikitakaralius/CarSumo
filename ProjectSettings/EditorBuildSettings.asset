@@ -14,9 +14,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Third Party/Assets/SimpleTown/DemoScene/SimpleTown_DemoScene.unity
     guid: 21ba8959b0b9c5e41889da424bb00b0b
-  - enabled: 1
+  - enabled: 0
     path: 
-    guid: 2a73771a3f1e1ed46ac7517f26d867c2
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Third Party/GUI Kit Casual Game/Scenes/DemoScene_CtrPanel.unity
     guid: 736194c0bdd684919960fb3930417927
