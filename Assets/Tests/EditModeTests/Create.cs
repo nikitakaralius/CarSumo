@@ -1,4 +1,7 @@
 ﻿using CarSumo.Teams;
+using CarSumo.Vehicles;
+using CarSumo.Vehicles.Selector;
+using UnityEngine;
 
 public static class Create
 {
@@ -10,5 +13,10 @@ public static class Create
     public static PreviousSequentialTeamDefiner PreviousSequentialTeamDefiner()
     {
         return new PreviousSequentialTeamDefiner();
+    }
+
+    public static VehicleCollection VehicleCollection()
+    {
+        return new VehicleCollection();
     }
 }

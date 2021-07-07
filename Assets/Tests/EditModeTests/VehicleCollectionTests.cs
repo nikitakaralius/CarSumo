@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using CarSumo.Teams;
 using CarSumo.Vehicles;
 using CarSumo.Vehicles.Selector;
@@ -8,44 +9,59 @@ using FluentAssertions;
 public class VehicleCollectionTests
 {
     [Test]
-    public void VehicleCollection_DoesNotContainsNullElementsByDefaultOnInitialize()
+    public void WhenGettingVehicles_AndCollectionJustCreated_ThenElementsShouldNotBeNull()
     {
-        var collection = new VehicleCollection();
+        var collection = Create.VehicleCollection();
 
-        foreach (IVehicle vehicle in collection)
-        {
-            Assert.IsNotNull(vehicle);
-        }
+        IEnumerable vehicles = collection;
+        
+        foreach (IVehicle vehicle in vehicles)
+            vehicle.Should().NotBeNull();
     }
 
     [Test]
-    public void VehicleCollection_CanNotAddNull()
+    public void WhenAddingVehicle_AndVehicleIsNull_ThenCollectionShouldThrowNullReferenceException()
     {
-        var collection = new VehicleCollection();
+        // Arrange.
+        VehicleCollection collection = Create.VehicleCollection();
+        IVehicle vehicle = null;
 
-        Assert.Throws<NullReferenceException>(() => collection.AddVehicle(null));
-        Assert.Throws<NullReferenceException>(() => collection.AddVehicle(null, Team.First));
-        Assert.Throws<NullReferenceException>(() => collection[Team.First] = null);
+        // Act.
+        Action addingByMethod = () => collection.AddVehicle(vehicle);
+        Action addingByMethodWithTeam = () => collection.AddVehicle(vehicle, Team.First);
+        Action addingByIndexer = () => collection[Team.First] = vehicle;
+
+        // Assert.
+        addingByMethod.Should().Throw<NullReferenceException>();
+        addingByMethodWithTeam.Should().Throw<NullReferenceException>();
+        addingByIndexer.Should().Throw<NullReferenceException>();
     }
 
     [Test]
-    public void VehicleCollection_HasSlotsForAllTeams()
+    public void WhenGettingTeamsCount_AndCreteVehicleCollection_ThenCollectionCountShouldBeSameAsTeamsCount()
     {
-        var collection = new VehicleCollection();
+        // Arrange.
+        VehicleCollection collection = Create.VehicleCollection();
 
-        var teamsCount = Enum.GetNames(typeof(Team)).Length;
+        // Act.
+        int teamsCount = Enum.GetNames(typeof(Team)).Length;
 
-        //Assert.AreEqual(teamsCount, collection.Count);
-
+        // Assert.
         collection.Count.Should().Be(teamsCount);
     }
-
+    
     [Test]
-    public void VehicleCollection_СanNotAddVehicleWithOtherTeam()
+    public void WhenAddingVehicle_AndVehicleTeamIsDifferent_ThenCollectionThrowInvalidOperationException()
     {
-        var collection = new VehicleCollection();
+        // Arrange.
+        VehicleCollection collection = Create.VehicleCollection();
 
-        Assert.Throws<InvalidOperationException>(() => collection[Team.First] = new IVehicle.FakeVehicle(Team.Second));
-        Assert.Throws<InvalidOperationException>(() => collection.AddVehicle(new IVehicle.FakeVehicle(Team.First), Team.Second));
+        // Act.
+        Action addingByMethod = () => collection.AddVehicle(new IVehicle.FakeVehicle(Team.First), Team.Second);
+        Action addingByIndexer = () => collection[Team.First] = new IVehicle.FakeVehicle(Team.Second);
+
+        // Assert.
+        addingByMethod.Should().Throw<InvalidOperationException>();
+        addingByIndexer.Should().Throw<InvalidOperationException>();
     }
 }

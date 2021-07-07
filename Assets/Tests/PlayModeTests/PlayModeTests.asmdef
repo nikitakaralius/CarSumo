@@ -6,7 +6,8 @@
         "UnityEditor.TestRunner",
         "Scripts",
         "DOTween.Modules",
-        "AdvancedAudioSystem"
+        "AdvancedAudioSystem",
+        "BoundfoxStudios.FluentAssertions"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

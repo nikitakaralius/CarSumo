@@ -1,26 +1,27 @@
-using System.Collections;
+using System;
 using CarSumo.Teams;
 using CarSumo.Vehicles;
 using CarSumo.Vehicles.Selector;
+using FluentAssertions;
 using NUnit.Framework;
-using UnityEngine;
-using UnityEngine.TestTools;
 
 public class VehicleCollectionTests
 {
-    [UnityTest]
-    public IEnumerator VehicleCollection_ReturnsFakeWhenOriginalInstanceWasDestroyed()
+    [Test]
+    public void WhenUsingDestroyedVehicle_AndVehicleWasAddedToCollection_ThenVehicleShouldBeFake()
     {
-        var collection = new VehicleCollection();
-        var vehicle = new GameObject().AddComponent<IVehicle.FakeVehicleMono>().Init(Team.First);
-
+        // Arrange.
+        VehicleCollection collection = Create.VehicleCollection();
+        var team = Team.First;
+        IVehicle vehicle = Create.FakeVehicleMono(team);
         collection.AddVehicle(vehicle);
+
+        // Act.
         vehicle.Destroy();
+        IVehicle vehicleFromCollection = collection.GetVehicle(team);
+        Action vehicleUsing = () => vehicleFromCollection.Upgrade();
 
-        yield return new WaitForSeconds(2.0f);
-
-        var vehicleFromCollection = collection.GetVehicle(Team.First);
-
-        Assert.DoesNotThrow(() => vehicleFromCollection.Upgrade());
+        // Assert.
+        vehicleUsing.Should().NotThrow();
     }
 }
