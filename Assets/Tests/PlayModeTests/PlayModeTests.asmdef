@@ -6,8 +6,7 @@
         "UnityEditor.TestRunner",
         "Scripts",
         "DOTween.Modules",
-        "AdvancedAudioSystem",
-        ""
+        "AdvancedAudioSystem"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
