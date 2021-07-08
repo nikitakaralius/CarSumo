@@ -1,11 +1,12 @@
 {
     "name": "Scripts",
-    "rootNamespace": "CarSump",
+    "rootNamespace": "CarSumo",
     "references": [
         "GUID:ad7e7af67c8da3145861d481d09dcb7e",
         "GUID:c7d7270800d61f04ea925315ff726aa7",
         "GUID:4307f53044263cf4b835bd812fc161a4",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:de3b0feb1a2249540990ac8ebca1f5f9"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

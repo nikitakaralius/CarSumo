@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace CarSumo.Teams
+﻿namespace CarSumo.Teams
 {
     public enum Team
     {
         First,
-        Second
+        Second,
     }
 }

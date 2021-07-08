@@ -7,29 +7,32 @@ namespace AdvancedAudioSystem.Emitters
     [RequireComponent(typeof(AudioSource))]
     public class MonoSoundEmitter : MonoBehaviour, ISoundEmitter
     {
+        private AudioSource _audioSource;
+
         public event Action FinishedPlaying;
 
-        public AudioSource AudioSource { get; private set; }
+        public IAudioSourceProperty AudioSourceProperty { get; private set; }
 
         private void Awake()
         {
-            AudioSource = GetComponent<AudioSource>();
-            AudioSource.playOnAwake = false;
+            _audioSource = GetComponent<AudioSource>();
+            _audioSource.playOnAwake = false;
+            AudioSourceProperty = new AudioSourceProperty(_audioSource);
         }
 
         public void Play(AudioCue audioCue)
         {
-            audioCue.PlayOn(AudioSource);
+            audioCue.PlayOn(_audioSource);
 
-            if (AudioSource.loop)
+            if (_audioSource.loop)
                 return;
 
-            StartCoroutine(FinishPlaying(AudioSource.clip.length));
+            StartCoroutine(FinishPlaying(_audioSource.clip.length));
         }
 
         public void Stop()
         {
-            AudioSource.Stop();
+            _audioSource.Stop();
         }
 
         private IEnumerator FinishPlaying(float clipLength)
@@ -38,5 +41,5 @@ namespace AdvancedAudioSystem.Emitters
 
             FinishedPlaying?.Invoke();
         }
-    }    
+    }
 }

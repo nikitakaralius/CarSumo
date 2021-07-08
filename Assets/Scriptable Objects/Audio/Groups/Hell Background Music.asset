@@ -16,6 +16,7 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 8300000, guid: a1312c417dcebae4e82787e3f92943ad, type: 3}
     - {fileID: 8300000, guid: 3ff59af17a75762418b9e78f471cc17e, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -24,13 +25,16 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _audioClips
       Entry: 7
-      Data: 0|AdvancedAudioSystem.AudioClips, Assembly-CSharp-firstpass
+      Data: 0|AdvancedAudioSystem.AudioClips, AdvancedAudioSystem
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 10
       Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
     - Name: 
       Entry: 13
       Data: 
@@ -39,7 +43,7 @@ MonoBehaviour:
       Data: 
     - Name: _sequenceMode
       Entry: 7
-      Data: 1|AdvancedAudioSystem.Sequences.SequentialSequence, Assembly-CSharp-firstpass
+      Data: 1|AdvancedAudioSystem.Sequences.SequentialSequence, AdvancedAudioSystem
     - Name: 
       Entry: 8
       Data: 

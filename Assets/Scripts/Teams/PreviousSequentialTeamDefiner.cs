@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace CarSumo.Teams
 {
@@ -8,7 +9,9 @@ namespace CarSumo.Teams
 
         public Team DefineTeam(Team current)
         {
-            return (Team)Math.Abs((int)(current - 1) % TeamCount);
+            var previousTeam = (Team) Mathf.Repeat((int)current - 1, TeamCount);
+
+            return previousTeam;
         }
     }
 }

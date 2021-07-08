@@ -12,7 +12,7 @@ namespace CarSumo.Vehicles
         public class FakeVehicle : IVehicle
         {
             private readonly Team _team;
-
+            
             public FakeVehicle(Team team) => _team = team;
 
             public void Destroy() { }
@@ -36,7 +36,7 @@ namespace CarSumo.Vehicles
 
             public VehicleStats GetStats() => new VehicleStats(_team, 0.0f, 0.0f);
 
-            //Tests will pass wrong without Debug Log Statemen
+            //Tests will pass wrong without Debug Log Statement
             public void Upgrade() => Debug.Log(gameObject);
         }
     }

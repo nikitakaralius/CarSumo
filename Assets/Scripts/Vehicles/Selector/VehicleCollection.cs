@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using CarSumo.Teams;
 
 namespace CarSumo.Vehicles.Selector
@@ -32,10 +33,9 @@ namespace CarSumo.Vehicles.Selector
         {
             int index = (int)team;
 
-            if (IsDestroyed(_vehicles[index]))
-                return new IVehicle.FakeVehicle(team);
-
-            return _vehicles[index];
+            return IsDestroyed(_vehicles[index])
+                ? new IVehicle.FakeVehicle(team)
+                : _vehicles[index];
         }
 
         public void AddVehicle(IVehicle vehicle)
@@ -56,8 +56,7 @@ namespace CarSumo.Vehicles.Selector
 
         public IEnumerator<IVehicle> GetEnumerator()
         {
-            foreach (IVehicle vehicle in _vehicles)
-                yield return vehicle;
+            return ((IEnumerable<IVehicle>) _vehicles).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -65,14 +64,14 @@ namespace CarSumo.Vehicles.Selector
             return GetEnumerator();
         }
 
-        private bool IsDestroyed(IVehicle vehilce)
+        private bool IsDestroyed(IVehicle vehicle)
         {
             // this doesn't work, probably because Unity is destroying it but doesn't set the object to null
             // (condition is true in debug mode but is skips anyway)
 
             // return vehilce is null;
 
-            return vehilce.ToString() == "null";
+            return vehicle.ToString() == "null";
         }
     }
 }
