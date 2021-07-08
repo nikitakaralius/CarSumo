@@ -49,7 +49,7 @@ public class ImageTransparencyTweenTests
     public IEnumerator WhenApplyingProcessTwice_AndNotImageTransparentOnStart_ThenAlphaShouldBe1()
     {
         var image = Create.Image();
-        IGUIProcess process = Configure.ImageTransparencyTween(image, transparentOnStart: true);
+        IGUIProcess process = Configure.ImageTransparencyTween(image, transparentOnStart: false);
 
         process.ApplyProcess();
         yield return new WaitForSeconds(Configure.Duration);

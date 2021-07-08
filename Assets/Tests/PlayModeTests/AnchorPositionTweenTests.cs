@@ -27,6 +27,6 @@ public class AnchorPositionTweenTests
         process.ApplyProcess();                             
         yield return new WaitForSeconds(tweenData.Duration);
 
-        rectTransform.anchoredPosition.ShouldBeApproximately(tweenData.Range.Max);
+        rectTransform.anchoredPosition.ShouldBeApproximately(tweenData.Range.Min);
     }
 }

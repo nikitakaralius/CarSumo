@@ -7,7 +7,7 @@ using UnityEngine.TestTools;
 public class VerticalLayoutSpacingTweenTests
 {
     [UnityTest]
-    public IEnumerator WhenApplyProcess_AndWaitUntilItsDone_ThenGroupSpacingShouldBeAsTweenDataRangeMax()
+    public IEnumerator WhenApplyingProcess_AndWaitUntilItsDone_ThenGroupSpacingShouldBeAsTweenDataRangeMax()
     {
         IGUIProcess process = Configure.VerticalLayoutSpacingTween(out var group, out var tweenData);
 
@@ -19,7 +19,7 @@ public class VerticalLayoutSpacingTweenTests
     }
 
     [UnityTest]
-    public IEnumerator WhenApplyProcessTwice_AndWaitUntilAllDone_ThenGroupSpacingShouldBeAsTweenDataRangeMin()
+    public IEnumerator WhenApplyingProcessTwice_AndWaitUntilAllDone_ThenGroupSpacingShouldBeAsTweenDataRangeMin()
     {
         // Arrange
         IGUIProcess process = Configure.VerticalLayoutSpacingTween(out var group, out var tweenData);
