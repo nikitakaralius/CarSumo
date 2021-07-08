@@ -45,4 +45,9 @@ public static class Configure
 
         return new AnchorPositionTween(new[] {rectTransform}, tweenData);
     }
+    
+    public static ImageTransparencyTween ImageTransparencyTween(Image image, bool transparentOnStart)
+    {
+        return new ImageTransparencyTween(new[] {image}, Duration, transparentOnStart);
+    }
 }

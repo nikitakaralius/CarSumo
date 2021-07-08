@@ -50,4 +50,10 @@ public static class Create
     {
         return new Range<Vector2>(Vector2.one * -50, Vector2.one * 50);
     }
+    
+    public static Image Image()
+    {
+        return new GameObject("Image").AddComponent<Image>();
+    }
+
 }
