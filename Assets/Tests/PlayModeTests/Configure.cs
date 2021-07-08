@@ -4,22 +4,21 @@ using CarSumo.GUI.Processees;
 using CarSumo.GUI.Processes;
 using CarSumo.Structs;
 using DG.Tweening;
+using UnityEngine;
 using UnityEngine.UI;
 
 public static class Configure
 {
     public static float Duration => 0.2f;
-    
-    public static Range Range => new Range(-50, 50);
 
     public static TweenData TweenData()
     {
-        return new TweenData(Range, Duration, Ease.Linear);
+        return new TweenData(Create.Range(), Duration, Ease.Linear);
     }
 
     public static VerticalLayoutSpacingTween VerticalLayoutSpacingTween(out VerticalLayoutGroup group, out TweenData data)
     {
-        @group = Create.VerticalLayoutGroup();
+        group = Create.VerticalLayoutGroup();
         data = Configure.TweenData();
         
         return new VerticalLayoutSpacingTween(@group, data);
@@ -30,5 +29,20 @@ public static class Configure
         var audioCue = Create.AudioCue();
         soundEmitter = Create.MonoSoundEmitter();
         return new GUIAudioProcess(soundEmitter, audioCue);
+    }
+    
+    public static TweenData<Vector2> Vector2TweenData()
+    {
+        Range<Vector2> range = Create.Vector2Range();
+
+        return new TweenData<Vector2>(range, Duration, Ease.Linear);
+    }
+
+    public static AnchorPositionTween AnchorPositionTween(out TweenData<Vector2> tweenData, out RectTransform rectTransform)
+    {
+        rectTransform = Create.RectTransform();
+        tweenData = Configure.Vector2TweenData();
+
+        return new AnchorPositionTween(new[] {rectTransform}, tweenData);
     }
 }
