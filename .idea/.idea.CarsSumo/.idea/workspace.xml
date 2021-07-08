@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Fixed Tests Bugs" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/e2/418d3601/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.boundfoxstudios.fluentassertions@58a427c777/Editor/FluentAssertions/Execution/AssertionScope.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.boundfoxstudios.fluentassertions@58a427c777/Editor/FluentAssertions/NumericAssertionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/IVehicle.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/TeamDefinerTests.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/PreviousSequentialTeamDefiner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/Condition.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/SequentialTeamDefinerTests.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/Team.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/PreviousSequentialTeamDefiner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/PreviousSequentialTeamDefinerTests.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleCollection.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/VehicleCollectionTests.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/VehicleCollectionTests.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/GUIAudioProcessTests.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Structs/Create.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/Create.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/FluentAssertionsExtensions.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/GUIProcessesTests.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/Create.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/Configure.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/ImageTransparencyTweenTests.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/VerticalLayoutSpacingTweenTests.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/AnchorPositionTweenTests.cs" />
+    </changedPaths>
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
+  </component>
+  <component name="ProjectId" id="1uwUo3AGXNf8eizoArlDASeiGve" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="CSharpTypeNameHintsOptions" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="showLigatures" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="" />
+      <created>1625576331028</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1625576331028</updated>
+      <workItem from="1625576395023" duration="5509000" />
+      <workItem from="1625656447795" duration="1321000" />
+      <workItem from="1625657828508" duration="16454000" />
+      <workItem from="1625729261458" duration="2664000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
+      <created>1625730038134</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1625730038134</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Created ImageTransparencyTween Tests and removed GUIProcessesTests">
+      <created>1625730977512</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1625730977512</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Fixed Tests Bugs">
+      <created>1625731208634</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1625731208634</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Added AnchorPositionTween Tests" />
+    <MESSAGE value="Created ImageTransparencyTween Tests and removed GUIProcessesTests" />
+    <MESSAGE value="Fixed Tests Bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Tests Bugs" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
