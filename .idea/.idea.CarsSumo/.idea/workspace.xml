@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Fixed Tests Bugs" />
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Fixed Tests Bugs">
+      <change afterPath="$PROJECT_DIR$/Assets/Infrastructure/Insallers/BootstrapInstaller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Infrastructure/Insallers/BootstrapInstaller.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scripts.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scripts.asmdef" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +51,9 @@
       <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/ImageTransparencyTweenTests.cs" />
       <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/VerticalLayoutSpacingTweenTests.cs" />
       <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/AnchorPositionTweenTests.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/BootstrapInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Infrastructure/Intallers/BootstrapInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Infrastructure/Insallers/BootstrapInstaller.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -105,7 +113,7 @@
       <workItem from="1625576395023" duration="5509000" />
       <workItem from="1625656447795" duration="1321000" />
       <workItem from="1625657828508" duration="16454000" />
-      <workItem from="1625729261458" duration="2664000" />
+      <workItem from="1625729261458" duration="3097000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>
