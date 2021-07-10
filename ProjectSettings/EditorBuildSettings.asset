@@ -6,27 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GYM/GYM.unity
-    guid: ad982ed531136ed4b8744d51df57a66c
-  - enabled: 0
-    path: Assets/Scenes/Test.unity
-    guid: c3a350f858efd2e44b8279dfba7e3db0
-  - enabled: 0
-    path: Assets/Third Party/Assets/SimpleTown/DemoScene/SimpleTown_DemoScene.unity
-    guid: 21ba8959b0b9c5e41889da424bb00b0b
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Third Party/GUI Kit Casual Game/Scenes/DemoScene_CtrPanel.unity
-    guid: 736194c0bdd684919960fb3930417927
-  - enabled: 1
-    path: Assets/Third Party/GUI Kit Casual Game/Scenes/DemoScene.unity
-    guid: d4c163488452a4eac85e796eefcfbf5d
-  - enabled: 1
-    path: Assets/Scenes/Game/Game.unity
-    guid: 7795c24e1c95970459cb66c710a96bea
-  - enabled: 1
     path: Assets/Scenes/Bootstrap.unity
     guid: 1224c7742dbf2b3429997f8deede49e4
+  - enabled: 1
+    path: Assets/Scenes/Initial.unity
+    guid: 1e675a471a1d87d4e9a4cdd76797db8c
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: f81553f3b3a9a9f4ab0d4209be0649fd
+  - enabled: 1
+    path: Assets/Scenes/GYM/GYM.unity
+    guid: ad982ed531136ed4b8744d51df57a66c
   m_configObjects: {}

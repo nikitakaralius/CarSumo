@@ -9,30 +9,27 @@ namespace CarSumo.Infrastructure.Factories
 {
     public class GameStateMachineRegistry : IFactory<GameStateMachine>
     {
-        private readonly GameStateMachine _stateMachine;
         private readonly SingleSceneLoader _singleSceneLoader;
-        private readonly AdditiveSceneLoader _additiveSceneLoader;
 
-        public GameStateMachineRegistry(GameStateMachine stateMachine,
-                                        SingleSceneLoader singleSceneLoader,
-                                        AdditiveSceneLoader additiveSceneLoader)
+        public GameStateMachineRegistry(SingleSceneLoader singleSceneLoader)
         {
-            _stateMachine = stateMachine;
             _singleSceneLoader = singleSceneLoader;
-            _additiveSceneLoader = additiveSceneLoader;
         }
         
         public GameStateMachine Create()
         {
-            return new GameStateMachine(RegistryStates());
+            GameStateMachine stateMachine = new GameStateMachine();
+            IEnumerable<IState> states = CreateStatesRegistry(stateMachine);
+            stateMachine.Register(states);
+            return stateMachine;
         }
 
-        private Dictionary<Type, IState> RegistryStates()
+        private IEnumerable<IState> CreateStatesRegistry(GameStateMachine stateMachine)
         {
-            return new Dictionary<Type, IState>
+            return new IState[]
             {
-                { typeof(BootstrapSceneState), new BootstrapSceneState(_stateMachine, _singleSceneLoader) },
-                { typeof(LoadMenuState), new LoadMenuState(_singleSceneLoader)}
+                new BootstrapSceneState(stateMachine, _singleSceneLoader),
+                new LoadMenuState(_singleSceneLoader)
             };
         }
     }
