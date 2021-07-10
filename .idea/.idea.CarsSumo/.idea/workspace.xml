@@ -2,10 +2,84 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Fixed Tests Bugs">
-      <change afterPath="$PROJECT_DIR$/Assets/Infrastructure/Insallers/BootstrapInstaller.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Infrastructure/Insallers/BootstrapInstaller.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/GameStateMachine.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/GameStateMachine.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/IState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/IState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/IStateMachine.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/IStateMachine.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement/AdditiveSceneLoader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement/AdditiveSceneLoader.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneLoader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneLoader.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneStates.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneStates/BootstrapSceneState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneStates/BootstrapSceneState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneStates/LoadMenuState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneStates/LoadMenuState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SingleSceneLoader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SingleSceneLoader.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scripts.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scripts.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infrastructure.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infrastructure/Insallers.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infrastructure/Insallers/BootstrapInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infrastructure/Insallers/BootstrapInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infrastructure/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infrastructure/Resources/ProjectContext.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infrastructure/Resources/ProjectContext.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/SceneManagement.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/SceneManagement.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/ISceneLoadHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/ISceneLoadHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/ITypedAwakeHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/ITypedAwakeHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/SceneAnalyzer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/SceneAnalyzer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/ScenePostprocessor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/ScenePostprocessor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/TypedProcessor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/TypedProcessor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/TypedScene.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/TypedScene.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/TypedSceneGenerator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/TypedSceneGenerator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/TypedSceneSettings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/TypedSceneSettings.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/TypedSceneStorage.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/TypedSceneStorage.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/TypedSceneValidator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/SceneManagement/TypedScenes/TypedSceneValidator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GYM/GYM.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GYM/GYM.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Typed.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Typed/DemoScene.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Typed/DemoScene.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Typed/DemoScene_CtrPanel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Typed/DemoScene_CtrPanel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Typed/GYM.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Typed/GYM.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Typed/Game.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Typed/Game.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Typed/SimpleTown_DemoScene.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Typed/SimpleTown_DemoScene.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Typed/Test.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Typed/Test.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +101,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/e2/418d3601/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.boundfoxstudios.fluentassertions@58a427c777/Editor/FluentAssertions/Execution/AssertionScope.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.boundfoxstudios.fluentassertions@58a427c777/Editor/FluentAssertions/NumericAssertionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/a0/618dcdfe/LoadSceneParameters.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -54,6 +129,20 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/BootstrapInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Infrastructure/Intallers/BootstrapInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Infrastructure/Insallers/BootstrapInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/IState.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameStateMachine.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/AdditiveSceneLoader.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SingleSceneLoader.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneLoader.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneTable.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneStates/LoadLevelState.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/IState.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneStates/BootstrapSceneState.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneStates/LoadMenuState.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/IStateMachine.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/GameStateMachine.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -62,7 +151,9 @@
     </layout>
   </component>
   <component name="ProjectId" id="1uwUo3AGXNf8eizoArlDASeiGve" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
