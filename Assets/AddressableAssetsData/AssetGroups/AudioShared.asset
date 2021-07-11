@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: AudioShared
+  m_EditorClassIdentifier: 
+  m_GroupName: AudioShared
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 1efc9b8d089a5e74180484eefba9b339
+  m_SerializeEntries:
+  - m_GUID: d5326ade9b2cabc4ca83ff6d442f6141
+    m_Address: Assets/Bundles/AudioShared/BackgroundMusic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 9b389529515b2424294dd8f249dbca3b
+    m_Address: Assets/Bundles/AudioShared/Configurations
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 5e4456bfab8a2b84fa407fe40502f319
+    m_Address: Assets/Bundles/AudioShared/Prefabs
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 4948ba55cf128c04098da6187d7004b1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: aa41769852c01364599ec92783fd3603, type: 2}
+    - {fileID: 11400000, guid: 524faffde9b698349b20303bf9cfe279, type: 2}

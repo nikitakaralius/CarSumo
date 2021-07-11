@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: UIScene
+  m_EditorClassIdentifier: 
+  m_GroupName: UIScene
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 14a5125b94d65324ca7648332fff18bb
+  m_SerializeEntries:
+  - m_GUID: 0f6ba51ee54587e43a305daab0a0118a
+    m_Address: Assets/Bundles/UIScene/Audio
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 3701ccd8a3d9f164da8d9170f45c5682
+    m_Address: UI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 102900000, guid: 3701ccd8a3d9f164da8d9170f45c5682, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: 3701ccd8a3d9f164da8d9170f45c5682, type: 3}
+  - m_GUID: cd4f00dafb2a82843b185a42be37f512
+    m_Address: Assets/Bundles/UIScene/InputService
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 4948ba55cf128c04098da6187d7004b1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e1e29fe4ca2b144438a30b14194ba27a, type: 2}
+    - {fileID: 11400000, guid: eb10c950c75d1d24faaa32f68b4d42a8, type: 2}
