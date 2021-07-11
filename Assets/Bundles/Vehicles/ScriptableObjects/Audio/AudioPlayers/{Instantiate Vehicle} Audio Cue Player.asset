@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7808e341c788b124e9bcfedaa2a156d9, type: 3}
-  m_Name: '[Instantiate Vehicle]Audio Cue Player'
+  m_Name: '{Instantiate Vehicle} Audio Cue Player'
   m_EditorClassIdentifier: 
   _soundEmitterPrefab: {fileID: -6834715314700062474, guid: 0be2a9775ee7b0c4aa5d03c16bb32a6e, type: 3}
   _audioCue: {fileID: 11400000, guid: d028755d106abf14d8be0b02459b6e5c, type: 2}

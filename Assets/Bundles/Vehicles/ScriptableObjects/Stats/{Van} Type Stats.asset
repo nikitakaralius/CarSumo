@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df56a9c485cae214ab5c3a5233a90f85, type: 3}
-  m_Name: '[OldCar] Type Stats'
+  m_Name: '{Van} Type Stats'
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 2100000, guid: db85253cd6fe9674a885e58923e93bb3, type: 2}
-    - {fileID: 2100000, guid: 9f7f7a663f16ad749ae38ed6962ce28f, type: 2}
+    - {fileID: 2100000, guid: 2f1eaa18358c5a740b06ca4f0f63168f, type: 2}
+    - {fileID: 2100000, guid: c61d667ab31c5a84db824d59d0fa86d7, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -48,7 +48,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: $v
       Entry: 10
       Data: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: $v
       Entry: 10
       Data: 1
@@ -73,5 +73,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  _enginePower: -6
-  _rotationalSpeed: 10
+  _enginePower: -8
+  _rotationalSpeed: 15

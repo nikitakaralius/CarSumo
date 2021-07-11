@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79de1421695dfb545b7faf98229ea558, type: 3}
-  m_Name: '[Jeep] {FX} factory'
+  m_Name: '{Ute} {FX} factory'
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,6 +21,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  _vehiclePrefab: {fileID: 1075148122174216736, guid: aaf0394749ce2314584a6dff11dfb6ab, type: 3}
+  _vehiclePrefab: {fileID: 851993885610040572, guid: fa015f67a69c5f947a3c651b8b2ab306, type: 3}
   _instantiateParticles: {fileID: 11400000, guid: ca2a388c1a88e444084f367500d7c496, type: 2}
   _insantiateSound: {fileID: 11400000, guid: e287ceca5b55a11479a5ab15428e30ec, type: 2}

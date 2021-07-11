@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Vehicles
   m_Data:
     m_SerializedData: []
-  m_GUID: ea1255c138ec5bf46930b7bb1c341f9f
+  m_GUID: a4dc59847221eea4ea161b22bf5a6423
   m_SerializeEntries:
   - m_GUID: b579009c0b9feec47b0084c0b79d45cc
     m_Address: Assets/Bundles/Vehicles/Audio
@@ -63,5 +63,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 4948ba55cf128c04098da6187d7004b1, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 184af152e20fdf24585b2bef165f9492, type: 2}
-    - {fileID: 11400000, guid: 0909395fa3dde1c4bbcfb182d15917a7, type: 2}
+    - {fileID: 11400000, guid: fc00f3e41a69b0243b792f2f3fa6ff76, type: 2}
+    - {fileID: 11400000, guid: 936515e0fc7d1c54a994ecf36bcbd12b, type: 2}
