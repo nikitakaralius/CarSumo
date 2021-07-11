@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: TextMeshPro
+  m_EditorClassIdentifier: 
+  m_GroupName: TextMeshPro
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 4cc77d3efcbf06d4fbc2a3ed85665da6
+  m_SerializeEntries:
+  - m_GUID: f54d1bd14bd3ca042bd867b519fee8cc
+    m_Address: Assets/Bundles/TextMesh Pro
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 4948ba55cf128c04098da6187d7004b1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 11d57d497728c2c49ab0e24fe1e6411a, type: 2}
+    - {fileID: 11400000, guid: de224e0e9d9a95a4481e8c1726619655, type: 2}
