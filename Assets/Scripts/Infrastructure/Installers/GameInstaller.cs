@@ -1,5 +1,7 @@
-﻿using CarSumo.Infrastructure.Factories;
+﻿using CarSumo.Coroutines;
+using CarSumo.Infrastructure.Factories;
 using CarSumo.Infrastructure.Services.TeamChangeService;
+using CarSumo.Infrastructure.Services.TimerService;
 using CarSumo.Input;
 using CarSumo.Teams;
 using CarSumo.Units;
@@ -24,6 +26,18 @@ namespace CarSumo.Infrastructure.Installers
             BindSwipeInputScreen();
             BindInputAxisProvider();
             BindTeamChangeService();
+
+            var instance = new CoroutineExecutor(this);
+            
+            Container
+                .Bind<CoroutineExecutor>()
+                .FromInstance(instance)
+                .AsSingle();
+
+            Container
+                .Bind<ITimerService>()
+                .FromFactory<CountdownTimerFactory>()
+                .AsSingle();
         }
 
         private void BindTeamChangeService()

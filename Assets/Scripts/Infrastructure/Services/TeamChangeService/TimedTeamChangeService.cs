@@ -1,4 +1,5 @@
 ﻿using System;
+using CarSumo.Infrastructure.Services.TimerService;
 using CarSumo.Teams;
 
 namespace CarSumo.Infrastructure.Services.TeamChangeService
@@ -6,12 +7,16 @@ namespace CarSumo.Infrastructure.Services.TeamChangeService
     public class TimedTeamChangeService : ITeamChangeService
     {
         private readonly ITeamDefiner _teamDefiner;
+        private readonly ITimerService _timerService;
 
-        public TimedTeamChangeService(ITeamDefiner teamDefiner)
+        public TimedTeamChangeService(ITeamDefiner teamDefiner, ITimerService timerService)
         {
             _teamDefiner = teamDefiner;
-            
+            _timerService = timerService;
+
             InitializeFirstTeam(new RandomTeamDefiner());
+
+            _timerService.Elapsed += ChangeOnNext;
         }
 
         public Team ActiveTeam { get; private set; }
@@ -26,6 +31,7 @@ namespace CarSumo.Infrastructure.Services.TeamChangeService
         
         private void ChangeOn(Team team)
         {
+            _timerService.Start();
             ActiveTeam = team;
             TeamChanged?.Invoke();
         }
