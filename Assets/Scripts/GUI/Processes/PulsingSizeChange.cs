@@ -24,7 +24,15 @@ namespace CarSumo.GUI.Processes
            return new [] {_rectTransform.DOScale(_data.Range.Max, _data.Duration)
                                         .SetEase(_data.Ease)
                                         .SetLoops(-1, LoopType.Yoyo)
+                                        .OnKill(OnTweenKill)
            };
+        }
+
+        private void OnTweenKill()
+        {
+            _rectTransform
+                .DOScale(_data.Range.Min, _data.Duration)
+                .SetEase(_data.Ease);
         }
     }
 }

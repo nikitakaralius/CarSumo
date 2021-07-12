@@ -32,8 +32,8 @@ namespace CarSumo.Cameras
         private void OnEnable()
         {
             _teamChangeService.TeamChanged += ChangeCameraPosition;
-            
-            ChangeCameraPosition();
+
+            ChangeCameraPosition(false);
         }
 
         private void OnDisable()
@@ -43,12 +43,23 @@ namespace CarSumo.Cameras
 
         private void ChangeCameraPosition()
         {
+            ChangeCameraPosition(true);
+        }
+
+        private void ChangeCameraPosition(bool rememberPosition)
+        {
             Team team = _teamChangeService.ActiveTeam;
 
-            var previousTeam = _previousTeamDefiner.DefinePrevious(team);
-            _teamCameraPositions[previousTeam] = _transposer.m_XAxis.Value;
+            if (rememberPosition)
+                RememberCameraPosition(team);
 
             _transposer.m_XAxis.Value = _teamCameraPositions[team];
+        }
+
+        private void RememberCameraPosition(Team team)
+        {
+            var previousTeam = _previousTeamDefiner.DefinePrevious(team);
+            _teamCameraPositions[previousTeam] = _transposer.m_XAxis.Value;
         }
     }
 }

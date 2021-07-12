@@ -317,6 +317,103 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2295662443000948128, guid: 186d9b404a1474f7d9a2a4aaf0a66aa6, type: 3}
   m_PrefabInstance: {fileID: 384985711}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &417400937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4602236603298860795, guid: ffb3b966182874ce8aeea64e84818ed1, type: 3}
+  m_PrefabInstance: {fileID: 2001376270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &417400938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417400937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695388a652b803741b13dde294e2f1e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 2001376271}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _processes
+      Entry: 7
+      Data: 0|CarSumo.GUI.IGUIProcess[], Scripts
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|CarSumo.GUI.Processes.PulsingSizeChange, Scripts
+    - Name: _rectTransform
+      Entry: 10
+      Data: 0
+    - Name: _data
+      Entry: 7
+      Data: CarSumo.Structs.TweenData`1[[UnityEngine.Vector3, UnityEngine.CoreModule]],
+        Scripts
+    - Name: _range
+      Entry: 7
+      Data: CarSumo.Range`1[[UnityEngine.Vector3, UnityEngine.CoreModule]], Scripts
+    - Name: _min
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.75
+    - Name: 
+      Entry: 4
+      Data: 0.75
+    - Name: 
+      Entry: 4
+      Data: 0.75
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _max
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.8
+    - Name: 
+      Entry: 4
+      Data: 0.8
+    - Name: 
+      Entry: 4
+      Data: 0.8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _duration
+      Entry: 4
+      Data: 1
+    - Name: _ease
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &558639241 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4726316128431192564, guid: 4f7d1946ffbe547d4ba4f51f1f0e0177, type: 3}
@@ -953,6 +1050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1420613683}
   - component: {fileID: 1420613685}
+  - component: {fileID: 1420613684}
   m_Layer: 5
   m_Name: Players Info
   m_TagString: Untagged
@@ -981,6 +1079,79 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 180}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1420613684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420613682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf67d34e323548bd910c5915a84da5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 2099260321}
+    - {fileID: 417400938}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _teamInfos
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[CarSumo.Teams.Team, Scripts],[CarSumo.GUI.Core.GUIElement,
+        Scripts]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[CarSumo.Teams.Team,
+        Scripts]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!222 &1420613685
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1351,7 +1522,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  _processOnStart: 0
 --- !u!114 &1746141127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2111,7 +2281,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  _processOnStart: 1
 --- !u!1001 &2129788916
 PrefabInstance:
   m_ObjectHideFlags: 0

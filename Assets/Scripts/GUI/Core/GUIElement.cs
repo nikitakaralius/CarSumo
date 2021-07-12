@@ -1,10 +1,9 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Sirenix.OdinInspector;
 
 namespace CarSumo.GUI.Core
 {
-    public class GUIElement : SerializedMonoBehaviour
+    public class GUIElement : SerializedMonoBehaviour, IGUIElement
     {
         [SerializeField] private IGUIProcess[] _processes = new IGUIProcess[0];
 
