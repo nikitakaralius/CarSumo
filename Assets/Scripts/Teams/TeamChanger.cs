@@ -1,6 +1,7 @@
 ﻿using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace CarSumo.Teams
 {
@@ -11,7 +12,14 @@ namespace CarSumo.Teams
         public Team Team { get; private set; }
 
         [SerializeField] private ITeamDefiner _onAwakeDefiner;
-        [SerializeField] private ITeamDefiner _onGameDefiner;
+        
+        private ITeamDefiner _onGameDefiner;
+
+        [Inject]
+        private void Construct(ITeamDefiner teamDefiner)
+        {
+            _onGameDefiner = teamDefiner;
+        }
 
         private void Awake()
         {

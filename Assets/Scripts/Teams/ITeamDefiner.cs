@@ -4,4 +4,9 @@
     {
         Team DefineTeam(Team current);
     }
+
+    public interface IPreviousTeamDefiner : ITeamDefiner
+    {
+        
+    }
 }

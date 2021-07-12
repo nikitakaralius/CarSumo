@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CarSumo.Teams
 {
-    public class PreviousSequentialTeamDefiner : ITeamDefiner
+    public class PreviousSequentialTeamDefiner : IPreviousTeamDefiner
     {
         private int TeamCount => Enum.GetNames(typeof(Team)).Length;
 

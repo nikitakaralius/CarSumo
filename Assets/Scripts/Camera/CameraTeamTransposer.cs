@@ -3,6 +3,7 @@ using CarSumo.Teams;
 using Cinemachine;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace CarSumo.Cameras
 {
@@ -11,11 +12,17 @@ namespace CarSumo.Cameras
         [SerializeField] private IReactiveTeamChangeHandler _changeHandler;
         [SerializeField] private CinemachineVirtualCamera _camera;
         [SerializeField] private IDictionary<Team, float> _teamCameraPositions;
-        [SerializeField] private ITeamDefiner _previousTeamDefiner;
-
+        
+        private IPreviousTeamDefiner _previousTeamDefiner;
         private CinemachineOrbitalTransposer _transposer;
 
         private int _times = 0;
+
+        [Inject]
+        private void Construct(IPreviousTeamDefiner previousTeamDefiner)
+        {
+            _previousTeamDefiner = previousTeamDefiner;
+        }
 
         private void Awake()
         {

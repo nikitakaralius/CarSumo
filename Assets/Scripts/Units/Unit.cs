@@ -2,7 +2,6 @@
 using CarSumo.Teams;
 using CarSumo.Vehicles;
 using CarSumo.Vehicles.Factory;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
@@ -12,14 +11,14 @@ namespace CarSumo.Units
     {
         [SerializeField] private Team _team;
         
-        private VehicleHierarchy _vehicleHierarchy;
+        private IVehicleHierarchy _vehicleHierarchy;
         private IUnitTracker _unitTracker;
         private int _generation = -1;
 
         public Team Team => _team;
 
         [Inject]
-        private void Construct(IUnitTracker unitTracker, VehicleHierarchy vehicleHierarchy)
+        private void Construct(IUnitTracker unitTracker, IVehicleHierarchy vehicleHierarchy)
         {
             _unitTracker = unitTracker;
             _vehicleHierarchy = vehicleHierarchy;
@@ -56,7 +55,7 @@ namespace CarSumo.Units
 
         private void CreateVehicleInstance(WorldPlacement worldPlacement)
         {
-            var factory = _vehicleHierarchy.GetVehicleFactoryByGeneration(++_generation);
+            var factory = _vehicleHierarchy.GetVehicleFactoryByGeneration(_team, ++_generation);
 
             factory.Create(transform).Init(_team, worldPlacement, this, this);
         }

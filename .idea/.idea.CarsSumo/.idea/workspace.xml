@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Changed ILoadingScreen to async logic">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Units/IUnitTracker.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Units/IUnitTracker.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Units/UnitTracker.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Units/UnitTracker.cs.meta" afterDir="false" />
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Created UnitTracker">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GameInstaller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GameInstaller.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Factory/IVehicleHierarchy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Factory/IVehicleHierarchy.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/ITeamUnitStorage.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/ITeamUnitStorage.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/TeamUnitList.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/TeamUnitList.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/TeamUnitStorage.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/TeamUnitStorage.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTeamTransposer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTeamTransposer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Teams/ITeamDefiner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Teams/ITeamDefiner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Teams/PreviousSequentialTeamDefiner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Teams/PreviousSequentialTeamDefiner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Teams/TeamChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Teams/TeamChanger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/UnitEnhancer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/UnitEnhancer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Factory/VehicleHierarchy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Factory/VehicleHierarchy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
@@ -54,12 +54,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/AdditiveSceneLoader.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SingleSceneLoader.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneLoader.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneTable.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneStates/LoadLevelState.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneStates/BootstrapSceneState.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneStates/LoadMenuState.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Bootstrap/Start.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Bootstrap/Initialization.cs" />
@@ -82,8 +76,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleCollection.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/ISelectorService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehiclePicker.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitEnhancer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GameInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" />
       <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/BuildSettingsTests.cs" />
       <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/AddressablesSceneLoadServiceTests.cs" />
@@ -103,8 +95,16 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitStorage.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/IUnitStorage.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/IUnitTracker.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitTracker.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Factory/IVehicleHierarchy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Factory/VehicleHierarchy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GameInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/ITeamDefiner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/PreviousSequentialTeamDefiner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTeamTransposer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitEnhancer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/TeamChanger.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -167,7 +167,7 @@
       <workItem from="1625656447795" duration="1321000" />
       <workItem from="1625657828508" duration="16454000" />
       <workItem from="1625729261458" duration="3097000" />
-      <workItem from="1626074617300" duration="6284000" />
+      <workItem from="1626074617300" duration="7730000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>
@@ -260,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626079007601</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Created UnitTracker">
+      <created>1626080923434</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1626080923434</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,7 +302,8 @@
     <MESSAGE value="Created LoadingScreen Service" />
     <MESSAGE value="Created LoadingScreen Scene" />
     <MESSAGE value="Changed ILoadingScreen to async logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed ILoadingScreen to async logic" />
+    <MESSAGE value="Created UnitTracker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created UnitTracker" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
