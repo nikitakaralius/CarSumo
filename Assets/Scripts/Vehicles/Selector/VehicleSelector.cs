@@ -4,6 +4,7 @@ using CarSumo.Teams;
 using CarSumo.Vehicles.Speedometers;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace CarSumo.Vehicles.Selector
 {
@@ -12,7 +13,6 @@ namespace CarSumo.Vehicles.Selector
         [SerializeField] private VehicleSelectorData _data;
 
         [Header("Components")]
-        [SerializeField] private ISwipePanel _panel;
         [SerializeField] private ITeamChangeHandler _changeHandler;
         [SerializeField] private Camera _camera;
 
@@ -23,6 +23,14 @@ namespace CarSumo.Vehicles.Selector
         private SelectorSpeedometer _speedometer;
 
         private Vehicle _selectedVehicle;
+        
+        private ISwipeScreen _screen;
+
+        [Inject]
+        private void Construct(ISwipeScreen swipeScreen)
+        {
+            _screen = swipeScreen;
+        }
 
         public VehicleCollection LastValidVehicles { get; private set; }
 
@@ -40,19 +48,19 @@ namespace CarSumo.Vehicles.Selector
 
         private void OnEnable()
         {
-            _panel.Begun += OnPanelSwipeBegun;
-            _panel.Swiping += OnPanelSwiping;
-            _panel.Released += OnPanelSwipeReleased;
+            _screen.Begun += OnScreenSwipeBegun;
+            _screen.Swiping += OnScreenSwiping;
+            _screen.Released += OnScreenSwipeReleased;
         }
 
         private void OnDisable()
         {
-            _panel.Begun -= OnPanelSwipeBegun;
-            _panel.Swiping -= OnPanelSwiping;
-            _panel.Released -= OnPanelSwipeReleased;
+            _screen.Begun -= OnScreenSwipeBegun;
+            _screen.Swiping -= OnScreenSwiping;
+            _screen.Released -= OnScreenSwipeReleased;
         }
 
-        private void OnPanelSwipeBegun(SwipeData swipeData)
+        private void OnScreenSwipeBegun(SwipeData swipeData)
         {
             if (_moveHandler.CanPeformMove() == false)
                 return;
@@ -60,7 +68,7 @@ namespace CarSumo.Vehicles.Selector
             _selectedVehicle = _vehiclePicker.GetVehicleBySwipe(swipeData);
         }
 
-        private void OnPanelSwiping(SwipeData swipeData)
+        private void OnScreenSwiping(SwipeData swipeData)
         {
             if (_moveHandler.CanPeformMove() == false)
                 return;
@@ -74,7 +82,7 @@ namespace CarSumo.Vehicles.Selector
             _boost.ConfigureBoost(_selectedVehicle, swipeData);
         }
 
-        private void OnPanelSwipeReleased(SwipeData swipeData)
+        private void OnScreenSwipeReleased(SwipeData swipeData)
         {
             if (_moveHandler.CanPeformMove() == false)
                 return;

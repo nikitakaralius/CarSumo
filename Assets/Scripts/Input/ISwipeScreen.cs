@@ -4,8 +4,8 @@ using UnityEngine.EventSystems;
 
 namespace CarSumo.Input
 {
-    public interface ISwipePanel : 
-        IBeginDragHandler, IDragHandler, IEndDragHandler, AxisState.IInputAxisProvider
+    public interface ISwipeScreen : 
+        IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         event Action<SwipeData> Begun; 
         event Action<SwipeData> Swiping;

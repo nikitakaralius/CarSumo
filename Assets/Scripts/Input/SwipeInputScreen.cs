@@ -1,11 +1,12 @@
 ﻿using System;
 using CarSumo.Data;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace CarSumo.Input
 {
-    public class SwipeInputPanel : MonoBehaviour, ISwipePanel
+    public class SwipeInputScreen : MonoBehaviour, ISwipeScreen, AxisState.IInputAxisProvider
     {
         [SerializeField] private InputSettings _settings;
 
