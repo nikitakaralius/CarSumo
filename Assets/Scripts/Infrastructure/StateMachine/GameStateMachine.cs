@@ -10,12 +10,14 @@ namespace CarSumo.Infrastructure.StateMachine
 
         public GameStateMachine() : this(new Dictionary<Type, IState>()) { }
 
+        public GameStateMachine(IEnumerable<IState> states) : this(GenerateStatesFromEnumerable(states)) { }
+
         public GameStateMachine(Dictionary<Type, IState> states)
         {
             _states = states;
             _activeState = new EmptyState();
         }
-        
+
         public void Enter<TState>() where TState : IState
         {
             _activeState.Exit();
@@ -23,18 +25,25 @@ namespace CarSumo.Infrastructure.StateMachine
             _activeState.Enter();
         }
 
-        public void Register<TState>(TState state) where TState : IState
+        public void Register(IState state)
         {
-            Type stateKey = state.GetType();
-            _states.Add(stateKey, state);
+            Register(_states, state);
         }
 
-        public void Register(IEnumerable<IState> states)
+        private static Dictionary<Type, IState> GenerateStatesFromEnumerable(IEnumerable<IState> states)
         {
+            var generatedStates = new Dictionary<Type, IState>();
+            
             foreach (IState state in states)
-            {
-                Register(state);
-            }
+                Register(generatedStates, state);
+
+            return generatedStates;
+        }
+
+        private static void Register(Dictionary<Type, IState> states, IState state)
+        {
+            Type stateKey = state.GetType();
+            states.Add(stateKey, state);
         }
     }
 }

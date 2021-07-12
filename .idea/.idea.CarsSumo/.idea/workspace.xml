@@ -1,91 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Fixed Tests Bugs">
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Removed ITeamChangeSender">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Test.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Test.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/AudioMixer.mixer" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/AudioMixer.mixer.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bundles/Menu.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Custom Attribute Processors.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Custom Drawers.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Editor Windows.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Sample - RPG Editor.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Documentation.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Fonts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Fonts/LiberationSans - OFL.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Fonts/LiberationSans - OFL.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Fonts/LiberationSans.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Fonts/LiberationSans.ttf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/LineBreaking Following Characters.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Sprite Assets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Style Sheets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/TMP Settings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/TMP Settings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_Bitmap.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_Bitmap.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF Overlay.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF SSD.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF SSD.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Surface.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_Sprite.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMP_Sprite.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMPro.cginc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMPro.cginc.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMPro_Mobile.cginc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMPro_Mobile.cginc.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMPro_Properties.cginc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMPro_Properties.cginc.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMPro_Surface.cginc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Shaders/TMPro_Surface.cginc.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Sprites.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Sprites/EmojiOne Attribution.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Sprites/EmojiOne Attribution.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Sprites/EmojiOne.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Sprites/EmojiOne.json.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Sprites/EmojiOne.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Sprites/EmojiOne.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/UI.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/UI.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +26,14 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="0985ad6c-d747-42cf-8537-963ca1648272" />
+        <option name="url" value="https://github.com/nikitakaralyus/CarSumo.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/7f/9fa23c7e/Scene.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/c9/c47b05e6/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
@@ -110,56 +41,69 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.boundfoxstudios.fluentassertions@58a427c777/Editor/FluentAssertions/Execution/AssertionScope.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.boundfoxstudios.fluentassertions@58a427c777/Editor/FluentAssertions/NumericAssertionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/c4/4ebc49e5/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/c0/3edc800d/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/79/9c01d2cf/IList`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/c1/857e7925/IReadOnlyList`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/e2/418d3601/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/61/ccf68628/IReadOnlyCollection`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/5f/4b1a95d7/ICollection`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.15.2/Editor/Utilities/BuildLogger.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.16.19/Runtime/ResourceManager/ResourceProviders/ISceneProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/a0/618dcdfe/LoadSceneParameters.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/IVehicle.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/TeamDefinerTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/PreviousSequentialTeamDefiner.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/Condition.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/States/BootstrapState.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/BootstrapInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initializer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/IInputService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/IReadOnlyVehicleCollection.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleCollection.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/ISelectorService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehiclePicker.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/BuildSettingsTests.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/AddressablesSceneLoadServiceTests.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/AddressablesSceneLoadService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/ISceneLoadService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/AddressablesSceneLoadService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/ISceneLoadService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/SceneLoadData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/BootstrapState.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/ILoadingScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/ILoadingScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/SceneLoadingScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitStorage.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/IUnitStorage.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/IUnitTracker.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitTracker.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Factory/IVehicleHierarchy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Factory/VehicleHierarchy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/TeamChanger.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/ITeamDefiner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTeamTransposer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/RandomTeamDefiner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/PreviousSequentialTeamDefiner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/AllTeamDefiner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/SequentialTeamDefiner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitEnhancer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/Definers/RandomTeamDefiner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/Create.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/PreviousSequentialTeamDefinerTests.cs" />
       <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/SequentialTeamDefinerTests.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Teams/Team.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/PreviousSequentialTeamDefiner.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/PreviousSequentialTeamDefinerTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleCollection.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/VehicleCollectionTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/VehicleCollectionTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/GUIAudioProcessTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Structs/Create.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/Create.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/FluentAssertionsExtensions.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/GUIProcessesTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/Create.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/Configure.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/ImageTransparencyTweenTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/VerticalLayoutSpacingTweenTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/AnchorPositionTweenTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/BootstrapInstaller.cs" />
-      <option value="$PROJECT_DIR$/Assets/Infrastructure/Intallers/BootstrapInstaller.cs" />
-      <option value="$PROJECT_DIR$/Assets/Infrastructure/Insallers/BootstrapInstaller.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/IState.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameStateMachine.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/AdditiveSceneLoader.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SingleSceneLoader.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneLoader.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneTable.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneStates/LoadLevelState.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/IState.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneStates/BootstrapSceneState.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneStates/LoadMenuState.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/IStateMachine.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Bootstrap/Start.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Bootstrap/Initialization.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/GameStateMachine.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Input/ISwipePanel.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Input/SwipeInputPanel.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraInputProvider.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/InputService/IInputService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/InputService/PanelsInputService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GameInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Test.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -182,7 +126,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="CSharpTypeNameHintsOptions" />
+    <property name="settings.editor.selected.configurable" value="RiderCSharpLiveTemplatesSettingsId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReaderModeSettings">
@@ -222,6 +166,8 @@
       <workItem from="1625656447795" duration="1321000" />
       <workItem from="1625657828508" duration="16454000" />
       <workItem from="1625729261458" duration="3097000" />
+      <workItem from="1626074617300" duration="16409000" />
+      <workItem from="1626095422963" duration="807000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>
@@ -244,7 +190,119 @@
       <option name="project" value="LOCAL" />
       <updated>1625731208634</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Created StateMachine Infrastructure and GameStateMachine">
+      <created>1626031177448</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1626031177448</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Created SceneLoadService">
+      <created>1626033640827</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1626033640827</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Created BootstrapInstaller and BootstrapState">
+      <created>1626034890168</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1626034890168</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Renamed GYM scene to Game scene">
+      <created>1626074707872</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1626074707872</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Migrated UI to a separate scene">
+      <created>1626074852711</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1626074852711</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Removed Scenes from BuildSettings">
+      <created>1626075299675</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1626075299675</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Created GameEntryState">
+      <created>1626076909030</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1626076909030</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Created LoadingScreen Service">
+      <created>1626077436595</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1626077436595</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Created LoadingScreen Scene">
+      <created>1626077917269</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1626077917269</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Changed ILoadingScreen to async logic">
+      <created>1626079007601</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1626079007601</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Created UnitTracker">
+      <created>1626080923434</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1626080923434</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Replaced TeamDefiners with Zenject">
+      <created>1626082608844</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1626082608844</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Changed ITeamDefiner interface">
+      <created>1626084036558</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1626084036558</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Removed comma">
+      <created>1626084049024</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1626084049024</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Replaced Input panel with Input Services">
+      <created>1626091761032</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1626091761032</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Removed ITeamChangeSender">
+      <created>1626091888362</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1626091888362</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +327,42 @@
     <MESSAGE value="Added AnchorPositionTween Tests" />
     <MESSAGE value="Created ImageTransparencyTween Tests and removed GUIProcessesTests" />
     <MESSAGE value="Fixed Tests Bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Tests Bugs" />
+    <MESSAGE value="Created StateMachine Infrastructure and GameStateMachine" />
+    <MESSAGE value="Created SceneLoadService" />
+    <MESSAGE value="Created BootstrapInstaller and BootstrapState" />
+    <MESSAGE value="Renamed GYM scene to Game scene" />
+    <MESSAGE value="Migrated UI to a separate scene" />
+    <MESSAGE value="Removed Scenes from BuildSettings" />
+    <MESSAGE value="Created GameEntryState" />
+    <MESSAGE value="Created LoadingScreen Service" />
+    <MESSAGE value="Created LoadingScreen Scene" />
+    <MESSAGE value="Changed ILoadingScreen to async logic" />
+    <MESSAGE value="Created UnitTracker" />
+    <MESSAGE value="Replaced TeamDefiners with Zenject" />
+    <MESSAGE value="Changed ITeamDefiner interface" />
+    <MESSAGE value="Removed comma" />
+    <MESSAGE value="Replaced Input panel with Input Services" />
+    <MESSAGE value="Removed ITeamChangeSender" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed ITeamChangeSender" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs</url>
+          <line>31</line>
+          <properties documentPath="C:\Projects\CarsSumo\Assets\Scripts\Vehicles\Selector\VehicleSelector.cs" initialLine="31" containingFunctionPresentation="method 'Construct'">
+            <startOffsets>
+              <option value="866" />
+            </startOffsets>
+            <endOffsets>
+              <option value="888" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

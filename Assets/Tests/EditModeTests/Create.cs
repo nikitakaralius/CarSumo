@@ -8,11 +8,6 @@ public static class Create
         return new SequentialTeamDefiner();
     }
 
-    public static PreviousSequentialTeamDefiner PreviousSequentialTeamDefiner()
-    {
-        return new PreviousSequentialTeamDefiner();
-    }
-
     public static VehicleCollection VehicleCollection()
     {
         return new VehicleCollection();

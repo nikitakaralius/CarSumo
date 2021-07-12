@@ -1,12 +1,18 @@
 ﻿using Cinemachine;
 using Sirenix.OdinInspector;
-using UnityEngine;
+using Zenject;
 
 namespace CarSumo.Cameras
 {
     public class CameraInputProvider : SerializedMonoBehaviour, AxisState.IInputAxisProvider
     {
-        [SerializeField] private AxisState.IInputAxisProvider _provider;
+        private AxisState.IInputAxisProvider _provider;
+
+        [Inject]
+        private void Construct(AxisState.IInputAxisProvider axisProvider)
+        {
+            _provider = axisProvider;
+        }
 
         public float GetAxisValue(int axis)
         {

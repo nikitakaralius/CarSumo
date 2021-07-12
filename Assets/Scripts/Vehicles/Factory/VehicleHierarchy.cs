@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using CarSumo.Teams;
+using UnityEngine;
 
 namespace CarSumo.Vehicles.Factory
 {
     [CreateAssetMenu(fileName = "Vehicle Hierarchy", menuName = "CarSumo/Vehicles/Hierarchy")]
-    public class VehicleHierarchy : ScriptableObject
+    public class VehicleHierarchy : ScriptableObject, IVehicleHierarchy
     {
         [SerializeField] private VehicleFactory[] _factoriesHierarchy;
 
@@ -12,7 +13,7 @@ namespace CarSumo.Vehicles.Factory
             return generation < _factoriesHierarchy.Length;
         }
 
-        public VehicleFactory GetVehicleFactoryByGeneration(int generation)
+        public VehicleFactory GetVehicleFactoryByGeneration(Team team, int generation)
         {
             if (TryGetVehicleFactoryByGeneration(generation, out var factory) == false)
                 throw new System.ArgumentOutOfRangeException(nameof(generation));

@@ -2,31 +2,39 @@
 using CarSumo.Teams;
 using CarSumo.Vehicles;
 using CarSumo.Vehicles.Factory;
-using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace CarSumo.Units
 {
-    public class Unit : SerializedMonoBehaviour, IVehicleUpgrader, IVehicleDestroyer
+    public class Unit : MonoBehaviour, IVehicleUpgrader, IVehicleDestroyer
     {
         [SerializeField] private Team _team;
-        [SerializeField] private VehicleHierarchy _vehicleHierarchy;
-        [SerializeField] private ITeamUnitStorage _unitStorage;
-
+        
+        private IVehicleHierarchy _vehicleHierarchy;
+        private IUnitTracker _unitTracker;
         private int _generation = -1;
+
+        public Team Team => _team;
+
+        [Inject]
+        private void Construct(IUnitTracker unitTracker, IVehicleHierarchy vehicleHierarchy)
+        {
+            _unitTracker = unitTracker;
+            _vehicleHierarchy = vehicleHierarchy;
+        }
 
         private void Awake()
         {
-            _unitStorage.Add(this, _team);
-
-            // Todo: check -transofrm.forward if you changed the assets
+            _unitTracker.Add(this);
+            
             var worldPlacement = new WorldPlacement(transform.position, -transform.forward);
             CreateVehicleInstance(worldPlacement);
         }
 
         public void Destroy(Vehicle vehicle)
         {
-            _unitStorage.Remove(this, _team);
+            _unitTracker.Remove(this);
 
             Destroy(vehicle.gameObject);
             Destroy(gameObject);
@@ -47,7 +55,7 @@ namespace CarSumo.Units
 
         private void CreateVehicleInstance(WorldPlacement worldPlacement)
         {
-            var factory = _vehicleHierarchy.GetVehicleFactoryByGeneration(++_generation);
+            var factory = _vehicleHierarchy.GetVehicleFactoryByGeneration(_team, ++_generation);
 
             factory.Create(transform).Init(_team, worldPlacement, this, this);
         }

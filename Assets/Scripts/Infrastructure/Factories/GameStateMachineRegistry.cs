@@ -1,35 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using CarSumo.Infrastructure.Services.LoadingScreen;
+using CarSumo.Infrastructure.Services.SceneManagement;
 using CarSumo.Infrastructure.StateMachine;
-using CarSumo.SceneManagement;
-using CarSumo.SceneManagement.SceneStates;
+using CarSumo.Infrastructure.StateMachine.States;
 using Zenject;
 
 namespace CarSumo.Infrastructure.Factories
 {
     public class GameStateMachineRegistry : IFactory<GameStateMachine>
     {
-        private readonly SingleSceneLoader _singleSceneLoader;
+        private readonly ISceneLoadService _sceneLoadService;
+        private readonly ILoadingScreen _loadingScreen;
 
-        public GameStateMachineRegistry(SingleSceneLoader singleSceneLoader)
+        public GameStateMachineRegistry(ISceneLoadService sceneLoadService, ILoadingScreen loadingScreen)
         {
-            _singleSceneLoader = singleSceneLoader;
+            _sceneLoadService = sceneLoadService;
+            _loadingScreen = loadingScreen;
         }
-        
+
         public GameStateMachine Create()
         {
-            GameStateMachine stateMachine = new GameStateMachine();
-            IEnumerable<IState> states = CreateStatesRegistry(stateMachine);
-            stateMachine.Register(states);
-            return stateMachine;
+            return new GameStateMachine(RegisteredStates());
         }
 
-        private IEnumerable<IState> CreateStatesRegistry(GameStateMachine stateMachine)
+        private IEnumerable<IState> RegisteredStates()
         {
             return new IState[]
             {
-                new BootstrapSceneState(stateMachine, _singleSceneLoader),
-                new LoadMenuState(_singleSceneLoader)
+                new BootstrapState(_sceneLoadService),
+                new GameEntryState(_sceneLoadService, _loadingScreen)
             };
         }
     }

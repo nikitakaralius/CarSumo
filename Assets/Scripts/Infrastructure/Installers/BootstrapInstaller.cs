@@ -1,6 +1,7 @@
 ﻿using CarSumo.Infrastructure.Factories;
+using CarSumo.Infrastructure.Services.LoadingScreen;
+using CarSumo.Infrastructure.Services.SceneManagement;
 using CarSumo.Infrastructure.StateMachine;
-using CarSumo.SceneManagement;
 using Zenject;
 
 namespace CarSumo.Infrastructure.Installers
@@ -9,9 +10,17 @@ namespace CarSumo.Infrastructure.Installers
     {
         public override void InstallBindings()
         {
-            BindSingleSceneLoader();
-            BindAdditiveSceneLoader();
+            BindSceneLoadService();
+            BindLoadingScreen();
             BindGameStateMachine();
+        }
+
+        private void BindLoadingScreen()
+        {
+            Container
+                .Bind<ILoadingScreen>()
+                .To<SceneLoadingScreen>()
+                .AsSingle();
         }
 
         private void BindGameStateMachine()
@@ -19,23 +28,17 @@ namespace CarSumo.Infrastructure.Installers
             Container
                 .Bind<GameStateMachine>()
                 .FromFactory<GameStateMachineRegistry>()
-                .AsSingle();
+                .AsSingle()
+                .NonLazy();
         }
 
-        private void BindAdditiveSceneLoader()
+        private void BindSceneLoadService()
         {
             Container
-                .Bind<AdditiveSceneLoader>()
-                .FromNew()
-                .AsSingle();
-        }
-
-        private void BindSingleSceneLoader()
-        {
-            Container
-                .Bind<SingleSceneLoader>()
-                .FromNew()
-                .AsSingle();
+                .Bind<ISceneLoadService>()
+                .FromInstance(new AddressablesSceneLoadService())
+                .AsSingle()
+                .NonLazy();
         }
     }
 }

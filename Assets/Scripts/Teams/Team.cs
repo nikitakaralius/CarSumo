@@ -3,6 +3,6 @@
     public enum Team
     {
         First,
-        Second,
+        Second
     }
 }
