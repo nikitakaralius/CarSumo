@@ -13,13 +13,13 @@ namespace CarSumo.Cameras
         [SerializeField] private CinemachineVirtualCamera _camera;
         [SerializeField] private IDictionary<Team, float> _teamCameraPositions;
         
-        private IPreviousTeamDefiner _previousTeamDefiner;
+        private ITeamDefiner _previousTeamDefiner;
         private CinemachineOrbitalTransposer _transposer;
 
         private int _times = 0;
 
         [Inject]
-        private void Construct(IPreviousTeamDefiner previousTeamDefiner)
+        private void Construct(ITeamDefiner previousTeamDefiner)
         {
             _previousTeamDefiner = previousTeamDefiner;
         }
@@ -43,17 +43,12 @@ namespace CarSumo.Cameras
         {
             if (_times > 0)
             {
-                var previousTeam = DeterminePreviousTeam(team);
+                var previousTeam = _previousTeamDefiner.DefinePrevious(team);
                 _teamCameraPositions[previousTeam] = _transposer.m_XAxis.Value;
             }
 
             _times++;
             _transposer.m_XAxis.Value = _teamCameraPositions[team];
-        }
-
-        private Team DeterminePreviousTeam(Team currentTeam)
-        {
-            return _previousTeamDefiner.DefineTeam(currentTeam);
         }
     }
 }

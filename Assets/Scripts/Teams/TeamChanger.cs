@@ -23,13 +23,13 @@ namespace CarSumo.Teams
 
         private void Awake()
         {
-            var newTeam = _onAwakeDefiner.DefineTeam(Team);
+            var newTeam = _onAwakeDefiner.DefineNext(Team);
             ChangeTeam(newTeam);
         }
 
         public void ChangeTeam()
         {
-            ChangeTeam(_onGameDefiner.DefineTeam(Team));
+            ChangeTeam(_onGameDefiner.DefineNext(Team));
         }
 
         private void ChangeTeam(Team team)

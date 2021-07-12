@@ -13,10 +13,10 @@ namespace CarSumo.Units
         [SerializeField] private VehicleDestroyer _destroyer;
         [SerializeField] private VehicleSelector _selector;
 
-        private IPreviousTeamDefiner _upgradeTeamDefiner;
+        private ITeamDefiner _upgradeTeamDefiner;
 
         [Inject]
-        private void Construct(IPreviousTeamDefiner previousTeamDefiner)
+        private void Construct(ITeamDefiner previousTeamDefiner)
         {
             _upgradeTeamDefiner = previousTeamDefiner;
         }
@@ -34,7 +34,7 @@ namespace CarSumo.Units
         private void OnVehicleDestroying(IVehicleStatsProvider destroyingEntity)
         {
             var entityTeam = destroyingEntity.GetStats().Team;
-            var teamToUpgrade = _upgradeTeamDefiner.DefineTeam(entityTeam);
+            var teamToUpgrade = _upgradeTeamDefiner.DefinePrevious(entityTeam);
 
             var vehicleToUpgrade = _selector.LastValidVehicles[teamToUpgrade];
 

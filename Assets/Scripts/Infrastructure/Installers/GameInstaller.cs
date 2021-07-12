@@ -14,11 +14,17 @@ namespace CarSumo.Infrastructure.Installers
         {
             BindUnitTracker();
             BindVehicleHierarchy();
-
-            Container.Bind<ITeamDefiner>().To<SequentialTeamDefiner>().AsSingle();
-            Container.Bind<IPreviousTeamDefiner>().To<PreviousSequentialTeamDefiner>().AsSingle();
+            BindTeamDefiner();
         }
         
+        private void BindTeamDefiner()
+        {
+            Container
+                .Bind<ITeamDefiner>()
+                .To<SequentialTeamDefiner>()
+                .AsSingle();
+        }
+
         private void BindVehicleHierarchy()
         {
             Container
