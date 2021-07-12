@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: f81553f3b3a9a9f4ab0d4209be0649fd
   - enabled: 0
-    path: Assets/Scenes/GYM/GYM.unity
+    path: Assets/Scenes/Game/Game.unity
     guid: ad982ed531136ed4b8744d51df57a66c
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 44033ca9ae2eddd4786eae4dd98b025a, type: 2}

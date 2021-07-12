@@ -24,11 +24,11 @@ MonoBehaviour:
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
   - m_GUID: ad982ed531136ed4b8744d51df57a66c
-    m_Address: GYM
+    m_Address: Game
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 102900000, guid: ad982ed531136ed4b8744d51df57a66c, type: 3}
-    m_TargetAsset: {fileID: 102900000, guid: ad982ed531136ed4b8744d51df57a66c, type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4948ba55cf128c04098da6187d7004b1, type: 2}
   m_SchemaSet:

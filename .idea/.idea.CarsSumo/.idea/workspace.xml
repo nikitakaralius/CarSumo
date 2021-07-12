@@ -1,17 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Created SceneLoadService">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/BootstrapState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/BootstrapState.cs.meta" afterDir="false" />
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GameInstaller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GameInstaller.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/ISelectorService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/ISelectorService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/IReadOnlyVehicleCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/IReadOnlyVehicleCollection.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/GameScene.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/GameScene.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GYM/GYM.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GYM/GYM.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/UI.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/AddressablesSceneLoadService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/AddressablesSceneLoadService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/AddressablesSceneLoadService.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/AddressablesSceneLoadService.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/ISceneLoadService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/ISceneLoadService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/ISceneLoadService.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/ISceneLoadService.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/SceneLoadData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/SceneLoadData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/SceneLoadData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/SceneLoadData.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/BootstrapState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/UnitEnhancer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/UnitEnhancer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleCollection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,19 +66,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/TeamDefinerTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/PreviousSequentialTeamDefiner.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/Condition.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/SequentialTeamDefinerTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/Team.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/PreviousSequentialTeamDefiner.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/PreviousSequentialTeamDefinerTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleCollection.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/VehicleCollectionTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/VehicleCollectionTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/GUIAudioProcessTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Structs/Create.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/Create.cs" />
       <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/FluentAssertionsExtensions.cs" />
       <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/GUIProcessesTests.cs" />
       <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/Create.cs" />
@@ -68,7 +73,6 @@
       <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/ImageTransparencyTweenTests.cs" />
       <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/VerticalLayoutSpacingTweenTests.cs" />
       <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/AnchorPositionTweenTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/BootstrapInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Infrastructure/Intallers/BootstrapInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Infrastructure/Insallers/BootstrapInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/IState.cs" />
@@ -95,10 +99,24 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/AddressablesLoadService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/ISceneLoadService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/AddressablesSceneLoadService.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/States/BootstrapState.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/BootstrapInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initializer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/AddressablesSceneLoadService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/ISceneLoadService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/SceneLoadData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/BootstrapState.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/IInputService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/IReadOnlyVehicleCollection.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleCollection.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/ISelectorService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehiclePicker.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitEnhancer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GameInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -197,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626033640827</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Created BootstrapInstaller and BootstrapState">
+      <created>1626034890168</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1626034890168</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +249,8 @@
     <MESSAGE value="Fixed Tests Bugs" />
     <MESSAGE value="Created StateMachine Infrastructure and GameStateMachine" />
     <MESSAGE value="Created SceneLoadService" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created SceneLoadService" />
+    <MESSAGE value="Created BootstrapInstaller and BootstrapState" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created BootstrapInstaller and BootstrapState" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
