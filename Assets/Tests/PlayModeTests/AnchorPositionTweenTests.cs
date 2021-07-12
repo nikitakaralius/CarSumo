@@ -10,7 +10,7 @@ public class AnchorPositionTweenTests
     {
         IGUIProcess process = Configure.AnchorPositionTween(out var tweenData, out var rectTransform);
 
-        process.ApplyProcess();
+        process.Apply();
 
         yield return new WaitForSeconds(tweenData.Duration);
 
@@ -22,9 +22,9 @@ public class AnchorPositionTweenTests
     {
         IGUIProcess process = Configure.AnchorPositionTween(out var tweenData, out var rectTransform);
 
-        process.ApplyProcess();
+        process.Apply();
         yield return new WaitForSeconds(tweenData.Duration);
-        process.ApplyProcess();                             
+        process.Apply();                             
         yield return new WaitForSeconds(tweenData.Duration);
 
         rectTransform.anchoredPosition.ShouldBeApproximately(tweenData.Range.Min);

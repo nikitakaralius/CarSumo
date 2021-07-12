@@ -19,7 +19,15 @@ namespace CarSumo.GUI.Core
         {
             foreach (IGUIProcess process in _processes)
             {
-                process.ApplyProcess();
+                process.Apply();
+            }
+        }
+
+        public void Stop()
+        {
+            foreach (IGUIProcess process in _processes)
+            {
+                process.Stop();
             }
         }
     }

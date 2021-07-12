@@ -11,7 +11,7 @@ public class VerticalLayoutSpacingTweenTests
     {
         IGUIProcess process = Configure.VerticalLayoutSpacingTween(out var group, out var tweenData);
 
-        process.ApplyProcess();
+        process.Apply();
 
         yield return new WaitForSeconds(tweenData.Duration);
 
@@ -25,9 +25,9 @@ public class VerticalLayoutSpacingTweenTests
         IGUIProcess process = Configure.VerticalLayoutSpacingTween(out var group, out var tweenData);
 
         // Act.
-        process.ApplyProcess();
+        process.Apply();
         yield return new WaitForSeconds(tweenData.Duration);
-        process.ApplyProcess();
+        process.Apply();
         yield return new WaitForSeconds(tweenData.Duration);
 
         // Assert.

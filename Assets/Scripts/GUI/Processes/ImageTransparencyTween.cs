@@ -1,10 +1,12 @@
-﻿using DG.Tweening;
+﻿using System.Collections.Generic;
+using CarSumo.GUI.Processees;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace CarSumo.GUI.Processes
 {
-    public class ImageTransparencyTween : IGUIProcess
+    public class ImageTransparencyTween : DoTweenProcess
     {
         [SerializeField] private Image[] _images = new Image[0];
         [SerializeField] private float _duration;
@@ -21,26 +23,30 @@ namespace CarSumo.GUI.Processes
             Init();
         }
 
-        public void Init()
+        public override void Init()
         {
             _transparent = _transparentOnStart;
         }
 
-        public void ApplyProcess()
+        public override void OnApplied()
         {
-            float to = _transparent ? 1 : 0;
-
-            ChangeTransparency(to, _duration);
-
             _transparent = !_transparent;
         }
 
-        private void ChangeTransparency(float to, float duration)
+        protected override IEnumerable<Tween> CreateTweenSection()
         {
-            foreach (Image image in _images)
+            float to = _transparent ? 1 : 0;
+
+            Tween[] tweens = new Tween[_images.Length];
+
+            for (var i = 0; i < _images.Length; i++)
             {
-                DOTween.ToAlpha(() => image.color, color => image.color = color, to, duration);
+                Image image = _images[i];
+                Tween tween = DOTween.ToAlpha(() => image.color,color => image.color = color, to, _duration);
+                tweens[i] = tween;
             }
+
+            return tweens;
         }
     }
 }

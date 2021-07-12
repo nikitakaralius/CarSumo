@@ -1,11 +1,13 @@
-﻿using CarSumo.Structs;
+﻿using System.Collections.Generic;
+using CarSumo.GUI.Processees;
+using CarSumo.Structs;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace CarSumo.GUI.Processes
 {
-    public class VerticalLayoutSpacingTween : IGUIProcess
+    public class VerticalLayoutSpacingTween : DoTweenProcess
     {
         [SerializeField] private VerticalLayoutGroup _group;
         [SerializeField] private TweenData _data;
@@ -20,25 +22,30 @@ namespace CarSumo.GUI.Processes
             Init();
         }
 
-        public void Init()
+        public override void Init()
         {
             _manageableData = _data;
         }
 
-        public void ApplyProcess()
+        public override void OnApplied()
         {
-            TranslateSpacing(_manageableData);
             _manageableData = _manageableData.Inverted;
         }
 
-        public void TranslateSpacing(TweenData tweenData)
+        protected override IEnumerable<Tween> CreateTweenSection()
         {
-            TranslateSpacing(tweenData.Range, tweenData.Duration, tweenData.Ease);
+            return new[] {TranslateSpacing(_manageableData)};
         }
 
-        public void TranslateSpacing(Range range, float duration, Ease ease)
+        private Tween TranslateSpacing(TweenData tweenData)
         {
-            DOTween.To(() => _group.spacing, spacing => _group.spacing = spacing, range.Max, duration).SetEase(ease);
+            return TranslateSpacing(tweenData.Range, tweenData.Duration, tweenData.Ease);
+        }
+
+        private Tween TranslateSpacing(Range range, float duration, Ease ease)
+        {
+            return DOTween.To(() => _group.spacing, spacing => _group.spacing = spacing, range.Max, duration)
+                .SetEase(ease);
         }
     }
 }
