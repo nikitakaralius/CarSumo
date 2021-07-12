@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Created GUI Timer">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Other/Timer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Other/Timer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/CountdownTimerFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/CountdownTimerFactory.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameUI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameUI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/TeamChangeServiceFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/TeamChangeServiceFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GameInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GameInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TeamChangeService/TimedTeamChangeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TeamChangeService/TimedTeamChangeService.cs" afterDir="false" />
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Created Timer">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Coroutines/CoroutineExecutor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Coroutines/CoroutineExecutor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TimerService/CountdownTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TimerService/CountdownTimer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +64,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/ILoadingScreen.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/SceneLoadingScreen.cs" />
@@ -118,12 +108,13 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/PulsingSizeChange.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTeamTransposer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TimerService/ITimerService.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TimerService/CountdownTimer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/TeamChangeServiceFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GameInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/CountdownTimerFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TeamChangeService/TimedTeamChangeService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Other/Timer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Coroutines/CoroutineExecutor.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TimerService/CountdownTimer.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -357,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626120915006</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Created Timer">
+      <created>1626124282061</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1626124282061</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +401,8 @@
     <MESSAGE value="Created PulsingSizeChange" />
     <MESSAGE value="Added PlayerHighlighting" />
     <MESSAGE value="Created GUI Timer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created GUI Timer" />
+    <MESSAGE value="Created Timer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created Timer" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

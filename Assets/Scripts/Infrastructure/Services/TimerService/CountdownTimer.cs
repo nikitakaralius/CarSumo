@@ -9,6 +9,7 @@ namespace CarSumo.Infrastructure.Services.TimerService
     {
         private readonly float _startTimeRemaining;
         private readonly CoroutineExecutor _coroutineExecutor;
+        private Coroutine _timerRoutine;
 
         public CountdownTimer(float startTimeRemaining, CoroutineExecutor coroutineExecutor)
         {
@@ -22,12 +23,16 @@ namespace CarSumo.Infrastructure.Services.TimerService
 
         public void Start()
         {
-            _coroutineExecutor.StartCoroutine(TimerRoutine());
+            Stop();
+            _timerRoutine = _coroutineExecutor.StartCoroutine(TimerRoutine());
         }
 
         public void Stop()
         {
-            _coroutineExecutor.StopCoroutine(TimerRoutine());
+            if (_timerRoutine is null)
+                return;
+
+            _coroutineExecutor.StopCoroutine(_timerRoutine);
         }
 
         private IEnumerator TimerRoutine()
