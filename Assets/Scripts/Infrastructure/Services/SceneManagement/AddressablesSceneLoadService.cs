@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
-namespace CarSumo.Infrastructure.SceneManagement
+namespace CarSumo.Infrastructure.Services.SceneManagement
 {
     public class AddressablesSceneLoadService : ISceneLoadService
     {

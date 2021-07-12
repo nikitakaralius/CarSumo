@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using CarSumo.Infrastructure.SceneManagement;
+using CarSumo.Infrastructure.Services.SceneManagement;
 using UnityEngine.SceneManagement;
 
 namespace CarSumo.Infrastructure.StateMachine.States

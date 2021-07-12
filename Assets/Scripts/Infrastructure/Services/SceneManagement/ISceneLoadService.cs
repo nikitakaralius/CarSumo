@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace CarSumo.Infrastructure.SceneManagement
+namespace CarSumo.Infrastructure.Services.SceneManagement
 {
     public interface ISceneLoadService
     {

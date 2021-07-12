@@ -1,6 +1,6 @@
 ﻿using UnityEngine.SceneManagement;
 
-namespace CarSumo.Infrastructure.SceneManagement
+namespace CarSumo.Infrastructure.Services.SceneManagement
 {
     public readonly struct SceneLoadData
     {

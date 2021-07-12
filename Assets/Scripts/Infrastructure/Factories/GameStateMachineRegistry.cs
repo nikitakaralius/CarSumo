@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using CarSumo.Infrastructure.SceneManagement;
+using CarSumo.Infrastructure.Services.SceneManagement;
 using CarSumo.Infrastructure.StateMachine;
 using CarSumo.Infrastructure.StateMachine.States;
 using Zenject;

@@ -1,5 +1,5 @@
 ﻿using CarSumo.Infrastructure.Factories;
-using CarSumo.Infrastructure.SceneManagement;
+using CarSumo.Infrastructure.Services.SceneManagement;
 using CarSumo.Infrastructure.StateMachine;
 using Zenject;
 
