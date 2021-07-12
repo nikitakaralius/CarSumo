@@ -1,4 +1,6 @@
-﻿using CarSumo.Input;
+﻿using CarSumo.Infrastructure.Factories;
+using CarSumo.Infrastructure.Services.TeamChangeService;
+using CarSumo.Input;
 using CarSumo.Teams;
 using CarSumo.Units;
 using CarSumo.Vehicles.Factory;
@@ -21,6 +23,15 @@ namespace CarSumo.Infrastructure.Installers
             BindTeamDefiner();
             BindSwipeInputScreen();
             BindInputAxisProvider();
+            BindTeamChangeService();
+        }
+
+        private void BindTeamChangeService()
+        {
+            Container
+                .Bind<ITeamChangeService>()
+                .FromFactory<TeamChangeServiceFactory>()
+                .AsSingle();
         }
 
         private void BindInputAxisProvider()

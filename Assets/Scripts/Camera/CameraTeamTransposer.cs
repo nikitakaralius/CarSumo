@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CarSumo.Infrastructure.Services.TeamChangeService;
 using CarSumo.Teams;
 using Cinemachine;
 using Sirenix.OdinInspector;
@@ -9,19 +10,18 @@ namespace CarSumo.Cameras
 {
     public class CameraTeamTransposer : SerializedMonoBehaviour
     {
-        [SerializeField] private IReactiveTeamChangeHandler _changeHandler;
         [SerializeField] private CinemachineVirtualCamera _camera;
         [SerializeField] private IDictionary<Team, float> _teamCameraPositions;
-        
+
         private ITeamDefiner _previousTeamDefiner;
+        private ITeamChangeService _teamChangeService;
         private CinemachineOrbitalTransposer _transposer;
 
-        private int _times = 0;
-
         [Inject]
-        private void Construct(ITeamDefiner previousTeamDefiner)
+        private void Construct(ITeamDefiner previousTeamDefiner, ITeamChangeService teamChangeService)
         {
             _previousTeamDefiner = previousTeamDefiner;
+            _teamChangeService = teamChangeService;
         }
 
         private void Awake()
@@ -31,23 +31,23 @@ namespace CarSumo.Cameras
 
         private void OnEnable()
         {
-            _changeHandler.TeamChanged += ChangeCameraPosition;
+            _teamChangeService.TeamChanged += ChangeCameraPosition;
+            
+            ChangeCameraPosition();
         }
 
         private void OnDisable()
         {
-            _changeHandler.TeamChanged -= ChangeCameraPosition;
+            _teamChangeService.TeamChanged -= ChangeCameraPosition;
         }
 
-        private void ChangeCameraPosition(Team team)
+        private void ChangeCameraPosition()
         {
-            if (_times > 0)
-            {
-                var previousTeam = _previousTeamDefiner.DefinePrevious(team);
-                _teamCameraPositions[previousTeam] = _transposer.m_XAxis.Value;
-            }
+            Team team = _teamChangeService.ActiveTeam;
 
-            _times++;
+            var previousTeam = _previousTeamDefiner.DefinePrevious(team);
+            _teamCameraPositions[previousTeam] = _transposer.m_XAxis.Value;
+
             _transposer.m_XAxis.Value = _teamCameraPositions[team];
         }
     }
