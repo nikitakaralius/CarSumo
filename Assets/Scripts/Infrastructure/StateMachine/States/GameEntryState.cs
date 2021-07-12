@@ -7,7 +7,7 @@ namespace CarSumo.Infrastructure.StateMachine.States
 {
     public class GameEntryState : IState
     {
-        private const string UI = "UI";
+        private const string UI = "GameUI";
         private const string Game = "Game";
         
         private readonly ISceneLoadService _loadService;

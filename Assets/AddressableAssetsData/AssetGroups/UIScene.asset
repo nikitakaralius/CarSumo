@@ -24,11 +24,11 @@ MonoBehaviour:
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
   - m_GUID: 3701ccd8a3d9f164da8d9170f45c5682
-    m_Address: UI
+    m_Address: GameUI
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 102900000, guid: 3701ccd8a3d9f164da8d9170f45c5682, type: 3}
-    m_TargetAsset: {fileID: 102900000, guid: 3701ccd8a3d9f164da8d9170f45c5682, type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: cd4f00dafb2a82843b185a42be37f512
     m_Address: Assets/Bundles/UIScene/InputService
     m_ReadOnly: 0
