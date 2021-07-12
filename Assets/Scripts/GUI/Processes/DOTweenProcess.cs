@@ -3,7 +3,7 @@ using DG.Tweening;
 
 namespace CarSumo.GUI.Processees
 {
-    public abstract class DoTweenProcess : IGUIProcess
+    public abstract class DOTweenProcess : IGUIProcess
     {
         private IEnumerable<Tween> _tweens;
         

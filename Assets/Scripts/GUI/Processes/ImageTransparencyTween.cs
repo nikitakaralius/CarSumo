@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace CarSumo.GUI.Processes
 {
-    public class ImageTransparencyTween : DoTweenProcess
+    public class ImageTransparencyTween : DOTweenProcess
     {
         [SerializeField] private Image[] _images = new Image[0];
         [SerializeField] private float _duration;

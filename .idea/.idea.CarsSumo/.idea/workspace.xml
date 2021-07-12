@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Replaced TeamChangeHandler with TeamChangeService">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/DoTweenProcess.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/DoTweenProcess.cs.meta" afterDir="false" />
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Changed IGUIProcess interface by adding Stop method">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/PulsingSizeChange.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/PulsingSizeChange.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameUI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameUI.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/Core/GUIElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Core/GUIElement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/Core/IGUIProcess.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Core/IGUIProcess.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/AnchorPositionTween.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/AnchorPositionTween.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/GUIAudioProcess.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/GUIAudioProcess.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/DoTweenProcess.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/DOTweenProcess.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/ImageTransparencyTween.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/ImageTransparencyTween.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/VerticalLayoutSpacingTween.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/VerticalLayoutSpacingTween.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests/PlayModeTests/AnchorPositionTweenTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/PlayModeTests/AnchorPositionTweenTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests/PlayModeTests/GUIAudioProcessTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/PlayModeTests/GUIAudioProcessTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests/PlayModeTests/ImageTransparencyTweenTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/PlayModeTests/ImageTransparencyTweenTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests/PlayModeTests/VerticalLayoutSpacingTweenTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/PlayModeTests/VerticalLayoutSpacingTweenTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +59,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/ISceneLoadService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/AddressablesSceneLoadService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/ISceneLoadService.cs" />
@@ -112,6 +108,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/GUIAudioProcess.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/ImageTransparencyTween.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/VerticalLayoutSpacingTween.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/PulsingSizeChange.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Core/GUIElement.cs" />
     </changedPaths>
   </component>
@@ -318,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626096791389</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Changed IGUIProcess interface by adding Stop method">
+      <created>1626117025179</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1626117025179</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,7 +364,8 @@
     <MESSAGE value="Replaced Input panel with Input Services" />
     <MESSAGE value="Removed ITeamChangeSender" />
     <MESSAGE value="UI Scene now dependent on Game Scene" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI Scene now dependent on Game Scene" />
+    <MESSAGE value="Changed IGUIProcess interface by adding Stop method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed IGUIProcess interface by adding Stop method" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CarSumo.GUI.Processees
 {
-    public class AnchorPositionTween : DoTweenProcess
+    public class AnchorPositionTween : DOTweenProcess
     {
         [SerializeField] private RectTransform[] _rectTransforms = new RectTransform[0];
         [SerializeField] private TweenData<Vector2> _data;

@@ -1351,6 +1351,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  _processOnStart: 0
 --- !u!114 &1746141127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2013,6 +2014,104 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4397407962465920936, guid: d4b685dba364d40b48eb9f32c41bf963, type: 3}
   m_PrefabInstance: {fileID: 2099260318}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2099260320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4397407962465920937, guid: d4b685dba364d40b48eb9f32c41bf963, type: 3}
+  m_PrefabInstance: {fileID: 2099260318}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2099260321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099260320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695388a652b803741b13dde294e2f1e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 2099260319}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _processes
+      Entry: 7
+      Data: 0|CarSumo.GUI.IGUIProcess[], Scripts
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|CarSumo.GUI.Processes.PulsingSizeChange, Scripts
+    - Name: _rectTransform
+      Entry: 10
+      Data: 0
+    - Name: _data
+      Entry: 7
+      Data: CarSumo.Structs.TweenData`1[[UnityEngine.Vector3, UnityEngine.CoreModule]],
+        Scripts
+    - Name: _range
+      Entry: 7
+      Data: CarSumo.Range`1[[UnityEngine.Vector3, UnityEngine.CoreModule]], Scripts
+    - Name: _min
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.75
+    - Name: 
+      Entry: 4
+      Data: 0.75
+    - Name: 
+      Entry: 4
+      Data: 0.75
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _max
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.8
+    - Name: 
+      Entry: 4
+      Data: 0.8
+    - Name: 
+      Entry: 4
+      Data: 0.8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _duration
+      Entry: 4
+      Data: 1
+    - Name: _ease
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _processOnStart: 1
 --- !u!1001 &2129788916
 PrefabInstance:
   m_ObjectHideFlags: 0
