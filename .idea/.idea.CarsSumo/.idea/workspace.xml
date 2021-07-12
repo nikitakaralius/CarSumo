@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Created PulsingSizeChange">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Core/IGUIElement.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Core/IGUIElement.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Other.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Other/PlayerHighlight.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Other/PlayerHighlight.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Added PlayerHighlighting">
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameUI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameUI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTeamTransposer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTeamTransposer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/Core/GUIElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Core/GUIElement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/PulsingSizeChange.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/PulsingSizeChange.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -331,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626118226019</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Added PlayerHighlighting">
+      <created>1626119973189</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1626119973189</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,7 +372,8 @@
     <MESSAGE value="UI Scene now dependent on Game Scene" />
     <MESSAGE value="Changed IGUIProcess interface by adding Stop method" />
     <MESSAGE value="Created PulsingSizeChange" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created PulsingSizeChange" />
+    <MESSAGE value="Added PlayerHighlighting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added PlayerHighlighting" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
