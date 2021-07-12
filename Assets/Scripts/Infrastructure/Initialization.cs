@@ -17,7 +17,7 @@ namespace CarSumo.Infrastructure
 
         private void Start()
         {
-            _stateMachine.Enter<BootstrapState>();
+            _stateMachine.Enter<GameEntryState>();
         }
     }
 }

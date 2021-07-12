@@ -24,7 +24,8 @@ namespace CarSumo.Infrastructure.Factories
         {
             return new IState[]
             {
-                new BootstrapState(_sceneLoadService)
+                new BootstrapState(_sceneLoadService),
+                new GameEntryState(_sceneLoadService)
             };
         }
     }
