@@ -1,5 +1,5 @@
-﻿
-using CarSumo.Infrastructure.Services.SceneManagement;
+﻿using CarSumo.Infrastructure.Services.SceneManagement;
+using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
 
 namespace CarSumo.Infrastructure.Services.LoadingScreen
@@ -16,15 +16,14 @@ namespace CarSumo.Infrastructure.Services.LoadingScreen
             _loadScreenScene = new SceneLoadData(LoadingScreen, LoadSceneMode.Additive);
         }
 
-
-        public void Enable()
-        {
-            _loadService.Load(_loadScreenScene);
+        public async Task Enable()
+        { 
+            await _loadService.Load(_loadScreenScene);
         }
 
-        public void Disable()
+        public async Task Disable()
         {
-            _loadService.Unload(_loadScreenScene);
+            await _loadService.Unload(_loadScreenScene);
         }
     }
 }

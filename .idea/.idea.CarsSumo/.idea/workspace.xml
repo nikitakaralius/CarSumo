@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Created LoadingScreen Service">
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/ScenesShared.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/ScenesShared.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Created LoadingScreen Scene">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/ILoadingScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/ILoadingScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/SceneLoadingScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/SceneLoadingScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,12 +92,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/ISceneLoadService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/SceneLoadData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/BootstrapState.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/ILoadingScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/ILoadingScreen.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/SceneLoadingScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -155,7 +160,7 @@
       <workItem from="1625656447795" duration="1321000" />
       <workItem from="1625657828508" duration="16454000" />
       <workItem from="1625729261458" duration="3097000" />
-      <workItem from="1626074617300" duration="3123000" />
+      <workItem from="1626074617300" duration="4210000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>
@@ -234,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626077436595</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Created LoadingScreen Scene">
+      <created>1626077917269</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1626077917269</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +279,8 @@
     <MESSAGE value="Removed Scenes from BuildSettings" />
     <MESSAGE value="Created GameEntryState" />
     <MESSAGE value="Created LoadingScreen Service" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created LoadingScreen Service" />
+    <MESSAGE value="Created LoadingScreen Scene" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created LoadingScreen Scene" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

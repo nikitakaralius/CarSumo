@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CarSumo.Infrastructure.Services.LoadingScreen;
 using CarSumo.Infrastructure.Services.SceneManagement;
 using CarSumo.Infrastructure.StateMachine;
 using CarSumo.Infrastructure.StateMachine.States;
@@ -9,10 +10,12 @@ namespace CarSumo.Infrastructure.Factories
     public class GameStateMachineRegistry : IFactory<GameStateMachine>
     {
         private readonly ISceneLoadService _sceneLoadService;
+        private readonly ILoadingScreen _loadingScreen;
 
-        public GameStateMachineRegistry(ISceneLoadService sceneLoadService)
+        public GameStateMachineRegistry(ISceneLoadService sceneLoadService, ILoadingScreen loadingScreen)
         {
             _sceneLoadService = sceneLoadService;
+            _loadingScreen = loadingScreen;
         }
 
         public GameStateMachine Create()
@@ -25,7 +28,7 @@ namespace CarSumo.Infrastructure.Factories
             return new IState[]
             {
                 new BootstrapState(_sceneLoadService),
-                new GameEntryState(_sceneLoadService)
+                new GameEntryState(_sceneLoadService, _loadingScreen)
             };
         }
     }

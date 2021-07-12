@@ -1,10 +1,10 @@
-﻿using UnityEditor.VersionControl;
+﻿using System.Threading.Tasks;
 
 namespace CarSumo.Infrastructure.Services.LoadingScreen
 {
     public interface ILoadingScreen
     {
-        void Enable();
-        void Disable();
+        Task Enable();
+        Task Disable();
     }
 }
