@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using CarSumo.Coroutines;
 using CarSumo.Infrastructure.Services.TeamChangeService;
+using CarSumo.Infrastructure.Services.TimerService;
 using CarSumo.Input;
 using CarSumo.Teams;
 using CarSumo.Vehicles.Speedometers;
@@ -14,6 +15,7 @@ namespace CarSumo.Vehicles.Selector
         private readonly IVehicleSpeedometer _speedometer;
         private readonly VehicleSelectorData _data;
         private readonly CoroutineExecutor _executor;
+        private readonly ITimerService _timerService;
 
         private bool _isMovePerforming = false;
 
@@ -21,15 +23,17 @@ namespace CarSumo.Vehicles.Selector
             ITeamChangeService changeService,
             IVehicleSpeedometer speedometer,
             VehicleSelectorData data,
-            CoroutineExecutor executor)
+            CoroutineExecutor executor,
+            ITimerService timerService)
         {
             _changeService = changeService;
             _speedometer = speedometer;
             _data = data;
             _executor = executor;
+            _timerService = timerService;
         }
 
-        public void HadnleVehiclePush(Vehicle vehicle, SwipeData swipeData)
+        public void HandleVehiclePush(Vehicle vehicle, SwipeData swipeData)
         {
             if (_isMovePerforming)
                 return;
@@ -62,6 +66,7 @@ namespace CarSumo.Vehicles.Selector
         private IEnumerator PerformMove()
         {
             _isMovePerforming = true;
+            _timerService.Stop();
 
             yield return new WaitForSeconds(_data.TimeForMove);
 

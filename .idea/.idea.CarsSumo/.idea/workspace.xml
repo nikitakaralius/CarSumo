@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Created Timer">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Coroutines/CoroutineExecutor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Coroutines/CoroutineExecutor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TimerService/CountdownTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TimerService/CountdownTimer.cs" afterDir="false" />
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/SelectorMoveHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/SelectorMoveHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleBoostConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleBoostConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +37,10 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Projects/CarsSumo/Assets/Plugins/Zenject/Source/Binding/Binders/ScopeConcreteIdArgConditionCopyNonLazyBinder.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/CarsSumo/Assets/Scripts/Infrastructure/Services/TimerService/CountdownTimer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/7f/9fa23c7e/Scene.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/c9/c47b05e6/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.16.19/Editor/Settings/AddressableAssetEntry.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.boundfoxstudios.fluentassertions@58a427c777/Editor/FluentAssertions/Execution/AssertionScope.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.boundfoxstudios.fluentassertions@58a427c777/Editor/FluentAssertions/NumericAssertionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/c4/4ebc49e5/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/c0/3edc800d/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -45,26 +50,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/61/ccf68628/IReadOnlyCollection`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/5f/4b1a95d7/ICollection`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.15.2/Editor/Utilities/BuildLogger.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/CarsSumo/Assets/Plugins/Zenject/Source/Editor/EditorWindow/ZenjectEditorWindow.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/a0/618dcdfe/LoadSceneParameters.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/7f/9fa23c7e/Scene.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/c9/c47b05e6/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/CarsSumo/Assets/Scripts/Infrastructure/Installers/GameInstaller.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.16.19/Editor/Settings/AddressableAssetEntry.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.boundfoxstudios.fluentassertions@58a427c777/Editor/FluentAssertions/Execution/AssertionScope.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/CarsSumo/Assets/Plugins/Zenject/Source/Util/CheatSheet.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/CarsSumo/Assets/Plugins/Zenject/Source/Install/Contexts/SceneContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/CarsSumo/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/CarsSumo/Assets/Plugins/Zenject/Source/Install/Contexts/GameObjectContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/CarsSumo/Assets/Scenes/GameUI.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/CarsSumo/Assets/Plugins/Zenject/Source/Install/Contexts/ProjectContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.16.19/Runtime/ResourceManager/ResourceProviders/ISceneProvider.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/CarsSumo/Assets/Plugins/Zenject/Source/Binding/BindInfo/BindInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/CarsSumo/Assets/Scripts/Infrastructure/Services/TeamChangeService/TimedTeamChangeService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/a0/618dcdfe/LoadSceneParameters.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/ILoadingScreen.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/SceneLoadingScreen.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitStorage.cs" />
@@ -95,8 +85,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehiclePicker.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TeamChangeService/ITeamChangeService.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/SelectorMoveHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Core/IGUIProcess.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/AnchorPositionTween.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/GUIAudioProcess.cs" />
@@ -115,6 +103,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Other/Timer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Coroutines/CoroutineExecutor.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TimerService/CountdownTimer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/SelectorMoveHandler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleBoostConfiguration.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -179,6 +170,7 @@
       <workItem from="1625729261458" duration="3097000" />
       <workItem from="1626074617300" duration="16409000" />
       <workItem from="1626095422963" duration="3145000" />
+      <workItem from="1626162479047" duration="985000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>
@@ -355,7 +347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626124282061</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Fixed Timer bugs">
+      <created>1626124877769</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1626124877769</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,7 +376,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added AnchorPositionTween Tests" />
     <MESSAGE value="Created ImageTransparencyTween Tests and removed GUIProcessesTests" />
     <MESSAGE value="Fixed Tests Bugs" />
     <MESSAGE value="Created StateMachine Infrastructure and GameStateMachine" />
@@ -402,7 +400,8 @@
     <MESSAGE value="Added PlayerHighlighting" />
     <MESSAGE value="Created GUI Timer" />
     <MESSAGE value="Created Timer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created Timer" />
+    <MESSAGE value="Fixed Timer bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Timer bugs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

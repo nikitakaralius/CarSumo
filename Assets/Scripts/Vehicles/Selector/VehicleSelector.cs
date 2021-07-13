@@ -1,7 +1,7 @@
 ﻿using CarSumo.Coroutines;
 using CarSumo.Infrastructure.Services.TeamChangeService;
+using CarSumo.Infrastructure.Services.TimerService;
 using CarSumo.Input;
-using CarSumo.Teams;
 using CarSumo.Vehicles.Speedometers;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -26,12 +26,14 @@ namespace CarSumo.Vehicles.Selector
         
         private ISwipeScreen _screen;
         private ITeamChangeService _teamChangeService;
+        private ITimerService _timerService;
 
         [Inject]
-        private void Construct(ISwipeScreen swipeScreen, ITeamChangeService teamChangeService)
+        private void Construct(ISwipeScreen swipeScreen, ITeamChangeService teamChangeService, ITimerService timerService)
         {
             _screen = swipeScreen;
             _teamChangeService = teamChangeService;
+            _timerService = timerService;
         }
 
         public VehicleCollection LastValidVehicles { get; private set; }
@@ -45,7 +47,7 @@ namespace CarSumo.Vehicles.Selector
 
             _vehiclePicker = new VehiclePicker(_camera, LastValidVehicles, _speedometer, _teamChangeService);
             _boost = new VehicleBoostConfiguration(_camera, _speedometer);
-            _moveHandler = new SelectorMoveHandler(_teamChangeService, _speedometer, _data, executor);
+            _moveHandler = new SelectorMoveHandler(_teamChangeService, _speedometer, _data, executor, _timerService);
         }
 
         private void OnEnable()
@@ -53,6 +55,8 @@ namespace CarSumo.Vehicles.Selector
             _screen.Begun += OnScreenSwipeBegun;
             _screen.Swiping += OnScreenSwiping;
             _screen.Released += OnScreenSwipeReleased;
+
+            _teamChangeService.TeamChanged += _boost.TurnOffActiveVehicle;
         }
 
         private void OnDisable()
@@ -60,6 +64,8 @@ namespace CarSumo.Vehicles.Selector
             _screen.Begun -= OnScreenSwipeBegun;
             _screen.Swiping -= OnScreenSwiping;
             _screen.Released -= OnScreenSwipeReleased;
+            
+            _teamChangeService.TeamChanged -= _boost.TurnOffActiveVehicle;
         }
 
         private void OnScreenSwipeBegun(SwipeData swipeData)
@@ -92,7 +98,7 @@ namespace CarSumo.Vehicles.Selector
             if (_vehiclePicker.IsValid(_selectedVehicle) == false)
                 return;
 
-            _moveHandler.HadnleVehiclePush(_selectedVehicle, swipeData);
+            _moveHandler.HandleVehiclePush(_selectedVehicle, swipeData);
         }
     }
 }
