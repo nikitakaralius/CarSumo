@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Added BootSceneLoader">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/AllSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/AllSettings.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/Language.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/Language.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/LocalizationSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/LocalizationSettings.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/SoundSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/SoundSettings.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Core.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Core/IDataLoad.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Core/IDataLoad.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Core/IDataSave.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Core/IDataSave.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,9 +56,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/RandomTeamDefiner.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/PreviousSequentialTeamDefiner.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/AllTeamDefiner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Teams/SequentialTeamDefiner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitEnhancer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Teams/Definers/RandomTeamDefiner.cs" />
@@ -114,6 +104,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/LocalizationSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/SoundSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/AllSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/DataManagement/Core/IDataLoader.cs" />
+      <option value="$PROJECT_DIR$/Assets/DataManagement/Core/IDataLoad.cs" />
+      <option value="$PROJECT_DIR$/Assets/DataManagement/Core/IDataSave.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
