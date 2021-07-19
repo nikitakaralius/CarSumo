@@ -2,6 +2,7 @@
 using CarSumo.Infrastructure.Services.LoadingScreen;
 using CarSumo.Infrastructure.Services.SceneManagement;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace CarSumo.Infrastructure.StateMachine.States
 {
@@ -9,7 +10,7 @@ namespace CarSumo.Infrastructure.StateMachine.States
     {
         private const string UI = "GameUI";
         private const string Game = "Game";
-        
+
         private readonly ISceneLoadService _loadService;
         private readonly ILoadingScreen _loadingScreen;
 
@@ -21,10 +22,10 @@ namespace CarSumo.Infrastructure.StateMachine.States
 
         public async void Enter()
         {
+            Task sceneLoading = LoadScenes();
+            
             await _loadingScreen.Enable();
-            
-            await LoadScenes();
-            
+            await sceneLoading;
             await _loadingScreen.Disable();
         }
 
@@ -39,7 +40,7 @@ namespace CarSumo.Infrastructure.StateMachine.States
 
         public void Exit()
         {
-            
+               
         }
     }
 }

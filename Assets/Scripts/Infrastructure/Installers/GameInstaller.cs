@@ -26,17 +26,25 @@ namespace CarSumo.Infrastructure.Installers
             BindSwipeInputScreen();
             BindInputAxisProvider();
             BindTeamChangeService();
+            BindCoroutineExecutor();
+            BindTimerService();
+        }
 
-            var instance = new CoroutineExecutor(this);
-            
-            Container
-                .Bind<CoroutineExecutor>()
-                .FromInstance(instance)
-                .AsSingle();
-
+        private void BindTimerService()
+        {
             Container
                 .Bind<ITimerService>()
                 .FromFactory<CountdownTimerFactory>()
+                .AsSingle();
+        }
+
+        private void BindCoroutineExecutor()
+        {
+            var instance = new CoroutineExecutor(this);
+
+            Container
+                .Bind<CoroutineExecutor>()
+                .FromInstance(instance)
                 .AsSingle();
         }
 
