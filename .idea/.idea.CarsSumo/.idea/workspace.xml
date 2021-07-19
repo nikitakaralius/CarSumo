@@ -2,29 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Added BootSceneLoader">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Cloudy Volume Profile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Cloudy Volume Profile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Game Hell.lighting" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Game Hell.lighting.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Gamee Cloudy.lighting" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Gamee Cloudy.lighting.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Hell Volume Profile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Hell Volume Profile.asset.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Other/BattleButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Other/BattleButton.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/FX_Materials/Skyline_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/FX_Materials/Skyline_Mat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Glass_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Glass_Mat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_01_A.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_01_A.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_01_A_inverted.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_01_A_inverted.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_01_B.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_01_B.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_01_C.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_01_C.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_02_A.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_02_A.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_03_A.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_03_A.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_04_A.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_04_A.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_Road_01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_Road_01.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_Road_04.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_Road_04.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third Party/GUI Kit Casual Game/Prefabs/UI_Buttons/Button_Blue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third Party/GUI Kit Casual Game/Prefabs/UI_Buttons/Button_Blue.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu/LightingData.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +57,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitTracker.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Factory/IVehicleHierarchy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Factory/VehicleHierarchy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
@@ -126,6 +107,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Editor/BootSceneLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Other/BattleButton.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
