@@ -2,6 +2,7 @@
 using CarSumo.Vehicles.Speedometers;
 using CarSumo.Input;
 using CarSumo.Extensions;
+using CarSumo.Infrastructure.Services.TeamChangeService;
 using Cinemachine.Utility;
 
 namespace CarSumo.Vehicles.Selector
@@ -11,6 +12,8 @@ namespace CarSumo.Vehicles.Selector
         private readonly Camera _camera;
         private readonly SelectorSpeedometer _speedometer;
 
+        private Vehicle _activeVehicle;
+
         public VehicleBoostConfiguration(Camera camera, SelectorSpeedometer speedometer)
         {
             _camera = camera;
@@ -19,11 +22,17 @@ namespace CarSumo.Vehicles.Selector
 
         public void ConfigureBoost(Vehicle vehicle, SwipeData swipeData)
         {
+            _activeVehicle = vehicle;
             var transformedDirection = GetTransformedDirection(_camera, swipeData.Direction);
             vehicle.Rotation.RotateBy(transformedDirection);
             _speedometer.CalculatePowerBySwipeData(swipeData);
         }
 
+        public void TurnOffActiveVehicle()
+        {
+            _activeVehicle?.Engine.TurnOff();
+        }
+        
         private Vector3 GetTransformedDirection(Camera camera, Vector2 swipeDirection)
         {
             var direction = new Vector3

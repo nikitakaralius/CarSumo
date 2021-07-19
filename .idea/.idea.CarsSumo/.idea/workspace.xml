@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="UI Scene now dependent on Game Scene" />
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Added BootSceneLoader" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,48 +30,26 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/7f/9fa23c7e/Scene.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/c9/c47b05e6/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.16.19/Editor/Settings/AddressableAssetEntry.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.boundfoxstudios.fluentassertions@58a427c777/Editor/FluentAssertions/Execution/AssertionScope.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/c1/857e7925/IReadOnlyList`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.boundfoxstudios.fluentassertions@58a427c777/Editor/FluentAssertions/NumericAssertionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/c4/4ebc49e5/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Projects/CarsSumo/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/c0/3edc800d/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/79/9c01d2cf/IList`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/c1/857e7925/IReadOnlyList`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/e2/418d3601/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/61/ccf68628/IReadOnlyCollection`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/c4/4ebc49e5/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/5f/4b1a95d7/ICollection`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/BootSceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.15.2/Editor/Utilities/BuildLogger.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.16.19/Runtime/ResourceManager/ResourceProviders/ISceneProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/a0/618dcdfe/LoadSceneParameters.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.boundfoxstudios.fluentassertions@58a427c777/Editor/FluentAssertions/Execution/AssertionScope.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.16.19/Runtime/ResourceManager/ResourceProviders/ISceneProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.16.19/Editor/Settings/AddressableAssetEntry.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/7f/9fa23c7e/Scene.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/c9/c47b05e6/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/States/BootstrapState.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/BootstrapInstaller.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initializer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/IInputService.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/IReadOnlyVehicleCollection.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleCollection.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/ISelectorService.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehiclePicker.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/BuildSettingsTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Tests/PlayModeTests/AddressablesSceneLoadServiceTests.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/AddressablesSceneLoadService.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneManagement/ISceneLoadService.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/AddressablesSceneLoadService.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/ISceneLoadService.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/SceneLoadData.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/BootstrapState.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/ILoadingScreen.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/ILoadingScreen.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/SceneLoadingScreen.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitStorage.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/IUnitStorage.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/IUnitTracker.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitTracker.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Factory/IVehicleHierarchy.cs" />
@@ -76,7 +57,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Teams/TeamChanger.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Teams/ITeamDefiner.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTeamTransposer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Teams/RandomTeamDefiner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Teams/PreviousSequentialTeamDefiner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Teams/AllTeamDefiner.cs" />
@@ -89,13 +69,38 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Teams/Team.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Input/ISwipePanel.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Input/SwipeInputPanel.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraInputProvider.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/InputService/IInputService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/InputService/PanelsInputService.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GameInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Test.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehiclePicker.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TeamChangeService/ITeamChangeService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Core/IGUIProcess.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/AnchorPositionTween.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/GUIAudioProcess.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/ImageTransparencyTween.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/VerticalLayoutSpacingTween.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Core/GUIElement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Core/IGUIElement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Other/PlayerHighlight.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/PulsingSizeChange.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTeamTransposer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TimerService/ITimerService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/TeamChangeServiceFactory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/CountdownTimerFactory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TeamChangeService/TimedTeamChangeService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Other/Timer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Coroutines/CoroutineExecutor.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TimerService/CountdownTimer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleBoostConfiguration.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/SelectorMoveHandler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Core/GUIElementStarter.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/AddressablesSceneLoadService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GameInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Editor/BootSceneLoader.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -118,7 +123,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="RiderCSharpLiveTemplatesSettingsId" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReaderModeSettings">
@@ -159,7 +164,9 @@
       <workItem from="1625657828508" duration="16454000" />
       <workItem from="1625729261458" duration="3097000" />
       <workItem from="1626074617300" duration="16409000" />
-      <workItem from="1626095422963" duration="1113000" />
+      <workItem from="1626095422963" duration="3145000" />
+      <workItem from="1626162479047" duration="1161000" />
+      <workItem from="1626688181295" duration="1349000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>
@@ -301,7 +308,70 @@
       <option name="project" value="LOCAL" />
       <updated>1626096791389</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Changed IGUIProcess interface by adding Stop method">
+      <created>1626117025179</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1626117025179</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Created PulsingSizeChange">
+      <created>1626118226019</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1626118226019</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Added PlayerHighlighting">
+      <created>1626119973189</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1626119973189</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Created GUI Timer">
+      <created>1626120915006</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1626120915006</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Created Timer">
+      <created>1626124282061</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1626124282061</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Fixed Timer bugs">
+      <created>1626124877769</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1626124877769</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Fixed bugs">
+      <created>1626163603102</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1626163603102</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Created GUIElementStarter">
+      <created>1626688497125</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1626688497125</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added BootSceneLoader">
+      <created>1626695101815</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1626695101815</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,10 +393,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added AnchorPositionTween Tests" />
-    <MESSAGE value="Created ImageTransparencyTween Tests and removed GUIProcessesTests" />
-    <MESSAGE value="Fixed Tests Bugs" />
-    <MESSAGE value="Created StateMachine Infrastructure and GameStateMachine" />
     <MESSAGE value="Created SceneLoadService" />
     <MESSAGE value="Created BootstrapInstaller and BootstrapState" />
     <MESSAGE value="Renamed GYM scene to Game scene" />
@@ -343,26 +409,16 @@
     <MESSAGE value="Replaced Input panel with Input Services" />
     <MESSAGE value="Removed ITeamChangeSender" />
     <MESSAGE value="UI Scene now dependent on Game Scene" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI Scene now dependent on Game Scene" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs</url>
-          <line>31</line>
-          <properties documentPath="C:\Projects\CarsSumo\Assets\Scripts\Vehicles\Selector\VehicleSelector.cs" initialLine="31" containingFunctionPresentation="method 'Construct'">
-            <startOffsets>
-              <option value="866" />
-            </startOffsets>
-            <endOffsets>
-              <option value="888" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Changed IGUIProcess interface by adding Stop method" />
+    <MESSAGE value="Created PulsingSizeChange" />
+    <MESSAGE value="Added PlayerHighlighting" />
+    <MESSAGE value="Created GUI Timer" />
+    <MESSAGE value="Created Timer" />
+    <MESSAGE value="Fixed Timer bugs" />
+    <MESSAGE value="Fixed bugs" />
+    <MESSAGE value="Created GUIElementStarter" />
+    <MESSAGE value="Added BootSceneLoader" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added BootSceneLoader" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -12,14 +12,14 @@ namespace CarSumo.Coroutines
             _executor = executor;
         }
 
-        public void StartCoroutine(IEnumerator coroutine)
+        public Coroutine StartCoroutine(IEnumerator coroutine)
         {
-            _executor.StartCoroutine(coroutine);
+            return _executor.StartCoroutine(coroutine);
         }
 
-        public void StopCoroutine(IEnumerator coroutine)
+        public void StopCoroutine(Coroutine coroutine)
         {
             _executor.StopCoroutine(coroutine);
-        }
+        } 
     }
 }

@@ -11,7 +11,7 @@ public class GUIAudioProcessTests
     {
         IGUIProcess process = Configure.GUIAudioProcess(out var soundEmitter);
 
-        process.ApplyProcess();
+        process.Apply();
         yield return new WaitForSeconds(Configure.Duration);
 
         soundEmitter.AudioSourceProperty.IsPlaying.Should().BeTrue();
