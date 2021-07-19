@@ -3,9 +3,9 @@ using CarSumo.Infrastructure.StateMachine.States;
 using UnityEngine;
 using Zenject;
 
-namespace CarSumo.Infrastructure
+namespace CarSumo.GUI.Other
 {
-    public class Initialization : MonoBehaviour
+    public class BattleButton : MonoBehaviour
     {
         private GameStateMachine _stateMachine;
 
@@ -15,9 +15,9 @@ namespace CarSumo.Infrastructure
             _stateMachine = stateMachine;
         }
 
-        private void Start()
+        public void OnButtonClicked()
         {
-            _stateMachine.Enter<BootstrapState>();
+            _stateMachine.Enter<GameEntryState>();
         }
     }
 }
