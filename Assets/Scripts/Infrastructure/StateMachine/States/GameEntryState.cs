@@ -21,14 +21,20 @@ namespace CarSumo.Infrastructure.StateMachine.States
 
         public async void Enter()
         {
+            await _loadingScreen.Enable();
+            
+            await LoadScenes();
+            
+            await _loadingScreen.Disable();
+        }
+
+        private Task LoadScenes()
+        {
             var gameScene = new SceneLoadData(Game, LoadSceneMode.Single);
             var uiScene = new SceneLoadData(UI, LoadSceneMode.Additive);
 
             Task whenAllScenesLoaded = Task.WhenAll(_loadService.Load(gameScene), _loadService.Load(uiScene));
-            
-            await _loadingScreen.Enable();
-            await whenAllScenesLoaded;
-            await _loadingScreen.Disable();
+            return whenAllScenesLoaded;
         }
 
         public void Exit()
