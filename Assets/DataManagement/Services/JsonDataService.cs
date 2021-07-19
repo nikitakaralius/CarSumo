@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using CarSumo.DataManagement.Core;
 using Newtonsoft.Json;
 
-namespace DataManagement
+namespace DataManagement.Services
 {
-    public class JsonDataService : IDataLoad, IDataSave
+    public class JsonDataService : IDataService
     {
         public TModel Load<TModel>(string path)
         {

@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Added BootSceneLoader">
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/JsonDataService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/JsonDataService.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Core/IDataService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Core/IDataService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Services.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/JsonDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Services/JsonDataService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/JsonDataService.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Services/JsonDataService.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +55,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitEnhancer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/Definers/RandomTeamDefiner.cs" />
       <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/Create.cs" />
       <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/PreviousSequentialTeamDefinerTests.cs" />
       <option value="$PROJECT_DIR$/Assets/Tests/EditModeTests/SequentialTeamDefinerTests.cs" />
@@ -103,7 +103,9 @@
       <option value="$PROJECT_DIR$/Assets/DataManagement/Core/IDataLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Core/IDataLoad.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Core/IDataSave.cs" />
+      <option value="$PROJECT_DIR$/Assets/DataManagement/Core/IDataService.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/JsonDataService.cs" />
+      <option value="$PROJECT_DIR$/Assets/DataManagement/Services/JsonDataService.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
