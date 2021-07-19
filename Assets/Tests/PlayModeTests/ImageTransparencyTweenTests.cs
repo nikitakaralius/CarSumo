@@ -12,7 +12,7 @@ public class ImageTransparencyTweenTests
         var image = Create.Image();
         IGUIProcess process = Configure.ImageTransparencyTween(image, transparentOnStart: true);
 
-        process.ApplyProcess();
+        process.Apply();
         yield return new WaitForSeconds(Configure.Duration);
 
         image.color.a.Should().Be(1.0f);
@@ -24,9 +24,9 @@ public class ImageTransparencyTweenTests
         var image = Create.Image();
         IGUIProcess process = Configure.ImageTransparencyTween(image, transparentOnStart: true);
 
-        process.ApplyProcess();
+        process.Apply();
         yield return new WaitForSeconds(Configure.Duration);
-        process.ApplyProcess();                             
+        process.Apply();                             
         yield return new WaitForSeconds(Configure.Duration);
         
         image.color.a.Should().Be(0.0f);
@@ -39,7 +39,7 @@ public class ImageTransparencyTweenTests
         var image = Create.Image();
         IGUIProcess process = Configure.ImageTransparencyTween(image, transparentOnStart: false);
 
-        process.ApplyProcess();
+        process.Apply();
         yield return new WaitForSeconds(Configure.Duration);
 
         image.color.a.Should().Be(0.0f);
@@ -51,9 +51,9 @@ public class ImageTransparencyTweenTests
         var image = Create.Image();
         IGUIProcess process = Configure.ImageTransparencyTween(image, transparentOnStart: false);
 
-        process.ApplyProcess();
+        process.Apply();
         yield return new WaitForSeconds(Configure.Duration);
-        process.ApplyProcess();                             
+        process.Apply();                             
         yield return new WaitForSeconds(Configure.Duration);
         
         image.color.a.Should().Be(1.0f);

@@ -19,9 +19,14 @@ namespace CarSumo.GUI.Processees
         {
         }
 
-        public void ApplyProcess()
+        public void Apply()
         {
             _soundEmitter.Play(_audioCue);
+        }
+
+        public void Stop()
+        {
+            _soundEmitter.Stop();
         }
     }
 }

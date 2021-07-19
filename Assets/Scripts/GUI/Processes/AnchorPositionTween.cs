@@ -1,10 +1,11 @@
-﻿using CarSumo.Structs;
+﻿using System.Collections.Generic;
+using CarSumo.Structs;
 using DG.Tweening;
 using UnityEngine;
 
 namespace CarSumo.GUI.Processees
 {
-    public class AnchorPositionTween : IGUIProcess
+    public class AnchorPositionTween : DOTweenProcess
     {
         [SerializeField] private RectTransform[] _rectTransforms = new RectTransform[0];
         [SerializeField] private TweenData<Vector2> _data;
@@ -19,20 +20,29 @@ namespace CarSumo.GUI.Processees
             Init();
         }
 
-        public void Init()
+        public override void Init()
         {
             _manageableData = _data;
         }
 
-        public void ApplyProcess()
+        public override void OnApplied()
         {
-            foreach (RectTransform rectTransform in _rectTransforms)
+            _manageableData = _manageableData.Inverted;
+        }
+        
+        protected override IEnumerable<Tween> CreateTweenSection()
+        {
+            Tween[] tweens = new Tween[_rectTransforms.Length];
+
+            for (var i = 0; i < _rectTransforms.Length; i++)
             {
-                ChangeRectPosition(rectTransform, _manageableData.Range.Max, _manageableData.Duration)
+                RectTransform rectTransform = _rectTransforms[i];
+                Tween tween = ChangeRectPosition(rectTransform, _manageableData.Range.Max, _manageableData.Duration)
                     .SetEase(_data.Ease);
+                tweens[i] = tween;
             }
 
-            _manageableData = _manageableData.Inverted;
+            return tweens;
         }
 
         private Tweener ChangeRectPosition(RectTransform rectTransform, Vector2 endValue, float duration)
