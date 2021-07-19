@@ -1,14 +1,14 @@
 ﻿namespace CarSumo.GameSettings.Structs
 {
-    public class AllSettings
+    public class AllSettings : IReadOnlySettings
     {
-        public SoundSettings Sound { get; }
-        public LocalizationSettings Localization { get; }
+        public SoundSettings Sound { get; set; }
+        public LocalizationSettings Localization { get; set; }
+    }
 
-        public AllSettings(SoundSettings sound, LocalizationSettings localization)
-        {
-            Sound = sound;
-            Localization = localization;
-        }
+    public interface IReadOnlySettings
+    {
+        SoundSettings Sound { get; }
+        LocalizationSettings Localization { get; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using CarSumo.DataManagement.Core;
 using CarSumo.GameSettings.Structs;
+using UnityEngine;
 
 namespace CarSumo.GameSettings.Management
 {
@@ -16,8 +17,8 @@ namespace CarSumo.GameSettings.Management
             _fileService = fileService;
             _settingsRootDirectory = settingsRootDirectory;
         }
-        
-        public AllSettings Settings { get; private set; }
+
+        public IReadOnlySettings AllSettings { get; private set; }
 
         private string FilePath => Path.Combine(_settingsRootDirectory, FileName);
 
@@ -25,12 +26,12 @@ namespace CarSumo.GameSettings.Management
 
         public void Save()
         {
-            _fileService.SaveAsync(Settings, FilePath);
+            _fileService.SaveAsync(AllSettings, FilePath);
         }
 
         public void Load()
         {
-            Settings = _fileService.Load<AllSettings>(FilePath);
+            AllSettings = _fileService.Load<AllSettings>(FilePath);
         }
     }
 }

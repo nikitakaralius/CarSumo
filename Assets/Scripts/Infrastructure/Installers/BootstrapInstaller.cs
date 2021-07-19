@@ -1,7 +1,10 @@
-﻿using CarSumo.Infrastructure.Factories;
+﻿using CarSumo.DataManagement.Core;
+using CarSumo.GameSettings.Management;
+using CarSumo.Infrastructure.Factories;
 using CarSumo.Infrastructure.Services.LoadingScreen;
 using CarSumo.Infrastructure.Services.SceneManagement;
 using CarSumo.Infrastructure.StateMachine;
+using DataManagement.Services;
 using Zenject;
 
 namespace CarSumo.Infrastructure.Installers
@@ -13,6 +16,24 @@ namespace CarSumo.Infrastructure.Installers
             BindSceneLoadService();
             BindLoadingScreen();
             BindGameStateMachine();
+            BindFileService();
+            BindSettingsService();
+        }
+
+        private void BindSettingsService()
+        {
+            Container
+                .Bind<SettingsService>()
+                .FromFactory<SettingsServiceFactory>()
+                .AsSingle();
+        }
+
+        private void BindFileService()
+        {
+            Container
+                .Bind<IFileService>()
+                .To<JsonFileService>()
+                .AsSingle();
         }
 
         private void BindLoadingScreen()

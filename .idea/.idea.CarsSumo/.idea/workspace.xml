@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Added BootSceneLoader">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Management.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Management/SettingsService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Management/SettingsService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DataManagement.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scripts.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scripts.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InitTestScene637623304622530126.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InitTestScene637623304622530126.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Management/SettingsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Management/SettingsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/AllSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/AllSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +60,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Teams/Team.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Input/ISwipePanel.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Input/SwipeInputPanel.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraInputProvider.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/InputService/IInputService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/InputService/PanelsInputService.cs" />
@@ -90,14 +91,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GameInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/GameStateMachineRegistry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Other/BattleButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Editor/BootSceneLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/DataManagement/IDataService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/Language.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/LocalizationSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/SoundSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/AllSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Core/IDataLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Core/IDataLoad.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Core/IDataSave.cs" />
@@ -106,7 +105,12 @@
       <option value="$PROJECT_DIR$/Assets/DataManagement/Services/JsonDataService.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Core/IFileLoad.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Core/IFileSave.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/Settings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/AllSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Management/SettingsService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -129,6 +133,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
