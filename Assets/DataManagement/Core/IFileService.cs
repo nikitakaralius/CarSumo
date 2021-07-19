@@ -1,6 +1,6 @@
 ﻿namespace CarSumo.DataManagement.Core
 {
-    public interface IDataService : IDataLoad, IDataSave
+    public interface IFileService : IFileLoad, IFileSave
     {
         
     }

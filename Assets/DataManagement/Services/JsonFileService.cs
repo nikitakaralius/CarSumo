@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace DataManagement.Services
 {
-    public class JsonDataService : IDataService
+    public class JsonFileService : IFileService
     {
         public TModel Load<TModel>(string path)
         {
