@@ -1,4 +1,5 @@
-﻿using CarSumo.DataManagement.Core;
+﻿using CarSumo.Audio.Services;
+using CarSumo.DataManagement.Core;
 using CarSumo.GameSettings.Services;
 using CarSumo.Infrastructure.Factories;
 using CarSumo.Infrastructure.Services.LoadingScreen;
@@ -20,6 +21,12 @@ namespace CarSumo.Infrastructure.Installers
             BindFileService();
             BindSettingsService();
             BindPlayersDataService();
+
+            Container
+                .Bind<IAudioPreferences>()
+                .To<AudioPreferences>()
+                .AsSingle()
+                .NonLazy();
         }
 
         private void BindPlayersDataService()
@@ -72,6 +79,21 @@ namespace CarSumo.Infrastructure.Installers
                 .FromInstance(new AddressablesSceneLoadService())
                 .AsSingle()
                 .NonLazy();
+        }
+    }
+
+    public class AudioPreferencesFactory : IFactory<IAudioPreferences>
+    {
+        private readonly SettingsService _settingsService;
+
+        public AudioPreferencesFactory(SettingsService settingsService)
+        {
+            _settingsService = settingsService;
+        }
+
+        public IAudioPreferences Create()
+        {
+            return new AudioPreferences(_settingsService);
         }
     }
 }

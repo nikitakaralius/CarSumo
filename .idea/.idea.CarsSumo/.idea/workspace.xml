@@ -4,15 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Added Auto Directory Creation">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Services.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Services/AudioPreferences.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Services/AudioPreferences.cs.meta" afterDir="false" />
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Designed AudioPreferences. Should refactor it later">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Services/IAudioPreferences.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Services/IAudioPreferences.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/AudioShared.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/AudioShared.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Duplicate Asset Isolation.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Duplicate Asset Isolation.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Bundles/AudioShared/Mixers/AudioMixer.mixer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bundles/AudioShared/Mixers/AudioMixer.mixer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/Settings.JSON" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/Settings.JSON" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/Services/AudioPreferences.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Services/AudioPreferences.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,16 +108,16 @@
       <option value="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/Vehicle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/PlayersDataServiceFactory.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Models/IPlayersRepository.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Models/PlayersRepository.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Services/PlayersDataService.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Settings/Services/SettingsService.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Core/DataService.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/DataFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/ImageChangeProcess.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Audio/Services/AudioMixerService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Audio/Services/AudioPreferences.cs" />
     </changedPaths>
   </component>
@@ -182,7 +187,7 @@
       <workItem from="1626095422963" duration="3145000" />
       <workItem from="1626162479047" duration="1161000" />
       <workItem from="1626688181295" duration="1349000" />
-      <workItem from="1626769001446" duration="16582000" />
+      <workItem from="1626769001446" duration="18486000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>
@@ -443,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626783909373</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Designed AudioPreferences. Should refactor it later">
+      <created>1626788705391</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1626788705391</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,7 +477,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Changed ILoadingScreen to async logic" />
     <MESSAGE value="Created UnitTracker" />
     <MESSAGE value="Replaced TeamDefiners with Zenject" />
     <MESSAGE value="Changed ITeamDefiner interface" />
@@ -490,7 +501,8 @@
     <MESSAGE value="Created PlayersDataService" />
     <MESSAGE value="Initialized PlayersDataService" />
     <MESSAGE value="Added Auto Directory Creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Auto Directory Creation" />
+    <MESSAGE value="Designed AudioPreferences. Should refactor it later" />
+    <option name="LAST_COMMIT_MESSAGE" value="Designed AudioPreferences. Should refactor it later" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

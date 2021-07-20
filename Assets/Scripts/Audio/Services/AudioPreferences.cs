@@ -1,42 +1,54 @@
 ﻿using CarSumo.Calculations;
 using CarSumo.GameSettings.Services;
-using UnityEngine;
+using CarSumo.GameSettings.Structs;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Audio;
-using Zenject;
 
 namespace CarSumo.Audio.Services
 {
-    public class AudioPreferences : MonoBehaviour
+    public class AudioPreferences : IAudioPreferences
     {
-        [SerializeField] private AudioMixerGroup _musicGroup;
-        [SerializeField] private AudioMixerGroup _sfxGroup;
+        private const string MusicVolume = "MusicVolume";
+        private const string SfxVolume = "SfxVolume";
         
-        private const string Volume = "Volume";
-        private SettingsService _settings;
+        private const string AudioMixerAsset = "AudioMixer";
+        private readonly SettingsService _settingsService;
+        private AudioMixer _audioMixer;
 
-        [Inject]
-        private void Construct(SettingsService settingsService)
+        public AudioPreferences(SettingsService settingsService)
         {
-            _settings = settingsService;
-            
-            _musicGroup.audioMixer.SetFloat("MusicVolume", MapVolume(_settings.StoredData.Sound.MusicVolume));
-            _sfxGroup.audioMixer.SetFloat("SfxVolume", MapVolume(_settings.StoredData.Sound.SfxVolume));
-
+            _settingsService = settingsService;
         }
-        
+
+        private SoundSettings Sound => _settingsService.StoredData.Sound;
+
+        public async void Init()
+        {
+            var operationHandle = Addressables.LoadAssetAsync<AudioMixer>(AudioMixerAsset);
+
+            await operationHandle.Task;
+
+            _audioMixer = operationHandle.Result;
+
+            _audioMixer.SetFloat(MusicVolume, MapVolume(Sound.MusicVolume));
+            _audioMixer.SetFloat(SfxVolume, MapVolume(Sound.SfxVolume));
+        }
+
         public void ChangeMusicVolume(float volume)
         {
-            _musicGroup.audioMixer.SetFloat("MusicVolume", MapVolume(volume));
-            _settings.StoredData.Sound.MusicVolume = volume;
-            _settings.Save();
+            ChangeVolume(MusicVolume, volume, ref Sound.MusicVolume);            
         }
-        
+
         public void ChangeSfxVolume(float volume)
         {
-            _musicGroup.audioMixer.SetFloat("SfxVolume", MapVolume(volume));
-            _settings.StoredData.Sound.SfxVolume = volume;
-            _settings.Save();
+            ChangeVolume(SfxVolume, volume, ref Sound.SfxVolume);
+        }
+
+        private void ChangeVolume(string exposedParameter, float volume, ref float volumeData)
+        {
+            _audioMixer.SetFloat(exposedParameter, volume);
+            volumeData = volume;
+            _settingsService.Save();
         }
 
         private float MapVolume(float volume)
