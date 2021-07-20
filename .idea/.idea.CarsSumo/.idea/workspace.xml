@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Fixed VehicleSelector bug">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/PrefabLoadingScreen.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/PrefabLoadingScreen.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/ScenesShared.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/ScenesShared.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LoadingScreen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LoadingScreen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Extensions/MonoBehaviourExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Extensions/MonoBehaviourExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Created PrefabLoadingScreen with the better perfomance" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,14 +94,14 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Extensions/CameraExtensions.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Extensions/GameObjectExtensions.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleBoostConfiguration.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleCollection.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/SceneLoadingScreen.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/PrefabLoadingScreen.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Extensions/MonoBehaviourExtensions.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleBoostConfiguration.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/PrefabLoadingScreen.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -181,7 +169,7 @@
       <workItem from="1626095422963" duration="3145000" />
       <workItem from="1626162479047" duration="1161000" />
       <workItem from="1626688181295" duration="1349000" />
-      <workItem from="1626769001446" duration="2727000" />
+      <workItem from="1626769001446" duration="3102000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>
@@ -393,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626770224190</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Created PrefabLoadingScreen with the better perfomance">
+      <created>1626771927805</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1626771927805</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,7 +410,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Created BootstrapInstaller and BootstrapState" />
     <MESSAGE value="Renamed GYM scene to Game scene" />
     <MESSAGE value="Migrated UI to a separate scene" />
     <MESSAGE value="Removed Scenes from BuildSettings" />
@@ -440,7 +434,8 @@
     <MESSAGE value="Created GUIElementStarter" />
     <MESSAGE value="Added BootSceneLoader" />
     <MESSAGE value="Fixed VehicleSelector bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed VehicleSelector bug" />
+    <MESSAGE value="Created PrefabLoadingScreen with the better perfomance" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created PrefabLoadingScreen with the better perfomance" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
