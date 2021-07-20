@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Added Auto Directory Creation" />
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Added Auto Directory Creation">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/ImageChangeProcess.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/ImageChangeProcess.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +56,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TeamChangeService/TimedTeamChangeService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Other/Timer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Coroutines/CoroutineExecutor.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TimerService/CountdownTimer.cs" />
@@ -103,6 +106,7 @@
       <option value="$PROJECT_DIR$/Assets/DataManagement/Core/DataService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/DataFactory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/ImageChangeProcess.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -171,7 +175,7 @@
       <workItem from="1626095422963" duration="3145000" />
       <workItem from="1626162479047" duration="1161000" />
       <workItem from="1626688181295" duration="1349000" />
-      <workItem from="1626769001446" duration="13495000" />
+      <workItem from="1626769001446" duration="14210000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>
