@@ -8,6 +8,7 @@ namespace CarSumo.Infrastructure.Factories
 {
     public class SettingsServiceFactory : IFactory<SettingsService>
     {
+        private const string Directory = "Data";
         private readonly IFileService _fileService;
 
         public SettingsServiceFactory(IFileService fileService)
@@ -18,7 +19,6 @@ namespace CarSumo.Infrastructure.Factories
         public SettingsService Create()
         {
             var settingsService = new SettingsService(_fileService, SettingsDirectory());
-            settingsService.Init();
             
             return settingsService;
         }
@@ -29,7 +29,7 @@ namespace CarSumo.Infrastructure.Factories
                 Application.dataPath :
                 Application.streamingAssetsPath;
 
-            string path = Path.Combine(assets, "Settings");
+            string path = Path.Combine(assets, Directory);
 
             return path;
         }

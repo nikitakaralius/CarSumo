@@ -69,8 +69,8 @@ namespace CarSumo.Vehicles.Selector
             // this doesn't work, probably because Unity is destroying it but doesn't set the object to null
             // (condition is true in debug mode but is skips anyway)
 
-            // return vehilce is null;
-
+            // return vehicle is null;
+            
             return vehicle.ToString() == "null";
         }
     }

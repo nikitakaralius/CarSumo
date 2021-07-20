@@ -2,7 +2,6 @@
 using CarSumo.Vehicles.Speedometers;
 using CarSumo.Input;
 using CarSumo.Extensions;
-using CarSumo.Infrastructure.Services.TeamChangeService;
 using Cinemachine.Utility;
 
 namespace CarSumo.Vehicles.Selector
@@ -30,6 +29,9 @@ namespace CarSumo.Vehicles.Selector
 
         public void TurnOffActiveVehicle()
         {
+            if (_activeVehicle.IsDestroyed())
+                return;
+            
             _activeVehicle?.Engine.TurnOff();
         }
         

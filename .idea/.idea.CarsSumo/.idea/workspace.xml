@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Added BootSceneLoader">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs.meta" afterDir="false" />
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Extensions/MonoBehaviourExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Extensions/MonoBehaviourExtensions.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InitTestScene637623304622530126.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InitTestScene637623304622530126.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Management/SettingsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Management/SettingsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/AllSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/AllSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleBoostConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleBoostConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleCollection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Settings.JSON" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Settings.JSON.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +47,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/c1/857e7925/IReadOnlyList`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.boundfoxstudios.fluentassertions@58a427c777/Editor/FluentAssertions/NumericAssertionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/CarsSumo/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/c0/3edc800d/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/79/9c01d2cf/IList`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/e2/418d3601/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
@@ -60,10 +63,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraInputProvider.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/InputService/IInputService.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/InputService/PanelsInputService.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Test.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehiclePicker.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TeamChangeService/ITeamChangeService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Core/IGUIProcess.cs" />
@@ -83,8 +82,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Other/Timer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Coroutines/CoroutineExecutor.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TimerService/CountdownTimer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleBoostConfiguration.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/SelectorMoveHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Core/GUIElementStarter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/SceneManagement/AddressablesSceneLoadService.cs" />
@@ -107,10 +104,16 @@
       <option value="$PROJECT_DIR$/Assets/DataManagement/Core/IFileSave.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/Settings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/AllSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Management/SettingsService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/AllSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Extensions/CameraExtensions.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Extensions/GameObjectExtensions.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleBoostConfiguration.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Extensions/MonoBehaviourExtensions.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleCollection.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -178,6 +181,7 @@
       <workItem from="1626095422963" duration="3145000" />
       <workItem from="1626162479047" duration="1161000" />
       <workItem from="1626688181295" duration="1349000" />
+      <workItem from="1626769001446" duration="1115000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>
