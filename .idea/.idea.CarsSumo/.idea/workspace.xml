@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Created PrefabLoadingScreen with the better perfomance" />
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Renamed Structs">
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/ResourcesId.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/ResourcesId.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Settings/Management.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Settings/Services.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Settings/Management/SettingsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Settings/Services/SettingsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Settings/Management/SettingsService.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Settings/Services/SettingsService.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,8 +63,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Core/IGUIProcess.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/AnchorPositionTween.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/GUIAudioProcess.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/ImageTransparencyTween.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/VerticalLayoutSpacingTween.cs" />
@@ -90,18 +100,20 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/Settings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Management/SettingsService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameSettings/Structs/AllSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Extensions/CameraExtensions.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Extensions/GameObjectExtensions.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleCollection.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleSelector.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/StateMachine/States/GameEntryState.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/SceneLoadingScreen.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Extensions/MonoBehaviourExtensions.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleBoostConfiguration.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/PrefabLoadingScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Models/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/DataManagement/Settings/Services/SettingsService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -169,7 +181,7 @@
       <workItem from="1626095422963" duration="3145000" />
       <workItem from="1626162479047" duration="1161000" />
       <workItem from="1626688181295" duration="1349000" />
-      <workItem from="1626769001446" duration="3102000" />
+      <workItem from="1626769001446" duration="4217000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>
@@ -388,7 +400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626771927805</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Renamed Structs">
+      <created>1626772384600</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1626772384600</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,7 +429,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Renamed GYM scene to Game scene" />
     <MESSAGE value="Migrated UI to a separate scene" />
     <MESSAGE value="Removed Scenes from BuildSettings" />
     <MESSAGE value="Created GameEntryState" />
@@ -435,7 +453,8 @@
     <MESSAGE value="Added BootSceneLoader" />
     <MESSAGE value="Fixed VehicleSelector bug" />
     <MESSAGE value="Created PrefabLoadingScreen with the better perfomance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created PrefabLoadingScreen with the better perfomance" />
+    <MESSAGE value="Renamed Structs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed Structs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

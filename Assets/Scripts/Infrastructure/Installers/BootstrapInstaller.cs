@@ -1,5 +1,5 @@
 ﻿using CarSumo.DataManagement.Core;
-using CarSumo.GameSettings.Management;
+using CarSumo.GameSettings.Services;
 using CarSumo.Infrastructure.Factories;
 using CarSumo.Infrastructure.Services.LoadingScreen;
 using CarSumo.Infrastructure.Services.SceneManagement;
