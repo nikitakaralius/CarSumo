@@ -8,11 +8,14 @@ namespace CarSumo.GUI.Other
     [RequireComponent(typeof(Image))]
     public abstract class SoundVolumeButton : MonoBehaviour
     {
+        private const float EnabledVolume = 1.0f;
+        private const float DisabledVolume = 0.0f;
+        
         [SerializeField] private Sprite _enabled;
         [SerializeField] private Sprite _disabled;
 
         private Image _image;
-        
+
         protected IAudioPreferences AudioPreferences { get; private set; }
 
         [Inject]
@@ -31,7 +34,7 @@ namespace CarSumo.GUI.Other
 
         public void OnButtonClicked()
         {
-            ChangeVolume(Volume == 1.0f ? 0.0f : 1.0f);
+            ChangeVolume(Volume == EnabledVolume ? DisabledVolume : EnabledVolume);
             ChangeImageByVolume(Volume);
         }
 
@@ -39,7 +42,7 @@ namespace CarSumo.GUI.Other
 
         private void ChangeImageByVolume(float volume)
         {
-            _image.sprite = volume == 0.0f ? _disabled : _enabled;
+            _image.sprite = volume == DisabledVolume ? _disabled : _enabled;
         }
     }
 }
