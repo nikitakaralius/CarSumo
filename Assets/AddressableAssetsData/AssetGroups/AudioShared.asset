@@ -21,8 +21,8 @@ MonoBehaviour:
     m_Address: Assets/Bundles/AudioShared/BackgroundMusic
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    m_MainAsset: {fileID: 102900000, guid: d5326ade9b2cabc4ca83ff6d442f6141, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: d5326ade9b2cabc4ca83ff6d442f6141, type: 3}
   - m_GUID: 9b389529515b2424294dd8f249dbca3b
     m_Address: Assets/Bundles/AudioShared/Configurations
     m_ReadOnly: 0
@@ -35,6 +35,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: 9135c199162cab043a886512bc81c57b
+    m_Address: AudioMixer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 24100000, guid: 9135c199162cab043a886512bc81c57b, type: 2}
+    m_TargetAsset: {fileID: 24100000, guid: 9135c199162cab043a886512bc81c57b, type: 2}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4948ba55cf128c04098da6187d7004b1, type: 2}
   m_SchemaSet:

@@ -78,6 +78,7 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - AudioMixer
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: e28f25eff9249b94480d9e12fd82250f, type: 2}

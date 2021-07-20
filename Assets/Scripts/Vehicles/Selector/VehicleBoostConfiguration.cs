@@ -2,7 +2,6 @@
 using CarSumo.Vehicles.Speedometers;
 using CarSumo.Input;
 using CarSumo.Extensions;
-using CarSumo.Infrastructure.Services.TeamChangeService;
 using Cinemachine.Utility;
 
 namespace CarSumo.Vehicles.Selector
@@ -30,7 +29,13 @@ namespace CarSumo.Vehicles.Selector
 
         public void TurnOffActiveVehicle()
         {
-            _activeVehicle?.Engine.TurnOff();
+            if (_activeVehicle is null)
+                return;
+
+            if (_activeVehicle.IsDestroyed())
+                return;
+            
+            _activeVehicle.Engine.TurnOff();
         }
         
         private Vector3 GetTransformedDirection(Camera camera, Vector2 swipeDirection)
