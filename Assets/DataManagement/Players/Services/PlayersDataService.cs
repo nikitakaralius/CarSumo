@@ -1,38 +1,18 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using CarSumo.DataManagement.Core;
 using DataManagement.Players.Models;
 
 namespace DataManagement.Players.Services
 {
-    public class PlayersDataService
+    public class PlayersDataService : DataService<IPlayersRepository, PlayersRepository>
     {
-        private const string RepositoryPath = "PlayersRepository.JSON";
+        public PlayersDataService(IFileService fileService, string rootDirectory) : base(fileService, rootDirectory)
+        {
+        }
+
+        protected override string FileName => "PlayersRepository.JSON";
         
-        private readonly string _playersRootDirectory;
-        private readonly IFileService _fileService;
-
-        public PlayersDataService(IFileService fileService, string playersRootDirectory)
-        {
-            _fileService = fileService;
-            _playersRootDirectory = playersRootDirectory;
-        }
-
-        public IPlayersRepository Repository { get; private set; }
-
-        private string FilePath => Path.Combine(_playersRootDirectory, RepositoryPath);
-
-        public void Init()
-        {
-            Repository = _fileService.Load<PlayersRepository>(FilePath) ?? EnsureRepository();
-        }
-
-        public void Save()
-        {
-            _fileService.Save(Repository, FilePath);
-        }
-
-        private IPlayersRepository EnsureRepository()
+        protected override IPlayersRepository EnsureInitialized()
         {
             return new PlayersRepository()
             {

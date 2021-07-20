@@ -26,7 +26,7 @@ namespace CarSumo.Infrastructure
         {
             _settingsService.Init();
             _playersDataService.Init();
-            
+
             _stateMachine.Enter<BootstrapState>();
         }
     }
