@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Created PlayersRepository">
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Resources.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Resources/Models.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Vehicles.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/Vehicle.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/Vehicle.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/VehicleStats.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/VehicleStats.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/ResourceId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Resources/Models/ResourceId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/ResourceId.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Resources/Models/ResourceId.cs.meta" afterDir="false" />
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Created Vehicle Models">
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/IPlayersRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/IPlayersRepository.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Services/PlayersDataService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Services/PlayersDataService.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/PlayersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/PlayersRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/Vehicle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/Vehicle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/VehicleStats.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/VehicleStats.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,8 +62,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Other/PlayerHighlight.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/PulsingSizeChange.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTeamTransposer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TimerService/ITimerService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/TeamChangeServiceFactory.cs" />
@@ -115,6 +111,8 @@
       <option value="$PROJECT_DIR$/Assets/DataManagement/Resources/Models/ResourceId.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Models/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/Vehicle.cs" />
+      <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Models/PlayersRepository.cs" />
+      <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Services/PlayersDataService.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -182,7 +180,7 @@
       <workItem from="1626095422963" duration="3145000" />
       <workItem from="1626162479047" duration="1161000" />
       <workItem from="1626688181295" duration="1349000" />
-      <workItem from="1626769001446" duration="5818000" />
+      <workItem from="1626769001446" duration="7725000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>
@@ -415,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626774582476</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Created Vehicle Models">
+      <created>1626775116486</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1626775116486</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +442,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Removed Scenes from BuildSettings" />
     <MESSAGE value="Created GameEntryState" />
     <MESSAGE value="Created LoadingScreen Service" />
     <MESSAGE value="Created LoadingScreen Scene" />
@@ -462,7 +466,8 @@
     <MESSAGE value="Created PrefabLoadingScreen with the better perfomance" />
     <MESSAGE value="Renamed Structs" />
     <MESSAGE value="Created PlayersRepository" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created PlayersRepository" />
+    <MESSAGE value="Created Vehicle Models" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created Vehicle Models" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

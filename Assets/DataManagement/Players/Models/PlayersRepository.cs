@@ -4,17 +4,19 @@ using System.Linq;
 namespace DataManagement.Players.Models
 {
     [System.Serializable]
-    public class PlayersRepository
+    public class PlayersRepository : IPlayersRepository
     {
-        public List<Player> Players;
+        public List<Player> Items;
 
         public bool TryAddPlayer(Player player)
         {
-            if (Players.Any(otherPlayer => otherPlayer.Name == player.Name))
+            if (Items.Any(otherPlayer => otherPlayer.Name == player.Name))
                 return false;
             
-            Players.Add(player);
+            Items.Add(player);
             return true;
         }
+
+        public IReadOnlyList<Player> Players => Items;
     }
 }
