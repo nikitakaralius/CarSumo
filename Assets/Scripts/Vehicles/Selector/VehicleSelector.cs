@@ -2,7 +2,6 @@
 using CarSumo.Infrastructure.Services.TeamChangeService;
 using CarSumo.Infrastructure.Services.TimerService;
 using CarSumo.Input;
-using CarSumo.Teams;
 using CarSumo.Vehicles.Speedometers;
 using Sirenix.OdinInspector;
 using UnityEngine;

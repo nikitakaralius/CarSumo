@@ -40,7 +40,7 @@ namespace CarSumo.Infrastructure.Installers
         {
             Container
                 .Bind<ILoadingScreen>()
-                .To<SceneLoadingScreen>()
+                .To<PrefabLoadingScreen>()
                 .AsSingle();
         }
 

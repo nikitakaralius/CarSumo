@@ -29,10 +29,13 @@ namespace CarSumo.Vehicles.Selector
 
         public void TurnOffActiveVehicle()
         {
+            if (_activeVehicle is null)
+                return;
+
             if (_activeVehicle.IsDestroyed())
                 return;
             
-            _activeVehicle?.Engine.TurnOff();
+            _activeVehicle.Engine.TurnOff();
         }
         
         private Vector3 GetTransformedDirection(Camera camera, Vector2 swipeDirection)
