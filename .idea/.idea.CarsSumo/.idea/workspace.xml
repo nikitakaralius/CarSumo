@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Renamed Structs">
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/ResourcesId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/ResourcesId.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/PlayersRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/PlayersRepository.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Settings/Management.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Settings/Services.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Settings/Management/SettingsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Settings/Services/SettingsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Settings/Management/SettingsService.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Settings/Services/SettingsService.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/ResourcesId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/ResourceId.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/ResourcesId.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/ResourceId.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +59,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/GUIAudioProcess.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/ImageTransparencyTween.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Processes/VerticalLayoutSpacingTween.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Core/GUIElement.cs" />
@@ -109,11 +104,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Extensions/MonoBehaviourExtensions.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleBoostConfiguration.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/PrefabLoadingScreen.cs" />
-      <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Models/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Settings/Services/SettingsService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" />
+      <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Models/ResourceId.cs" />
+      <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Models/Player.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -181,7 +177,7 @@
       <workItem from="1626095422963" duration="3145000" />
       <workItem from="1626162479047" duration="1161000" />
       <workItem from="1626688181295" duration="1349000" />
-      <workItem from="1626769001446" duration="4217000" />
+      <workItem from="1626769001446" duration="5295000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>

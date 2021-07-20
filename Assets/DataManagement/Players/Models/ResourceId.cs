@@ -1,6 +1,6 @@
 ﻿namespace DataManagement.Players.Models
 {
-    public enum ResourcesId
+    public enum ResourceId
     {
         Energy,
         Coins,

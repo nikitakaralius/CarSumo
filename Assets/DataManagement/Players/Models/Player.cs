@@ -8,7 +8,7 @@ namespace DataManagement.Players.Models
         public string Name;
         public string Icon;
         
-        public Dictionary<ResourcesId, int> Resources;
+        public Dictionary<ResourceId, int> Resources;
         public string[] Layout;
     }
 }
