@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using DataManagement.Resources.Models;
+using DataManagement.Vehicles.Models;
 
 namespace DataManagement.Players.Models
 {
@@ -9,6 +11,8 @@ namespace DataManagement.Players.Models
         public string Icon;
         
         public Dictionary<ResourceId, int> Resources;
-        public string[] Layout;
+
+        public Vehicle[] BoughtVehicles;
+        public Vehicle[] Layout;
     }
 }
