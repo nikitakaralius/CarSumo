@@ -21,7 +21,11 @@ namespace CarSumo.Infrastructure.Installers
             BindFileService();
             BindSettingsService();
             BindPlayersDataService();
+            BindAudioPreferences();
+        }
 
+        private void BindAudioPreferences()
+        {
             Container
                 .Bind<IAudioPreferences>()
                 .To<AudioPreferences>()
@@ -76,24 +80,9 @@ namespace CarSumo.Infrastructure.Installers
         {
             Container
                 .Bind<ISceneLoadService>()
-                .FromInstance(new AddressablesSceneLoadService())
+                .To<AddressablesSceneLoadService>()
                 .AsSingle()
                 .NonLazy();
-        }
-    }
-
-    public class AudioPreferencesFactory : IFactory<IAudioPreferences>
-    {
-        private readonly SettingsService _settingsService;
-
-        public AudioPreferencesFactory(SettingsService settingsService)
-        {
-            _settingsService = settingsService;
-        }
-
-        public IAudioPreferences Create()
-        {
-            return new AudioPreferences(_settingsService);
         }
     }
 }

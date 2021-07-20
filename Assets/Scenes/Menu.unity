@@ -504,8 +504,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 313544203}
-        m_TargetAssemblyTypeName: CarSumo.GUI.Core.GUIElement, Scripts
-        m_MethodName: Process
+        m_TargetAssemblyTypeName: CarSumo.GUI.Other.SoundVolumeButton, Scripts
+        m_MethodName: OnButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -562,60 +562,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 313544198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 695388a652b803741b13dde294e2f1e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2effa0a313b54479ba1fbc67bc0f3192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 313544201}
-    - {fileID: 21300000, guid: cb37917483ee24fea8fab306393441e5, type: 3}
-    - {fileID: 21300000, guid: 681db73f19fb24efe843aad713eccb43, type: 3}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _processes
-      Entry: 7
-      Data: 0|CarSumo.GUI.IGUIProcess[], Scripts
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 1|CarSumo.GUI.Processes.ImageChangeProcess, Scripts
-    - Name: _targetImage
-      Entry: 10
-      Data: 0
-    - Name: _sprites
-      Entry: 7
-      Data: 2|UnityEngine.Sprite[], UnityEngine.CoreModule
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+  _enabled: {fileID: 21300000, guid: cb37917483ee24fea8fab306393441e5, type: 3}
+  _disabled: {fileID: 21300000, guid: 681db73f19fb24efe843aad713eccb43, type: 3}
 --- !u!1 &401634815
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,21 +727,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 415130039}
-        m_TargetAssemblyTypeName: CarSumo.GUI.Core.GUIElement, Scripts
-        m_MethodName: Process
+        m_TargetAssemblyTypeName: CarSumo.GUI.Other.SoundVolumeButton, Scripts
+        m_MethodName: OnButtonClicked
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CarSumo.Audio.Services.AudioPreferences, Scripts
-        m_MethodName: ChangeMusicVolume
-        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -846,60 +785,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 415130034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 695388a652b803741b13dde294e2f1e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4740f3bfa00b4f349f111382c0d8cfc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 415130037}
-    - {fileID: 21300000, guid: cb37917483ee24fea8fab306393441e5, type: 3}
-    - {fileID: 21300000, guid: 681db73f19fb24efe843aad713eccb43, type: 3}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _processes
-      Entry: 7
-      Data: 0|CarSumo.GUI.IGUIProcess[], Scripts
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 1|CarSumo.GUI.Processes.ImageChangeProcess, Scripts
-    - Name: _targetImage
-      Entry: 10
-      Data: 0
-    - Name: _sprites
-      Entry: 7
-      Data: 2|UnityEngine.Sprite[], UnityEngine.CoreModule
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+  _enabled: {fileID: 21300000, guid: cb37917483ee24fea8fab306393441e5, type: 3}
+  _disabled: {fileID: 21300000, guid: 681db73f19fb24efe843aad713eccb43, type: 3}
 --- !u!1 &570541513
 GameObject:
   m_ObjectHideFlags: 0

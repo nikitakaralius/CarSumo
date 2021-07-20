@@ -20,8 +20,10 @@ namespace CarSumo.Audio.Services
             _settingsService = settingsService;
         }
 
-        private SoundSettings Sound => _settingsService.StoredData.Sound;
-
+        public SoundSettings Sound
+            => new SoundSettings { MusicVolume = ServiceSound.MusicVolume, SfxVolume = ServiceSound.SfxVolume};
+        private SoundSettings ServiceSound => _settingsService.StoredData.Sound;
+        
         public async void Init()
         {
             var operationHandle = Addressables.LoadAssetAsync<AudioMixer>(AudioMixerAsset);
@@ -30,23 +32,23 @@ namespace CarSumo.Audio.Services
 
             _audioMixer = operationHandle.Result;
 
-            _audioMixer.SetFloat(MusicVolume, MapVolume(Sound.MusicVolume));
-            _audioMixer.SetFloat(SfxVolume, MapVolume(Sound.SfxVolume));
+            _audioMixer.SetFloat(MusicVolume, MapVolume(ServiceSound.MusicVolume));
+            _audioMixer.SetFloat(SfxVolume, MapVolume(ServiceSound.SfxVolume));
         }
 
         public void ChangeMusicVolume(float volume)
         {
-            ChangeVolume(MusicVolume, volume, ref Sound.MusicVolume);            
+            ChangeVolume(MusicVolume, volume, ref ServiceSound.MusicVolume);            
         }
 
         public void ChangeSfxVolume(float volume)
         {
-            ChangeVolume(SfxVolume, volume, ref Sound.SfxVolume);
+            ChangeVolume(SfxVolume, volume, ref ServiceSound.SfxVolume);
         }
 
         private void ChangeVolume(string exposedParameter, float volume, ref float volumeData)
         {
-            _audioMixer.SetFloat(exposedParameter, volume);
+            _audioMixer.SetFloat(exposedParameter, MapVolume(volume));
             volumeData = volume;
             _settingsService.Save();
         }
