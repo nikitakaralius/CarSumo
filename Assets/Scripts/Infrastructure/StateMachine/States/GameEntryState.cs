@@ -2,7 +2,6 @@
 using CarSumo.Infrastructure.Services.LoadingScreen;
 using CarSumo.Infrastructure.Services.SceneManagement;
 using UnityEngine.SceneManagement;
-using Zenject;
 
 namespace CarSumo.Infrastructure.StateMachine.States
 {
@@ -22,11 +21,8 @@ namespace CarSumo.Infrastructure.StateMachine.States
 
         public async void Enter()
         {
-            Task sceneLoading = LoadScenes();
-            
             await _loadingScreen.Enable();
-            await sceneLoading;
-            await _loadingScreen.Disable();
+            await LoadScenes();
         }
 
         private Task LoadScenes()

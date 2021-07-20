@@ -1,7 +1,12 @@
-﻿using CarSumo.Infrastructure.Factories;
+﻿using CarSumo.Audio.Services;
+using CarSumo.DataManagement.Core;
+using CarSumo.GameSettings.Services;
+using CarSumo.Infrastructure.Factories;
 using CarSumo.Infrastructure.Services.LoadingScreen;
 using CarSumo.Infrastructure.Services.SceneManagement;
 using CarSumo.Infrastructure.StateMachine;
+using DataManagement.Players.Services;
+using DataManagement.Services;
 using Zenject;
 
 namespace CarSumo.Infrastructure.Installers
@@ -13,13 +18,52 @@ namespace CarSumo.Infrastructure.Installers
             BindSceneLoadService();
             BindLoadingScreen();
             BindGameStateMachine();
+            BindFileService();
+            BindSettingsService();
+            BindPlayersDataService();
+            BindAudioPreferences();
+        }
+
+        private void BindAudioPreferences()
+        {
+            Container
+                .Bind<IAudioPreferences>()
+                .To<AudioPreferences>()
+                .AsSingle()
+                .NonLazy();
+        }
+
+        private void BindPlayersDataService()
+        {
+            Container
+                .Bind<PlayersDataService>()
+                .FromFactory<PlayersDataServiceFactory>()
+                .AsSingle()
+                .NonLazy();
+        }
+
+        private void BindSettingsService()
+        {
+            Container
+                .Bind<SettingsService>()
+                .FromFactory<SettingsServiceFactory>()
+                .AsSingle()
+                .NonLazy();
+        }
+
+        private void BindFileService()
+        {
+            Container
+                .Bind<IFileService>()
+                .To<JsonFileService>()
+                .AsSingle();
         }
 
         private void BindLoadingScreen()
         {
             Container
                 .Bind<ILoadingScreen>()
-                .To<SceneLoadingScreen>()
+                .To<PrefabLoadingScreen>()
                 .AsSingle();
         }
 
@@ -36,7 +80,7 @@ namespace CarSumo.Infrastructure.Installers
         {
             Container
                 .Bind<ISceneLoadService>()
-                .FromInstance(new AddressablesSceneLoadService())
+                .To<AddressablesSceneLoadService>()
                 .AsSingle()
                 .NonLazy();
         }
