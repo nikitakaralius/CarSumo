@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Initialized PlayersDataService">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Added Auto Directory Creation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +93,6 @@
       <option value="$PROJECT_DIR$/Assets/DataManagement/Resources/Models/ResourceId.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Models/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/Vehicle.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/DataFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/PlayersDataServiceFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
@@ -107,6 +102,7 @@
       <option value="$PROJECT_DIR$/Assets/DataManagement/Settings/Services/SettingsService.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Core/DataService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/DataFactory.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -175,7 +171,7 @@
       <workItem from="1626095422963" duration="3145000" />
       <workItem from="1626162479047" duration="1161000" />
       <workItem from="1626688181295" duration="1349000" />
-      <workItem from="1626769001446" duration="13157000" />
+      <workItem from="1626769001446" duration="13495000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>
@@ -429,7 +425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626780170137</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Added Auto Directory Creation">
+      <created>1626783909373</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1626783909373</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +454,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Created LoadingScreen Scene" />
     <MESSAGE value="Changed ILoadingScreen to async logic" />
     <MESSAGE value="Created UnitTracker" />
     <MESSAGE value="Replaced TeamDefiners with Zenject" />
@@ -476,7 +478,8 @@
     <MESSAGE value="Created Vehicle Models" />
     <MESSAGE value="Created PlayersDataService" />
     <MESSAGE value="Initialized PlayersDataService" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initialized PlayersDataService" />
+    <MESSAGE value="Added Auto Directory Creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Auto Directory Creation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
