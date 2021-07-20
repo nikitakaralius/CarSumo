@@ -103,8 +103,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Settings/Models/SoundSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Audio/Services/IAudioPreferences.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Other/SoundVolumeButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Audio/Services/AudioPreferences.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Other/SoundVolumeButton.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -173,7 +173,7 @@
       <workItem from="1626095422963" duration="3145000" />
       <workItem from="1626162479047" duration="1161000" />
       <workItem from="1626688181295" duration="1349000" />
-      <workItem from="1626769001446" duration="21978000" />
+      <workItem from="1626769001446" duration="22253000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>
