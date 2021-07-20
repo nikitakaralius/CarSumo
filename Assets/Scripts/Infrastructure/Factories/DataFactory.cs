@@ -7,11 +7,13 @@ namespace CarSumo.Infrastructure.Factories
 {
     public abstract class DataFactory<T> : IFactory<T>
     {
-        private const string Directory = "Data";
+        private const string DirectoryPath = "Data";
 
         protected DataFactory(IFileService fileService)
         {
             FileService = fileService;
+            
+            EnsureDirectoryCreated(SettingsDirectory);
         }
 
         protected IFileService FileService { get; }
@@ -25,9 +27,17 @@ namespace CarSumo.Infrastructure.Factories
                 Application.dataPath :
                 Application.streamingAssetsPath;
 
-            string path = Path.Combine(assets, Directory);
+            string path = Path.Combine(assets, DirectoryPath);
 
             return path;
+        }
+
+        private void EnsureDirectoryCreated(string path)
+        {
+            if (Directory.Exists(path))
+                return;
+
+            Directory.CreateDirectory(path);
         }
     }
 }
