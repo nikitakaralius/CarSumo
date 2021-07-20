@@ -32,7 +32,7 @@ namespace CarSumo.Infrastructure
             _playersDataService.Init();
 
             _audioPreferences.Init();
-            
+
             _stateMachine.Enter<BootstrapState>();
         }
     }

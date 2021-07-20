@@ -16,7 +16,8 @@ namespace DataManagement.Players.Services
         {
             return new PlayersRepository()
             {
-                Items = new List<Player>()
+                Items = new List<Player>(),
+                SelectedPlayerIndex = -1
             };
         }
     }
