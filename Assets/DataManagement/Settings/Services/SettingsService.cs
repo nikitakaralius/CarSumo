@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using CarSumo.DataManagement.Core;
 using CarSumo.GameSettings.Structs;
-using UnityEngine;
 
 namespace CarSumo.GameSettings.Services
 {

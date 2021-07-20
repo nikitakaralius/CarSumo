@@ -2,36 +2,16 @@
 using CarSumo.DataManagement.Core;
 using CarSumo.GameSettings.Services;
 using UnityEngine;
-using Zenject;
 
 namespace CarSumo.Infrastructure.Factories
 {
-    public class SettingsServiceFactory : IFactory<SettingsService>
+    public class SettingsServiceFactory : DataFactory<SettingsService>
     {
-        private const string Directory = "Data";
-        private readonly IFileService _fileService;
+        public SettingsServiceFactory(IFileService fileService) : base(fileService) { }
 
-        public SettingsServiceFactory(IFileService fileService)
+        public override SettingsService Create()
         {
-            _fileService = fileService;
-        }
-
-        public SettingsService Create()
-        {
-            var settingsService = new SettingsService(_fileService, SettingsDirectory());
-            
-            return settingsService;
-        }
-
-        private string SettingsDirectory()
-        {
-            string assets = Application.isEditor ?
-                Application.dataPath :
-                Application.streamingAssetsPath;
-
-            string path = Path.Combine(assets, Directory);
-
-            return path;
+            return new SettingsService(FileService, SettingsDirectory);;
         }
     }
 }

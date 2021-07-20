@@ -4,7 +4,7 @@ namespace DataManagement.Players.Models
 {
     public interface IPlayersRepository
     {
-        IReadOnlyList<Player> Players { get; }
+        IEnumerable<Player> Players { get; }
         bool TryAddPlayer(Player player);
     }
 }

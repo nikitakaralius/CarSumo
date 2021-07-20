@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using CarSumo.DataManagement.Core;
 using DataManagement.Players.Models;
 
@@ -11,7 +12,7 @@ namespace DataManagement.Players.Services
         private readonly string _playersRootDirectory;
         private readonly IFileService _fileService;
 
-        public PlayersDataService(string playersRootDirectory, IFileService fileService)
+        public PlayersDataService(IFileService fileService, string playersRootDirectory)
         {
             _fileService = fileService;
             _playersRootDirectory = playersRootDirectory;
@@ -23,12 +24,20 @@ namespace DataManagement.Players.Services
 
         public void Init()
         {
-            Repository = _fileService.Load<PlayersRepository>(FilePath);
+            Repository = _fileService.Load<PlayersRepository>(FilePath) ?? EnsureRepository();
         }
 
         public void Save()
         {
             _fileService.Save(Repository, FilePath);
+        }
+
+        private IPlayersRepository EnsureRepository()
+        {
+            return new PlayersRepository()
+            {
+                Items = new List<Player>()
+            };
         }
     }
 }

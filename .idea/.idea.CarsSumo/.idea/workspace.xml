@@ -4,16 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Created Vehicle Models">
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/IPlayersRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/IPlayersRepository.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Services/PlayersDataService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Services/PlayersDataService.cs.meta" afterDir="false" />
+    <list default="true" id="72a43aae-0f6d-410c-89d3-21dd53cf3015" name="Default Changelist" comment="Created PlayersDataService">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/DataFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/DataFactory.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/PlayersDataServiceFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/PlayersDataServiceFactory.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarsSumo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/IPlayersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/IPlayersRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/PlayersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Models/PlayersRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/Vehicle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/Vehicle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/VehicleStats.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/VehicleStats.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Players/Services/PlayersDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Players/Services/PlayersDataService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DataManagement/Settings/Services/SettingsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DataManagement/Settings/Services/SettingsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +50,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/c1/857e7925/IReadOnlyList`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.boundfoxstudios.fluentassertions@58a427c777/Editor/FluentAssertions/NumericAssertionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/c0/3edc800d/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695D1CC9-3CCA-4506-9C52-8C15C9FDD749/9d/fa27512e/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/79/9c01d2cf/IList`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BE28439F-7B01-4FC3-8435-D198C0640FF7/e2/418d3601/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5F37459E-F130-4442-BA19-EE268C49D074/61/ccf68628/IReadOnlyCollection`1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -62,9 +66,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTeamTransposer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TimerService/ITimerService.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/TeamChangeServiceFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/CountdownTimerFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/TeamChangeService/TimedTeamChangeService.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GUI/Other/Timer.cs" />
@@ -101,18 +102,21 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Extensions/MonoBehaviourExtensions.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicles/Selector/VehicleBoostConfiguration.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Services/LoadingScreen/PrefabLoadingScreen.cs" />
-      <option value="$PROJECT_DIR$/Assets/DataManagement/Settings/Services/SettingsService.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Models/ResourceId.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Services/IPlayerBuild.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Services/IPlayerConstruct.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Resources/Models/ResourceId.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Models/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Vehicles/Models/Vehicle.cs" />
-      <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Models/PlayersRepository.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/DataFactory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/SettingsServiceFactory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Factories/PlayersDataServiceFactory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/BootstrapInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/DataManagement/Settings/Services/SettingsService.cs" />
       <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Services/PlayersDataService.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Initialization.cs" />
+      <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Models/IPlayersRepository.cs" />
+      <option value="$PROJECT_DIR$/Assets/DataManagement/Players/Models/PlayersRepository.cs" />
     </changedPaths>
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -129,11 +133,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34471717" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="ToolWindowDebug.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
@@ -180,7 +185,7 @@
       <workItem from="1626095422963" duration="3145000" />
       <workItem from="1626162479047" duration="1161000" />
       <workItem from="1626688181295" duration="1349000" />
-      <workItem from="1626769001446" duration="7725000" />
+      <workItem from="1626769001446" duration="9919000" />
     </task>
     <task id="LOCAL-00001" summary="Added AnchorPositionTween Tests">
       <created>1625730038134</created>
@@ -420,7 +425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626775116486</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Created PlayersDataService">
+      <created>1626777783951</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1626777783951</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,7 +454,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Created GameEntryState" />
     <MESSAGE value="Created LoadingScreen Service" />
     <MESSAGE value="Created LoadingScreen Scene" />
     <MESSAGE value="Changed ILoadingScreen to async logic" />
@@ -467,7 +478,8 @@
     <MESSAGE value="Renamed Structs" />
     <MESSAGE value="Created PlayersRepository" />
     <MESSAGE value="Created Vehicle Models" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created Vehicle Models" />
+    <MESSAGE value="Created PlayersDataService" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created PlayersDataService" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
