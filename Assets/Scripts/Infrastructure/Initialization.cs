@@ -1,10 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using CarSumo.Audio.Services;
 using CarSumo.GameSettings.Services;
 using CarSumo.Infrastructure.StateMachine;
 using CarSumo.Infrastructure.StateMachine.States;
 using DataManagement.Players.Models;
 using DataManagement.Players.Services;
+using DataManagement.Resources.Models;
 using UnityEngine;
 using Zenject;
 

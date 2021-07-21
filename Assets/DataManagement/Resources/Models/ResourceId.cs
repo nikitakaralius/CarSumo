@@ -3,7 +3,7 @@
     public enum ResourceId
     {
         Energy,
-        Coins,
+        Gold,
         Gems
     }
 }
