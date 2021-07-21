@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 102900000, guid: f81553f3b3a9a9f4ab0d4209be0649fd, type: 3}
     m_TargetAsset: {fileID: 102900000, guid: f81553f3b3a9a9f4ab0d4209be0649fd, type: 3}
+  - m_GUID: c7aedf859db4e194c94f53ae7e89a921
+    m_Address: Assets/Bundles/Menu/Prefabs
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4948ba55cf128c04098da6187d7004b1, type: 2}
   m_SchemaSet:
