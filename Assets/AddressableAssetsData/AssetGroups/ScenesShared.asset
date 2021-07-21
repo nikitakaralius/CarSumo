@@ -39,8 +39,8 @@ MonoBehaviour:
     m_Address: LoadingScreenPrefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 6792879735423152964, guid: 7cef89fe1856d9b42b68fc326e83c400, type: 3}
-    m_TargetAsset: {fileID: 6792879735423152964, guid: 7cef89fe1856d9b42b68fc326e83c400, type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4948ba55cf128c04098da6187d7004b1, type: 2}
   m_SchemaSet:

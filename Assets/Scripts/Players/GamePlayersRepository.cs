@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CarSumo.Players.Models;
 using DataManagement.Players.Models;
+using DataManagement.Players.Services;
 using UnityEngine;
 using Zenject;
 
@@ -10,16 +11,16 @@ namespace CarSumo.Players
 {
     public class GamePlayersRepository : MonoBehaviour
     {
-        private IPlayersRepository _repository;
-        private IPlayerProfileBuilder _profileBuilder;
+        private PlayersDataService _playerDataService;
+        private IPlayerProfileBinder _profileBinder;
 
         private List<PlayerProfile> _playerProfiles;
 
         [Inject]
-        private void Construct(IPlayersRepository playersRepository, IPlayerProfileBuilder profileBuilder)
+        private void Construct(PlayersDataService playersRepository, IPlayerProfileBinder profileBinder)
         {
-            _repository = playersRepository;
-            _profileBuilder = profileBuilder;
+            _playerDataService = playersRepository;
+            _profileBinder = profileBinder;
         }
 
         public event Action SelectedPlayerProfileChanged;
@@ -27,7 +28,9 @@ namespace CarSumo.Players
         public IReadOnlyList<PlayerProfile> PlayerProfiles => _playerProfiles;
         public PlayerProfile SelectedPlayerProfile { get; private set; }
 
-        private void Awake()
+        private IPlayersRepository PlayersRepository => _playerDataService.StoredData;
+
+        private void Start()
         {
             _playerProfiles = BuildPlayerProfiles();
             SelectedPlayerProfile = BuildSelectedPlayerProfile();
@@ -41,12 +44,13 @@ namespace CarSumo.Players
             if (index == -1)
                 return false;
 
-            Player newSelectedPlayer = _repository.Players[index];
-            
-            if (_repository.TryMakePlayerSelected(newSelectedPlayer) == false)
+            Player newSelectedPlayer = PlayersRepository.Players[index];
+
+            if (PlayersRepository.TryMakePlayerSelected(newSelectedPlayer) == false)
                 return false;
 
             SelectedPlayerProfile = playerProfile;
+            _playerDataService.Save();
             SelectedPlayerProfileChanged?.Invoke();
 
             return true;
@@ -54,14 +58,14 @@ namespace CarSumo.Players
 
         private List<PlayerProfile> BuildPlayerProfiles()
         {
-            return _repository.Players
-                .Select(repositoryPlayer => _profileBuilder.BuildFrom(repositoryPlayer))
+            return PlayersRepository.Players
+                .Select(repositoryPlayer => _profileBinder.BindFrom(repositoryPlayer))
                 .ToList();
         }
 
         private PlayerProfile BuildSelectedPlayerProfile()
         {
-            return _profileBuilder.BuildFrom(_repository.SelectedPlayer);
+            return _profileBinder.BindFrom(PlayersRepository.SelectedPlayer);
         }
     }
 }
