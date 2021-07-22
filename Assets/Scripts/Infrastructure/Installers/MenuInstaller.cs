@@ -10,10 +10,16 @@ namespace CarSumo.Infrastructure.Installers
         public override void InstallBindings()
         {
             BindPlayerProfileBuilder();
-            BindPlayerSelect();
-            BindProfilesUpdate();
             BindPlayerProfilesProvider();
             BindPlayerViewSelect();
+            BindPlayersSelectAndPlayersUpdater();
+        }
+
+        private void BindPlayersSelectAndPlayersUpdater()
+        {
+            Container
+                .BindInterfacesTo<PlayerSelect>()
+                .AsSingle();
         }
 
         private void BindPlayerProfilesProvider()
@@ -21,14 +27,6 @@ namespace CarSumo.Infrastructure.Installers
             Container
                 .Bind<IPlayerProfilesProvider>()
                 .FromFactory<PlayerProfilesProviderFactory>()
-                .AsSingle();
-        }
-
-        private void BindProfilesUpdate()
-        {
-            Container
-                .Bind<IPlayerProfilesUpdate>()
-                .FromFactory<PlayerProfilesUpdateFactory>()
                 .AsSingle();
         }
 
@@ -40,35 +38,12 @@ namespace CarSumo.Infrastructure.Installers
                 .AsSingle();
         }
 
-        private void BindPlayerSelect()
-        {
-            Container
-                .Bind<IPlayerSelect>()
-                .To<PlayerSelect>()
-                .AsSingle();
-        }
-
         private void BindPlayerProfileBuilder()
         {
             Container
                 .Bind<IPlayerProfileBuilder>()
                 .To<AddressablesPlayerProfileBuilder>()
                 .AsSingle();
-        }
-    }
-
-    public class PlayerProfilesUpdateFactory : IFactory<IPlayerProfilesUpdate>
-    {
-        private readonly IPlayerSelect _playerUpdate;
-
-        public PlayerProfilesUpdateFactory(IPlayerSelect playerUpdate)
-        {
-            _playerUpdate = playerUpdate;
-        }
-
-        public IPlayerProfilesUpdate Create()
-        {
-            return (PlayerSelect)_playerUpdate;
         }
     }
 }
