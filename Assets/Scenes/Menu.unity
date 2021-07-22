@@ -4661,9 +4661,9 @@ RectTransform:
   m_Father: {fileID: 197827103073964901}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 524.64294, y: -55.727905}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2801718367421569384
@@ -4862,7 +4862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &4813192137378432595
 GameObject:
   m_ObjectHideFlags: 0
@@ -4980,7 +4980,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1046.402, y: 72}
+  m_SizeDelta: {x: -1046.402, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5597043832279899095
 CanvasRenderer:
@@ -5452,9 +5452,9 @@ RectTransform:
   m_Father: {fileID: 197827103073964901}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 166.54765, y: -55.727905}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6628828293015508916
@@ -5530,8 +5530,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.20575778, y: 0}
   m_AnchorMax: {x: 0.79253566, y: 1}
-  m_AnchoredPosition: {x: 2.5, y: -248.36916}
-  m_SizeDelta: {x: 1129, y: -496.73444}
+  m_AnchoredPosition: {x: 2.5, y: -160.00098}
+  m_SizeDelta: {x: 1129, y: -319.99805}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6979773207136170162
 GameObject:
@@ -6898,6 +6898,7 @@ GameObject:
   - component: {fileID: 7519031982977065447}
   - component: {fileID: 5250969689586417387}
   - component: {fileID: 8507199831912767617}
+  - component: {fileID: 8507199831912767618}
   m_Layer: 5
   m_Name: ScrollRect
   m_TagString: Untagged
@@ -6917,8 +6918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050a78ba91d64af5b87b70040d4d910a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectedPlayerRoot: {fileID: 6798767054296295334}
-  _otherPlayersRoot: {fileID: 5461614469430063031}
+  _hierarchyRoot: {fileID: 5461614469430063031}
   _playerViewItemPrefab:
     m_AssetGUID: 1047262389c9d0248885ae37054f2b36
     m_SubObjectName: 
@@ -6927,6 +6927,21 @@ MonoBehaviour:
     m_AssetGUID: dda430833a867114e846fe5d20e2b70e
     m_SubObjectName: 
     m_SubObjectType: 
+  _playerHighlight: {fileID: 0}
+--- !u!114 &8507199831912767618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8507199831912767616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 946dd0b9099a41b993f1217ded8adfb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selected: {fileID: 0}
+  _regular: {fileID: 0}
 --- !u!114 &8520660984483544439
 MonoBehaviour:
   m_ObjectHideFlags: 0

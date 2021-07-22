@@ -9,9 +9,12 @@ namespace CarSumo.Menu.Models
     {
         [SerializeField] private Image _icon;
         [SerializeField] private TMP_Text _name;
+        
+        public PlayerProfile Profile { get; private set; }
 
-        public void AssignFrom(PlayerProfile profile)
+        public void Init(PlayerProfile profile)
         {
+            Profile = profile;
             _icon.sprite = profile.Icon;
             _name.text = profile.Name;
         }

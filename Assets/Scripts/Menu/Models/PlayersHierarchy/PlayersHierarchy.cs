@@ -12,67 +12,65 @@ namespace CarSumo.Menu.Models
 {
     public class PlayersHierarchy : MonoBehaviour
     {
-        [SerializeField] private Transform _selectedPlayerRoot;
-        [SerializeField] private Transform _otherPlayersRoot;
+        [SerializeField] private Transform _hierarchyRoot;
 
         [SerializeField] private AssetReferenceGameObject _playerViewItemPrefab;
         [SerializeField] private AssetReferenceGameObject _blankViewItem;
-
-        private const int SlotsCount = 4;
         
+        private const int SlotsCount = 4;
+
         private PlayersDataService _playersDataService;
         private IPlayerProfileBinder _profileBinder;
-
+        
         [Inject]
         private void Construct(PlayersDataService playersDataService, IPlayerProfileBinder profileBinder)
         {
             _playersDataService = playersDataService;
             _profileBinder = profileBinder;
         }
-
+        
         private void Start()
         {
-            CreateSelectedPlayer(_playersDataService.StoredData);
-            CreateOtherProfiles(_playersDataService.StoredData);
+            CreateSelectedPlayerProfile(_playersDataService.StoredData);
+            CreateProfiles(_playersDataService.StoredData);
         }
 
-        private async void CreateSelectedPlayer(IPlayersRepository repository)
+        private async void CreateSelectedPlayerProfile(IPlayersRepository repository)
         {
             PlayerProfile profile = _profileBinder.BindFrom(repository.SelectedPlayer);
-            await CreateProfile(profile, _selectedPlayerRoot);
+            PlayerViewItem viewItem = await CreateViewItem(profile, _hierarchyRoot);
         }
 
-        private async void CreateOtherProfiles(IPlayersRepository repository)
+        private async void CreateProfiles(IPlayersRepository repository)
         {
-            IEnumerable<PlayerProfile> profiles = GetPlayerProfilesWithoutSelected(repository);
-            int slots = 0;
-            
+            IEnumerable<PlayerProfile> profiles = BuildPlayerProfilesExceptSelected(repository);
+            int slots = repository.Players.Count;
+
             foreach (PlayerProfile profile in profiles)
             {
-                slots++;
-                await CreateProfile(profile, _otherPlayersRoot);
+                await CreateViewItem(profile, _hierarchyRoot);
             }
-
-            const int selectedPlayer = 1;
-            await FillBlanks(SlotsCount - slots - selectedPlayer);
+            
+            await FillBlanks(SlotsCount - slots);
         }
 
-        private async Task CreateProfile(PlayerProfile profile, Transform root)
+        private async Task<PlayerViewItem> CreateViewItem(PlayerProfile profile, Transform root)
         {
             GameObject profileInstance = await _playerViewItemPrefab.InstantiateAsync(root).Task;
             PlayerViewItem component = profileInstance.GetComponent<PlayerViewItem>();
-            component.AssignFrom(profile);
+            component.Init(profile);
+            return component;
         }
 
         private async Task FillBlanks(int count)
         {
             for (int i = 0; i < count; i++)
             {
-                await _blankViewItem.InstantiateAsync(_otherPlayersRoot).Task;
+                await _blankViewItem.InstantiateAsync(_hierarchyRoot).Task;
             }
         }
 
-        private IEnumerable<PlayerProfile> GetPlayerProfilesWithoutSelected(IPlayersRepository repository)
+        private IEnumerable<PlayerProfile> BuildPlayerProfilesExceptSelected(IPlayersRepository repository)
         {
             return repository.Players
                 .Where(player => player != repository.SelectedPlayer)
