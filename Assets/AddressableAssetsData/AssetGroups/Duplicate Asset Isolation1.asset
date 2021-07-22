@@ -1,0 +1,243 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Duplicate Asset Isolation1
+  m_EditorClassIdentifier: 
+  m_GroupName: Duplicate Asset Isolation1
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6074d91cd453bd14ea1d9f272e8c5f2b
+  m_SerializeEntries:
+  - m_GUID: c1e7ee41113935741b4fd5c7f9fd7d6a
+    m_Address: Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_01_A_inverted.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 62e25ef75a2216f418d06453c9ad15cb
+    m_Address: Assets/Third Party/Assets/PolygonCity/Materials/PolygonCity_Mat_01_A.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: d85b0c991d7ab78488a309346114f2f4
+    m_Address: Assets/Third Party/Assets/PolygonCity/Materials/FX_Materials/Skyline_Mat.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 386ab7cd10e9af247b99f7d02c51d511
+    m_Address: Assets/Third Party/Assets/Sky/LushkinR/Materials/Cloudy_PerspectiveFogMaterial.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 8d6dbba04bf21784ea83db299e1d8550
+    m_Address: Assets/Third Party/Assets/PolygonCity/Textures/PolygonCity_Texture_Skyline.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 2da74f2130b2ca74faacbcaaa83c5a44
+    m_Address: Assets/Third Party/Assets/PolygonCity/Textures/PolygonCity_Texture_Metallic.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: fbde5f73f39181f4d9c7e24c34f0bdf8
+    m_Address: Assets/Third Party/Assets/PolygonCity/Textures/PolygonCity_Texture_01_A.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: b993ae890161b184188e417d77e0e1a3
+    m_Address: Assets/Third Party/Assets/PolygonCity/Textures/PolygonCity_Texture_Normal.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: ed8c76cfaa7f4f04da86bd288543e61c
+    m_Address: Assets/Third Party/Assets/PolygonCity/Textures/Emissive_01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: feaca7a0cbb9b1540940bac6ce5e5501
+    m_Address: Assets/Third Party/Assets/PolygonCity/Models/SM_Env_Skyline_01.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 64d51cb3a511a9d4282ca944fdc00faa
+    m_Address: Assets/Third Party/Assets/PolygonCity/Models/SM_Bld_OfficeRound_Roof_01.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: ee06d42c7e708844c9442c11a25d3a0c
+    m_Address: Assets/Third Party/Assets/PolygonCity/Models/SM_Bld_OfficeRound_03.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: eb3c6fb598ded4c71b8968e1c40a3b4d
+    m_Address: Assets/Third Party/Assets/Sky/Customizable Skybox/Stylized Sky/Shaders/Stylized
+      Sky.shader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 79f0d16cfdf2fbf4293b8b61be9cb584
+    m_Address: Assets/Third Party/Assets/Sky/LushkinR/Shaders/FogShader.shadergraph
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: aa9a3aa967484684ea5cb9b22e6322e0
+    m_Address: Assets/Scenes/Game/Postprocessing/Cloudy Volume Profile.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: dd85b050fd9244e40bdc9ecb2ca6a679
+    m_Address: Assets/Bundles/Menu/Audio/Cues/ClicksCue.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 393a46b0b6c6b194ab2c0b71a5589997
+    m_Address: Assets/Bundles/Menu/Audio/Source/Click (14).wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 840a54519d139421686eb868f94c36fc
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Ranking/ranking_list_me.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 09d25b45e4a87b6499b58b5f240f1b1e
+    m_Address: Assets/Bundles/Menu/Audio/Source/Click (18).wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 1a6dbc072847ad74881495df704f8745
+    m_Address: Assets/Bundles/Menu/Audio/Source/Click (12).wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: a5e50bd8a29ad5e41ae9674f20ac492c
+    m_Address: Assets/Bundles/Menu/Audio/Source/Click (13).wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: f8c8819f8a6a3d64e94ca7591f3b993d
+    m_Address: Assets/Bundles/Menu/Audio/Groups/ClickSoundsGroup.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: c277e9372b7194061bf622d873c42964
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Ranking/ranking_profile_bg_blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 51bda5a7ed19c4c39bbb02ae0c80c2c1
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Fonts/LilitaOne-Regular
+      Outline 50 SDF Atlas.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: c2f49fe8c22d94f9a9e6cd06ad490155
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Fonts/LilitaOne-Regular
+      Outline 50 SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: c1482dbce654844b9ba1c753cbea5d80
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Fonts/LilitaOne-Regular
+      SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 5c5ee151f9307453bad78be36b51a077
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Fonts/LilitaOne-Regular
+      Outline 64 SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 50c12c23294124aa48490c44ac65a9e4
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Fonts/LilitaOne-Regular
+      Outline 40 SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 542168a59ebb940cc91d3c3ec1325445
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Fonts/LilitaOne-Regular
+      Outline 64 SDF Atlas.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: aa9fdc7ac23d342798922793111065d0
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Fonts/LilitaOne-Regular
+      Outline 40 SDF Atlas.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 89bfafeec14b047a4ac5510b8751485d
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Common/top_btn_left.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 3c211ed28a1254ad5be923faa2874f0e
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Loading/loading_rotate_white.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: bb129f0554ce5482e97e81f0688f3a7a
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Loading/loading_bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 9c20f215af6a84358874d19ece3f974a
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Animatons/Loading.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 03f0513cf9924497c8eb042e999d16dd
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Play/play_bg_forest_dark.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 4948ba55cf128c04098da6187d7004b1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 7164cd38fe5db534f9e521a45c03830c, type: 2}
+    - {fileID: 11400000, guid: ec26ea4fcbdf8a844ae5d84f47207861, type: 2}
