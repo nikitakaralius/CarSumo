@@ -16,6 +16,7 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 8300000, guid: 4ed863257ea20b448bccba17af9404a6, type: 3}
     - {fileID: 8300000, guid: a1312c417dcebae4e82787e3f92943ad, type: 3}
     - {fileID: 8300000, guid: 3ff59af17a75762418b9e78f471cc17e, type: 3}
     SerializedBytesString: 
@@ -28,13 +29,16 @@ MonoBehaviour:
       Data: 0|AdvancedAudioSystem.AudioClips, AdvancedAudioSystem
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 10
       Data: 0
     - Name: 
       Entry: 10
       Data: 1
+    - Name: 
+      Entry: 10
+      Data: 2
     - Name: 
       Entry: 13
       Data: 

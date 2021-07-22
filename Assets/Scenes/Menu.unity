@@ -6898,7 +6898,6 @@ GameObject:
   - component: {fileID: 7519031982977065447}
   - component: {fileID: 5250969689586417387}
   - component: {fileID: 8507199831912767617}
-  - component: {fileID: 8507199831912767618}
   m_Layer: 5
   m_Name: ScrollRect
   m_TagString: Untagged
@@ -6927,21 +6926,6 @@ MonoBehaviour:
     m_AssetGUID: dda430833a867114e846fe5d20e2b70e
     m_SubObjectName: 
     m_SubObjectType: 
-  _playerHighlight: {fileID: 0}
---- !u!114 &8507199831912767618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8507199831912767616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 946dd0b9099a41b993f1217ded8adfb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _selected: {fileID: 0}
-  _regular: {fileID: 0}
 --- !u!114 &8520660984483544439
 MonoBehaviour:
   m_ObjectHideFlags: 0
