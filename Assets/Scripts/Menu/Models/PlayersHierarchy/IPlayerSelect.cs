@@ -1,7 +1,9 @@
-﻿namespace CarSumo.Menu.Models
+﻿using CarSumo.Players.Models;
+
+namespace CarSumo.Menu.Models
 {
     public interface IPlayerSelect
     {
-        void MakePlayerSelected(PlayerViewItem newSelected);
+        void MakePlayerSelected(PlayerProfile newSelected);
     }
 }

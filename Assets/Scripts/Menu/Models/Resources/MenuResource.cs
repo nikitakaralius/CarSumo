@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using DataManagement.Players.Services;
 using DataManagement.Resources.Models;
 using TMPro;
 using UnityEngine;
@@ -12,17 +11,34 @@ namespace CarSumo.Menu.Models.Resources
         [SerializeField] private ResourceId _resource;
         [SerializeField] private TMP_Text _quantity;
         
-        private PlayersDataService _playersDataService;
+        private IPlayerProfilesProvider _profilesProvider;
+        private IPlayerProfilesUpdate _update;
 
         [Inject]
-        private void Construct(PlayersDataService playersDataService)
+        private void Construct(IPlayerProfilesProvider profilesProvider, IPlayerProfilesUpdate update)
         {
-            _playersDataService = playersDataService;
+            _profilesProvider = profilesProvider;
+            _update = update;
         }
 
-        private Dictionary<ResourceId, int> Resources => _playersDataService.StoredData.SelectedPlayer.Resources;
+        private IReadOnlyDictionary<ResourceId, int> Resources => _profilesProvider.SelectedPlayer.Resources;
+
+        private void OnEnable()
+        {
+            _update.Updated += UpdateResources;
+        }
 
         private void Start()
+        {
+            UpdateResources();
+        }
+
+        private void OnDisable()
+        {
+            _update.Updated -= UpdateResources;
+        }
+
+        private void UpdateResources()
         {
             _quantity.text = Resources[_resource].ToString();
         }

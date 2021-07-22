@@ -4,11 +4,11 @@ using UnityEngine.AddressableAssets;
 
 namespace CarSumo.Players.Models
 {
-    public class AddressablesPlayerProfileBinder : IPlayerProfileBinder
+    public class AddressablesPlayerProfileBuilder : IPlayerProfileBuilder
     {
         private const string DefaultIcon = "Players/DefaultUserIcon.png";
 
-        public PlayerProfile BindFrom(Player player)
+        public PlayerProfile BuildFrom(Player player)
         {
             return new PlayerProfile(player.Name, LoadSpriteByPath(player.Icon ?? DefaultIcon), player.Resources);
         }

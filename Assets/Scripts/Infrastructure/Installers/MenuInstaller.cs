@@ -1,4 +1,5 @@
-﻿using CarSumo.Menu.Models;
+﻿using CarSumo.Infrastructure.Factories.Menu;
+using CarSumo.Menu.Models;
 using CarSumo.Players.Models;
 using Zenject;
 
@@ -10,6 +11,33 @@ namespace CarSumo.Infrastructure.Installers
         {
             BindPlayerProfileBuilder();
             BindPlayerSelect();
+            BindProfilesUpdate();
+            BindPlayerProfilesProvider();
+            BindPlayerViewSelect();
+        }
+
+        private void BindPlayerProfilesProvider()
+        {
+            Container
+                .Bind<IPlayerProfilesProvider>()
+                .FromFactory<PlayerProfilesProviderFactory>()
+                .AsSingle();
+        }
+
+        private void BindProfilesUpdate()
+        {
+            Container
+                .Bind<IPlayerProfilesUpdate>()
+                .FromFactory<PlayerProfilesUpdateFactory>()
+                .AsSingle();
+        }
+
+        private void BindPlayerViewSelect()
+        {
+            Container
+                .Bind<IPlayerViewSelect>()
+                .To<PlayerViewSelect>()
+                .AsSingle();
         }
 
         private void BindPlayerSelect()
@@ -17,16 +45,30 @@ namespace CarSumo.Infrastructure.Installers
             Container
                 .Bind<IPlayerSelect>()
                 .To<PlayerSelect>()
-                .AsSingle()
-                .NonLazy();
+                .AsSingle();
         }
 
         private void BindPlayerProfileBuilder()
         {
             Container
-                .Bind<IPlayerProfileBinder>()
-                .To<AddressablesPlayerProfileBinder>()
+                .Bind<IPlayerProfileBuilder>()
+                .To<AddressablesPlayerProfileBuilder>()
                 .AsSingle();
+        }
+    }
+
+    public class PlayerProfilesUpdateFactory : IFactory<IPlayerProfilesUpdate>
+    {
+        private readonly IPlayerSelect _playerUpdate;
+
+        public PlayerProfilesUpdateFactory(IPlayerSelect playerUpdate)
+        {
+            _playerUpdate = playerUpdate;
+        }
+
+        public IPlayerProfilesUpdate Create()
+        {
+            return (PlayerSelect)_playerUpdate;
         }
     }
 }

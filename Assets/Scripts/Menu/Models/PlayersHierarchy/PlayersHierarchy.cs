@@ -2,8 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using CarSumo.Players.Models;
-using DataManagement.Players.Models;
-using DataManagement.Players.Services;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;
@@ -19,44 +17,41 @@ namespace CarSumo.Menu.Models
         
         private const int SlotsCount = 4;
 
-        private IPlayerSelect _playerSelect;
-        private PlayersDataService _playersDataService;
-        private IPlayerProfileBinder _profileBinder;
-        
+        private IPlayerViewSelect _playerSelect;
+        private IPlayerProfilesProvider _profilesProvider;
+
         [Inject]
-        private void Construct(PlayersDataService playersDataService,
-                                IPlayerProfileBinder profileBinder,
-                                IPlayerSelect playerSelect)
+        private void Construct(IPlayerViewSelect playerSelect, IPlayerProfilesProvider profilesProvider)
         {
-            _playersDataService = playersDataService;
-            _profileBinder = profileBinder;
             _playerSelect = playerSelect;
+            _profilesProvider = profilesProvider;
         }
         
         private void Start()
         {
-            CreateSelectedPlayerProfile(_playersDataService.StoredData);
-            CreateProfiles(_playersDataService.StoredData);
+            CreateSelectedPlayerProfile(_profilesProvider);
+            CreateProfiles(_profilesProvider);
         }
 
-        private async void CreateSelectedPlayerProfile(IPlayersRepository repository)
+        private async void CreateSelectedPlayerProfile(IPlayerProfilesProvider provider)
         {
-            PlayerProfile profile = _profileBinder.BindFrom(repository.SelectedPlayer);
+            PlayerProfile profile = provider.SelectedPlayer;
             PlayerViewItem viewItem = await CreateViewItem(profile, _hierarchyRoot);
             viewItem.MakeSelected();
         }
 
-        private async void CreateProfiles(IPlayersRepository repository)
+        private async void CreateProfiles(IPlayerProfilesProvider provider)
         {
-            IEnumerable<PlayerProfile> profiles = BuildPlayerProfilesExceptSelected(repository);
-            int slots = repository.Players.Count;
+            IEnumerable<PlayerProfile> profiles = provider.OtherPlayers;
+            int slots = profiles.Count();
 
             foreach (PlayerProfile profile in profiles)
             {
                 await CreateViewItem(profile, _hierarchyRoot);
             }
-            
-            await FillBlanks(SlotsCount - slots);
+
+            const int selectedPlayer = 1;
+            await FillBlanks(SlotsCount - slots - selectedPlayer);
         }
 
         private async Task<PlayerViewItem> CreateViewItem(PlayerProfile profile, Transform root)
@@ -73,13 +68,6 @@ namespace CarSumo.Menu.Models
             {
                 await _blankViewItem.InstantiateAsync(_hierarchyRoot).Task;
             }
-        }
-
-        private IEnumerable<PlayerProfile> BuildPlayerProfilesExceptSelected(IPlayersRepository repository)
-        {
-            return repository.Players
-                .Where(player => player != repository.SelectedPlayer)
-                .Select(player => _profileBinder.BindFrom(player));
         }
     }
 }

@@ -1,25 +1,25 @@
 ﻿using System;
 using System.Linq;
+using CarSumo.Players.Models;
 using DataManagement.Players.Models;
 using DataManagement.Players.Services;
-using UnityEngine;
-using Zenject;
 
 namespace CarSumo.Menu.Models
 {
-    public class PlayerSelect : IPlayerSelect
+    public class PlayerSelect : IPlayerSelect, IPlayerProfilesUpdate
     {
-        private readonly PlayersDataService _dataService;
-        private PlayerViewItem _selected = null;
+        private readonly PlayersDataService _dataService;        
 
         public PlayerSelect(PlayersDataService dataService)
         {
             _dataService = dataService;
         }
 
+        public event Action Updated;
+
         private IPlayersRepository Repository => _dataService.StoredData;
-        
-        public void MakePlayerSelected(PlayerViewItem newSelected)
+
+        public void MakePlayerSelected(PlayerProfile newSelected)
         {
             Player repositoryModel = FindPlayerWithSameName(Repository, newSelected);
 
@@ -29,20 +29,13 @@ namespace CarSumo.Menu.Models
             }
             
             _dataService.Save();
-
-            if (_selected != null)
-            {
-                _selected.Highlight.MakeRegular();
-            }
-            
-            newSelected.Highlight.MakeSelected();
-            _selected = newSelected;
+            Updated?.Invoke();
         }
 
-        private Player FindPlayerWithSameName(IPlayersRepository repository, PlayerViewItem viewItem)
+        private Player FindPlayerWithSameName(IPlayersRepository repository, PlayerProfile profile)
         {
             return repository.Players
-                .First(player => player.Name == viewItem.Profile.Name);
+                .First(player => player.Name == profile.Name);
         }
     }
 }
