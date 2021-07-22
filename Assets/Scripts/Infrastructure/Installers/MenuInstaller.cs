@@ -1,4 +1,5 @@
-﻿using CarSumo.Players.Models;
+﻿using CarSumo.Menu.Models;
+using CarSumo.Players.Models;
 using Zenject;
 
 namespace CarSumo.Infrastructure.Installers
@@ -8,6 +9,16 @@ namespace CarSumo.Infrastructure.Installers
         public override void InstallBindings()
         {
             BindPlayerProfileBuilder();
+            BindPlayerSelect();
+        }
+
+        private void BindPlayerSelect()
+        {
+            Container
+                .Bind<IPlayerSelect>()
+                .To<PlayerSelect>()
+                .AsSingle()
+                .NonLazy();
         }
 
         private void BindPlayerProfileBuilder()

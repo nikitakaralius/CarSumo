@@ -19,14 +19,18 @@ namespace CarSumo.Menu.Models
         
         private const int SlotsCount = 4;
 
+        private IPlayerSelect _playerSelect;
         private PlayersDataService _playersDataService;
         private IPlayerProfileBinder _profileBinder;
         
         [Inject]
-        private void Construct(PlayersDataService playersDataService, IPlayerProfileBinder profileBinder)
+        private void Construct(PlayersDataService playersDataService,
+                                IPlayerProfileBinder profileBinder,
+                                IPlayerSelect playerSelect)
         {
             _playersDataService = playersDataService;
             _profileBinder = profileBinder;
+            _playerSelect = playerSelect;
         }
         
         private void Start()
@@ -39,6 +43,7 @@ namespace CarSumo.Menu.Models
         {
             PlayerProfile profile = _profileBinder.BindFrom(repository.SelectedPlayer);
             PlayerViewItem viewItem = await CreateViewItem(profile, _hierarchyRoot);
+            viewItem.MakeSelected();
         }
 
         private async void CreateProfiles(IPlayersRepository repository)
@@ -58,7 +63,7 @@ namespace CarSumo.Menu.Models
         {
             GameObject profileInstance = await _playerViewItemPrefab.InstantiateAsync(root).Task;
             PlayerViewItem component = profileInstance.GetComponent<PlayerViewItem>();
-            component.Init(profile);
+            component.Init(profile, _playerSelect);
             return component;
         }
 
