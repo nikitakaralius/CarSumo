@@ -2,6 +2,7 @@
 using CarSumo.DataManagement.Core;
 using CarSumo.GameSettings.Services;
 using CarSumo.Infrastructure.Factories;
+using CarSumo.Infrastructure.Services.Instantiate;
 using CarSumo.Infrastructure.Services.LoadingScreen;
 using CarSumo.Infrastructure.Services.SceneManagement;
 using CarSumo.Infrastructure.StateMachine;
@@ -23,7 +24,7 @@ namespace CarSumo.Infrastructure.Installers
             BindPlayersDataService();
             BindAudioPreferences();
         }
-
+        
         private void BindAudioPreferences()
         {
             Container

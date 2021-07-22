@@ -1,4 +1,5 @@
 ﻿using CarSumo.Infrastructure.Factories.Menu;
+using CarSumo.Infrastructure.Services.Instantiate;
 using CarSumo.Menu.Models;
 using CarSumo.Players.Models;
 using Zenject;
@@ -13,7 +14,17 @@ namespace CarSumo.Infrastructure.Installers
             BindPlayerProfilesProvider();
             BindPlayerViewSelect();
             BindPlayersSelectAndPlayersUpdater();
+            BindInstantiateService();
         }
+        
+        private void BindInstantiateService()
+        {
+            Container
+                .Bind<IInstantiateService>()
+                .FromInstance(new ZenjectAddressableInstantiateService(Container))
+                .NonLazy();
+        }
+
 
         private void BindPlayersSelectAndPlayersUpdater()
         {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarSumo.Infrastructure.Services.Instantiate;
 using CarSumo.Players.Models;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -17,13 +18,13 @@ namespace CarSumo.Menu.Models
         
         private const int SlotsCount = 4;
 
-        private IPlayerViewSelect _playerSelect;
+        private IInstantiateService _instantiateService;
         private IPlayerProfilesProvider _profilesProvider;
 
         [Inject]
-        private void Construct(IPlayerViewSelect playerSelect, IPlayerProfilesProvider profilesProvider)
+        private void Construct(IInstantiateService instantiateService, IPlayerProfilesProvider profilesProvider)
         {
-            _playerSelect = playerSelect;
+            _instantiateService = instantiateService;
             _profilesProvider = profilesProvider;
         }
         
@@ -56,10 +57,14 @@ namespace CarSumo.Menu.Models
 
         private async Task<PlayerViewItem> CreateViewItem(PlayerProfile profile, Transform root)
         {
-            GameObject profileInstance = await _playerViewItemPrefab.InstantiateAsync(root).Task;
-            PlayerViewItem component = profileInstance.GetComponent<PlayerViewItem>();
-            component.Init(profile, _playerSelect);
-            return component;
+            PlayerViewItem viewItem = await InstantiatePlayerViewItem(root);
+            viewItem.Init(profile);
+            return viewItem;
+        }
+
+        private async Task<PlayerViewItem> InstantiatePlayerViewItem(Transform root)
+        {
+            return await _instantiateService.InstantiateAsync<PlayerViewItem>(_playerViewItemPrefab, root);
         }
 
         private async Task FillBlanks(int count)

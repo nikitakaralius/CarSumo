@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace CarSumo.Menu.Models
 {
@@ -13,13 +14,18 @@ namespace CarSumo.Menu.Models
 
         private IPlayerViewSelect _playerSelect;
 
+        [Inject]
+        private void Construct(IPlayerViewSelect playerViewSelect)
+        {
+            _playerSelect = playerViewSelect;
+        }
+        
         public SelectPlayerHighlight Highlight => _highlight;
         public PlayerProfile Profile { get; private set; }
 
-        public void Init(PlayerProfile profile, IPlayerViewSelect playerSelect)
+        public void Init(PlayerProfile profile)
         {
             Profile = profile;
-            _playerSelect = playerSelect;
             _icon.sprite = profile.Icon;
             _name.text = profile.Name;
         }
