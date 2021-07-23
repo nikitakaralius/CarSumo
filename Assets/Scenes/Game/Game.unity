@@ -33,7 +33,7 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 32
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: af9fda110a9034746bbeab60342ebfee, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 1e508c13fc7434544927fbecc98c2c50, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 73f7d4d2ab8b7254caf96b59eb9a36cd, type: 2}
 --- !u!196 &4
 NavMeshSettings:
