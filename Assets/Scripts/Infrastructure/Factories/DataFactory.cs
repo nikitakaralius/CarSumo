@@ -23,9 +23,10 @@ namespace CarSumo.Infrastructure.Factories
         
         private string GetSettingsDirectory()
         {
-            string assets = Application.isEditor ?
-                Application.dataPath :
-                Application.streamingAssetsPath;
+            string assets = Application.isEditor
+                ? Application.dataPath
+                : Application.persistentDataPath;
+
 
             string path = Path.Combine(assets, DirectoryPath);
 
