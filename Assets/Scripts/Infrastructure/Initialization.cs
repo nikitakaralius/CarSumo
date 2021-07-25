@@ -1,12 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using CarSumo.Audio.Services;
+﻿using CarSumo.Audio.Services;
 using CarSumo.GameSettings.Services;
 using CarSumo.Infrastructure.StateMachine;
 using CarSumo.Infrastructure.StateMachine.States;
-using DataManagement.Players.Models;
 using DataManagement.Players.Services;
-using DataManagement.Resources.Models;
 using UnityEngine;
 using Zenject;
 
@@ -21,13 +17,13 @@ namespace CarSumo.Infrastructure
         private IAudioPreferences _audioPreferences;
 
         [Inject]
-        private void Construct(IAudioPreferences audioPreferences, GameStateMachine stateMachine, SettingsService settingsService, PlayersDataService playersDataService)
+        private void Construct(IAudioPreferences audioPreferences, GameStateMachine stateMachine,
+            SettingsService settingsService, PlayersDataService playersDataService)
         {
             _stateMachine = stateMachine;
             _settingsService = settingsService;
             _playersDataService = playersDataService;
             _audioPreferences = audioPreferences;
-
         }
 
         private void Start()

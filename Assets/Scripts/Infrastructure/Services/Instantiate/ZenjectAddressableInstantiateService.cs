@@ -14,14 +14,24 @@ namespace CarSumo.Infrastructure.Services.Instantiate
             _container = container;
         }
 
-        public async Task<T> InstantiateAsync<T>(AssetReference reference, Transform parent) where T : Component
+        public async Task<T> InstantiateAsync<T>(AssetReferenceGameObject reference, Transform parent) where T : Component
         {
-            Object resource = reference.IsValid()
-                ? reference.editorAsset : 
-                await reference.LoadAssetAsync<T>().Task;
+            GameObject resource = reference.IsValid() ?
+                GetReferenceAsset(reference) : 
+                await reference.LoadAssetAsync<GameObject>().Task;
             
-            T component = _container.InstantiatePrefabForComponent<T>(resource, parent);
-            return component;
+            T component = resource.GetComponent<T>();
+            T instance = _container.InstantiatePrefabForComponent<T>(component, parent);
+            return instance;
+        }
+
+        private GameObject GetReferenceAsset(AssetReferenceGameObject reference)
+        {
+            #if UNITY_EDITOR
+            return reference.editorAsset;
+            #endif
+
+            return (GameObject)reference.Asset;
         }
     }
 }
