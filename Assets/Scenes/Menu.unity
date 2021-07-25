@@ -6879,7 +6879,7 @@ MonoBehaviour:
     m_AssetGUID: 1047262389c9d0248885ae37054f2b36
     m_SubObjectName: 
     m_SubObjectType: 
-  _blankViewItem:
+  _blankViewItemPrefab:
     m_AssetGUID: dda430833a867114e846fe5d20e2b70e
     m_SubObjectName: 
     m_SubObjectType: 

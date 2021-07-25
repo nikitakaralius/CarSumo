@@ -14,31 +14,14 @@ namespace CarSumo.Infrastructure.Services.Instantiate
             _container = container;
         }
 
-        public async Task<T> InstantiateAsync<T>(object key) where T : Component
+        public async Task<T> InstantiateAsync<T>(AssetReference reference, Transform parent) where T : Component
         {
-            return await InstantiateAsync<T>(key, null);
-        }
-
-        public async Task<T> InstantiateAsync<T>(object key, Transform parent) where T : Component
-        {
-            T component = await Addressables.LoadAssetAsync<T>(key).Task;
-            T instance = _container.InstantiatePrefabForComponent<T>(component.gameObject, parent);
-            return instance;
-        }
-
-        public async Task<T> InstantiateAsync<T>(object key, Vector3 position, Quaternion rotation) where T : Component
-        {
-            return await InstantiateAsync<T>(key, position, rotation, null);
-        }
-
-        public async Task<T> InstantiateAsync<T>(object key,
-            Vector3 position,
-            Quaternion rotation,
-            Transform parent) where T : Component
-        {
-            T component = await Addressables.LoadAssetAsync<T>(key).Task;
-            T instance = _container.InstantiatePrefabForComponent<T>(component.gameObject, position, rotation, parent);
-            return instance;
+            Object resource = reference.IsValid()
+                ? reference.editorAsset : 
+                await reference.LoadAssetAsync<T>().Task;
+            
+            T component = _container.InstantiatePrefabForComponent<T>(resource, parent);
+            return component;
         }
     }
 }

@@ -5,6 +5,7 @@ using CarSumo.Infrastructure.Services.Instantiate;
 using CarSumo.Players.Models;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.UI;
 using Zenject;
 
 namespace CarSumo.Menu.Models
@@ -14,7 +15,7 @@ namespace CarSumo.Menu.Models
         [SerializeField] private Transform _hierarchyRoot;
 
         [SerializeField] private AssetReferenceGameObject _playerViewItemPrefab;
-        [SerializeField] private AssetReferenceGameObject _blankViewItem;
+        [SerializeField] private AssetReferenceGameObject _blankViewItemPrefab;
         
         private const int SlotsCount = 4;
 
@@ -28,20 +29,20 @@ namespace CarSumo.Menu.Models
             _profilesProvider = profilesProvider;
         }
         
-        private void Start()
+        private async void Start()
         {
-            CreateSelectedPlayerProfile(_profilesProvider);
-            CreateProfiles(_profilesProvider);
+            await CreateSelectedPlayerProfile(_profilesProvider);
+            await CreateProfiles(_profilesProvider);
         }
 
-        private async void CreateSelectedPlayerProfile(IPlayerProfilesProvider provider)
+        private async Task CreateSelectedPlayerProfile(IPlayerProfilesProvider provider)
         {
             PlayerProfile profile = provider.SelectedPlayer;
             PlayerViewItem viewItem = await CreateViewItem(profile, _hierarchyRoot);
             viewItem.MakeSelected();
         }
 
-        private async void CreateProfiles(IPlayerProfilesProvider provider)
+        private async Task CreateProfiles(IPlayerProfilesProvider provider)
         {
             IEnumerable<PlayerProfile> profiles = provider.OtherPlayers;
             int slots = profiles.Count();
@@ -52,7 +53,8 @@ namespace CarSumo.Menu.Models
             }
 
             const int selectedPlayer = 1;
-            await FillBlanks(SlotsCount - slots - selectedPlayer);
+            int slotsCount = SlotsCount - slots - selectedPlayer;
+            await FillBlanks(slotsCount, _hierarchyRoot);
         }
 
         private async Task<PlayerViewItem> CreateViewItem(PlayerProfile profile, Transform root)
@@ -67,11 +69,11 @@ namespace CarSumo.Menu.Models
             return await _instantiateService.InstantiateAsync<PlayerViewItem>(_playerViewItemPrefab, root);
         }
 
-        private async Task FillBlanks(int count)
+        private async Task FillBlanks(int count, Transform root)
         {
             for (int i = 0; i < count; i++)
             {
-                await _blankViewItem.InstantiateAsync(_hierarchyRoot).Task;
+                await _instantiateService.InstantiateAsync<Button>(_blankViewItemPrefab, root);
             }
         }
     }

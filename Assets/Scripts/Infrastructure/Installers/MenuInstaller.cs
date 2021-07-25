@@ -22,6 +22,7 @@ namespace CarSumo.Infrastructure.Installers
             Container
                 .Bind<IInstantiateService>()
                 .FromInstance(new ZenjectAddressableInstantiateService(Container))
+                .AsSingle()
                 .NonLazy();
         }
 
