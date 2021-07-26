@@ -53,11 +53,12 @@ namespace CarSumo.Units
             CreateVehicleInstance(worldPlacement);
         }
 
-        private void CreateVehicleInstance(WorldPlacement worldPlacement)
+        private async void CreateVehicleInstance(WorldPlacement worldPlacement)
         {
             var factory = _vehicleHierarchy.GetVehicleFactoryByGeneration(_team, ++_generation);
 
-            factory.Create(transform).Init(_team, worldPlacement, this, this);
+            Vehicle vehicle = await factory.Create(transform);
+            vehicle.Init(_team, worldPlacement, this, this);
         }
     }
 }

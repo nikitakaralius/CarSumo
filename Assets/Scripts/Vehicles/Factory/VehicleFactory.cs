@@ -1,16 +1,27 @@
-﻿using CarSumo.Factory;
+﻿using System.Threading.Tasks;
+using CarSumo.Infrastructure.Services.Instantiate;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using Zenject;
 
 namespace CarSumo.Vehicles.Factory
 {
-    [CreateAssetMenu(fileName = "[Vehilce] factory", menuName = "CarSumo/Vehicles/Factory")]
-    public class VehicleFactory : FactoryScriptableObject<Vehicle>
+    [CreateAssetMenu(fileName = "{Vehilce} factory", menuName = "CarSumo/Vehicles/Factory")]
+    public class VehicleFactory : ScriptableObject
     {
-        [SerializeField] private Vehicle _vehiclePrefab;
+        [SerializeField] private AssetReferenceGameObject _vehiclePrefab;
 
-        public override Vehicle Create(Transform parent = null)
+        private IInstantiateService _instantiateService;
+
+        [Inject]
+        private void Construct(IInstantiateService instantiateService)
         {
-            return Instantiate(_vehiclePrefab, parent);
+            _instantiateService = instantiateService;
+        }
+
+        public virtual async Task<Vehicle> Create(Transform parent = null)
+        {
+            return await _instantiateService.InstantiateAsync<Vehicle>(_vehiclePrefab, parent);
         }
     }
 }

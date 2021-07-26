@@ -28,7 +28,7 @@ namespace CarSumo.Vehicles.Engine
         private void Update()
         {
             _enginePercentage.text = $"{(int)_speedometer.PowerPercentage}%";
-            transform.forward = Camera.main.transform.forward;
+            transform.forward = _camera.transform.forward;
         }
     }
 }
