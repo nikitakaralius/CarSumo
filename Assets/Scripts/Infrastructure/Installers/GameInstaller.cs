@@ -17,6 +17,7 @@ namespace CarSumo.Infrastructure.Installers
         [SerializeField] private VehicleHierarchy _vehicleHierarchy;
         [SerializeField] private GameObject _swipeScreenPrefab;
         [SerializeField] private GameObject _axisProviderPrefab;
+        [SerializeField] private Camera _mainCamera;
 
         public override void InstallBindings()
         {
@@ -28,6 +29,11 @@ namespace CarSumo.Infrastructure.Installers
             BindTeamChangeService();
             BindCoroutineExecutor();
             BindTimerService();
+
+            Container
+                .Bind<Camera>()
+                .FromInstance(_mainCamera)
+                .AsSingle();
         }
 
         private void BindTimerService()

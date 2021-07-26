@@ -17,4 +17,4 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
   _instantiateParticles: {fileID: 11400000, guid: ca2a388c1a88e444084f367500d7c496, type: 2}
-  _insantiateSound: {fileID: 11400000, guid: e287ceca5b55a11479a5ab15428e30ec, type: 2}
+  _instantiateSound: {fileID: 11400000, guid: e287ceca5b55a11479a5ab15428e30ec, type: 2}

@@ -9,14 +9,14 @@ namespace CarSumo.Vehicles.Factory
     public class FXVehicleFactory : VehicleFactory
     {
         [SerializeField] private ParticlesFactory _instantiateParticles;
-        [SerializeField] private AudioCuePlayerScriptableObject _insantiateSound;
+        [SerializeField] private AudioCuePlayerScriptableObject _instantiateSound;
 
         public override async Task<Vehicle> Create(Transform parent = null)
         {
             var instance = await base.Create(parent);
 
             _instantiateParticles.Create(instance.transform).Play();
-            _insantiateSound.PlayOn(instance.transform);
+            _instantiateSound.PlayOn(instance.transform);
 
             return instance;
         }
