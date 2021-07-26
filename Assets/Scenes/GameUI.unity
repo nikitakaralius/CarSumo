@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2268,9 +2268,21 @@ PrefabInstance:
       propertyPath: m_VerticalAlignment
       value: 512
       objectReference: {fileID: 0}
+    - target: {fileID: 4397407961365546667, guid: d4b685dba364d40b48eb9f32c41bf963, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4397407961715060388, guid: d4b685dba364d40b48eb9f32c41bf963, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 20.53003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397407961715060391, guid: d4b685dba364d40b48eb9f32c41bf963, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397407961756132427, guid: d4b685dba364d40b48eb9f32c41bf963, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4397407962465920936, guid: d4b685dba364d40b48eb9f32c41bf963, type: 3}
       propertyPath: m_Pivot.x
@@ -2380,6 +2392,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: c60eed3576fc84989991f7b8b8554c13, type: 3}
+    - target: {fileID: 4397407962493356967, guid: d4b685dba364d40b48eb9f32c41bf963, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397407962829487993, guid: d4b685dba364d40b48eb9f32c41bf963, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4397407962829487998, guid: d4b685dba364d40b48eb9f32c41bf963, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.5999756
