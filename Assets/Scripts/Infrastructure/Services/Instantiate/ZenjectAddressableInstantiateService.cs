@@ -31,7 +31,9 @@ namespace CarSumo.Infrastructure.Services.Instantiate
             return reference.editorAsset;
             #endif
 
+#pragma warning disable 162
             return (GameObject)reference.Asset;
+#pragma warning restore 162
         }
     }
 }
