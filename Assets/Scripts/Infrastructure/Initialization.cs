@@ -17,13 +17,13 @@ namespace CarSumo.Infrastructure
         private IAudioPreferences _audioPreferences;
 
         [Inject]
-        private void Construct(IAudioPreferences audioPreferences, GameStateMachine stateMachine, SettingsService settingsService, PlayersDataService playersDataService)
+        private void Construct(IAudioPreferences audioPreferences, GameStateMachine stateMachine,
+            SettingsService settingsService, PlayersDataService playersDataService)
         {
             _stateMachine = stateMachine;
             _settingsService = settingsService;
             _playersDataService = playersDataService;
             _audioPreferences = audioPreferences;
-
         }
 
         private void Start()
@@ -32,7 +32,7 @@ namespace CarSumo.Infrastructure
             _playersDataService.Init();
 
             _audioPreferences.Init();
-            
+
             _stateMachine.Enter<BootstrapState>();
         }
     }
