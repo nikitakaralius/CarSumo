@@ -29,7 +29,11 @@ namespace CarSumo.Infrastructure.Installers
             BindTeamChangeService();
             BindCoroutineExecutor();
             BindTimerService();
+            BindMainCamera();
+        }
 
+        private void BindMainCamera()
+        {
             Container
                 .Bind<Camera>()
                 .FromInstance(_mainCamera)

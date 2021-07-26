@@ -11,16 +11,25 @@ namespace CarSumo.Infrastructure.Installers
 
         public override void InstallBindings()
         {
+            BindInstantiateService();
+            InjectInVehicleFactories();
+        }
+
+        private void InjectInVehicleFactories()
+        {
+            foreach (VehicleFactory factory in _factories)
+            {
+                Container.QueueForInject(factory);
+            }
+        }
+
+        private void BindInstantiateService()
+        {
             Container
                 .Bind<IInstantiateService>()
                 .To<ZenjectAddressableInstantiateService>()
                 .AsTransient()
                 .NonLazy();
-            
-            foreach (VehicleFactory factory in _factories)
-            {
-                Container.QueueForInject(factory);
-            }
         }
     }
 }
