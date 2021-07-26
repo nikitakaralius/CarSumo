@@ -37,6 +37,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18305a0d516492e48a1f2f6a9bc13f0b, type: 2}
   - {fileID: 11400000, guid: 0797f2e72a0e9c840b6253cf3ca7b0af, type: 2}
   - {fileID: 11400000, guid: ac642f29fec8aab46811e6791b95c02b, type: 2}
+  - {fileID: 11400000, guid: a815c631004b3744fae0ecd35b9fe74f, type: 2}
+  - {fileID: 11400000, guid: a5489ecdd9919cc49b14ce7c31086743, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -78,7 +80,7 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
-    - AudioMixer
+    - Players
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: e28f25eff9249b94480d9e12fd82250f, type: 2}

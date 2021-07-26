@@ -4,7 +4,9 @@ namespace DataManagement.Players.Models
 {
     public interface IPlayersRepository
     {
-        IEnumerable<Player> Players { get; }
+        IReadOnlyList<Player> Players { get; }
+        Player SelectedPlayer { get; }
         bool TryAddPlayer(Player player);
+        bool TryMakePlayerSelected(Player player);
     }
 }

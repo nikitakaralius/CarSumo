@@ -9,7 +9,21 @@ namespace DataManagement.Players.Models
     public class PlayersRepository : IPlayersRepository
     {
         public List<Player> Items;
+        public int SelectedPlayerIndex;
 
+        public Player SelectedPlayer => Items[SelectedPlayerIndex];
+
+        public bool TryMakePlayerSelected(Player player)
+        {
+            int index = Items.IndexOf(player);
+
+            if (index == -1)
+                return false;
+
+            SelectedPlayerIndex = index;
+            return true;
+        }
+        
         public bool TryAddPlayer(Player player)
         {
             if (Items.Any(otherPlayer => otherPlayer.Name == player.Name))
@@ -19,6 +33,6 @@ namespace DataManagement.Players.Models
             return true;
         }
 
-        public IEnumerable<Player> Players => Items;
+        public IReadOnlyList<Player> Players => Items;
     }
 }
