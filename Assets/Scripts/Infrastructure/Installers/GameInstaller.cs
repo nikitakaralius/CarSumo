@@ -5,7 +5,6 @@ using CarSumo.Infrastructure.Services.TimerService;
 using CarSumo.Input;
 using CarSumo.Teams;
 using CarSumo.Units;
-using CarSumo.Vehicles.Factory;
 using Cinemachine;
 using UnityEngine;
 using Zenject;
@@ -14,7 +13,6 @@ namespace CarSumo.Infrastructure.Installers
 {
     public class GameInstaller : MonoInstaller
     {
-        [SerializeField] private VehicleHierarchy _vehicleHierarchy;
         [SerializeField] private GameObject _swipeScreenPrefab;
         [SerializeField] private GameObject _axisProviderPrefab;
         [SerializeField] private Camera _mainCamera;
@@ -22,7 +20,6 @@ namespace CarSumo.Infrastructure.Installers
         public override void InstallBindings()
         {
             BindUnitTracker();
-            BindVehicleHierarchy();
             BindTeamDefiner();
             BindSwipeInputScreen();
             BindInputAxisProvider();
@@ -87,14 +84,6 @@ namespace CarSumo.Infrastructure.Installers
             Container
                 .Bind<ITeamDefiner>()
                 .To<SequentialTeamDefiner>()
-                .AsSingle();
-        }
-
-        private void BindVehicleHierarchy()
-        {
-            Container
-                .Bind<IVehicleHierarchy>()
-                .FromInstance(_vehicleHierarchy)
                 .AsSingle();
         }
 

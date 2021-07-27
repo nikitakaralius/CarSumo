@@ -5,11 +5,11 @@ using Zenject;
 
 namespace CarSumo.Infrastructure.Services.Instantiate
 {
-    public class ZenjectAddressableInstantiateService : IInstantiateService
+    public class ZenjectAddressablesInstantiate : IAddressablesInstantiate
     {
         private readonly DiContainer _container;
 
-        public ZenjectAddressableInstantiateService(DiContainer container)
+        public ZenjectAddressablesInstantiate(DiContainer container)
         {
             _container = container;
         }
@@ -20,8 +20,7 @@ namespace CarSumo.Infrastructure.Services.Instantiate
                 GetReferenceAsset(reference) : 
                 await reference.LoadAssetAsync<GameObject>().Task;
             
-            T component = resource.GetComponent<T>();
-            T instance = _container.InstantiatePrefabForComponent<T>(component, parent);
+            T instance = _container.InstantiatePrefabForComponent<T>(resource, parent);
             return instance;
         }
 

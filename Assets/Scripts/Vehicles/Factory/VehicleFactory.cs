@@ -11,17 +11,17 @@ namespace CarSumo.Vehicles.Factory
     {
         [SerializeField] private AssetReferenceGameObject _vehiclePrefab;
 
-        private IInstantiateService _instantiateService;
+        private IAddressablesInstantiate _addressablesInstantiate;
 
         [Inject]
-        private void Construct(IInstantiateService instantiateService)
+        private void Construct(IAddressablesInstantiate addressablesInstantiate)
         {
-            _instantiateService = instantiateService;
+            _addressablesInstantiate = addressablesInstantiate;
         }
 
         public virtual async Task<Vehicle> Create(Transform parent = null)
         {
-            return await _instantiateService.InstantiateAsync<Vehicle>(_vehiclePrefab, parent);
+            return await _addressablesInstantiate.InstantiateAsync<Vehicle>(_vehiclePrefab, parent);
         }
     }
 }

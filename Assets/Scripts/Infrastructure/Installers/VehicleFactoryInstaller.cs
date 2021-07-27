@@ -8,11 +8,21 @@ namespace CarSumo.Infrastructure.Installers
     public class VehicleFactoryInstaller : MonoInstaller
     {
         [SerializeField] private VehicleFactory[] _factories;
+        [SerializeField] private VehicleHierarchy _vehicleHierarchy;
 
         public override void InstallBindings()
         {
             BindInstantiateService();
             InjectInVehicleFactories();
+            BindVehicleHierarchy();
+        }
+        
+        private void BindVehicleHierarchy()
+        {
+            Container
+                .Bind<IVehicleHierarchy>()
+                .FromInstance(_vehicleHierarchy)
+                .AsTransient();
         }
 
         private void InjectInVehicleFactories()
@@ -26,9 +36,9 @@ namespace CarSumo.Infrastructure.Installers
         private void BindInstantiateService()
         {
             Container
-                .Bind<IInstantiateService>()
-                .To<ZenjectAddressableInstantiateService>()
-                .AsTransient()
+                .Bind<IAddressablesInstantiate>()
+                .FromInstance(new ZenjectAddressablesInstantiate(Container))
+                .AsSingle()
                 .NonLazy();
         }
     }
