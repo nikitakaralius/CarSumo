@@ -615,6 +615,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.834
       objectReference: {fileID: 0}
+    - target: {fileID: 4134786689465086669, guid: 74cf1850fd8c1a44fb14de567c4bf5d7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5375901879289308759, guid: 74cf1850fd8c1a44fb14de567c4bf5d7, type: 3}
       propertyPath: m_Name
       value: Particles
