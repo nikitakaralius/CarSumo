@@ -710,6 +710,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.423
       objectReference: {fileID: 0}
+    - target: {fileID: 3614814053922515063, guid: 74cf1850fd8c1a44fb14de567c4bf5d7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614814053922515063, guid: 74cf1850fd8c1a44fb14de567c4bf5d7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134786689465086669, guid: 74cf1850fd8c1a44fb14de567c4bf5d7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5375901879289308759, guid: 74cf1850fd8c1a44fb14de567c4bf5d7, type: 3}
       propertyPath: m_Name
       value: Particles

@@ -4,7 +4,7 @@ using UnityEngine.AddressableAssets;
 
 namespace CarSumo.Infrastructure.Services.Instantiate
 {
-    public interface IInstantiateService
+    public interface IAddressablesInstantiate
     {
         Task<T> InstantiateAsync<T>(AssetReferenceGameObject reference, Transform parent = null) where T : Component;
     }

@@ -42,7 +42,7 @@ namespace CarSumo.Vehicles.Selector
             return vehicle != null && CanPickVehicle(vehicle);
         }
 
-        public bool TryPickVehicle(SwipeData swipeData, out Vehicle vehicle)
+        private bool TryPickVehicle(SwipeData swipeData, out Vehicle vehicle)
         {
             return _camera.TryGetComponentWithRaycast(swipeData.EndPosition, out vehicle)
                    && CanPickVehicle(vehicle);

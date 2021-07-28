@@ -12,13 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e7353eeb6817e4f8001b913ee96f58, type: 3}
   m_Name: '{Jeep} factory'
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  _vehiclePrefab: {fileID: 1075148122174216736, guid: aaf0394749ce2314584a6dff11dfb6ab, type: 3}
+  _vehiclePrefab:
+    m_AssetGUID: aaf0394749ce2314584a6dff11dfb6ab
+    m_SubObjectName: 
+    m_SubObjectType: 

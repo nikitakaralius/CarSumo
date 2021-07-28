@@ -82,7 +82,10 @@ namespace CarSumo.Vehicles.Selector
                 return;
 
             if (_vehiclePicker.IsValid(_selectedVehicle) == false)
+            {
+                _selectedVehicle = _vehiclePicker.GetVehicleBySwipe(swipeData);
                 return;
+            }
 
             if (swipeData.Distance <= _data.MinSelectDistance)
                 return;
