@@ -19,13 +19,13 @@ namespace CarSumo.Menu.Models
         
         private const int SlotsCount = 4;
 
-        private IInstantiateService _instantiateService;
+        private IAddressablesInstantiate _addressablesInstantiate;
         private IPlayerProfilesProvider _profilesProvider;
 
         [Inject]
-        private void Construct(IInstantiateService instantiateService, IPlayerProfilesProvider profilesProvider)
+        private void Construct(IAddressablesInstantiate addressablesInstantiate, IPlayerProfilesProvider profilesProvider)
         {
-            _instantiateService = instantiateService;
+            _addressablesInstantiate = addressablesInstantiate;
             _profilesProvider = profilesProvider;
         }
         
@@ -66,14 +66,14 @@ namespace CarSumo.Menu.Models
 
         private async Task<PlayerViewItem> InstantiatePlayerViewItem(Transform root)
         {
-            return await _instantiateService.InstantiateAsync<PlayerViewItem>(_playerViewItemPrefab, root);
+            return await _addressablesInstantiate.InstantiateAsync<PlayerViewItem>(_playerViewItemPrefab, root);
         }
 
         private async Task FillBlanks(int count, Transform root)
         {
             for (int i = 0; i < count; i++)
             {
-                await _instantiateService.InstantiateAsync<Button>(_blankViewItemPrefab, root);
+                await _addressablesInstantiate.InstantiateAsync<Button>(_blankViewItemPrefab, root);
             }
         }
     }

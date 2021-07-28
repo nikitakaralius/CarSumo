@@ -1,4 +1,5 @@
-﻿using CarSumo.Data;
+﻿using System.Threading.Tasks;
+using CarSumo.Data;
 using CarSumo.Teams;
 using CarSumo.Vehicles;
 using CarSumo.Vehicles.Factory;
@@ -24,12 +25,12 @@ namespace CarSumo.Units
             _vehicleHierarchy = vehicleHierarchy;
         }
 
-        private void Awake()
+        public async Task Initialize()
         {
             _unitTracker.Add(this);
             
             var worldPlacement = new WorldPlacement(transform.position, -transform.forward);
-            CreateVehicleInstance(worldPlacement);
+            await CreateVehicleInstance(worldPlacement);
         }
 
         public void Destroy(Vehicle vehicle)
@@ -40,7 +41,7 @@ namespace CarSumo.Units
             Destroy(gameObject);
         }
 
-        public void Upgrade(Vehicle vehicle)
+        public async void Upgrade(Vehicle vehicle)
         {
             if (_vehicleHierarchy.CanCreate(_generation + 1) == false)
                 return;
@@ -50,14 +51,15 @@ namespace CarSumo.Units
 
             Destroy(vehicle.gameObject);
 
-            CreateVehicleInstance(worldPlacement);
+            await CreateVehicleInstance(worldPlacement);
         }
 
-        private void CreateVehicleInstance(WorldPlacement worldPlacement)
+        private async Task CreateVehicleInstance(WorldPlacement worldPlacement)
         {
             var factory = _vehicleHierarchy.GetVehicleFactoryByGeneration(_team, ++_generation);
 
-            factory.Create(transform).Init(_team, worldPlacement, this, this);
+            Vehicle vehicle = await factory.Create(transform);
+            vehicle.Init(_team, worldPlacement, this, this);
         }
     }
 }

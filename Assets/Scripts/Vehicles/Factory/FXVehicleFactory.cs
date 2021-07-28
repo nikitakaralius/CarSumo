@@ -1,4 +1,5 @@
-﻿using AdvancedAudioSystem;
+﻿using System.Threading.Tasks;
+using AdvancedAudioSystem;
 using CarSumo.VFX;
 using UnityEngine;
 
@@ -8,14 +9,14 @@ namespace CarSumo.Vehicles.Factory
     public class FXVehicleFactory : VehicleFactory
     {
         [SerializeField] private ParticlesFactory _instantiateParticles;
-        [SerializeField] private AudioCuePlayerScriptableObject _insantiateSound;
+        [SerializeField] private AudioCuePlayerScriptableObject _instantiateSound;
 
-        public override Vehicle Create(Transform parent = null)
+        public override async Task<Vehicle> Create(Transform parent = null)
         {
-            var instance = base.Create(parent);
+            var instance = await base.Create(parent);
 
             _instantiateParticles.Create(instance.transform).Play();
-            _insantiateSound.PlayOn(instance.transform);
+            _instantiateSound.PlayOn(instance.transform);
 
             return instance;
         }
