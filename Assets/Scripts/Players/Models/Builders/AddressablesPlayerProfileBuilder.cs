@@ -1,4 +1,5 @@
-﻿using DataManagement.Players.Models;
+﻿using System.Threading.Tasks;
+using DataManagement.Players.Models;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -8,14 +9,15 @@ namespace CarSumo.Players.Models
     {
         private const string DefaultIcon = "Players/Icons/DefaultUserIcon.png";
 
-        public PlayerProfile BuildFrom(Player player)
+        public async Task<PlayerProfile> BuildFrom(Player player)
         {
-            return new PlayerProfile(player.Name, LoadSpriteByKey(player.Icon ?? DefaultIcon), player.Resources);
+            Sprite icon = await LoadSpriteByKey(player.Icon ?? DefaultIcon);
+            return new PlayerProfile(player.Name, icon, player.Resources);
         }
 
-        private Sprite LoadSpriteByKey(object key)
+        private async Task<Sprite> LoadSpriteByKey(object key)
         {
-            return Addressables.LoadAssetAsync<Sprite>(key).Result;
+            return await Addressables.LoadAssetAsync<Sprite>(key).Task;
         }
     }
 }

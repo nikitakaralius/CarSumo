@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using CarSumo.Players.Models;
 using DataManagement.Players.Models;
 using DataManagement.Players.Services;
@@ -23,27 +24,23 @@ namespace CarSumo.Menu.Models
         
         public IEnumerable<PlayerProfile> OtherPlayers { get; private set; }
 
-        public void Bind()
+        public async void Bind()
         {
-            SelectedPlayer = BuildSelectedPlayer(_dataService.StoredData);
+            SelectedPlayer = await BuildSelectedPlayer(_dataService.StoredData);
             OtherPlayers = BuildPlayerProfilesExceptSelected(_dataService.StoredData);
         }
 
-        public void Update()
+        private async Task<PlayerProfile> BuildSelectedPlayer(IPlayersRepository repository)
         {
-            Bind();
-        }
-
-        private PlayerProfile BuildSelectedPlayer(IPlayersRepository repository)
-        {
-            return _builder.BuildFrom(repository.SelectedPlayer);
+            return await _builder.BuildFrom(repository.SelectedPlayer);
         }
 
         private IEnumerable<PlayerProfile> BuildPlayerProfilesExceptSelected(IPlayersRepository repository)
         {
             return repository.Players
                 .Where(player => player != repository.SelectedPlayer)
-                .Select(player => _builder.BuildFrom(player));
+                .Select(async player => await _builder.BuildFrom(player))
+                .Select(task => task.Result);
         }
     }
 }
