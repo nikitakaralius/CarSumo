@@ -27,7 +27,8 @@ namespace CarSumo.Menu.Models
         public PlayerProfile SelectedPlayer { get; private set; }
         
         public IEnumerable<PlayerProfile> OtherPlayers { get; private set; }
-        
+        public event Action Updated;
+
         public async void Initialize()
         {
             await BindAsyncInternal();
@@ -48,6 +49,7 @@ namespace CarSumo.Menu.Models
         {
             SelectedPlayer = await BuildSelectedPlayer(_dataService.StoredData);
             OtherPlayers = BuildPlayerProfilesExceptSelected(_dataService.StoredData);
+            Updated?.Invoke();
         }
 
         private async Task<PlayerProfile> BuildSelectedPlayer(IPlayersRepository repository)
