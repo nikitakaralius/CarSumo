@@ -13,7 +13,7 @@ namespace CarSumo.Players.Models
             return new PlayerProfile(player.Name, LoadSpriteByKey(player.Icon ?? DefaultIcon), player.Resources);
         }
 
-        private Sprite LoadSpriteByKey(string key)
+        private Sprite LoadSpriteByKey(object key)
         {
             return Addressables.LoadAssetAsync<Sprite>(key).Result;
         }

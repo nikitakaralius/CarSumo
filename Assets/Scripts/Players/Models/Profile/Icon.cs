@@ -12,7 +12,7 @@ namespace CarSumo.Players.Models
         private Sprite _sprite;
         private Image _image;
 
-        public object Key => _spriteReference.RuntimeKey;
+        public object Key => ResolveKey(_spriteReference);
 
         private async void Awake()
         {
@@ -30,6 +30,17 @@ namespace CarSumo.Players.Models
         private void Validate(Sprite sprite)
         {
             _image.sprite = sprite;
+        }
+
+        private object ResolveKey(AssetReferenceSprite reference)
+        {
+#if UNITY_EDITOR
+            return reference.AssetGUID;
+#endif
+
+#pragma warning disable 162
+            return reference.RuntimeKey;
+#pragma warning restore 162
         }
     }
 }
