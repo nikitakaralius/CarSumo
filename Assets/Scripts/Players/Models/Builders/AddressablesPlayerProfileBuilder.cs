@@ -6,16 +6,16 @@ namespace CarSumo.Players.Models
 {
     public class AddressablesPlayerProfileBuilder : IPlayerProfileBuilder
     {
-        private const string DefaultIcon = "Players/DefaultUserIcon.png";
+        private const string DefaultIcon = "Players/Icons/DefaultUserIcon.png";
 
         public PlayerProfile BuildFrom(Player player)
         {
-            return new PlayerProfile(player.Name, LoadSpriteByPath(player.Icon ?? DefaultIcon), player.Resources);
+            return new PlayerProfile(player.Name, LoadSpriteByKey(player.Icon ?? DefaultIcon), player.Resources);
         }
 
-        private Sprite LoadSpriteByPath(string path)
+        private Sprite LoadSpriteByKey(string key)
         {
-            return Addressables.LoadAssetAsync<Sprite>(path).Result;
+            return Addressables.LoadAssetAsync<Sprite>(key).Result;
         }
     }
 }
