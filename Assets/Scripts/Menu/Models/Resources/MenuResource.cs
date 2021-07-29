@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using DataManagement.Resources.Models;
+using DataManagement.Resources;
 using TMPro;
 using UnityEngine;
 using Zenject;

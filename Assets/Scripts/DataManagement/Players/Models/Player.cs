@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using DataManagement.Resources.Models;
+using DataManagement.Resources;
 using DataManagement.Vehicles.Models;
 
 namespace DataManagement.Players.Models

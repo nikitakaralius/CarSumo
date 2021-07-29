@@ -1,4 +1,4 @@
-﻿namespace DataManagement.Resources.Models
+﻿namespace DataManagement.Resources
 {
     public enum ResourceId
     {

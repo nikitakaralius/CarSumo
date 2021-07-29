@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using CarSumo.DataManagement.Core;
 using DataManagement.Players.Models;
-using DataManagement.Resources.Models;
+using DataManagement.Resources;
 
 namespace DataManagement.Players.Services
 {

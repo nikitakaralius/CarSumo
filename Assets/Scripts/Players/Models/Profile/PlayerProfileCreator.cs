@@ -4,7 +4,7 @@ using System.Linq;
 using CarSumo.Menu.Models;
 using DataManagement.Players.Models;
 using DataManagement.Players.Services;
-using DataManagement.Resources.Models;
+using DataManagement.Resources;
 using TMPro;
 using UnityEngine;
 using Zenject;
