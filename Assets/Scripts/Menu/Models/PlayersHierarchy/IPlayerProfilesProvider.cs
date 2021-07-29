@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using CarSumo.Players.Models;
 
 namespace CarSumo.Menu.Models
@@ -7,5 +8,7 @@ namespace CarSumo.Menu.Models
     {
         PlayerProfile SelectedPlayer { get; }
         IEnumerable<PlayerProfile> OtherPlayers { get; }
+
+        event Action Updated;
     }
 }

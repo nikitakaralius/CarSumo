@@ -3,9 +3,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using CarSumo.Infrastructure.Services.Instantiate;
 using CarSumo.Players.Models;
+using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.UI;
 using Zenject;
 
 namespace CarSumo.Menu.Models
@@ -13,24 +13,32 @@ namespace CarSumo.Menu.Models
     public class PlayersHierarchy : MonoBehaviour
     {
         [SerializeField] private Transform _hierarchyRoot;
+        [SerializeField] private GameObject _newPlayerWindow;
 
         [SerializeField] private AssetReferenceGameObject _playerViewItemPrefab;
         [SerializeField] private AssetReferenceGameObject _blankViewItemPrefab;
-        
-        private const int SlotsCount = 4;
+
+        private const int SlotsCount = 10;
 
         private IAddressablesInstantiate _addressablesInstantiate;
         private IPlayerProfilesProvider _profilesProvider;
 
         [Inject]
-        private void Construct(IAddressablesInstantiate addressablesInstantiate, IPlayerProfilesProvider profilesProvider)
+        private void Construct(IAddressablesInstantiate addressablesInstantiate,
+            IPlayerProfilesProvider profilesProvider)
         {
             _addressablesInstantiate = addressablesInstantiate;
             _profilesProvider = profilesProvider;
         }
-        
+
         private async void Start()
         {
+            await UpdateProfiles();
+        }
+
+        public async Task UpdateProfiles()
+        {
+            DestroyChildren();
             await CreateSelectedPlayerProfile(_profilesProvider);
             await CreateProfiles(_profilesProvider);
         }
@@ -73,8 +81,19 @@ namespace CarSumo.Menu.Models
         {
             for (int i = 0; i < count; i++)
             {
-                await _addressablesInstantiate.InstantiateAsync<Button>(_blankViewItemPrefab, root);
+                var blank = await _addressablesInstantiate.InstantiateAsync<BlankPlayerViewItem>(_blankViewItemPrefab,
+                    root);
+                blank.Init(_newPlayerWindow);
             }
+        }
+
+        private void DestroyChildren()
+        {
+            _hierarchyRoot
+                .GetComponentsInChildren<RectTransform>()
+                .Where(transform => transform != _hierarchyRoot)
+                .Select(x => x.gameObject)
+                .ForEach(gameObject => Destroy(gameObject));
         }
     }
 }

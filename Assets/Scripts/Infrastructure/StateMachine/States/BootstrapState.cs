@@ -28,7 +28,7 @@ namespace CarSumo.Infrastructure.StateMachine.States
 
         private async Task PreloadAssets()
         {
-            await Addressables.LoadAssetAsync<Sprite>(PlayersAssets).Task;
+            await Addressables.LoadAssetsAsync<Sprite>(PlayersAssets, Debug.Log).Task;
         }
     }
 }
