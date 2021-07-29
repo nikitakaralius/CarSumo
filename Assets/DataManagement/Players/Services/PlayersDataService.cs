@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using CarSumo.DataManagement.Core;
 using DataManagement.Players.Models;
+using DataManagement.Resources.Models;
 
 namespace DataManagement.Players.Services
 {
@@ -16,8 +17,20 @@ namespace DataManagement.Players.Services
         {
             return new PlayersRepository()
             {
-                Items = new List<Player>(),
-                SelectedPlayerIndex = -1
+                Items = new List<Player>()
+                {
+                    new Player()
+                    {
+                        Name = "Unknown",
+                        Resources = new Dictionary<ResourceId, int>()
+                        {
+                            {ResourceId.Energy, 25},
+                            {ResourceId.Gold, 300},
+                            {ResourceId.Gems, 10}
+                        }
+                    }
+                },
+                SelectedPlayerIndex = 0
             };
         }
     }
