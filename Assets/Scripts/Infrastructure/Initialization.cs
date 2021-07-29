@@ -1,5 +1,6 @@
 ﻿using CarSumo.Audio.Services;
 using CarSumo.GameSettings.Services;
+using CarSumo.Infrastructure.Installers;
 using CarSumo.Infrastructure.StateMachine;
 using CarSumo.Infrastructure.StateMachine.States;
 using DataManagement.Players.Services;
@@ -30,9 +31,8 @@ namespace CarSumo.Infrastructure
         {
             _settingsService.Init();
             _playersDataService.Init();
-
             _audioPreferences.Init();
-
+            
             _stateMachine.Enter<BootstrapState>();
         }
     }

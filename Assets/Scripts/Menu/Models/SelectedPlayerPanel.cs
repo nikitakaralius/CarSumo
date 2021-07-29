@@ -14,28 +14,21 @@ namespace CarSumo.Menu.Models
         [SerializeField] private Image _icon;
         
         private IPlayerProfilesProvider _profilesProvider;
-        private IPlayerProfilesUpdate _update;
 
         [Inject]
-        private void Construct(IPlayerProfilesProvider provider, IPlayerProfilesUpdate update)
+        private void Construct(IPlayerProfilesProvider provider)
         {
-            _update = update;
             _profilesProvider = provider;
         }
 
         private void OnEnable()
         {
-            _update.Updated += UpdatePlayerProfile;
-        }
-
-        private void Start()
-        {
-            UpdatePlayerProfile();
+            _profilesProvider.Updated += UpdatePlayerProfile;
         }
 
         private void OnDisable()
         {
-            _update.Updated -= UpdatePlayerProfile;
+            _profilesProvider.Updated -= UpdatePlayerProfile;
         }
 
         private void UpdatePlayerProfile()

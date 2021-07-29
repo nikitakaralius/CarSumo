@@ -1,7 +1,5 @@
-﻿using CarSumo.Infrastructure.Factories.Menu;
-using CarSumo.Infrastructure.Services.Instantiate;
+﻿using CarSumo.Infrastructure.Services.Instantiate;
 using CarSumo.Menu.Models;
-using CarSumo.Players.Models;
 using Zenject;
 
 namespace CarSumo.Infrastructure.Installers
@@ -10,11 +8,9 @@ namespace CarSumo.Infrastructure.Installers
     {
         public override void InstallBindings()
         {
-            BindPlayerProfileBuilder();
-            BindPlayerProfilesProvider();
             BindPlayerViewSelect();
-            BindPlayersSelectAndPlayersUpdater();
             BindInstantiateService();
+            PlayerProfilesInstaller.Install(Container);
         }
         
         private void BindInstantiateService()
@@ -26,35 +22,11 @@ namespace CarSumo.Infrastructure.Installers
                 .NonLazy();
         }
 
-
-        private void BindPlayersSelectAndPlayersUpdater()
-        {
-            Container
-                .BindInterfacesTo<PlayerSelect>()
-                .AsSingle();
-        }
-
-        private void BindPlayerProfilesProvider()
-        {
-            Container
-                .Bind<IPlayerProfilesProvider>()
-                .FromFactory<PlayerProfilesProviderFactory>()
-                .AsSingle();
-        }
-
         private void BindPlayerViewSelect()
         {
             Container
                 .Bind<IPlayerViewSelect>()
                 .To<PlayerViewSelect>()
-                .AsSingle();
-        }
-
-        private void BindPlayerProfileBuilder()
-        {
-            Container
-                .Bind<IPlayerProfileBuilder>()
-                .To<AddressablesPlayerProfileBuilder>()
                 .AsSingle();
         }
     }

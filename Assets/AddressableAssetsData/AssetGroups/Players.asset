@@ -22,8 +22,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Players
-    m_MainAsset: {fileID: 102900000, guid: ac1b2c962d1a08e4e8de31758b8d944c, type: 3}
-    m_TargetAsset: {fileID: 102900000, guid: ac1b2c962d1a08e4e8de31758b8d944c, type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4948ba55cf128c04098da6187d7004b1, type: 2}
   m_SchemaSet:
