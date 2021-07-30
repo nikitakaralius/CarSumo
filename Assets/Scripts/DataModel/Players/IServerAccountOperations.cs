@@ -1,9 +1,9 @@
 ﻿using UniRx;
 using UnityEngine;
 
-namespace CarSumo.DataModel.Players
+namespace CarSumo.DataModel.Accounts
 {
-    public interface IServerPlayerOperations
+    public interface IServerAccountOperations
     {
         bool TryChangeName(IReactiveProperty<string> currentName, string newName);
         void ChangeIcon(IReactiveProperty<Sprite> icon);

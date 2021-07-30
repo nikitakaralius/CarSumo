@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using DataModel.Vehicles;
 
-namespace CarSumo.DataModel.Players
+namespace CarSumo.DataModel.Accounts
 {
     public class SerializableAccount
     {

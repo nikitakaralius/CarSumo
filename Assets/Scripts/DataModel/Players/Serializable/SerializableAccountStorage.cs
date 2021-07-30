@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CarSumo.DataModel.Players
+namespace CarSumo.DataModel.Accounts
 {
     public class SerializableAccountStorage
     {

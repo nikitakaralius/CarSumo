@@ -1,6 +1,6 @@
 ﻿using UniRx;
 
-namespace CarSumo.DataModel.Players
+namespace CarSumo.DataModel.Accounts
 {
     public interface IAccountStorage
     {

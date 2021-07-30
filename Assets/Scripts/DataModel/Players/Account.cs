@@ -2,7 +2,7 @@
 using UniRx;
 using UnityEngine;
 
-namespace CarSumo.DataModel.Players
+namespace CarSumo.DataModel.Accounts
 {
     public class Account
     {
