@@ -8,7 +8,7 @@ namespace CarSumo.DataModel.Players
     {
         public string Name { get; set; }
         
-        public string Image { get; set; }
+        public string Icon { get; set; }
         
         public IReadOnlyDictionary<ResourceId, (int, int?)> ResourceStorage { get; set; }
 

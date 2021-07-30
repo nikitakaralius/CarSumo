@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CarSumo.DataModel.Players
 {
-    public class UnityPlayer
+    public class Player
     {
         public IResourceStorage ResourceStorage { get; }
         
@@ -16,7 +16,7 @@ namespace CarSumo.DataModel.Players
         public IReactiveProperty<Sprite> Icon { get; }
         
 
-        public UnityPlayer(string name,
+        public Player(string name,
                            Sprite icon,
                            IResourceStorage resourceStorage,
                            IVehicleStorage vehicleStorage,
