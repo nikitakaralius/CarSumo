@@ -6,12 +6,12 @@ using UnityEngine;
 
 namespace DataModel.GameData.Resources
 {
-    public class PlayerResourceStorage : IResourceStorage, IClientResourceOperations
+    public class ClientResourceStorage : IResourceStorage, IClientResourceOperations
     {
         private readonly Dictionary<ResourceId, ReactiveProperty<int>> _resourceAmounts;
         private readonly Dictionary<ResourceId, ReactiveProperty<int?>> _resourceLimits;
 
-        public PlayerResourceStorage(IReadOnlyDictionary<ResourceId, (int, int?)> resources)
+        public ClientResourceStorage(IReadOnlyDictionary<ResourceId, (int, int?)> resources)
         {
             _resourceAmounts = new Dictionary<ResourceId, ReactiveProperty<int>>(resources.Count);
             _resourceLimits = new Dictionary<ResourceId, ReactiveProperty<int?>>(resources.Count);
