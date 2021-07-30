@@ -10,7 +10,7 @@ namespace CarSumo.DataModel.Players
         
         public string Image { get; set; }
         
-        public IReadOnlyDictionary<ResourceId, int?> ResourceStorage { get; set; }
+        public IReadOnlyDictionary<ResourceId, (int, int?)> ResourceStorage { get; set; }
 
         public IEnumerable<VehicleId> BoughtVehicles { get; set; }
         
