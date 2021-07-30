@@ -5,6 +5,6 @@ namespace CarSumo.Binding
 {
     public interface IAsyncAccountBinding
     {
-        Task<Account> BuildFromAsync(SerializableAccount account);
+        Task<Account> BindFromAsync(SerializableAccount account);
     }
 }
