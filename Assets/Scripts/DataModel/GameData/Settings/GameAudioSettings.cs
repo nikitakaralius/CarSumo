@@ -1,40 +1,31 @@
-﻿using DataModel.FileData;
-using DataModel.Settings;
+﻿using DataModel.Settings;
 using UniRx;
 using UnityEngine.Audio;
-using Zenject;
 
 namespace DataModel.GameData.Settings
 {
-    public class GameAudioSettings : IAudioSettings, IAudioSettingsOperations, IInitializable
+    public class GameAudioSettings : IAudioSettings, IAudioSettingsOperations
     {
         private readonly AudioMixer _audioMixer;
         private readonly IAudioConfiguration _configuration;
-        private readonly IFileService _fileService;
 
-        private ReactiveProperty<float> _musicVolume;
-        private ReactiveProperty<float> _sfxVolume;
+        private readonly ReactiveProperty<float> _musicVolume;
+        private readonly ReactiveProperty<float> _sfxVolume;
         
         private const float Disabled = -80.0f;
         private const float Enabled = 0.0f;
 
-        public GameAudioSettings(AudioMixer audioMixer, IAudioConfiguration configuration, IFileService fileService)
+        public GameAudioSettings(AudioMixer audioMixer, IAudioConfiguration configuration, float musicVolume, float sfxVolume)
         {
             _audioMixer = audioMixer;
             _configuration = configuration;
-            _fileService = fileService;
+            _musicVolume = new ReactiveProperty<float>(musicVolume);
+            _sfxVolume = new ReactiveProperty<float>(sfxVolume);
         }
 
         public IReadOnlyReactiveProperty<float> MusicVolume => _musicVolume;
 
         public IReadOnlyReactiveProperty<float> SfxVolume => _sfxVolume;
-
-        public void Initialize()
-        {
-            var settings = _fileService.Load<SerializableAudioSettings>(_configuration.FilePath);
-            _musicVolume = new ReactiveProperty<float>(settings.MusicVolume);
-            _sfxVolume = new ReactiveProperty<float>(settings.SfxVolume);
-        }
 
         public void SetActiveMusic(bool active)
         {
@@ -49,21 +40,11 @@ namespace DataModel.GameData.Settings
         {
             volume.Value = GetVolumeLevel(active);
             _audioMixer.SetFloat(mixerParameter, volume.Value);
-            _fileService.Save(ToSerializableSettings(this), _configuration.FilePath);
         }
 
         private float GetVolumeLevel(bool active)
         {
             return active ? Enabled : Disabled;
-        }
-
-        private SerializableAudioSettings ToSerializableSettings(IAudioSettings settings)
-        {
-            return new SerializableAudioSettings()
-            {
-                MusicVolume = settings.MusicVolume.Value,
-                SfxVolume = settings.SfxVolume.Value
-            };
         }
     }
 }

@@ -1,43 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using CarSumo.DataModel.GameResources;
-using DataModel.FileData;
 using UniRx;
 using UnityEngine;
-using Zenject;
 
 namespace DataModel.GameData.Resources
 {
-    public class ClientResourceStorage : IResourceStorage, IClientResourceOperations, IInitializable
+    public class ClientResourceStorage : IResourceStorage, IClientResourceOperations
     {
         private readonly Dictionary<ResourceId, ReactiveProperty<int>> _resourceAmounts;
         private readonly Dictionary<ResourceId, ReactiveProperty<int?>> _resourceLimits;
-
-        private readonly IAsyncFileService _fileService;
-        private readonly IResourcesConfiguration _configuration;
         
-        public ClientResourceStorage(IAsyncFileService fileService, IResourcesConfiguration configuration)
+        public ClientResourceStorage(Dictionary<ResourceId, ReactiveProperty<int>> resourceAmounts,
+                                     Dictionary<ResourceId, ReactiveProperty<int?>> resourceLimits)
         {
-            _fileService = fileService;
-            _configuration = configuration;
-
-            _resourceAmounts = new Dictionary<ResourceId, ReactiveProperty<int>>();
-            _resourceLimits = new Dictionary<ResourceId, ReactiveProperty<int?>>();
-        }
-
-        public async void Initialize()
-        {
-            SerializableResources resources = await _fileService.LoadAsync<SerializableResources>(_configuration.FilePath);
-            
-            foreach (KeyValuePair<ResourceId,int> amount in resources.Amounts)
-            {
-                _resourceAmounts.Add(amount.Key, new ReactiveProperty<int>(amount.Value));
-            }
-            foreach (KeyValuePair<ResourceId,int?> limit in resources.Limits)
-            {
-                _resourceLimits.Add(limit.Key, new ReactiveProperty<int?>(limit.Value));
-            }
+            _resourceAmounts = resourceAmounts;
+            _resourceLimits = resourceLimits;
         }
 
         public IReadOnlyReactiveProperty<int> GetResourceAmount(ResourceId id)
@@ -70,7 +48,6 @@ namespace DataModel.GameData.Resources
             }
 
             ClampResourceLimit();
-            _fileService.SaveAsync(ToSerializableResources(this), _configuration.FilePath);
             
             void ClampResourceLimit()
             {
@@ -100,26 +77,10 @@ namespace DataModel.GameData.Resources
                 if (currentAmount.Value >= amount)
                 {
                     currentAmount.Value -= amount;
-                    _fileService.SaveAsync(ToSerializableResources(this), _configuration.FilePath);
                     return true;
                 }
             }
             return false;
-        }
-
-        private SerializableResources ToSerializableResources(ClientResourceStorage storage)
-        {
-            Dictionary<ResourceId, int> amounts = storage._resourceAmounts
-                .ToDictionary(amount => amount.Key, amount => amount.Value.Value);
-
-            Dictionary<ResourceId, int?> limits = storage._resourceLimits
-                .ToDictionary(limit => limit.Key, limit => limit.Value.Value);
-
-            return new SerializableResources()
-            {
-                Amounts = amounts,
-                Limits = limits
-            };
         }
     }
 }
