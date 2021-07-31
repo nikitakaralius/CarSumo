@@ -32,16 +32,6 @@ namespace CarSumo.DataModel.GameData.Accounts
             return new Account(account.Name, icon, vehicleLayout);
         }
 
-        public async Task<SerializableAccount> ToSerializableAccountAsync(Account account)
-        {
-            return await Task.Run(() => new SerializableAccount()
-            {
-                Name = account.Name.Value,
-                Icon = account.Icon.Value.Asset,
-                VehicleLayout = account.VehicleLayout.Value.ActiveVehicles
-            });
-        }
-
         private async Task<Sprite> LoadAccountIcon(string key)
         {
             return await Addressables.LoadAssetAsync<Sprite>(key ?? _defaultIconPath).Task;
