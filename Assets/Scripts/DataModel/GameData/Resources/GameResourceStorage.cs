@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CarSumo.DataModel.GameResources;
 using UniRx;
 using UnityEngine;
 
 namespace DataModel.GameData.Resources
 {
-    public class ClientResourceStorage : IResourceStorage, IClientResourceOperations
+    public class GameResourceStorage : IResourceStorage, IClientResourceOperations
     {
         private readonly Dictionary<ResourceId, ReactiveProperty<int>> _resourceAmounts;
         private readonly Dictionary<ResourceId, ReactiveProperty<int?>> _resourceLimits;
-        
-        public ClientResourceStorage(Dictionary<ResourceId, ReactiveProperty<int>> resourceAmounts,
-                                     Dictionary<ResourceId, ReactiveProperty<int?>> resourceLimits)
+
+        public GameResourceStorage(Dictionary<ResourceId, ReactiveProperty<int>> resourceAmounts,
+                                   Dictionary<ResourceId, ReactiveProperty<int?>> resourceLimits)
         {
             _resourceAmounts = resourceAmounts;
             _resourceLimits = resourceLimits;
