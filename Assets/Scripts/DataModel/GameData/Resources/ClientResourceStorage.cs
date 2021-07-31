@@ -1,20 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using CarSumo.DataModel.GameResources;
+using DataModel.FileData;
 using UniRx;
 using UnityEngine;
+using Zenject;
 
 namespace DataModel.GameData.Resources
 {
-    public class ClientResourceStorage : IResourceStorage, IClientResourceOperations
+    public class ClientResourceStorage : IResourceStorage, IClientResourceOperations, IInitializable
     {
         private readonly Dictionary<ResourceId, ReactiveProperty<int>> _resourceAmounts;
         private readonly Dictionary<ResourceId, ReactiveProperty<int?>> _resourceLimits;
 
-        public ClientResourceStorage(IReadOnlyDictionary<ResourceId, (int, int?)> resources)
+        private readonly IFileService _fileService;
+        private readonly IResourcesConfig _config;
+        
+        public ClientResourceStorage(IFileService fileService, IResourcesConfig config)
         {
-            _resourceAmounts = new Dictionary<ResourceId, ReactiveProperty<int>>(resources.Count);
-            _resourceLimits = new Dictionary<ResourceId, ReactiveProperty<int?>>(resources.Count);
+            _fileService = fileService;
+            _config = config;
+
+            _resourceAmounts = new Dictionary<ResourceId, ReactiveProperty<int>>();
+            _resourceLimits = new Dictionary<ResourceId, ReactiveProperty<int?>>();
+        }
+
+        public void Initialize()
+        {
+            var resources = _fileService.Load<SerializableResources>(_config.FilePath).Storage;
             
             foreach (KeyValuePair<ResourceId,(int, int?)> resource in resources)
             {
@@ -22,7 +35,7 @@ namespace DataModel.GameData.Resources
                 _resourceLimits.Add(resource.Key, new ReactiveProperty<int?>(resource.Value.Item2));
             }
         }
-        
+
         public IReadOnlyReactiveProperty<int> GetResourceAmount(ResourceId id)
         {
             if (_resourceAmounts.TryGetValue(id, out var amount))
