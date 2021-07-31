@@ -14,10 +14,10 @@ namespace DataModel.GameData.Resources
         private readonly Dictionary<ResourceId, ReactiveProperty<int>> _resourceAmounts;
         private readonly Dictionary<ResourceId, ReactiveProperty<int?>> _resourceLimits;
 
-        private readonly IFileService _fileService;
+        private readonly IAsyncFileService _fileService;
         private readonly IResourcesConfig _config;
         
-        public ClientResourceStorage(IFileService fileService, IResourcesConfig config)
+        public ClientResourceStorage(IAsyncFileService fileService, IResourcesConfig config)
         {
             _fileService = fileService;
             _config = config;
@@ -26,9 +26,9 @@ namespace DataModel.GameData.Resources
             _resourceLimits = new Dictionary<ResourceId, ReactiveProperty<int?>>();
         }
 
-        public void Initialize()
+        public async void Initialize()
         {
-            SerializableResources resources = _fileService.Load<SerializableResources>(_config.FilePath);
+            SerializableResources resources = await _fileService.LoadAsync<SerializableResources>(_config.FilePath);
             
             foreach (KeyValuePair<ResourceId,int> amount in resources.Amounts)
             {
@@ -70,7 +70,7 @@ namespace DataModel.GameData.Resources
             }
 
             ClampResourceLimit();
-            _fileService.Save(ToSerializableResources(this), _config.FilePath);
+            _fileService.SaveAsync(ToSerializableResources(this), _config.FilePath);
             
             void ClampResourceLimit()
             {
@@ -100,7 +100,7 @@ namespace DataModel.GameData.Resources
                 if (currentAmount.Value >= amount)
                 {
                     currentAmount.Value -= amount;
-                    _fileService.Save(ToSerializableResources(this), _config.FilePath);
+                    _fileService.SaveAsync(ToSerializableResources(this), _config.FilePath);
                     return true;
                 }
             }
