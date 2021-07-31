@@ -6,7 +6,7 @@ using DataModel.Vehicles;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace CarSumo.Binding
+namespace CarSumo.DataModel.GameData.Accounts
 {
     public class AddressableAccountBinding : IAsyncAccountBinding
     {
@@ -24,11 +24,22 @@ namespace CarSumo.Binding
             _layoutFactory = layoutFactory;
         }
 
-        public async Task<Account> BindFromAsync(SerializableAccount account)
+        public async Task<Account> ToAccountAsync(SerializableAccount account)
         {
-            Sprite icon = await LoadAccountIcon(account.Icon);
+            Sprite sprite = await LoadAccountIcon(account.Icon);
+            Icon icon = new Icon(sprite, account.Icon);
             IVehicleLayout vehicleLayout = _layoutFactory.Create(account.VehicleLayout);
             return new Account(account.Name, icon, vehicleLayout);
+        }
+
+        public async Task<SerializableAccount> ToSerializableAccountAsync(Account account)
+        {
+            return await Task.Run(() => new SerializableAccount()
+            {
+                Name = account.Name.Value,
+                Icon = account.Icon.Value.Asset,
+                VehicleLayout = account.VehicleLayout.Value.ActiveVehicles
+            });
         }
 
         private async Task<Sprite> LoadAccountIcon(string key)

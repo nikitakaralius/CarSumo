@@ -1,6 +1,6 @@
 ﻿namespace CarSumo.DataModel.GameResources
 {
-    public interface IResourcesConfig
+    public interface IResourcesConfiguration
     {
         string FilePath { get; }
     }

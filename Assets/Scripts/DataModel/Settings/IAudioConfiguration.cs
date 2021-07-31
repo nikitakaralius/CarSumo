@@ -1,6 +1,6 @@
 ﻿namespace DataModel.Settings
 {
-    public interface IAudioConfig
+    public interface IAudioConfiguration
     {
         string MusicVolumeParameter { get; }
         string SfxVolumeParameter { get; }

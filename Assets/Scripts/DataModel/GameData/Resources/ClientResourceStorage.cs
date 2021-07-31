@@ -15,12 +15,12 @@ namespace DataModel.GameData.Resources
         private readonly Dictionary<ResourceId, ReactiveProperty<int?>> _resourceLimits;
 
         private readonly IAsyncFileService _fileService;
-        private readonly IResourcesConfig _config;
+        private readonly IResourcesConfiguration _configuration;
         
-        public ClientResourceStorage(IAsyncFileService fileService, IResourcesConfig config)
+        public ClientResourceStorage(IAsyncFileService fileService, IResourcesConfiguration configuration)
         {
             _fileService = fileService;
-            _config = config;
+            _configuration = configuration;
 
             _resourceAmounts = new Dictionary<ResourceId, ReactiveProperty<int>>();
             _resourceLimits = new Dictionary<ResourceId, ReactiveProperty<int?>>();
@@ -28,7 +28,7 @@ namespace DataModel.GameData.Resources
 
         public async void Initialize()
         {
-            SerializableResources resources = await _fileService.LoadAsync<SerializableResources>(_config.FilePath);
+            SerializableResources resources = await _fileService.LoadAsync<SerializableResources>(_configuration.FilePath);
             
             foreach (KeyValuePair<ResourceId,int> amount in resources.Amounts)
             {
@@ -70,7 +70,7 @@ namespace DataModel.GameData.Resources
             }
 
             ClampResourceLimit();
-            _fileService.SaveAsync(ToSerializableResources(this), _config.FilePath);
+            _fileService.SaveAsync(ToSerializableResources(this), _configuration.FilePath);
             
             void ClampResourceLimit()
             {
@@ -100,7 +100,7 @@ namespace DataModel.GameData.Resources
                 if (currentAmount.Value >= amount)
                 {
                     currentAmount.Value -= amount;
-                    _fileService.SaveAsync(ToSerializableResources(this), _config.FilePath);
+                    _fileService.SaveAsync(ToSerializableResources(this), _configuration.FilePath);
                     return true;
                 }
             }
