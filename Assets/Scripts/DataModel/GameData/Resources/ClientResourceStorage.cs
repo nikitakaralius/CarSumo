@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CarSumo.DataModel.GameResources;
 using DataModel.FileData;
 using UniRx;
@@ -27,12 +28,15 @@ namespace DataModel.GameData.Resources
 
         public void Initialize()
         {
-            var resources = _fileService.Load<SerializableResources>(_config.FilePath).Storage;
+            SerializableResources resources = _fileService.Load<SerializableResources>(_config.FilePath);
             
-            foreach (KeyValuePair<ResourceId,(int, int?)> resource in resources)
+            foreach (KeyValuePair<ResourceId,int> amount in resources.Amounts)
             {
-                _resourceAmounts.Add(resource.Key, new ReactiveProperty<int>(resource.Value.Item1));
-                _resourceLimits.Add(resource.Key, new ReactiveProperty<int?>(resource.Value.Item2));
+                _resourceAmounts.Add(amount.Key, new ReactiveProperty<int>(amount.Value));
+            }
+            foreach (KeyValuePair<ResourceId,int?> limit in resources.Limits)
+            {
+                _resourceLimits.Add(limit.Key, new ReactiveProperty<int?>(limit.Value));
             }
         }
 
@@ -66,6 +70,7 @@ namespace DataModel.GameData.Resources
             }
 
             ClampResourceLimit();
+            _fileService.Save(ToSerializableResources(this), _config.FilePath);
             
             void ClampResourceLimit()
             {
@@ -95,10 +100,26 @@ namespace DataModel.GameData.Resources
                 if (currentAmount.Value >= amount)
                 {
                     currentAmount.Value -= amount;
+                    _fileService.Save(ToSerializableResources(this), _config.FilePath);
                     return true;
                 }
             }
             return false;
+        }
+
+        private SerializableResources ToSerializableResources(ClientResourceStorage storage)
+        {
+            Dictionary<ResourceId, int> amounts = storage._resourceAmounts
+                .ToDictionary(amount => amount.Key, amount => amount.Value.Value);
+
+            Dictionary<ResourceId, int?> limits = storage._resourceLimits
+                .ToDictionary(limit => limit.Key, limit => limit.Value.Value);
+
+            return new SerializableResources()
+            {
+                Amounts = amounts,
+                Limits = limits
+            };
         }
     }
 }
