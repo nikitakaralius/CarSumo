@@ -29,7 +29,7 @@ namespace DataModel.GameData.Resources
             {
                 return amount;
             }
-            throw new ArgumentOutOfRangeException($"Trying to get nregistred resource {id} amount");
+            throw new ArgumentOutOfRangeException($"Trying to get unregistred resource {id} amount");
         }
 
         public IReadOnlyReactiveProperty<int?> GetResourceLimit(ResourceId id)
