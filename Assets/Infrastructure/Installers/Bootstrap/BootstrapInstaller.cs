@@ -1,5 +1,4 @@
-﻿using DataModel.FileData;
-using Infrastructure.Installers.Bootstrap.SubContainers;
+﻿using Infrastructure.Installers.Bootstrap.SubContainers;
 using Infrastructure.Settings;
 using UnityEngine;
 using Zenject;
@@ -12,7 +11,6 @@ namespace Infrastructure.Installers.Bootstrap
         
         public override void InstallBindings()
         {
-            BindFileService();
             BindProjectConfiguration();
             ProcessSubContainers();
         }
@@ -20,6 +18,7 @@ namespace Infrastructure.Installers.Bootstrap
         private void ProcessSubContainers()
         {
             AccountsInstaller.Install(Container);
+            FileDataInstaller.Install(Container);
         }
 
         private void BindProjectConfiguration()
@@ -28,14 +27,6 @@ namespace Infrastructure.Installers.Bootstrap
                 .BindInterfacesAndSelfTo<ProjectConfiguration>()
                 .FromInstance(_configuration)
                 .AsSingle()
-                .NonLazy();
-        }
-
-        private void BindFileService()
-        {
-            Container
-                .BindInterfacesAndSelfTo<JsonNetFileService>()
-                .AsTransient()
                 .NonLazy();
         }
     }

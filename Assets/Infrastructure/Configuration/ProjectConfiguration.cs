@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using CarSumo.DataModel.Accounts;
 using CarSumo.DataModel.GameResources;
 using CarSumo.DataModel.Settings;
@@ -8,7 +9,7 @@ namespace Infrastructure.Settings
 {
     [CreateAssetMenu(fileName = "ProjectConfiguration", menuName = "Configuration/ProjectConfiguration", order = 0)]
     public class ProjectConfiguration : ScriptableObject,
-        IAudioConfiguration, IResourcesConfiguration, IAccountStorageConfiguration
+        IAudioConfiguration, IResourcesConfiguration, IAccountStorageConfiguration, IProjectConfiguration
     {
         private const string Format = ".JSON";
         
@@ -21,6 +22,8 @@ namespace Infrastructure.Settings
         [SerializeField] private string _audioFileName;
         [SerializeField] private string _resourcesFileName;
         [SerializeField] private string _accountStorageFileName;
+        
+        public string RootDirectoryName => _rootDirectoryName;
 
         public string MusicVolumeParameter => _musicVolumeParameter;
 
@@ -32,13 +35,9 @@ namespace Infrastructure.Settings
 
         public string AccountStorageFilePath => GetFilePath(_accountStorageFileName);
 
-        private void OnValidate()
+        public IEnumerable<string> GetDataFilePaths()
         {
-            EnsureDirectoryCreated(_rootDirectoryName);
-            
-            EnsureFileCreated(AudioFilePath);
-            EnsureFileCreated(ResourcesFilePath);
-            EnsureFileCreated(AccountStorageFilePath);
+            return new[] {AudioFilePath, ResourcesFilePath, AccountStorageFilePath};
         }
 
         private string GetFilePath(string fileName)
@@ -49,22 +48,6 @@ namespace Infrastructure.Settings
 
             string path = Path.Combine(assets, _rootDirectoryName, fileName) + Format;
             return path;
-        }
-        
-        private void EnsureDirectoryCreated(string path)
-        {
-            if (Directory.Exists(path))
-                return;
-
-            Directory.CreateDirectory(path);
-        }
-
-        private void EnsureFileCreated(string filePath)
-        {
-            if (File.Exists(filePath))
-                return;
-
-            using var stream = new FileStream(filePath, FileMode.CreateNew);
         }
     }
 }

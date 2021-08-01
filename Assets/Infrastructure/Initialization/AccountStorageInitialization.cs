@@ -9,7 +9,7 @@ using Zenject;
 
 namespace Infrastructure.Initialization
 {
-    public class AccountStorageInitialization
+    public class AccountStorageInitialization : IAsyncInitializable
     {
         private readonly DiContainer _container;
         private readonly IAccountStorageConfiguration _configuration;
