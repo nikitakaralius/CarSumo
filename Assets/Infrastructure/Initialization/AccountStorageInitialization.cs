@@ -38,12 +38,7 @@ namespace Infrastructure.Initialization
 
         private SerializableAccountStorage EnsureCreated()
         {
-            SerializableAccount activeAccount = new SerializableAccount()
-            {
-                Name = "Player",
-                Icon = null,
-                VehicleLayout = null
-            };
+            SerializableAccount activeAccount = new UnregisteredSerializableAccount();
 
             return new SerializableAccountStorage()
             {

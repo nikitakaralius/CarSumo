@@ -11,4 +11,14 @@ namespace CarSumo.DataModel.Accounts
 
         public IEnumerable<VehicleId> VehicleLayout { get; set; }
     }
+    
+    public class UnregisteredSerializableAccount : SerializableAccount
+    {
+        public UnregisteredSerializableAccount()
+        {
+            Name = "Unregistered";
+            Icon = null;
+            VehicleLayout = null;
+        }
+    }
 }
