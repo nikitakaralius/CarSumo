@@ -4,6 +4,7 @@ using CarSumo.DataModel.Accounts;
 using CarSumo.DataModel.GameResources;
 using CarSumo.DataModel.Settings;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Infrastructure.Settings
 {
@@ -12,18 +13,23 @@ namespace Infrastructure.Settings
         IAudioConfiguration, IResourcesConfiguration, IAccountStorageConfiguration, IProjectConfiguration
     {
         private const string Format = ".JSON";
-        
+
+
         [Header("Audio Configuration")]
+        [SerializeField] private AudioMixer _audioMixer;
         [SerializeField] private string _musicVolumeParameter;
         [SerializeField] private string _sfxVolumeParameter;
-        
+
+
         [Header("Files Configuration")]
         [SerializeField] private string _rootDirectoryName;
         [SerializeField] private string _audioFileName;
         [SerializeField] private string _resourcesFileName;
         [SerializeField] private string _accountStorageFileName;
-        
+
         public string RootDirectoryName => _rootDirectoryName;
+
+        public AudioMixer AudioMixer => _audioMixer;
 
         public string MusicVolumeParameter => _musicVolumeParameter;
 

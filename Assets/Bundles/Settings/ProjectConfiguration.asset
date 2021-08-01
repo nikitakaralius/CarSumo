@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5934692b534af5818d537359f90366, type: 3}
   m_Name: ProjectConfiguration
   m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: 9135c199162cab043a886512bc81c57b, type: 2}
   _musicVolumeParameter: MusicVolume
   _sfxVolumeParameter: SfxVolume
   _rootDirectoryName: Data

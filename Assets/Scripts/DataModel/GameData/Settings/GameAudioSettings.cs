@@ -15,9 +15,9 @@ namespace DataModel.GameData.Settings
         private const float Disabled = -80.0f;
         private const float Enabled = 0.0f;
 
-        public GameAudioSettings(AudioMixer audioMixer, IAudioConfiguration configuration, float musicVolume, float sfxVolume)
+        public GameAudioSettings(IAudioConfiguration configuration, float musicVolume, float sfxVolume)
         {
-            _audioMixer = audioMixer;
+            _audioMixer = configuration.AudioMixer;
             _configuration = configuration;
             _musicVolume = new ReactiveProperty<float>(musicVolume);
             _sfxVolume = new ReactiveProperty<float>(sfxVolume);
