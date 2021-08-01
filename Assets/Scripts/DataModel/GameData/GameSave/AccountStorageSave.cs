@@ -6,14 +6,14 @@ using DataModel.FileData;
 
 namespace DataModel.GameData.GameSave
 {
-    public class GameAccountsSave : IDisposable
+    public class AccountStorageSave : IDisposable
     {
         private readonly IFileService _fileService;
         private readonly IAccountStorage _accountStorage;
         private readonly IAccountStorageConfiguration _configuration;
         private readonly IAccountSerialization _accountSerialization;
 
-        public GameAccountsSave(IFileService fileService,
+        public AccountStorageSave(IFileService fileService,
                                 IAccountStorage accountStorage,
                                 IAccountStorageConfiguration configuration,
                                 IAccountSerialization accountSerialization)
