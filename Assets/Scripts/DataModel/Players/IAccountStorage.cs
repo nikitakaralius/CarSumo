@@ -4,7 +4,7 @@ namespace CarSumo.DataModel.Accounts
 {
     public interface IAccountStorage
     {
-        IReadOnlyReactiveCollection<Account> AllPlayers { get; }
-        IReadOnlyReactiveProperty<Account> ActivePlayer { get; }
+        IReadOnlyReactiveCollection<Account> AllAccount { get; }
+        IReadOnlyReactiveProperty<Account> ActiveAccount { get; }
     }
 }

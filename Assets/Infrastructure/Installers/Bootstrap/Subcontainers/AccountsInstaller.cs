@@ -1,5 +1,5 @@
-﻿using System;
-using CarSumo.DataModel.GameData.Accounts;
+﻿using CarSumo.DataModel.GameData.Accounts;
+using Infrastructure.Initialization;
 using Zenject;
 
 namespace Infrastructure.Installers.Bootstrap.SubContainers
@@ -10,18 +10,16 @@ namespace Infrastructure.Installers.Bootstrap.SubContainers
         {
             BindAccountBinding();
             BindAccountSerialization();
-            BindAccountStorageInterfaces();
-            BindAccountStorageSave();
+            BindAccountStorageInitialization();
         }
 
-        private void BindAccountStorageSave()
+        private void BindAccountStorageInitialization()
         {
-            throw new NotImplementedException("Register save on initialization");
-        }
-
-        private void BindAccountStorageInterfaces()
-        {
-            throw new NotImplementedException("Register storage on initialization");
+            Container
+                .Bind<AccountStorageInitialization>()
+                .FromNew()
+                .AsSingle()
+                .NonLazy();
         }
 
         private void BindAccountSerialization()

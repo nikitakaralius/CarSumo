@@ -4,7 +4,7 @@ namespace CarSumo.DataModel.Accounts
 {
     public class SerializableAccountStorage
     {
-        public IEnumerable<SerializableAccount> AllPlayers { get; set; }
+        public IEnumerable<SerializableAccount> AllAccounts { get; set; }
         
         public SerializableAccount ActiveAccount { get; set; }
     }

@@ -40,8 +40,8 @@ namespace DataModel.GameData.GameSave
         {
             return new SerializableAccountStorage()
             {
-                ActiveAccount = _accountSerialization.SerializeFrom(storage.ActivePlayer.Value),
-                AllPlayers = storage.AllPlayers.Select(player => _accountSerialization.SerializeFrom(player))
+                ActiveAccount = _accountSerialization.SerializeFrom(storage.ActiveAccount.Value),
+                AllAccounts = storage.AllAccount.Select(player => _accountSerialization.SerializeFrom(player))
             };
         }
     }

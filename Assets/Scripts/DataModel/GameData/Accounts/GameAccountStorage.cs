@@ -7,32 +7,32 @@ namespace DataModel.GameData.Accounts
 {
     public class GameAccountStorage : IAccountStorage, IClientAccountOperations, IClientAccountStorageOperations
     {
-        private readonly ReactiveCollection<Account> _allPlayers;
-        private readonly ReactiveProperty<Account> _activePlayer;
+        private readonly ReactiveCollection<Account> _allAccounts;
+        private readonly ReactiveProperty<Account> _activeAccount;
         
-        public GameAccountStorage(Account activePlayer, IEnumerable<Account> allPlayers)
+        public GameAccountStorage(Account activeAccount, IEnumerable<Account> allAccounts)
         {
-            _activePlayer = new ReactiveProperty<Account>(activePlayer);
-            _allPlayers = new ReactiveCollection<Account>(allPlayers);
+            _activeAccount = new ReactiveProperty<Account>(activeAccount);
+            _allAccounts = new ReactiveCollection<Account>(allAccounts);
         }
 
-        public IReadOnlyReactiveCollection<Account> AllPlayers => _allPlayers;
+        public IReadOnlyReactiveCollection<Account> AllAccount => _allAccounts;
 
-        public IReadOnlyReactiveProperty<Account> ActivePlayer => _activePlayer;
+        public IReadOnlyReactiveProperty<Account> ActiveAccount => _activeAccount;
 
         public void SetActive(Account account)
         {
-            _activePlayer.Value = account;
+            _activeAccount.Value = account;
         }
 
         public bool TryAddAccount(Account account)
         {
-            if (_allPlayers.Any(other => other.Name == account.Name))
+            if (_allAccounts.Any(other => other.Name == account.Name))
             {
                 return false;
             }
             
-            _allPlayers.Add(account);
+            _allAccounts.Add(account);
             return true;
         }
     }
