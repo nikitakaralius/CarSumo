@@ -26,7 +26,7 @@ namespace DataModel.GameData.GameSave
         private void Save()
         {
             SerializableResources serializableResources = ToSerializableResources(_storage);
-            string path = _configuration.FilePath;
+            string path = _configuration.ResourcesFilePath;
             _fileService.Save(serializableResources, path);
         }
 

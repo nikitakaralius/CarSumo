@@ -2,6 +2,6 @@
 {
     public interface IResourcesConfiguration
     {
-        string FilePath { get; }
+        string ResourcesFilePath { get; }
     }
 }

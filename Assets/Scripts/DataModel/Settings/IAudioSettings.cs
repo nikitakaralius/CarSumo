@@ -1,6 +1,6 @@
 ﻿using UniRx;
 
-namespace DataModel.Settings
+namespace CarSumo.DataModel.Settings
 {
     public interface IAudioSettings
     {

@@ -32,7 +32,7 @@ namespace DataModel.GameData.GameSave
         private void Save()
         {
             SerializableAccountStorage storage = ToSerializableAccountStorage(_accountStorage);
-            string filePath = _configuration.FilePath;
+            string filePath = _configuration.AccountStorageFilePath;
             _fileService.Save(storage, filePath);
         }
 

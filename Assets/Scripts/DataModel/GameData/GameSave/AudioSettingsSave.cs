@@ -1,6 +1,6 @@
 ﻿using System;
 using DataModel.FileData;
-using DataModel.Settings;
+using CarSumo.DataModel.Settings;
 
 namespace DataModel.GameData.GameSave
 {
@@ -24,7 +24,7 @@ namespace DataModel.GameData.GameSave
 
         private void Save()
         {
-            string filePath = _configuration.FilePath;
+            string filePath = _configuration.AudioFilePath;
             SerializableAudioSettings settings = ToSerializableAudioSettings(_audioSettings);
             _fileService.Save(settings, filePath);
         }

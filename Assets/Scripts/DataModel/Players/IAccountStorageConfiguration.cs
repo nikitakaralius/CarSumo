@@ -2,6 +2,6 @@
 {
     public interface IAccountStorageConfiguration
     {
-        string FilePath { get; }
+        string AccountStorageFilePath { get; }
     }
 }
