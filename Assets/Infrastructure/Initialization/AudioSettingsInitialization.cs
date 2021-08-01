@@ -24,7 +24,7 @@ namespace Infrastructure.Initialization
         
         public async Task InitializeAsync()
         {
-            SerializableAudioSettings serializableSettings = await LoadSerializableAudioSettings() ?? EnsureCreated();
+            SerializableAudioSettings serializableSettings = await LoadSerializableAudioSettingsAsync() ?? EnsureCreated();
             GameAudioSettings audioSettings = InitializeAudioSettings(_configuration, serializableSettings);
             
             BindAudioSettingsInterfaces(audioSettings);
@@ -54,7 +54,7 @@ namespace Infrastructure.Initialization
             return new GameAudioSettings(configuration, settings.MusicVolume, settings.SfxVolume);
         }
 
-        private async Task<SerializableAudioSettings> LoadSerializableAudioSettings()
+        private async Task<SerializableAudioSettings> LoadSerializableAudioSettingsAsync()
         {
             string path = _configuration.AudioFilePath;
             return await _fileService.LoadAsync<SerializableAudioSettings>(path);

@@ -29,8 +29,8 @@ namespace Infrastructure.Initialization
 
         public async Task InitializeAsync()
         {
-            SerializableAccountStorage serializableStorage = await LoadSerializableAccountStorage() ?? EnsureCreated();
-            GameAccountStorage storage = await InitializeGameAccountStorage(serializableStorage);
+            SerializableAccountStorage serializableStorage = await LoadSerializableAccountStorageAsync() ?? EnsureCreated();
+            GameAccountStorage storage = await InitializeGameAccountStorageAsync(serializableStorage);
 
             BindStorageInterfaces(storage);
             BindAccountStorageSave();
@@ -65,14 +65,14 @@ namespace Infrastructure.Initialization
                 .NonLazy();
         }
 
-        private async Task<GameAccountStorage> InitializeGameAccountStorage(SerializableAccountStorage storage)
+        private async Task<GameAccountStorage> InitializeGameAccountStorageAsync(SerializableAccountStorage storage)
         {
             Account activeAccount = await _accountBinding.ToAccountAsync(storage.ActiveAccount);
-            IEnumerable<Account> allAccounts = await GetBoundAccounts(storage);
+            IEnumerable<Account> allAccounts = await GetBoundAccountsAsync(storage);
             return new GameAccountStorage(activeAccount, allAccounts);
         }
 
-        private async Task<IEnumerable<Account>> GetBoundAccounts(SerializableAccountStorage storage)
+        private async Task<IEnumerable<Account>> GetBoundAccountsAsync(SerializableAccountStorage storage)
         {
             var accounts = new List<Account>();
             foreach (SerializableAccount serializableAccount in storage.AllAccounts)
@@ -84,7 +84,7 @@ namespace Infrastructure.Initialization
             return accounts;
         }
 
-        private async Task<SerializableAccountStorage> LoadSerializableAccountStorage()
+        private async Task<SerializableAccountStorage> LoadSerializableAccountStorageAsync()
         {
             string filePath = _configuration.AccountStorageFilePath;
             return await _fileService.LoadAsync<SerializableAccountStorage>(filePath);
