@@ -12,8 +12,8 @@ namespace DataModel.GameData.Settings
         private readonly ReactiveProperty<float> _musicVolume;
         private readonly ReactiveProperty<float> _sfxVolume;
         
-        private const float Disabled = -80.0f;
-        private const float Enabled = 0.0f;
+        public const float Disabled = -80.0f;
+        public const float Enabled = 0.0f;
 
         public GameAudioSettings(IAudioConfiguration configuration, float musicVolume, float sfxVolume)
         {

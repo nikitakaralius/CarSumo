@@ -19,6 +19,7 @@ namespace Infrastructure.Installers.Bootstrap
         {
             AccountsInstaller.Install(Container);
             FileDataInstaller.Install(Container);
+            SettingsInstaller.Install(Container);
         }
 
         private void BindProjectConfiguration()
