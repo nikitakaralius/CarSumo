@@ -20,7 +20,14 @@ namespace DataModel.GameData.GameSave
         
         public void Dispose()
         {
-            _fileService.Save(ToSerializableResources(_storage), _configuration.FilePath);
+            Save();
+        }
+
+        private void Save()
+        {
+            SerializableResources serializableResources = ToSerializableResources(_storage);
+            string path = _configuration.FilePath;
+            _fileService.Save(serializableResources, path);
         }
 
         private SerializableResources ToSerializableResources(IResourceStorage storage)

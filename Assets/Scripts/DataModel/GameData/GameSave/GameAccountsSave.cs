@@ -26,6 +26,11 @@ namespace DataModel.GameData.GameSave
         
         public void Dispose()
         {
+            Save();
+        }
+
+        private void Save()
+        {
             SerializableAccountStorage storage = ToSerializableAccountStorage(_accountStorage);
             string filePath = _configuration.FilePath;
             _fileService.Save(storage, filePath);
