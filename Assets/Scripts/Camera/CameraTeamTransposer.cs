@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
-using CarSumo.Infrastructure.Services.TeamChangeService;
 using CarSumo.Teams;
+using CarSumo.Teams.TeamChanging;
 using Cinemachine;
 using Sirenix.OdinInspector;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
@@ -14,42 +15,24 @@ namespace CarSumo.Cameras
         [SerializeField] private IDictionary<Team, float> _teamCameraPositions;
 
         private ITeamDefiner _previousTeamDefiner;
-        private ITeamChangeService _teamChangeService;
+        private ITeamPresenter _teamPresenter;
         private CinemachineOrbitalTransposer _transposer;
 
         [Inject]
-        private void Construct(ITeamDefiner previousTeamDefiner, ITeamChangeService teamChangeService)
+        private void Construct(ITeamDefiner previousTeamDefiner, ITeamPresenter teamPresenter)
         {
             _previousTeamDefiner = previousTeamDefiner;
-            _teamChangeService = teamChangeService;
+            _teamPresenter = teamPresenter;
         }
 
         private void Awake()
         {
+            _teamPresenter.ActiveTeam.Subscribe(team => ChangeCameraPosition(team));
             _transposer = _camera.GetCinemachineComponent<CinemachineOrbitalTransposer>();
         }
-
-        private void OnEnable()
+        
+        private void ChangeCameraPosition(Team team, bool rememberPosition = true)
         {
-            _teamChangeService.TeamChanged += ChangeCameraPosition;
-
-            ChangeCameraPosition(false);
-        }
-
-        private void OnDisable()
-        {
-            _teamChangeService.TeamChanged -= ChangeCameraPosition;
-        }
-
-        private void ChangeCameraPosition()
-        {
-            ChangeCameraPosition(true);
-        }
-
-        private void ChangeCameraPosition(bool rememberPosition)
-        {
-            Team team = _teamChangeService.ActiveTeam;
-
             if (rememberPosition)
                 RememberCameraPosition(team);
 
