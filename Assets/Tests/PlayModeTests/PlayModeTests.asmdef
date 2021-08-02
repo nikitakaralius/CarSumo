@@ -4,10 +4,11 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "Scripts",
         "DOTween.Modules",
+        "BoundfoxStudios.FluentAssertions",
         "AdvancedAudioSystem",
-        "BoundfoxStudios.FluentAssertions"
+        "Vehicles",
+        "Teams"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
