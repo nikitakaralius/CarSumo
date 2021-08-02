@@ -38,7 +38,7 @@ namespace Services.SceneManagement
         {
             var asyncOperation = Addressables.LoadSceneAsync(sceneLoadData.Name, sceneLoadData.LoadSceneMode);
             asyncOperation.Completed += handle => _sceneInstances.Add(sceneLoadData.Name, handle.Result);
-            return asyncOperation;
+            return asyncOperation;            
         }
 
         AsyncOperationHandle<SceneInstance> IAsyncHandleSceneLoading.UnloadAsync(SceneLoadData sceneLoadData)

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace DefaultNamespace
+namespace Services.Instantiate
 {
     public interface IAsyncInstantiation
     {

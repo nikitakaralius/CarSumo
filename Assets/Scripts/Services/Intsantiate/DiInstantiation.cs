@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;
 
-namespace DefaultNamespace
+namespace Services.Instantiate
 {
     public class DiInstantiation : IAsyncInstantiation
     {
