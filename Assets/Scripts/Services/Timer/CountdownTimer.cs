@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Services.Timer
 {
-    public class CountdownTimer : MonoBehaviour, ITimer
+    public class CountdownTimer : MonoBehaviour, ITimer, ITimerOperations
     {
         private Coroutine _timerRoutine;
         

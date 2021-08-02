@@ -6,7 +6,5 @@ namespace Services.Timer
     {
         float SecondsLeft { get; }
         event Action Elapsed;
-        void Start(float secondsToElapse);
-        void Stop();
     }
 }
