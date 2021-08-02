@@ -1,5 +1,5 @@
 ﻿using System;
-using CarSumo.Data;
+using CarSumo.Structs;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
