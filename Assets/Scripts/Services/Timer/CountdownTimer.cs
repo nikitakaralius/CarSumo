@@ -4,9 +4,15 @@ using UnityEngine;
 
 namespace Services.Timer
 {
-    public class CountdownTimer : MonoBehaviour, ITimer, ITimerOperations
+    public class CountdownTimer : MonoBehaviour, ITimer, ITimerOperations, IConfiguredTimerOperations
     {
+        private readonly float _defaultSecondsToElapse;
         private Coroutine _timerRoutine;
+
+        public CountdownTimer(float defaultSecondsToElapse)
+        {
+            _defaultSecondsToElapse = defaultSecondsToElapse;
+        }
         
         public event Action Elapsed;
         
@@ -16,6 +22,11 @@ namespace Services.Timer
         {
             Stop();
             _timerRoutine = StartCoroutine(StartTimer(secondsToElapse));
+        }
+
+        public void Start()
+        {
+            Start(_defaultSecondsToElapse);
         }
 
         public void Stop()
