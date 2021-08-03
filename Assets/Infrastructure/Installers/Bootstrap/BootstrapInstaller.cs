@@ -1,5 +1,6 @@
 ﻿using Infrastructure.Installers.SubContainers;
 using Infrastructure.Settings;
+using Services.SceneManagement;
 using UnityEngine;
 using Zenject;
 
@@ -12,6 +13,7 @@ namespace Infrastructure.Installers.Bootstrap
         public override void InstallBindings()
         {
             BindProjectConfiguration();
+            BindSceneLoading();
             ProcessSubContainers();
         }
 
@@ -21,7 +23,15 @@ namespace Infrastructure.Installers.Bootstrap
             FileDataInstaller.Install(Container);
             SettingsInstaller.Install(Container);
             ResourcesInstaller.Install(Container);
-            ServicesInstaller.Install(Container);
+            StateMachineInstaller.Install(Container);
+        }
+
+        private void BindSceneLoading()
+        {
+            Container
+                .BindInterfacesAndSelfTo<AddressableSceneLoading>()
+                .AsSingle()
+                .NonLazy();
         }
 
         private void BindProjectConfiguration()
