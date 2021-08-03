@@ -1,4 +1,5 @@
 ﻿using DataModel.GameData.Resources;
+using DataModel.GameData.Resources.Binding;
 using Infrastructure.Initialization;
 using Zenject;
 
@@ -10,6 +11,15 @@ namespace Infrastructure.Installers.SubContainers
         {
             BindInitialResourcesProvider();
             BindResourcesStorageInitialization();
+            BindResourceStorageBinding();
+        }
+
+        private void BindResourceStorageBinding()
+        {
+            Container
+                .Bind<IResourceStorageBinding>()
+                .To<ResourceStorageBinding>()
+                .AsSingle();
         }
 
         private void BindResourcesStorageInitialization()

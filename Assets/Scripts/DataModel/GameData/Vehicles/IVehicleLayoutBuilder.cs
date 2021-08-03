@@ -3,7 +3,7 @@ using DataModel.Vehicles;
 
 namespace DataModel.GameData.Vehicles
 {
-    public interface IVehicleLayoutFactory
+    public interface IVehicleLayoutBuilder
     {
         IVehicleLayout Create(IEnumerable<VehicleId> vehicles);
     }

@@ -19,8 +19,9 @@ namespace Infrastructure.Installers.Bootstrap
 
         private void ProcessSubContainers()
         {
-            AccountsInstaller.Install(Container);
             FileDataInstaller.Install(Container);
+            VehiclesInstaller.Install(Container);
+            AccountsInstaller.Install(Container);
             SettingsInstaller.Install(Container);
             ResourcesInstaller.Install(Container);
             StateMachineInstaller.Install(Container);

@@ -18,7 +18,7 @@ namespace CarSumo.DataModel.Accounts
         {
             Name = "Unregistered";
             Icon = null;
-            VehicleLayout = null;
+            VehicleLayout = new VehicleId[0];
         }
     }
 }

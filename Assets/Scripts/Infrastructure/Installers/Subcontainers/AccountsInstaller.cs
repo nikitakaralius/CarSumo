@@ -1,5 +1,6 @@
 ﻿using CarSumo.DataModel.GameData.Accounts;
 using Infrastructure.Initialization;
+using Infrastructure.Installers.Factories;
 using Zenject;
 
 namespace Infrastructure.Installers.SubContainers
@@ -35,6 +36,7 @@ namespace Infrastructure.Installers.SubContainers
             Container
                 .Bind<IAsyncAccountBinding>()
                 .To<AddressableAccountBinding>()
+                .FromFactory<AddressableAccountBindingFactory>()
                 .AsSingle();
         }
     }

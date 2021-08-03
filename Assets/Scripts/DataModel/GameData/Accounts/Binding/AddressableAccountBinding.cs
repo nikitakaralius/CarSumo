@@ -10,10 +10,10 @@ namespace CarSumo.DataModel.GameData.Accounts
 {
     public class AddressableAccountBinding : IAsyncAccountBinding
     {
-        private readonly IVehicleLayoutFactory _layoutFactory;
+        private readonly IVehicleLayoutBuilder _layoutBuilder;
         private readonly string _defaultIconPath;
 
-        public AddressableAccountBinding(string defaultIconPath, IVehicleLayoutFactory layoutFactory)
+        public AddressableAccountBinding(string defaultIconPath, IVehicleLayoutBuilder layoutBuilder)
         {
             if (defaultIconPath is null)
             {
@@ -21,14 +21,14 @@ namespace CarSumo.DataModel.GameData.Accounts
             }
             
             _defaultIconPath = defaultIconPath;
-            _layoutFactory = layoutFactory;
+            _layoutBuilder = layoutBuilder;
         }
 
         public async Task<Account> ToAccountAsync(SerializableAccount account)
         {
             Sprite sprite = await LoadAccountIcon(account.Icon);
             Icon icon = new Icon(sprite, account.Icon);
-            IVehicleLayout vehicleLayout = _layoutFactory.Create(account.VehicleLayout);
+            IVehicleLayout vehicleLayout = _layoutBuilder.Create(account.VehicleLayout);
             return new Account(account.Name, icon, vehicleLayout);
         }
 
