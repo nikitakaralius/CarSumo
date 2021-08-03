@@ -26,7 +26,7 @@ namespace Infrastructure.Initialization
         {
             SerializableAudioSettings serializableSettings = await LoadSerializableAudioSettingsAsync() ?? EnsureCreated();
             GameAudioSettings audioSettings = InitializeAudioSettings(_configuration, serializableSettings);
-            
+
             BindAudioSettingsInterfaces(audioSettings);
             BindAudioSettingsSave();
         }
@@ -38,6 +38,8 @@ namespace Infrastructure.Initialization
                 .FromNew()
                 .AsSingle()
                 .NonLazy();
+
+            _container.Resolve<AudioSettingsSave>();
         }
 
         private void BindAudioSettingsInterfaces(GameAudioSettings audioSettings)

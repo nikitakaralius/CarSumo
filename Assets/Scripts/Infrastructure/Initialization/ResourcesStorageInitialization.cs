@@ -53,6 +53,8 @@ namespace Infrastructure.Initialization
                 .FromNew()
                 .AsSingle()
                 .NonLazy();
+
+            _container.Resolve<ResourcesSave>();
         }
 
         private void BindResourceStorageInterfaces(GameResourceStorage resourceStorage)

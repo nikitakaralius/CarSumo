@@ -54,6 +54,8 @@ namespace Infrastructure.Initialization
                 .FromNew()
                 .AsSingle()
                 .NonLazy();
+            
+            _container.Resolve<AccountStorageSave>();
         }
 
         private void BindStorageInterfaces(GameAccountStorage storage)
