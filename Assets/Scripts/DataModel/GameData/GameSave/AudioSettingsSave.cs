@@ -2,7 +2,6 @@
 using DataModel.FileData;
 using CarSumo.DataModel.Settings;
 using UniRx;
-using UnityEngine;
 
 namespace DataModel.GameData.GameSave
 {

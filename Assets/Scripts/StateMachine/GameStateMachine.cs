@@ -25,11 +25,6 @@ namespace CarSumo.StateMachine
             _activeState.Enter();
         }
 
-        public void Register(IState state)
-        {
-            Register(_states, state);
-        }
-
         private static Dictionary<Type, IState> GenerateStatesFromEnumerable(IEnumerable<IState> states)
         {
             var generatedStates = new Dictionary<Type, IState>();
