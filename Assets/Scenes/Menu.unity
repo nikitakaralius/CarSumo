@@ -11183,7 +11183,7 @@ GameObject:
   - component: {fileID: 8697877787288005632}
   - component: {fileID: 8697877787288005633}
   m_Layer: 5
-  m_Name: SelectedPlayerPanel
+  m_Name: SelectedAccont
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11232,31 +11232,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8697877787288005601}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3968380112225767020}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 941786099}
-        m_TargetAssemblyTypeName: AdvancedAudioSystem.Emitters.UISoundEmitter, AdvancedAudioSystem
-        m_MethodName: Play
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: dd85b050fd9244e40bdc9ecb2ca6a679, type: 2}
-          m_ObjectArgumentAssemblyTypeName: AdvancedAudioSystem.AudioCue, AdvancedAudioSystem
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &8697877787288005633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11266,11 +11242,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8697877787288005631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9797654978483981017c115db995e4, type: 3}
+  m_Script: {fileID: 11500000, guid: b76500978fe14e5fa84d7d288670966c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 8697877788163304863}
   _name: {fileID: 8697877788813594290}
-  _icon: {fileID: 8697877788163304863}
 --- !u!114 &8697877787692182192
 MonoBehaviour:
   m_ObjectHideFlags: 0
