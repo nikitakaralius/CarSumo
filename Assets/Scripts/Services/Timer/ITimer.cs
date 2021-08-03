@@ -1,10 +1,11 @@
 ﻿using System;
+using UniRx;
 
 namespace Services.Timer
 {
     public interface ITimer
     {
-        float SecondsLeft { get; }
+        IReadOnlyReactiveProperty<float> SecondsLeft { get; }
         event Action Elapsed;
     }
 }

@@ -27,8 +27,10 @@ namespace CarSumo.Cameras
 
         private void Awake()
         {
-            _teamPresenter.ActiveTeam.Subscribe(team => ChangeCameraPosition(team));
+            IReadOnlyReactiveProperty<Team> activeTeam = _teamPresenter.ActiveTeam;
+            activeTeam.Subscribe(team => ChangeCameraPosition(team));
             _transposer = _camera.GetCinemachineComponent<CinemachineOrbitalTransposer>();
+            ChangeCameraPosition(activeTeam.Value, false);
         }
         
         private void ChangeCameraPosition(Team team, bool rememberPosition = true)
