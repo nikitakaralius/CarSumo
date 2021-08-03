@@ -11232,7 +11232,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8697877787288005601}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3968380112225767020}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 941786101}
+        m_TargetAssemblyTypeName: AdvancedAudioSystem.MonoAudioCuePlayer, AdvancedAudioSystem
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &8697877787288005633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11245,7 +11269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76500978fe14e5fa84d7d288670966c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _image: {fileID: 8697877788163304863}
+  _icon: {fileID: 8697877788163304863}
   _name: {fileID: 8697877788813594290}
 --- !u!114 &8697877787692182192
 MonoBehaviour:
