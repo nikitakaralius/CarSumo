@@ -1,5 +1,4 @@
 ﻿using AdvancedAudioSystem;
-using AdvancedAudioSystem.Emitters;
 using CarSumo.DataModel.Settings;
 using UniRx;
 using UnityEngine;
@@ -33,7 +32,7 @@ namespace Menu.Settings
             _uiSoundPlayer = uiSoundPlayer;
         }
 
-        private void OnEnable()
+        private void Awake()
         {
             _image = GetComponent<Image>();
             Button button = GetComponent<Button>();
