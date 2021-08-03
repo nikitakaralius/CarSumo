@@ -1,6 +1,7 @@
 ﻿using System;
 using DataModel.FileData;
 using CarSumo.DataModel.Settings;
+using UniRx;
 
 namespace DataModel.GameData.GameSave
 {
@@ -15,6 +16,9 @@ namespace DataModel.GameData.GameSave
             _fileService = fileService;
             _configuration = configuration;
             _audioSettings = audioSettings;
+
+            audioSettings.MusicVolume.Subscribe(_ => Save());
+            audioSettings.SfxVolume.Subscribe(_ => Save());
         }
 
         public void Dispose()

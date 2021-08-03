@@ -127,7 +127,7 @@ namespace UniRx
     {
         int Count { get; }
         T this[int index] { get; }
-        IObservable<CollectionAddEvent<T>> ObserveAdd();
+        IObservable<CollectionAddEvent<T>> ObserveAdd(object unknown);
         IObservable<int> ObserveCountChanged(bool notifyCurrentCount = false);
         IObservable<CollectionMoveEvent<T>> ObserveMove();
         IObservable<CollectionRemoveEvent<T>> ObserveRemove();
@@ -247,7 +247,7 @@ namespace UniRx
 
         [NonSerialized]
         Subject<CollectionAddEvent<T>> collectionAdd = null;
-        public IObservable<CollectionAddEvent<T>> ObserveAdd()
+        public IObservable<CollectionAddEvent<T>> ObserveAdd(object unknown)
         {
             if (isDisposed) return Observable.Empty<CollectionAddEvent<T>>();
             return collectionAdd ?? (collectionAdd = new Subject<CollectionAddEvent<T>>());

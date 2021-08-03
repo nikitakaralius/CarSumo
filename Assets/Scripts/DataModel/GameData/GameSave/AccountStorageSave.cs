@@ -3,6 +3,7 @@ using System.Linq;
 using CarSumo.DataModel.Accounts;
 using CarSumo.DataModel.GameData.Accounts;
 using DataModel.FileData;
+using UniRx;
 
 namespace DataModel.GameData.GameSave
 {
@@ -22,6 +23,9 @@ namespace DataModel.GameData.GameSave
             _accountStorage = accountStorage;
             _configuration = configuration;
             _accountSerialization = accountSerialization;
+
+            accountStorage.ActiveAccount.Subscribe(_ => Save());
+            accountStorage.AllAccounts.ToObservable().Subscribe(_ => Save());
         }
         
         public void Dispose()
@@ -41,7 +45,7 @@ namespace DataModel.GameData.GameSave
             return new SerializableAccountStorage()
             {
                 ActiveAccount = _accountSerialization.SerializeFrom(storage.ActiveAccount.Value),
-                AllAccounts = storage.AllAccount.Select(player => _accountSerialization.SerializeFrom(player))
+                AllAccounts = storage.AllAccounts.Select(player => _accountSerialization.SerializeFrom(player))
             };
         }
     }

@@ -16,7 +16,7 @@ namespace DataModel.GameData.Accounts
             _allAccounts = new ReactiveCollection<Account>(allAccounts);
         }
 
-        public IReadOnlyReactiveCollection<Account> AllAccount => _allAccounts;
+        public IReadOnlyReactiveCollection<Account> AllAccounts => _allAccounts;
 
         public IReadOnlyReactiveProperty<Account> ActiveAccount => _activeAccount;
 
