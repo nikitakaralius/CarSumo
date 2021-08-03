@@ -1,4 +1,4 @@
-﻿using Infrastructure.Installers.Bootstrap.SubContainers;
+﻿using Infrastructure.Installers.SubContainers;
 using Infrastructure.Settings;
 using UnityEngine;
 using Zenject;
@@ -21,6 +21,7 @@ namespace Infrastructure.Installers.Bootstrap
             FileDataInstaller.Install(Container);
             SettingsInstaller.Install(Container);
             ResourcesInstaller.Install(Container);
+            ServicesInstaller.Install(Container);
         }
 
         private void BindProjectConfiguration()
