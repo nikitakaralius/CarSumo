@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using CarSumo.DataModel.Accounts;
 using CarSumo.DataModel.GameResources;
@@ -22,8 +24,8 @@ namespace Menu.Accounts
 
         [Inject]
         private void Construct(IAsyncInstantiation instantiation,
-                               IAccountStorage accountStorage,
-                               IResourceStorage resourceStorage)
+            IAccountStorage accountStorage,
+            IResourceStorage resourceStorage)
         {
             _instantiation = instantiation;
             _accountStorage = accountStorage;
@@ -33,7 +35,7 @@ namespace Menu.Accounts
         private async void Start()
         {
             await FillList();
-            
+
             _accountStorage.AllAccounts
                 .ObserveCountChanged()
                 .Subscribe(async _ => await FillList());
@@ -41,8 +43,21 @@ namespace Menu.Accounts
 
         private async Task FillList()
         {
+            ClearViews(_itemsRoot);
             await CreateAccountViews(_itemsRoot);
             await CreateBlankAccountViews(_itemsRoot);
+        }
+
+        private void ClearViews(Transform root)
+        {
+            IEnumerable<RectTransform> views = root
+                .GetComponentsInChildren<RectTransform>()
+                .Where(component => component != root);
+
+            foreach (RectTransform view in views)
+            {
+                Destroy(view.gameObject);
+            }
         }
 
         private async Task CreateAccountViews(Transform root)
@@ -54,7 +69,8 @@ namespace Menu.Accounts
 
             foreach (Account account in _accountStorage.AllAccounts)
             {
-                AccountListItem listItem = await _instantiation.InstantiateAsync<AccountListItem>(_accountViewPrefab, root);
+                AccountListItem listItem =
+                    await _instantiation.InstantiateAsync<AccountListItem>(_accountViewPrefab, root);
                 listItem.Initialize(account);
             }
         }
@@ -76,7 +92,7 @@ namespace Menu.Accounts
             {
                 throw new InvalidOperationException("Slots limits should be limited");
             }
-            
+
             return slotsLimit.Value.Value - accountStorage.AllAccounts.Count;
         }
 
@@ -88,7 +104,7 @@ namespace Menu.Accounts
             {
                 throw new InvalidOperationException("Slots limits should be limited");
             }
-            
+
             return slotsLimit.Value >= accountStorage.AllAccounts.Count;
         }
     }

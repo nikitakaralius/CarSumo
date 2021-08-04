@@ -1,4 +1,5 @@
-﻿using CarSumo.DataModel.Accounts;
+﻿using System;
+using CarSumo.DataModel.Accounts;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,7 @@ namespace Menu.Accounts
 
         private IAccountStorage _accountStorage;
         private IClientAccountOperations _accountOperations;
+        private IDisposable _subscription;
 
         [Inject]
         private void Construct(IAccountStorage accountStorage, IClientAccountOperations accountOperations)
@@ -28,7 +30,14 @@ namespace Menu.Accounts
             ChangeAccount(account);
             GetComponent<Button>().onClick.AddListener(() => SetActiveAccount(account));
 
-            _accountStorage.ActiveAccount.Subscribe(activeAccount => UpdateAccount(account, activeAccount));
+            _subscription = _accountStorage
+                            .ActiveAccount
+                            .Subscribe(activeAccount => UpdateAccount(account, activeAccount));
+        }
+
+        private void OnDestroy()
+        {
+            _subscription.Dispose();
         }
 
         private void UpdateAccount(Account currentAccount, Account activeAccount)

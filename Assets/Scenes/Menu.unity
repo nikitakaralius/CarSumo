@@ -696,17 +696,17 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
+  m_ContentType: 4
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 1
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 4
   m_RegexValue: 
   m_GlobalPointSize: 14
-  m_CharacterLimit: 10
+  m_CharacterLimit: 16
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -2150,7 +2150,6 @@ GameObject:
   - component: {fileID: 579093589}
   - component: {fileID: 579093588}
   - component: {fileID: 579093587}
-  - component: {fileID: 579093590}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -2294,18 +2293,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &579093590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579093585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf6feb4b2a2a438ab58ba2a06fc60389, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &625602278
 GameObject:
   m_ObjectHideFlags: 0

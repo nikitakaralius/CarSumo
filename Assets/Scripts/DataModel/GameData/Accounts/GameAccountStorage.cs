@@ -27,11 +27,13 @@ namespace DataModel.GameData.Accounts
 
         public bool TryAddAccount(Account account)
         {
-            if (_allAccounts.Any(account.Equals))
-            {
+            if (account.Name.Value == null)
                 return false;
-            }
-            
+            if (account.Name.Value.Length == 0)
+                return false;
+            if (_allAccounts.Any(account.Equals))
+                return false;
+
             _allAccounts.Add(account);
             return true;
         }
