@@ -1,9 +1,10 @@
 ﻿using CarSumo.Coroutines;
-using CarSumo.Infrastructure.Services.TeamChangeService;
-using CarSumo.Infrastructure.Services.TimerService;
 using CarSumo.Input;
+using CarSumo.Teams.TeamChanging;
 using CarSumo.Vehicles.Speedometers;
+using Services.Timer;
 using Sirenix.OdinInspector;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
@@ -12,10 +13,7 @@ namespace CarSumo.Vehicles.Selector
     public class VehicleSelector : SerializedMonoBehaviour
     {
         [SerializeField] private VehicleSelectorData _data;
-
-        [Header("Components")]
-        [SerializeField] private Camera _camera;
-
+        
         private VehiclePicker _vehiclePicker;
         private VehicleBoostConfiguration _boost;
         private SelectorMoveHandler _moveHandler;
@@ -23,17 +21,25 @@ namespace CarSumo.Vehicles.Selector
         private SelectorSpeedometer _speedometer;
 
         private Vehicle _selectedVehicle;
-        
+
+        private Camera _camera;
         private ISwipeScreen _screen;
-        private ITeamChangeService _teamChangeService;
-        private ITimerService _timerService;
+        private ITeamPresenter _teamPresenter;
+        private ITeamChange _teamChange;
+        private ITimerOperations _timer;
 
         [Inject]
-        private void Construct(ISwipeScreen swipeScreen, ITeamChangeService teamChangeService, ITimerService timerService)
+        private void Construct(Camera camera,
+                               ISwipeScreen swipeScreen,
+                               ITeamPresenter teamPresenter,
+                               ITeamChange teamChange,
+                               ITimerOperations timerOperations)
         {
+            _camera = camera;
             _screen = swipeScreen;
-            _teamChangeService = teamChangeService;
-            _timerService = timerService;
+            _teamPresenter = teamPresenter;
+            _teamChange = teamChange;
+            _timer = timerOperations;
         }
 
         public VehicleCollection LastValidVehicles { get; private set; }
@@ -45,9 +51,9 @@ namespace CarSumo.Vehicles.Selector
             LastValidVehicles = new VehicleCollection();
             _speedometer = new SelectorSpeedometer(_data);
 
-            _vehiclePicker = new VehiclePicker(_camera, LastValidVehicles, _speedometer, _teamChangeService);
+            _vehiclePicker = new VehiclePicker(_camera, LastValidVehicles, _speedometer, _teamPresenter);
             _boost = new VehicleBoostConfiguration(_camera, _speedometer);
-            _moveHandler = new SelectorMoveHandler(_teamChangeService, _speedometer, _data, executor, _timerService);
+            _moveHandler = new SelectorMoveHandler(_teamChange, _speedometer, _data, executor, _timer);
         }
 
         private void OnEnable()
@@ -56,7 +62,7 @@ namespace CarSumo.Vehicles.Selector
             _screen.Swiping += OnScreenSwiping;
             _screen.Released += OnScreenSwipeReleased;
 
-            _teamChangeService.TeamChanged += _boost.TurnOffActiveVehicle;
+            _teamPresenter.ActiveTeam.Subscribe(_ => _boost.TurnOffActiveVehicle());
         }
 
         private void OnDisable()
@@ -64,8 +70,6 @@ namespace CarSumo.Vehicles.Selector
             _screen.Begun -= OnScreenSwipeBegun;
             _screen.Swiping -= OnScreenSwiping;
             _screen.Released -= OnScreenSwipeReleased;
-            
-            _teamChangeService.TeamChanged -= _boost.TurnOffActiveVehicle;
         }
 
         private void OnScreenSwipeBegun(SwipeData swipeData)

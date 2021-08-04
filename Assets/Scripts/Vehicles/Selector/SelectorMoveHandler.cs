@@ -1,35 +1,34 @@
 ﻿using System.Collections;
 using CarSumo.Coroutines;
-using CarSumo.Infrastructure.Services.TeamChangeService;
-using CarSumo.Infrastructure.Services.TimerService;
 using CarSumo.Input;
+using CarSumo.Teams.TeamChanging;
 using CarSumo.Vehicles.Speedometers;
+using Services.Timer;
 using UnityEngine;
 
 namespace CarSumo.Vehicles.Selector
 {
     public class SelectorMoveHandler
     {
-        private readonly ITeamChangeService _changeService;
+        private readonly ITeamChange _teamChange;
         private readonly IVehicleSpeedometer _speedometer;
         private readonly VehicleSelectorData _data;
         private readonly CoroutineExecutor _executor;
-        private readonly ITimerService _timerService;
+        private readonly ITimerOperations _timer;
 
         private bool _isMovePerforming = false;
 
-        public SelectorMoveHandler(
-            ITeamChangeService changeService,
-            IVehicleSpeedometer speedometer,
-            VehicleSelectorData data,
-            CoroutineExecutor executor,
-            ITimerService timerService)
+        public SelectorMoveHandler(ITeamChange teamChange,
+                                   IVehicleSpeedometer speedometer,
+                                   VehicleSelectorData data,
+                                   CoroutineExecutor executor,
+                                   ITimerOperations timer)
         {
-            _changeService = changeService;
+            _teamChange = teamChange;
             _speedometer = speedometer;
             _data = data;
             _executor = executor;
-            _timerService = timerService;
+            _timer = timer;
         }
 
         public void HandleVehiclePush(Vehicle vehicle, SwipeData swipeData)
@@ -65,12 +64,12 @@ namespace CarSumo.Vehicles.Selector
         private IEnumerator PerformMove()
         {
             _isMovePerforming = true;
-            _timerService.Stop();
+            _timer.Stop();
 
             yield return new WaitForSeconds(_data.TimeForMove);
 
             _isMovePerforming = false;
-            _changeService.ChangeOnNext();
+            _teamChange.ChangeOnNextTeam();
         }
     }
 }

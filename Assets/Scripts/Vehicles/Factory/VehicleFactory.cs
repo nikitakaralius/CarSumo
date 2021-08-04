@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using CarSumo.Infrastructure.Services.Instantiate;
+using Services.Instantiate;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;
@@ -11,17 +11,17 @@ namespace CarSumo.Vehicles.Factory
     {
         [SerializeField] private AssetReferenceGameObject _vehiclePrefab;
 
-        private IAddressablesInstantiate _addressablesInstantiate;
+        private IAsyncInstantiation _instantiation;
 
         [Inject]
-        private void Construct(IAddressablesInstantiate addressablesInstantiate)
+        private void Construct(IAsyncInstantiation instantiation)
         {
-            _addressablesInstantiate = addressablesInstantiate;
+            _instantiation = instantiation;
         }
 
         public virtual async Task<Vehicle> Create(Transform parent = null)
         {
-            return await _addressablesInstantiate.InstantiateAsync<Vehicle>(_vehiclePrefab, parent);
+            return await _instantiation.InstantiateAsync<Vehicle>(_vehiclePrefab, parent);
         }
     }
 }
