@@ -27,7 +27,7 @@ namespace Infrastructure.Settings
         [SerializeField] private string _resourcesFileName;
         [SerializeField] private string _accountStorageFileName;
 
-        public string RootDirectoryName => _rootDirectoryName;
+        public string RootDirectoryName => Path.Combine(GetAssetsPath(), _rootDirectoryName);
 
         public AudioMixer AudioMixer => _audioMixer;
 
@@ -48,12 +48,17 @@ namespace Infrastructure.Settings
 
         private string GetFilePath(string fileName)
         {
-            string assets = Application.isEditor
-                ? Application.dataPath
-                : Application.persistentDataPath;
+            string assets = GetAssetsPath();
 
             string path = Path.Combine(assets, _rootDirectoryName, fileName) + Format;
             return path;
+        }
+
+        private static string GetAssetsPath()
+        {
+            return Application.isEditor
+                ? Application.dataPath
+                : Application.persistentDataPath;
         }
     }
 }
