@@ -7541,14 +7541,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5640912681978126473}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41fd669cd6094cfc9c8d87bc4f1e2cdd, type: 3}
+  m_Script: {fileID: 11500000, guid: 464b40e4656e474a9f24260db18a9b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteReference:
-    m_AssetGUID: 6a6d038084c3b41f2986f29ef2206570
-    m_SubObjectName: DefaultUserIcon
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &5640912681992320228
 MonoBehaviour:
   m_ObjectHideFlags: 0

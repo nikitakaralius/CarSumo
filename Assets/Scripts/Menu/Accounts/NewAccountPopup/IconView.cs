@@ -1,4 +1,5 @@
-﻿using CarSumo.DataModel.Accounts;
+﻿using AdvancedAudioSystem;
+using CarSumo.DataModel.Accounts;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
@@ -14,11 +15,13 @@ namespace Menu.Accounts
 
         private Image _image;
         private IAccountIconReceiver _accountReceiver;
+        private IAudioPlayer _audioPlayer;
 
         [Inject]
-        private void Construct(IAccountIconReceiver accountIconReceiver)
+        private void Construct(IAccountIconReceiver accountIconReceiver, IAudioPlayer player)
         {
             _accountReceiver = accountIconReceiver;
+            _audioPlayer = player;
         }
 
         private async void Awake()
@@ -26,10 +29,12 @@ namespace Menu.Accounts
             Sprite sprite = await _spriteReference.LoadAssetAsync<Sprite>().Task;
             
             _image = GetComponent<Image>();
+            Button button = GetComponent<Button>();
             
             Validate(sprite);
-            
-            GetComponent<Button>().onClick.AddListener(() => ReceiveIcon(sprite, _spriteReference));
+
+            button.onClick.AddListener(() => ReceiveIcon(sprite, _spriteReference));
+            button.onClick.AddListener(_audioPlayer.Play);
         }
 
         private void ReceiveIcon(Sprite sprite, AssetReferenceSprite reference)
