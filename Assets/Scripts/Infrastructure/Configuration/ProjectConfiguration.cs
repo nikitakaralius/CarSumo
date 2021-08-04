@@ -14,7 +14,6 @@ namespace Infrastructure.Settings
     {
         private const string Format = ".JSON";
 
-
         [Header("Audio Configuration")]
         [SerializeField] private AudioMixer _audioMixer;
         [SerializeField] private string _musicVolumeParameter;

@@ -21,12 +21,17 @@ namespace UI
         private void Start()
         {
             _timer.SecondsLeft
-                .Subscribe(time => SetTimeText((int)time));
+                .Subscribe(SetTimeText);
         }
 
-        private void SetTimeText(int time)
+        private void SetTimeText(float time)
         {
-            _time.text = $"{time}";
+            _time.text = $"{ProcessTimeValue(time)}";
+        }
+
+        private int ProcessTimeValue(float time)
+        {
+            return Mathf.RoundToInt(time);
         }
     }
 }
