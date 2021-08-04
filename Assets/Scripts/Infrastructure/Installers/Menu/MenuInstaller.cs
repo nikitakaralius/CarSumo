@@ -13,15 +13,7 @@ namespace Infrastructure.Installers.Menu
         public override void InstallBindings()
         {
             BindAudioPlayer();
-            BindNewAccountIconInterfaces();
             ProcessSubContainers();
-        }
-
-        private void BindNewAccountIconInterfaces()
-        {
-            Container
-                .BindInterfacesAndSelfTo<NewAccountIcon>()
-                .AsSingle();
         }
 
         private void BindAudioPlayer()
