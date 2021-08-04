@@ -2,7 +2,6 @@
 using AdvancedAudioSystem;
 using CarSumo.DataModel.Accounts;
 using DataModel.GameData.Vehicles;
-using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +9,7 @@ using Zenject;
 
 namespace Menu.Accounts
 {
-    public class NewAccountPopupView : SerializedMonoBehaviour
+    public class NewAccountPopupView : MonoBehaviour, IAccountPopup
     {
         [SerializeField] private Button _createButton;
         [SerializeField] private TMP_InputField _nameInputField;
@@ -47,7 +46,7 @@ namespace Menu.Accounts
             
             if (_storageOperations.TryAddAccount(account))
             {
-                HidePopup();
+                Hide();
                 _accountOperations.SetActive(account);
             }
             else
@@ -56,7 +55,12 @@ namespace Menu.Accounts
             }
         }
 
-        private void HidePopup()
+        public void Show()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public void Hide()
         {
             gameObject.SetActive(false);
         }
