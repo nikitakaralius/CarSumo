@@ -27,7 +27,7 @@ namespace DataModel.GameData.Accounts
 
         public bool TryAddAccount(Account account)
         {
-            if (_allAccounts.Any(other => other.Name == account.Name))
+            if (_allAccounts.Any(account.Equals))
             {
                 return false;
             }

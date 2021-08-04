@@ -21,8 +21,9 @@ namespace Menu.Accounts
         private IResourceStorage _resourceStorage;
 
         [Inject]
-        private void Construct(IAsyncInstantiation instantiation, IAccountStorage accountStorage,
-            IResourceStorage resourceStorage)
+        private void Construct(IAsyncInstantiation instantiation,
+                               IAccountStorage accountStorage,
+                               IResourceStorage resourceStorage)
         {
             _instantiation = instantiation;
             _accountStorage = accountStorage;
@@ -30,6 +31,15 @@ namespace Menu.Accounts
         }
 
         private async void Start()
+        {
+            await FillList();
+            
+            _accountStorage.AllAccounts
+                .ObserveCountChanged()
+                .Subscribe(async _ => await FillList());
+        }
+
+        private async Task FillList()
         {
             await CreateAccountViews(_itemsRoot);
             await CreateBlankAccountViews(_itemsRoot);
