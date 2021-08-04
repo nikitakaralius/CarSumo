@@ -9,18 +9,14 @@ namespace CarSumo.Teams.TeamChanging
         private readonly IConfiguredTimerOperations _timer;
         private readonly ReactiveProperty<Team> _activeTeam;
 
-        public TimedTeamChange(ITeamDefiner teamDefiner, IConfiguredTimerOperations timer)
+        public TimedTeamChange(Team initialTeam, ITeamDefiner teamDefiner, IConfiguredTimerOperations timer)
         {
             _teamDefiner = teamDefiner;
             _timer = timer;
+            _activeTeam = new ReactiveProperty<Team>(initialTeam);
         }
 
         public IReadOnlyReactiveProperty<Team> ActiveTeam => _activeTeam;
-
-        public void Initialize(Team initialTeam)
-        {
-            _activeTeam.Value = initialTeam;
-        }
 
         public void ChangeOnNextTeam()
         {

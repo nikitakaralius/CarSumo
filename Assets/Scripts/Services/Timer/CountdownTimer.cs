@@ -3,10 +3,11 @@ using System.Collections;
 using CarSumo.Coroutines;
 using UniRx;
 using UnityEngine;
+using Zenject;
 
 namespace Services.Timer
 {
-    public class CountdownTimer : ITimer, ITimerOperations, IConfiguredTimerOperations
+    public class CountdownTimer : ITimer, ITimerOperations, IConfiguredTimerOperations, IInitializable
     {
         private readonly float _defaultSecondsToElapse;
         private readonly CoroutineExecutor _coroutineExecutor;
@@ -27,6 +28,11 @@ namespace Services.Timer
         {
             Stop();
             _timerRoutine = _coroutineExecutor.StartCoroutine(StartTimer(secondsToElapse));
+        }
+
+        public void Initialize()
+        {
+            Start();
         }
 
         public void Start()

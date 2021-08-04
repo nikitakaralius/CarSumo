@@ -14,6 +14,8 @@ namespace CarSumo.Cameras
         [SerializeField] private CinemachineVirtualCamera _camera;
         [SerializeField] private IDictionary<Team, float> _teamCameraPositions;
 
+        private bool _rememberPosition = false;
+        
         private ITeamDefiner _previousTeamDefiner;
         private ITeamPresenter _teamPresenter;
         private CinemachineOrbitalTransposer _transposer;
@@ -25,15 +27,14 @@ namespace CarSumo.Cameras
             _teamPresenter = teamPresenter;
         }
 
-        private void Awake()
+        private void Start()
         {
-            IReadOnlyReactiveProperty<Team> activeTeam = _teamPresenter.ActiveTeam;
-            activeTeam.Subscribe(team => ChangeCameraPosition(team));
             _transposer = _camera.GetCinemachineComponent<CinemachineOrbitalTransposer>();
-            ChangeCameraPosition(activeTeam.Value, false);
+            _teamPresenter.ActiveTeam.Subscribe(team => ChangeCameraPosition(team, _rememberPosition));
+            _rememberPosition = true;
         }
         
-        private void ChangeCameraPosition(Team team, bool rememberPosition = true)
+        private void ChangeCameraPosition(Team team, bool rememberPosition)
         {
             if (rememberPosition)
                 RememberCameraPosition(team);
