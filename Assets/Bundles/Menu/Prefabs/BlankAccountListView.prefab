@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 21297695173526331}
   - component: {fileID: 4081159551790106970}
   - component: {fileID: 800492789513234852}
-  - component: {fileID: 3289871719551660399}
   m_Layer: 5
-  m_Name: BlankViewItem
+  m_Name: BlankAccountListView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,18 +134,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3289871719551660399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 565857126664389524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2e3d6b831f5478fbbccc92b36b62149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7036164730380762642
 GameObject:
   m_ObjectHideFlags: 0

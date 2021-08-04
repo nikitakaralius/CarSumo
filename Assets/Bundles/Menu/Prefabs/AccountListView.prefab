@@ -521,10 +521,9 @@ GameObject:
   - component: {fileID: 7056807117053710645}
   - component: {fileID: 6414896591698746196}
   - component: {fileID: 3583904303770198249}
-  - component: {fileID: 4952852405082197286}
-  - component: {fileID: 2895088320927272139}
+  - component: {fileID: 4915719877099135044}
   m_Layer: 5
-  m_Name: PlayerListView
+  m_Name: AccountListView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -647,7 +646,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4952852405082197286}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CarSumo.Menu.Models.PlayerViewItem, Scripts
         m_MethodName: MakeSelected
         m_Mode: 1
@@ -659,7 +658,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4952852405082197286
+--- !u!114 &4915719877099135044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -668,27 +667,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7385673058972946842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0bdd9f4de444e6a23019cf995ad1fd, type: 3}
+  m_Script: {fileID: 11500000, guid: c15f9b13faa84042b3ead564f67e581d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 2445645380803439531}
   _name: {fileID: 8435365899497334132}
-  _highlight: {fileID: 2895088320927272139}
---- !u!114 &2895088320927272139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7385673058972946842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fa990feb5644faabc3d7cf452ebcd13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _image: {fileID: 6414896591698746196}
-  _selected: {fileID: 21300000, guid: 840a54519d139421686eb868f94c36fc, type: 3}
-  _regular: {fileID: 21300000, guid: 1c2eec4f264c34c92b06e3c5ad8dc5ed, type: 3}
+  _icon: {fileID: 2445645380803439531}
+  _backgroundImage: {fileID: 6414896591698746196}
+  _activatedBackground: {fileID: 21300000, guid: 840a54519d139421686eb868f94c36fc, type: 3}
+  _normalBackground: {fileID: 21300000, guid: 1c2eec4f264c34c92b06e3c5ad8dc5ed, type: 3}
 --- !u!1001 &5978591740142656254
 PrefabInstance:
   m_ObjectHideFlags: 0
