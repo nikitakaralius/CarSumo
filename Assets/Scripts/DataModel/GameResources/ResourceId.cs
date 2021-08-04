@@ -4,6 +4,7 @@
     {
         Energy,
         Gold,
-        Gems
+        Gems,
+        Slots
     }
 }

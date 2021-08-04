@@ -12,6 +12,7 @@ namespace Menu.Accounts
     {
         [SerializeField] private AssetReferenceGameObject _accountViewPrefab;
         [SerializeField] private AssetReferenceGameObject _blankAccountViewPrefab;
+        [SerializeField] private Transform _itemsRoot;
 
         private IAsyncInstantiation _instantiation;
         private IAccountStorage _accountStorage;
@@ -23,11 +24,11 @@ namespace Menu.Accounts
             _accountStorage = accountStorage;
         }
 
-        private async void OnEnable()
+        private async void Start()
         {
-               
+                      
         }
-
+        
         private IEnumerable<Account> GetAccountsWithoutActive(IEnumerable<Account> allAccounts, Account activeAccount)
         {
             return allAccounts.Where(account => account.Name != activeAccount.Name);
