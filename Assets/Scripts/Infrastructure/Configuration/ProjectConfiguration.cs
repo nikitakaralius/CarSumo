@@ -15,7 +15,6 @@ namespace Infrastructure.Settings
         private const string Format = ".JSON";
 
         [Header("Audio Configuration")]
-        [SerializeField] private AudioMixer _audioMixer;
         [SerializeField] private string _musicVolumeParameter;
         [SerializeField] private string _sfxVolumeParameter;
 
@@ -27,9 +26,7 @@ namespace Infrastructure.Settings
         [SerializeField] private string _accountStorageFileName;
 
         public string RootDirectoryName => Path.Combine(GetAssetsPath(), _rootDirectoryName);
-
-        public AudioMixer AudioMixer => _audioMixer;
-
+        
         public string MusicVolumeParameter => _musicVolumeParameter;
 
         public string SfxVolumeParameter => _sfxVolumeParameter;
