@@ -1,5 +1,5 @@
 ﻿using CarSumo.Coroutines;
-using CarSumo.Data;
+using CarSumo.Structs;
 using CarSumo.Teams;
 using CarSumo.Vehicles.Engine;
 using CarSumo.Vehicles.Rotation;
@@ -29,7 +29,7 @@ namespace CarSumo.Vehicles
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        public Vehicle Init(Team team, WorldPlacement placement, IVehicleUpgrader upgrader, IVehicleDestroyer destroyer)
+        public void Init(Team team, WorldPlacement placement, IVehicleUpgrader upgrader, IVehicleDestroyer destroyer)
         {
             _statsProvider = _typeStats;
             _statsProvider = new VehicleTeamStats(_statsProvider, team);
@@ -45,8 +45,6 @@ namespace CarSumo.Vehicles
 
             _upgrader = upgrader;
             _destroyer = destroyer;
-
-            return this;
         }
 
         public VehicleStats GetStats()

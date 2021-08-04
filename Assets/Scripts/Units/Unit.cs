@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using CarSumo.Data;
+using CarSumo.Structs;
 using CarSumo.Teams;
 using CarSumo.Vehicles;
 using CarSumo.Vehicles.Factory;

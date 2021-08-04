@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
-using CarSumo.Infrastructure.Services.TeamChangeService;
 using CarSumo.Teams;
+using CarSumo.Teams.TeamChanging;
 using Cinemachine;
 using Sirenix.OdinInspector;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
@@ -13,43 +14,28 @@ namespace CarSumo.Cameras
         [SerializeField] private CinemachineVirtualCamera _camera;
         [SerializeField] private IDictionary<Team, float> _teamCameraPositions;
 
+        private bool _rememberPosition = false;
+        
         private ITeamDefiner _previousTeamDefiner;
-        private ITeamChangeService _teamChangeService;
+        private ITeamPresenter _teamPresenter;
         private CinemachineOrbitalTransposer _transposer;
 
         [Inject]
-        private void Construct(ITeamDefiner previousTeamDefiner, ITeamChangeService teamChangeService)
+        private void Construct(ITeamDefiner previousTeamDefiner, ITeamPresenter teamPresenter)
         {
             _previousTeamDefiner = previousTeamDefiner;
-            _teamChangeService = teamChangeService;
+            _teamPresenter = teamPresenter;
         }
 
-        private void Awake()
+        private void Start()
         {
             _transposer = _camera.GetCinemachineComponent<CinemachineOrbitalTransposer>();
+            _teamPresenter.ActiveTeam.Subscribe(team => ChangeCameraPosition(team, _rememberPosition));
+            _rememberPosition = true;
         }
-
-        private void OnEnable()
+        
+        private void ChangeCameraPosition(Team team, bool rememberPosition)
         {
-            _teamChangeService.TeamChanged += ChangeCameraPosition;
-
-            ChangeCameraPosition(false);
-        }
-
-        private void OnDisable()
-        {
-            _teamChangeService.TeamChanged -= ChangeCameraPosition;
-        }
-
-        private void ChangeCameraPosition()
-        {
-            ChangeCameraPosition(true);
-        }
-
-        private void ChangeCameraPosition(bool rememberPosition)
-        {
-            Team team = _teamChangeService.ActiveTeam;
-
             if (rememberPosition)
                 RememberCameraPosition(team);
 

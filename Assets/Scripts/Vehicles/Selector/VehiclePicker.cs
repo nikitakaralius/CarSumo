@@ -1,6 +1,6 @@
 ﻿using CarSumo.Extensions;
-using CarSumo.Infrastructure.Services.TeamChangeService;
 using CarSumo.Input;
+using CarSumo.Teams.TeamChanging;
 using CarSumo.Vehicles.Speedometers;
 using UnityEngine;
 
@@ -11,18 +11,17 @@ namespace CarSumo.Vehicles.Selector
         private readonly Camera _camera;
         private readonly VehicleCollection _lastValidVehicles;
         private readonly IVehicleSpeedometer _speedometer;
-        private readonly ITeamChangeService _changeService;
+        private readonly ITeamPresenter _teamPresenter;
 
-        public VehiclePicker(
-            Camera camera,
-            VehicleCollection lastValidVehicles,
-            IVehicleSpeedometer speedometer,
-            ITeamChangeService changeService)
+        public VehiclePicker(Camera camera,
+                             VehicleCollection lastValidVehicles,
+                             IVehicleSpeedometer speedometer,
+                             ITeamPresenter teamPresenter)
         {
             _camera = camera;
             _lastValidVehicles = lastValidVehicles;
             _speedometer = speedometer;
-            _changeService = changeService;
+            _teamPresenter = teamPresenter;
         }
 
         public Vehicle GetVehicleBySwipe(SwipeData swipeData)
@@ -50,7 +49,7 @@ namespace CarSumo.Vehicles.Selector
 
         private bool CanPickVehicle(Vehicle vehicle)
         {
-            return vehicle.GetStats().Team == _changeService.ActiveTeam;
+            return vehicle.GetStats().Team == _teamPresenter.ActiveTeam.Value;
         }
     }
 }

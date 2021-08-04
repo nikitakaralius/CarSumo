@@ -17,6 +17,7 @@ filters = {
 }
 scopes = {
 	"last_search.AB59B443" = "czche"
+	"last_search.000006DE" = ""
 }
 providers = {
 	asset = {
