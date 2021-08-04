@@ -5,6 +5,6 @@
         Energy,
         Gold,
         Gems,
-        Slots
+        AccountSlots
     }
 }

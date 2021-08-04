@@ -6011,7 +6011,7 @@ MonoBehaviour:
   _selectedIcon: {fileID: 5640912681978126476}
   _nameField: {fileID: 104002267}
   _newPlayerWindow: {fileID: 5640912683093926629}
-  _hierarchy: {fileID: 8507199831912767617}
+  _hierarchy: {fileID: 0}
 --- !u!1 &1770320329
 GameObject:
   m_ObjectHideFlags: 0
@@ -10882,7 +10882,7 @@ GameObject:
   - component: {fileID: 5250969689586417387}
   - component: {fileID: 8507199831912767617}
   m_Layer: 5
-  m_Name: PlayersScrollRect
+  m_Name: AccountsListView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10897,19 +10897,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8507199831912767616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050a78ba91d64af5b87b70040d4d910a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1610e110aecc410689a87567c795b0fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hierarchyRoot: {fileID: 5461614469430063031}
-  _newPlayerWindow: {fileID: 5640912683093926629}
-  _playerViewItemPrefab:
+  _accountViewPrefab:
     m_AssetGUID: 1047262389c9d0248885ae37054f2b36
     m_SubObjectName: 
     m_SubObjectType: 
-  _blankViewItemPrefab:
+  _blankAccountViewPrefab:
     m_AssetGUID: dda430833a867114e846fe5d20e2b70e
     m_SubObjectName: 
     m_SubObjectType: 
+  _itemsRoot: {fileID: 5461614469430063031}
 --- !u!114 &8520660984483544439
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -33,16 +33,18 @@ namespace Menu.Accounts
 
         private void UpdateAccount(Account currentAccount, Account activeAccount)
         {
-            if (currentAccount.Equals(activeAccount))
-                return;
-
-            _backgroundImage.sprite = _normalBackground;
+            ConfigureBackground(currentAccount.Equals(activeAccount));
         }
 
         private void SetActiveAccount(Account account)
         {
             _accountOperations.SetActive(account);
-            _backgroundImage.sprite = _activatedBackground;
+            ConfigureBackground(accountActive: true);
+        }
+
+        private void ConfigureBackground(bool accountActive)
+        {
+            _backgroundImage.sprite = accountActive ? _activatedBackground : _normalBackground;
         }
     }
 }
