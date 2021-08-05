@@ -3511,6 +3511,7 @@ GameObject:
   - component: {fileID: 2487460255543675564}
   - component: {fileID: 2487460255543675565}
   - component: {fileID: 2487460255543675556}
+  - component: {fileID: 2487460255543675557}
   m_Layer: 5
   m_Name: Text_Score_Red
   m_TagString: Untagged
@@ -3530,9 +3531,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7fdcee2bb042e29b86ad33ce954e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 2487460255543675557}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _scoreAnimation
+      Entry: 10
+      Data: 0
   _team: 1
   _highlightedColor: {r: 0.8196079, g: 0.18039216, b: 0.2509804, a: 1}
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &2487460255543675557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487460255543675555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f58fce9c6b4d89ae0b76afdc8d8e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    From: {x: 1, y: 1, z: 1}
+    To: {x: 1.2, y: 1.2, z: 1.2}
+    Duration: 0.7
+    Ease: 28
+  _rememberInitialScale: 1
 --- !u!222 &2487460255543675564
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3784,6 +3816,7 @@ GameObject:
   - component: {fileID: 2487460256047068809}
   - component: {fileID: 2487460256047068814}
   - component: {fileID: 2487460256047068813}
+  - component: {fileID: 2487460256047068816}
   m_Layer: 5
   m_Name: Text_Score_First
   m_TagString: Untagged
@@ -3803,6 +3836,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7fdcee2bb042e29b86ad33ce954e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 2487460256047068816}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _scoreAnimation
+      Entry: 10
+      Data: 0
   _team: 0
   _highlightedColor: {r: 0.07450981, g: 0.79215693, b: 1, a: 1}
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -3914,6 +3960,24 @@ RectTransform:
   m_AnchoredPosition: {x: -162, y: 9.099976}
   m_SizeDelta: {x: 90.89264, y: 81.49614}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2487460256047068816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487460256047068812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f58fce9c6b4d89ae0b76afdc8d8e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    From: {x: 1, y: 1, z: 1}
+    To: {x: 1.2, y: 1.2, z: 1.2}
+    Duration: 0.7
+    Ease: 28
+  _rememberInitialScale: 1
 --- !u!114 &6599900779169531200
 MonoBehaviour:
   m_ObjectHideFlags: 0
