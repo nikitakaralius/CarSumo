@@ -970,9 +970,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Name
-
-'
+  m_text: Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
   m_sharedMaterial: {fileID: 7374927986402738804, guid: c1482dbce654844b9ba1c753cbea5d80, type: 2}
@@ -1003,8 +1001,8 @@ MonoBehaviour:
   m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMin: 50
+  m_fontSizeMax: 64
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -3512,6 +3510,7 @@ GameObject:
   - component: {fileID: 2487460255543675554}
   - component: {fileID: 2487460255543675564}
   - component: {fileID: 2487460255543675565}
+  - component: {fileID: 2487460255543675556}
   m_Layer: 5
   m_Name: Text_Score_Red
   m_TagString: Untagged
@@ -3519,6 +3518,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2487460255543675556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487460255543675555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7fdcee2bb042e29b86ad33ce954e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _team: 1
+  _highlightedColor: {r: 0.8196079, g: 0.18039216, b: 0.2509804, a: 1}
+  _normalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!222 &2487460255543675564
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3556,8 +3570,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4282396369
+  m_fontColor: {r: 0.8196079, g: 0.18039216, b: 0.2509804, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3769,13 +3783,29 @@ GameObject:
   - component: {fileID: 2487460256047068815}
   - component: {fileID: 2487460256047068809}
   - component: {fileID: 2487460256047068814}
+  - component: {fileID: 2487460256047068813}
   m_Layer: 5
-  m_Name: Text_Score_Blue
+  m_Name: Text_Score_First
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2487460256047068813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487460256047068812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7fdcee2bb042e29b86ad33ce954e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _team: 0
+  _highlightedColor: {r: 0.07450981, g: 0.79215693, b: 1, a: 1}
+  _normalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2487460256047068814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3805,8 +3835,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282461905
-  m_fontColor: {r: 0.81960785, g: 0.18039216, b: 0.25490198, a: 1}
+    rgba: 4294953491
+  m_fontColor: {r: 0.07450981, g: 0.79215693, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
