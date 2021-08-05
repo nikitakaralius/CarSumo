@@ -1,4 +1,5 @@
-﻿using CarSumo.DataModel.Accounts;
+﻿using System;
+using CarSumo.DataModel.Accounts;
 using UniRx;
 using Zenject;
 
@@ -7,6 +8,7 @@ namespace Menu.Accounts
     public class ActiveAccountView : AccountView
     {
         private IAccountStorage _accountStorage;
+        private IDisposable _subscription;
 
         [Inject]
         private void Construct(IAccountStorage accountStorage)
@@ -16,7 +18,12 @@ namespace Menu.Accounts
 
         private void Awake()
         {
-            _accountStorage.ActiveAccount.Subscribe(ChangeAccount);
+            _subscription = _accountStorage.ActiveAccount.Subscribe(ChangeAccount);
+        }
+
+        private void OnDestroy()
+        {
+            _subscription.Dispose();   
         }
     }
 }

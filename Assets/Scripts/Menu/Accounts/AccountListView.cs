@@ -21,6 +21,7 @@ namespace Menu.Accounts
         private IAsyncInstantiation _instantiation;
         private IAccountStorage _accountStorage;
         private IResourceStorage _resourceStorage;
+        private IDisposable _subscription;
 
         [Inject]
         private void Construct(IAsyncInstantiation instantiation,
@@ -36,9 +37,14 @@ namespace Menu.Accounts
         {
             await FillList();
 
-            _accountStorage.AllAccounts
+            _subscription = _accountStorage.AllAccounts
                 .ObserveCountChanged()
                 .Subscribe(async _ => await FillList());
+        }
+
+        private void OnDestroy()
+        {
+            _subscription.Dispose();
         }
 
         private async Task FillList()

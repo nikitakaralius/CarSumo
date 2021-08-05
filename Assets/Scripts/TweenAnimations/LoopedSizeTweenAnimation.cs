@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using UnityEngine;
 
 namespace TweenAnimations
@@ -14,6 +15,11 @@ namespace TweenAnimations
         {
             if (_rememberInitialScale)
                 _data.From = transform.localScale;
+        }
+
+        private void OnDestroy()
+        {
+            Stop();
         }
 
         public void Play()
