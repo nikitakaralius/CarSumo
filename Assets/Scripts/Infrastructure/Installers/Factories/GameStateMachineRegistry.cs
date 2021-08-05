@@ -25,7 +25,8 @@ namespace Infrastructure.Installers.Factories
             return new IState[]
             {
                 new BootstrapState(_sceneLoading),
-                new GameEntryState(_sceneLoading)
+                new GameEntryState(_sceneLoading),
+                new PauseState()
             };
         }
     }
