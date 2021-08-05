@@ -1,4 +1,5 @@
-﻿using CarSumo.StateMachine;
+﻿using AdvancedAudioSystem;
+using CarSumo.StateMachine;
 using CarSumo.StateMachine.States;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,18 +11,26 @@ namespace UI.Pause
     public class ExitButton : MonoBehaviour
     {
         private GameStateMachine _stateMachine;
+        private IAudioPlayer _audioPlayer;
 
         [Inject]
-        private void Construct(GameStateMachine stateMachine)
+        private void Construct(GameStateMachine stateMachine, IAudioPlayer audioPlayer)
         {
             _stateMachine = stateMachine;
+            _audioPlayer = audioPlayer;
         }
 
         private void Start()
         {
             GetComponent<Button>()
                 .onClick
-                .AddListener(_stateMachine.Enter<MenuEntryState>);
+                .AddListener(EnterMenu);
+        }
+
+        private void EnterMenu()
+        {
+            _audioPlayer.Play();
+            _stateMachine.Enter<MenuEntryState>();
         }
     }
 }
