@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 
 namespace Services.SceneManagement
 {
@@ -17,10 +18,13 @@ namespace Services.SceneManagement
 
         async Task IAsyncSceneLoading.LoadAsync(SceneLoadData sceneLoadData)
         {
+            if (sceneLoadData.LoadSceneMode == LoadSceneMode.Single)
+                _sceneInstances.Clear();
+
             var asyncOperation = Addressables.LoadSceneAsync(sceneLoadData.Name, sceneLoadData.LoadSceneMode);
-            
+
             await asyncOperation.Task;
-            
+
             _sceneInstances.Add(sceneLoadData.Name, asyncOperation.Result);
         }
 
@@ -28,17 +32,20 @@ namespace Services.SceneManagement
         {
             SceneInstance sceneToUnload = _sceneInstances[sceneLoadData.Name];
             var asyncOperation = Addressables.UnloadSceneAsync(sceneToUnload);
-            
+
             await asyncOperation.Task;
-            
+
             _sceneInstances.Remove(sceneLoadData.Name);
         }
 
         AsyncOperationHandle<SceneInstance> IAsyncHandleSceneLoading.LoadAsync(SceneLoadData sceneLoadData)
         {
+            if (sceneLoadData.LoadSceneMode == LoadSceneMode.Single)
+                _sceneInstances.Clear();
+
             var asyncOperation = Addressables.LoadSceneAsync(sceneLoadData.Name, sceneLoadData.LoadSceneMode);
             asyncOperation.Completed += handle => _sceneInstances.Add(sceneLoadData.Name, handle.Result);
-            return asyncOperation;            
+            return asyncOperation;
         }
 
         AsyncOperationHandle<SceneInstance> IAsyncHandleSceneLoading.UnloadAsync(SceneLoadData sceneLoadData)

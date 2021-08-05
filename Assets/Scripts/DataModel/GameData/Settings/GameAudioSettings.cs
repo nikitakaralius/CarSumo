@@ -27,6 +27,9 @@ namespace DataModel.GameData.Settings
 
             _musicEnabled = new ReactiveProperty<bool>(musicVolume != Disabled);
             _sfxEnabled = new ReactiveProperty<bool>(sfxVolume != Disabled);
+            
+            SetActiveMusic(_musicEnabled.Value);
+            SetActiveSfxVolume(_sfxEnabled.Value);
         }
 
         public IReadOnlyReactiveProperty<float> MusicVolume => _musicVolume;

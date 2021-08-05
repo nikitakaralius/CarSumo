@@ -17,16 +17,25 @@ namespace Infrastructure.Installers.Factories
 
         public GameStateMachine Create()
         {
-            return new GameStateMachine(RegisterStates());
+            GameStateMachine stateMachine = new GameStateMachine(RegisterResolvedStates());
+            RegisterStateMachineDependentStates(stateMachine);
+            return stateMachine;
         }
 
-        private IEnumerable<IState> RegisterStates()
+        private IEnumerable<IState> RegisterResolvedStates()
         {
             return new IState[]
             {
-                new BootstrapState(_sceneLoading),
-                new GameEntryState(_sceneLoading)
+                new MenuEntryState(_sceneLoading),
+                new GameState(),
+                new PauseState()
             };
+        }
+
+        private void RegisterStateMachineDependentStates(GameStateMachine stateMachine)
+        {
+            stateMachine.RegisterState(new BootstrapState(stateMachine));
+            stateMachine.RegisterState(new GameEntryState(_sceneLoading, stateMachine));
         }
     }
 }

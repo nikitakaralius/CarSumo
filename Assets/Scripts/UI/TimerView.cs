@@ -1,4 +1,5 @@
-﻿using Services.Timer;
+﻿using System;
+using Services.Timer;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace UI
         [SerializeField] private TMP_Text _time;
         
         private ITimer _timer;
+        private IDisposable _subscription;
 
         [Inject]
         private void Construct(ITimer timer)
@@ -20,8 +22,13 @@ namespace UI
 
         private void Start()
         {
-            _timer.SecondsLeft
+            _subscription = _timer.SecondsLeft
                 .Subscribe(SetTimeText);
+        }
+
+        private void OnDestroy()
+        {
+            _subscription.Dispose();   
         }
 
         private void SetTimeText(float time)

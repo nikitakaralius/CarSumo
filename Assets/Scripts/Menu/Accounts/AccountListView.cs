@@ -21,6 +21,7 @@ namespace Menu.Accounts
         private IAsyncInstantiation _instantiation;
         private IAccountStorage _accountStorage;
         private IResourceStorage _resourceStorage;
+        private IDisposable _subscription;
 
         [Inject]
         private void Construct(IAsyncInstantiation instantiation,
@@ -32,13 +33,18 @@ namespace Menu.Accounts
             _resourceStorage = resourceStorage;
         }
 
-        private async void Start()
+        private async void Awake()
         {
             await FillList();
 
-            _accountStorage.AllAccounts
+            _subscription = _accountStorage.AllAccounts
                 .ObserveCountChanged()
                 .Subscribe(async _ => await FillList());
+        }
+
+        private void OnDestroy()
+        {
+            _subscription.Dispose();
         }
 
         private async Task FillList()
@@ -52,7 +58,7 @@ namespace Menu.Accounts
         {
             IEnumerable<RectTransform> views = root
                 .GetComponentsInChildren<RectTransform>()
-                .Where(component => component != root);
+                .Where(component => ReferenceEquals(component, root) == false);
 
             foreach (RectTransform view in views)
             {
@@ -90,7 +96,7 @@ namespace Menu.Accounts
 
             if (slotsLimit.HasValue == false)
             {
-                throw new InvalidOperationException("Slots limits should be limited");
+                throw new InvalidOperationException("Slots limit must be determined");
             }
 
             return slotsLimit.Value.Value - accountStorage.AllAccounts.Count;
@@ -102,7 +108,7 @@ namespace Menu.Accounts
 
             if (slotsLimit.HasValue == false)
             {
-                throw new InvalidOperationException("Slots limits should be limited");
+                throw new InvalidOperationException("Slots limit must be determined");
             }
 
             return slotsLimit.Value >= accountStorage.AllAccounts.Count;

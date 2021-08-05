@@ -1,4 +1,5 @@
-﻿using AdvancedAudioSystem;
+﻿using System;
+using AdvancedAudioSystem;
 using CarSumo.DataModel.Settings;
 using UniRx;
 using UnityEngine;
@@ -20,6 +21,7 @@ namespace Menu.Settings
         protected IAudioSettingsStatus AudioStatus { get; private set; }
 
         private IAudioPlayer _uiSoundPlayer;
+        private IDisposable _subscription;
         private Image _image;
 
         [Inject]
@@ -39,7 +41,12 @@ namespace Menu.Settings
             
             button.onClick.AddListener(OnButtonClicked);
             button.onClick.AddListener(PlaySound);
-            Enabled.Subscribe(ChangeImage);
+            _subscription = Enabled.Subscribe(ChangeImage);
+        }
+
+        private void OnDestroy()
+        {
+            _subscription.Dispose();
         }
 
         protected abstract void OnButtonClicked();

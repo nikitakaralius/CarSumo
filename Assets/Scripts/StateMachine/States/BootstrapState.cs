@@ -1,22 +1,17 @@
-﻿using Services.SceneManagement;
-using UnityEngine.SceneManagement;
-
-namespace CarSumo.StateMachine.States
+﻿namespace CarSumo.StateMachine.States
 {
     public class BootstrapState : IState
     {
-        private readonly IAsyncSceneLoading _sceneLoading;
+        private readonly GameStateMachine _stateMachine;
 
-        public BootstrapState(IAsyncSceneLoading sceneLoading)
+        public BootstrapState(GameStateMachine stateMachine)
         {
-            _sceneLoading = sceneLoading;
+            _stateMachine = stateMachine;
         }
-
-        private SceneLoadData Menu => new SceneLoadData("Menu", LoadSceneMode.Single);
-
-        public async void Enter()
+        
+        public void Enter()
         {
-            await _sceneLoading.LoadAsync(Menu);
+            _stateMachine.Enter<MenuEntryState>();
         }
 
         public void Exit()
