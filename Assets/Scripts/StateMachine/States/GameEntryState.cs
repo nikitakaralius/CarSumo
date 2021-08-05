@@ -20,7 +20,8 @@ namespace CarSumo.StateMachine.States
         
         public async void Enter()
         {
-            await Task.WhenAll(_sceneLoading.LoadAsync(Game), _sceneLoading.LoadAsync(Ui));
+            await _sceneLoading.LoadAsync(Game);
+            await _sceneLoading.LoadAsync(Ui);
             _stateMachine.Enter<GameState>();
         }
 

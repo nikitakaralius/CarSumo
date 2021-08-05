@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using CarSumo.DataModel.GameResources;
 using TMPro;
 using UniRx;
@@ -14,6 +16,7 @@ namespace Menu.Resources
         [SerializeField] private TMP_Text _text;
 
         private IResourceStorage _resourceStorage;
+        private IEnumerable<IDisposable> _subscriptions; 
 
         [Inject]
         private void Construct(IResourceStorage resourceStorage)
@@ -23,13 +26,23 @@ namespace Menu.Resources
 
         private void OnEnable()
         {
-            _resourceStorage
+            IDisposable amountSubscription = _resourceStorage
                 .GetResourceAmount(_resource)
                 .Subscribe(UpdateResourceAmount);
 
-            _resourceStorage
+            IDisposable limitSubscription =_resourceStorage
                 .GetResourceLimit(_resource)
                 .Subscribe(UpdateResourceLimit);
+
+            _subscriptions = new[] {amountSubscription, limitSubscription};
+        }
+
+        private void OnDestroy()
+        {
+            foreach (IDisposable subscription in _subscriptions)
+            {
+                subscription.Dispose();
+            }
         }
 
         private void UpdateResourceAmount(int amount)

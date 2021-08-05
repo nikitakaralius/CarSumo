@@ -1,4 +1,5 @@
-﻿using CarSumo.Teams;
+﻿using System;
+using CarSumo.Teams;
 using CarSumo.Teams.TeamChanging;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -19,6 +20,7 @@ namespace UI.Accounts
 
         private TMP_Text _score;
         private ITeamPresenter _teamPresenter;
+        private IDisposable _subscription;
 
         [Inject]
         private void Construct(ITeamPresenter teamPresenter)
@@ -29,7 +31,12 @@ namespace UI.Accounts
         private void Start()
         {
             _score = GetComponent<TMP_Text>();
-            _teamPresenter.ActiveTeam.Subscribe(ChangeScoreColor);
+            _subscription = _teamPresenter.ActiveTeam.Subscribe(ChangeScoreColor);
+        }
+
+        private void OnDestroy()
+        {
+            _subscription.Dispose();
         }
 
         private void ChangeScoreColor(Team activeTeam)
