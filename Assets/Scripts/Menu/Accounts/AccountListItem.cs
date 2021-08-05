@@ -1,4 +1,5 @@
 ﻿using System;
+using AdvancedAudioSystem;
 using CarSumo.DataModel.Accounts;
 using UniRx;
 using UnityEngine;
@@ -16,19 +17,23 @@ namespace Menu.Accounts
 
         private IAccountStorage _accountStorage;
         private IClientAccountOperations _accountOperations;
+        private IAudioPlayer _audioPlayer;
         private IDisposable _subscription;
 
         [Inject]
-        private void Construct(IAccountStorage accountStorage, IClientAccountOperations accountOperations)
+        private void Construct(IAccountStorage accountStorage, IClientAccountOperations accountOperations, IAudioPlayer audioPlayer)
         {
             _accountStorage = accountStorage;
             _accountOperations = accountOperations;
+            _audioPlayer = audioPlayer;
         }
 
         public void Initialize(Account account)
         {
             ChangeAccount(account);
-            GetComponent<Button>().onClick.AddListener(() => SetActiveAccount(account));
+            Button button = GetComponent<Button>();
+            button.onClick.AddListener(() => SetActiveAccount(account));
+            button.onClick.AddListener(_audioPlayer.Play);
 
             _subscription = _accountStorage
                             .ActiveAccount

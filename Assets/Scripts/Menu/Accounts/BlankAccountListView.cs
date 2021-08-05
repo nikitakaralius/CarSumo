@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using AdvancedAudioSystem;
+using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
@@ -8,16 +9,20 @@ namespace Menu.Accounts
     public class BlankAccountListView : MonoBehaviour
     {
         private IAccountPopup _accountPopup;
+        private IAudioPlayer _audioPlayer;
 
         [Inject]
-        private void Construct(IAccountPopup accountPopup)
+        private void Construct(IAccountPopup accountPopup, IAudioPlayer audioPlayer)
         {
             _accountPopup = accountPopup;
+            _audioPlayer = audioPlayer;
         }
 
         private void Start()
         {
-            GetComponent<Button>().onClick.AddListener(_accountPopup.Show);
+            Button button = GetComponent<Button>();
+            button.onClick.AddListener(_accountPopup.Show);
+            button.onClick.AddListener(_audioPlayer.Play);
         }
     }
 }
