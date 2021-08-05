@@ -1,5 +1,8 @@
-﻿using UnityEngine;
+﻿using CarSumo.StateMachine;
+using CarSumo.StateMachine.States;
+using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace UI
 {
@@ -7,6 +10,14 @@ namespace UI
     public class PauseButton : MonoBehaviour
     {
         [SerializeField] private GameObject _pausePopup;
+
+        private GameStateMachine _stateMachine;
+
+        [Inject]
+        private void Construct(GameStateMachine stateMachine)
+        {
+            _stateMachine = stateMachine;
+        }
         
         private void Start()
         {
@@ -16,12 +27,13 @@ namespace UI
         public void EnterPauseState()
         {
             _pausePopup.SetActive(true);
-            Time.timeScale = 0;
+            _stateMachine.Enter<PauseState>();
         }
 
         public void ExitPauseState()
         {
-            Time.timeScale = 1;
+            _pausePopup.SetActive(false);
+            _stateMachine.Enter<GameState>();
         }
     }
 }
