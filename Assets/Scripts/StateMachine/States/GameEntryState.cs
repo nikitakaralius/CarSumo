@@ -7,10 +7,12 @@ namespace CarSumo.StateMachine.States
     public class GameEntryState : IState
     {
         private readonly IAsyncSceneLoading _sceneLoading;
+        private readonly GameStateMachine _stateMachine;
 
-        public GameEntryState(IAsyncSceneLoading sceneLoading)
+        public GameEntryState(IAsyncSceneLoading sceneLoading, GameStateMachine stateMachine)
         {
             _sceneLoading = sceneLoading;
+            _stateMachine = stateMachine;
         }
 
         private SceneLoadData Game => new SceneLoadData("Game", LoadSceneMode.Single);
@@ -19,6 +21,7 @@ namespace CarSumo.StateMachine.States
         public async void Enter()
         {
             await Task.WhenAll(_sceneLoading.LoadAsync(Game), _sceneLoading.LoadAsync(Ui));
+            _stateMachine.Enter<GameState>();
         }
 
         public void Exit()
