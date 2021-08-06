@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: '{Van} {FX} factory'
   m_EditorClassIdentifier: 
   _vehiclePrefab:
-    m_AssetGUID: 522eaab996630054e841c8dac9925daa
+    m_AssetGUID: 0d7c4a2937dc17045aafb89c51010f56
     m_SubObjectName: 
     m_SubObjectType: 
   _instantiateParticles: {fileID: 11400000, guid: ca2a388c1a88e444084f367500d7c496, type: 2}

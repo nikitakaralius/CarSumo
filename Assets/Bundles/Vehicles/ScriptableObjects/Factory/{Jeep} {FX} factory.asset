@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: '{Jeep} {FX} factory'
   m_EditorClassIdentifier: 
   _vehiclePrefab:
-    m_AssetGUID: aaf0394749ce2314584a6dff11dfb6ab
+    m_AssetGUID: 61bd27b674f73364f877e32baf3007d3
     m_SubObjectName: 
     m_SubObjectType: 
   _instantiateParticles: {fileID: 11400000, guid: ca2a388c1a88e444084f367500d7c496, type: 2}

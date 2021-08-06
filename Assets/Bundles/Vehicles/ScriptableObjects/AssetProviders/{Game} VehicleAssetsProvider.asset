@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15070a5e5e241739e8f5c46c97892b3, type: 3}
+  m_Name: '{Game} VehicleAssetsProvider'
+  m_EditorClassIdentifier: 
+  _vehicleAssets:
+  - Id: 0
+    AssetReference:
+      m_AssetGUID: 61bd27b674f73364f877e32baf3007d3
+      m_SubObjectName: 
+      m_SubObjectType: 
+  - Id: 1
+    AssetReference:
+      m_AssetGUID: 792c1ea0118cea44ca8debd3ef299986
+      m_SubObjectName: 
+      m_SubObjectType: 
+  - Id: 2
+    AssetReference:
+      m_AssetGUID: c987d024564d06b43adc517983993f5b
+      m_SubObjectName: 
+      m_SubObjectType: 
+  - Id: 3
+    AssetReference:
+      m_AssetGUID: 0d7c4a2937dc17045aafb89c51010f56
+      m_SubObjectName: 
+      m_SubObjectType: 
+  - Id: 4
+    AssetReference:
+      m_AssetGUID: 0ef66fea7d9618345a5995e993124021
+      m_SubObjectName: 
+      m_SubObjectType: 

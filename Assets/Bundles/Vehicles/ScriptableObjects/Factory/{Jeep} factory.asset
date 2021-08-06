@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: '{Jeep} factory'
   m_EditorClassIdentifier: 
   _vehiclePrefab:
-    m_AssetGUID: aaf0394749ce2314584a6dff11dfb6ab
+    m_AssetGUID: 61bd27b674f73364f877e32baf3007d3
     m_SubObjectName: 
     m_SubObjectType: 
