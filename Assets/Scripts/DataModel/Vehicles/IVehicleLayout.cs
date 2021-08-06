@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using UniRx;
-using UnityEngine;
+﻿using UniRx;
 
 namespace DataModel.Vehicles
 {
@@ -8,6 +6,5 @@ namespace DataModel.Vehicles
     {
         IReadOnlyReactiveCollection<VehicleId> ActiveVehicles { get; }
         void ReplaceActiveVehicle(VehicleId vehicle, int slot);
-        IEnumerable<GameObject> GetActiveVehiclesPrefabs();
     }
 }

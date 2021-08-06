@@ -4,7 +4,6 @@ using System.Linq;
 using DataModel.Vehicles;
 using Sirenix.Utilities;
 using UniRx;
-using UnityEngine;
 
 namespace DataModel.GameData.Vehicles
 {
@@ -28,11 +27,6 @@ namespace DataModel.GameData.Vehicles
         public void ReplaceActiveVehicle(VehicleId vehicle, int slot)
         {
             _activeVehicles[slot] = vehicle;
-        }
-
-        public IEnumerable<GameObject> GetActiveVehiclesPrefabs()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }
