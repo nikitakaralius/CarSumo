@@ -9,7 +9,6 @@ using Zenject;
 
 namespace Menu.Accounts
 {
-    [RequireComponent(typeof(Button))]
     public class AccountListItemDragHandler : MonoBehaviour,
         IBeginDragHandler, IDragHandler, IEndDragHandler
     {
@@ -27,11 +26,12 @@ namespace Menu.Accounts
             _storageOperations = storageOperations;
         }
 
-        public void Initialize(Account account, Transform originalParent, Transform draggingParent)
+        public void Initialize(Account account, Button button, Transform originalParent, Transform draggingParent)
         {
             _account = account;
             _originalParent = originalParent;
             _draggingParent = draggingParent;
+            _button = button;
         }
 
         private void Start()

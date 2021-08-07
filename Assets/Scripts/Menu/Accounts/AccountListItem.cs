@@ -37,7 +37,7 @@ namespace Menu.Accounts
             button.onClick.AddListener(_audioPlayer.Play);
 
             AccountListItemDragHandler dragHandler = GetComponent<AccountListItemDragHandler>();
-            dragHandler.Initialize(account, originalParent, draggingParent);
+            dragHandler.Initialize(account, button, originalParent, draggingParent);
             
             _subscription = _accountStorage
                             .ActiveAccount
