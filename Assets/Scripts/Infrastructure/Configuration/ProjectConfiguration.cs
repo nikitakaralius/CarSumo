@@ -3,6 +3,7 @@ using System.IO;
 using CarSumo.DataModel.Accounts;
 using CarSumo.DataModel.GameResources;
 using CarSumo.DataModel.Settings;
+using DataModel.GameData.Vehicles;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -10,7 +11,11 @@ namespace Infrastructure.Settings
 {
     [CreateAssetMenu(fileName = "ProjectConfiguration", menuName = "Configuration/ProjectConfiguration", order = 0)]
     public class ProjectConfiguration : ScriptableObject,
-        IAudioConfiguration, IResourcesConfiguration, IAccountStorageConfiguration, IProjectConfiguration
+                                        IAudioConfiguration,
+                                        IResourcesConfiguration,
+                                        IAccountStorageConfiguration,
+                                        IProjectConfiguration,
+                                        IVehicleStorageConfiguration
     {
         private const string Format = ".JSON";
 
@@ -24,6 +29,7 @@ namespace Infrastructure.Settings
         [SerializeField] private string _audioFileName;
         [SerializeField] private string _resourcesFileName;
         [SerializeField] private string _accountStorageFileName;
+        [SerializeField] private string _vehicleStorageFileName;
 
         public string RootDirectoryName => Path.Combine(GetAssetsPath(), _rootDirectoryName);
         
@@ -37,9 +43,17 @@ namespace Infrastructure.Settings
 
         public string AccountStorageFilePath => GetFilePath(_accountStorageFileName);
 
+        public string VehicleStorageFilePath => GetFilePath(_vehicleStorageFileName);
+
         public IEnumerable<string> GetDataFilePaths()
         {
-            return new[] {AudioFilePath, ResourcesFilePath, AccountStorageFilePath};
+            return new[]
+            {
+                AudioFilePath,
+                ResourcesFilePath,
+                AccountStorageFilePath,
+                VehicleStorageFilePath
+            };
         }
 
         private string GetFilePath(string fileName)
