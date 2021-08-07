@@ -4,10 +4,12 @@ using CarSumo.DataModel.Accounts;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Zenject;
 
 namespace Menu.Accounts
 {
+    [RequireComponent(typeof(Button))]
     public class AccountListItemDragHandler : MonoBehaviour,
         IBeginDragHandler, IDragHandler, IEndDragHandler
     {
@@ -17,7 +19,8 @@ namespace Menu.Accounts
         private Transform _draggingParent;
 
         private Account _account;
-        
+        private Button _button;
+
         [Inject]
         private void Construct(IClientAccountStorageOperations storageOperations)
         {
@@ -31,9 +34,15 @@ namespace Menu.Accounts
             _draggingParent = draggingParent;
         }
 
+        private void Start()
+        {
+            _button = GetComponent<Button>();
+        }
+
         public void OnBeginDrag(PointerEventData eventData)
         {
             transform.SetParent(_draggingParent);
+            _button.enabled = false;
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -49,13 +58,15 @@ namespace Menu.Accounts
             AccountListItemDragHandler closest = FindClosest(siblings);
 
             int siblingIndex = closest is null ? 0 : closest.transform.GetSiblingIndex() + 1;
-            
+
             transform.SetParent(_originalParent);
             transform.SetSiblingIndex(siblingIndex);
 
             _storageOperations.ChangeOrder(GetAllSiblingAccounts(_originalParent)
                 .Select(item => item._account)
                 .ToArray());
+
+            _button.enabled = true;
         }
 
         [CanBeNull]
@@ -69,6 +80,7 @@ namespace Menu.Accounts
                     closestItem = item;
                 }
             }
+
             return closestItem;
         }
 
@@ -77,12 +89,12 @@ namespace Menu.Accounts
             for (int i = 0; i < layoutParent.childCount; i++)
             {
                 Transform child = layoutParent.GetChild(i);
-                
+
                 if (child.TryGetComponent<AccountListItemDragHandler>(out var sibling) == false)
                     continue;
 
                 yield return sibling;
-            }   
+            }
         }
     }
 }
