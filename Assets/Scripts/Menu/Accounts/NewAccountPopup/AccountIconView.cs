@@ -1,4 +1,5 @@
-﻿using CarSumo.DataModel.Accounts;
+﻿using System;
+using CarSumo.DataModel.Accounts;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,8 +10,11 @@ namespace Menu.Accounts
     [RequireComponent(typeof(Image))]
     public class AccountIconView : MonoBehaviour
     {
+        [SerializeField] private Sprite _defaultImage;
+        
         private Image _image;
         private IAccountIconPresenter _iconPresenter;
+        private IDisposable _subscription;
 
         [Inject]
         private void Construct(IAccountIconPresenter iconPresenter)
@@ -21,7 +25,17 @@ namespace Menu.Accounts
         private void Start()
         {
             _image = GetComponent<Image>();
-            _iconPresenter.Icon.Subscribe(ChangeImage);
+            _subscription = _iconPresenter.Icon.Subscribe(ChangeImage);
+        }
+
+        private void OnDisable()
+        {
+            _image.sprite = _defaultImage;
+        }
+
+        private void OnDestroy()
+        {
+            _subscription.Dispose();
         }
 
         private void ChangeImage(Icon icon)

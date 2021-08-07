@@ -7565,6 +7565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464b40e4656e474a9f24260db18a9b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _defaultImage: {fileID: 21300000, guid: 6a6d038084c3b41f2986f29ef2206570, type: 3}
 --- !u!114 &5640912681992320228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8057,10 +8058,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5640912683093926629}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 941786101}
+        m_TargetAssemblyTypeName: AdvancedAudioSystem.MonoAudioCuePlayer, AdvancedAudioSystem
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8069,9 +8070,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 941786101}
-        m_TargetAssemblyTypeName: AdvancedAudioSystem.MonoAudioCuePlayer, AdvancedAudioSystem
-        m_MethodName: Play
+      - m_Target: {fileID: 5640912683093926631}
+        m_TargetAssemblyTypeName: Menu.Accounts.NewAccountPopupView, Menu
+        m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -62,6 +62,8 @@ namespace Menu.Accounts
 
         public void Hide()
         {
+            _nameInputField.ReleaseSelection();
+            _nameInputField.text = string.Empty;
             gameObject.SetActive(false);
         }
 
