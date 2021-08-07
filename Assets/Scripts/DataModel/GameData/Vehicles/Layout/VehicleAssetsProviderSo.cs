@@ -21,7 +21,7 @@ namespace DataModel.GameData.Vehicles
         [SerializeField] private VehicleAsset[] _vehicleAssets;
 
         private IReadOnlyDictionary<VehicleId, AssetReferenceGameObject> _assets;
-        
+
         private void OnValidate()
         {
             if (_vehicleAssets.GroupBy(asset => asset.Id).Any(group => group.Count() > 1))
@@ -29,6 +29,11 @@ namespace DataModel.GameData.Vehicles
                 throw new InvalidOperationException("Assets should not contain duplicates");
             }
 
+            _assets = _vehicleAssets.ToDictionary(x => x.Id, x => x.AssetReference);
+        }
+
+        private void OnEnable()
+        {
             _assets = _vehicleAssets.ToDictionary(x => x.Id, x => x.AssetReference);
         }
 
