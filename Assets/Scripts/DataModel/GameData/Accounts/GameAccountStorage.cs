@@ -50,7 +50,7 @@ namespace DataModel.GameData.Accounts
 
             for (var i = 0; i < _allAccounts.Count; i++)
             {
-                if (cachedAccounts.Any(account => account.Name.Value == order[i].Name.Value))
+                if (cachedAccounts.Any(account => account.Equals(order[i])))
                 {
                     _allAccounts[i] = order[i];
                 }
