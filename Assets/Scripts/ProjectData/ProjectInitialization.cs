@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Infrastructure.Initialization;
-using UnityEngine;
 using Zenject;
 
 namespace Infrastructure
@@ -23,11 +22,6 @@ namespace Infrastructure
             dataFilesInitialization.Initialize();
 
             IEnumerable<Type> initializationTypes = GetProjectAsyncInitializationsTypes();
-            foreach (Type type in initializationTypes)
-            {
-                Debug.Log(type);
-            }
-            
             IEnumerable<IAsyncInitializable> initializations = CreateProjectInitializations(initializationTypes);
 
             await Task.WhenAll(initializations.Select(initialization => initialization.InitializeAsync()));
