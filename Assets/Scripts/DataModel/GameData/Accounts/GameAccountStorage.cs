@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using CarSumo.DataModel.Accounts;
 using UniRx;
-using UnityEngine;
 
 namespace DataModel.GameData.Accounts
 {
@@ -10,7 +10,7 @@ namespace DataModel.GameData.Accounts
     {
         private readonly ReactiveCollection<Account> _allAccounts;
         private readonly ReactiveProperty<Account> _activeAccount;
-        
+
         public GameAccountStorage(Account activeAccount, IEnumerable<Account> allAccounts)
         {
             _activeAccount = new ReactiveProperty<Account>(activeAccount);
@@ -41,10 +41,23 @@ namespace DataModel.GameData.Accounts
 
         public void ChangeOrder(IReadOnlyList<Account> order)
         {
+            if (order.Count != _allAccounts.Count)
+            {
+                throw new InvalidOperationException("Trying to change order with different count");
+            }
+
+            IEnumerable<Account> cachedAccounts = _allAccounts.ToArray();
+
             for (var i = 0; i < _allAccounts.Count; i++)
             {
-                _allAccounts[i] = order[i];
-                Debug.Log(_allAccounts[i].Name);
+                if (cachedAccounts.Any(account => account.Name.Value == order[i].Name.Value))
+                {
+                    _allAccounts[i] = order[i];
+                }
+                else
+                {
+                    throw new InvalidOperationException("Trying to change order with non-existing account");
+                }
             }
         }
     }
