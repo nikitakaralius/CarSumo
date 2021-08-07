@@ -2,7 +2,7 @@
 
 namespace DataModel.Vehicles
 {
-    public class SerializableVehicles
+    public class SerializableVehicleStorage
     {
         public IEnumerable<VehicleId> Vehicles { get; set; }
     }

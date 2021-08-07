@@ -36,9 +36,9 @@ namespace DataModel.GameData.GameSave
             _fileService.SaveAsync(vehicles, filePath);
         }
 
-        private SerializableVehicles ToSerializableVehicles(IVehicleStorage vehicleStorage)
+        private SerializableVehicleStorage ToSerializableVehicles(IVehicleStorage vehicleStorage)
         {
-            return new SerializableVehicles
+            return new SerializableVehicleStorage
             {
                 Vehicles = vehicleStorage.BoughtVehicles
             };
