@@ -2,6 +2,7 @@
 using System.Linq;
 using CarSumo.DataModel.Accounts;
 using UniRx;
+using UnityEngine;
 
 namespace DataModel.GameData.Accounts
 {
@@ -36,6 +37,15 @@ namespace DataModel.GameData.Accounts
 
             _allAccounts.Add(account);
             return true;
+        }
+
+        public void ChangeOrder(IReadOnlyList<Account> order)
+        {
+            for (var i = 0; i < _allAccounts.Count; i++)
+            {
+                _allAccounts[i] = order[i];
+                Debug.Log(_allAccounts[i].Name);
+            }
         }
     }
 }

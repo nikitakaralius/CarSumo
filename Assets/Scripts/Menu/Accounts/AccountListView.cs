@@ -77,7 +77,7 @@ namespace Menu.Accounts
             {
                 AccountListItem listItem =
                     await _instantiation.InstantiateAsync<AccountListItem>(_accountViewPrefab, root);
-                listItem.Initialize(account);
+                listItem.Initialize(account, _itemsRoot, transform);
             }
         }
 

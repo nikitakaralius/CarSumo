@@ -4,6 +4,7 @@ using CarSumo.DataModel.Accounts;
 using CarSumo.DataModel.GameData.Accounts;
 using DataModel.FileData;
 using UniRx;
+using UnityEngine;
 
 namespace DataModel.GameData.GameSave
 {
@@ -25,7 +26,8 @@ namespace DataModel.GameData.GameSave
             _accountSerialization = accountSerialization;
 
             accountStorage.ActiveAccount.Subscribe(_ => Save());
-            accountStorage.AllAccounts.ToObservable().Subscribe(_ => Save());
+            accountStorage.AllAccounts.ObserveCountChanged().Subscribe(_ => Save());
+            accountStorage.AllAccounts.ObserveReplace().Subscribe(_ => Save());
         }
         
         public void Dispose()

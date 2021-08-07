@@ -9,6 +9,7 @@ using Zenject;
 namespace Menu.Accounts
 {
     [RequireComponent(typeof(Button))]
+    [RequireComponent(typeof(AccountListItemDragHandler))]
     public class AccountListItem : AccountView
     {
         [SerializeField] private Image _backgroundImage;
@@ -28,13 +29,16 @@ namespace Menu.Accounts
             _audioPlayer = audioPlayer;
         }
 
-        public void Initialize(Account account)
+        public void Initialize(Account account, Transform originalParent, Transform draggingParent)
         {
             ChangeAccount(account);
             Button button = GetComponent<Button>();
             button.onClick.AddListener(() => SetActiveAccount(account));
             button.onClick.AddListener(_audioPlayer.Play);
 
+            AccountListItemDragHandler dragHandler = GetComponent<AccountListItemDragHandler>();
+            dragHandler.Initialize(account, originalParent, draggingParent);
+            
             _subscription = _accountStorage
                             .ActiveAccount
                             .Subscribe(activeAccount => UpdateAccount(account, activeAccount));
