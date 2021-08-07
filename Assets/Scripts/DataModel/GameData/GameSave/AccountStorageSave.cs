@@ -4,18 +4,17 @@ using CarSumo.DataModel.Accounts;
 using CarSumo.DataModel.GameData.Accounts;
 using DataModel.FileData;
 using UniRx;
-using UnityEngine;
 
 namespace DataModel.GameData.GameSave
 {
     public class AccountStorageSave : IDisposable
     {
-        private readonly IFileService _fileService;
+        private readonly IAsyncFileService _fileService;
         private readonly IAccountStorage _accountStorage;
         private readonly IAccountStorageConfiguration _configuration;
         private readonly IAccountSerialization _accountSerialization;
 
-        public AccountStorageSave(IFileService fileService,
+        public AccountStorageSave(IAsyncFileService fileService,
                                 IAccountStorage accountStorage,
                                 IAccountStorageConfiguration configuration,
                                 IAccountSerialization accountSerialization)
@@ -39,7 +38,7 @@ namespace DataModel.GameData.GameSave
         {
             SerializableAccountStorage storage = ToSerializableAccountStorage(_accountStorage);
             string filePath = _configuration.AccountStorageFilePath;
-            _fileService.Save(storage, filePath);
+            _fileService.SaveAsync(storage, filePath);
         }
 
         private SerializableAccountStorage ToSerializableAccountStorage(IAccountStorage storage)

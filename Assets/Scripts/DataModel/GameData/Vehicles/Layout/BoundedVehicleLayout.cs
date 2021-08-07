@@ -24,7 +24,7 @@ namespace DataModel.GameData.Vehicles
         
         public IReadOnlyReactiveCollection<VehicleId> ActiveVehicles => _activeVehicles;
         
-        public void ReplaceActiveVehicle(VehicleId vehicle, int slot)
+        public void ChangeActiveVehicle(VehicleId vehicle, int slot)
         {
             _activeVehicles[slot] = vehicle;
         }
