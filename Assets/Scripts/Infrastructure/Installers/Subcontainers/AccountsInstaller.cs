@@ -11,16 +11,6 @@ namespace Infrastructure.Installers.SubContainers
         {
             BindAccountBinding();
             BindAccountSerialization();
-            BindAccountStorageInitialization();
-        }
-
-        private void BindAccountStorageInitialization()
-        {
-            Container
-                .Bind<AccountStorageInitialization>()
-                .FromNew()
-                .AsSingle()
-                .NonLazy();
         }
 
         private void BindAccountSerialization()

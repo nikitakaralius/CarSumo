@@ -1,44 +1,46 @@
-﻿using System.Threading.Tasks;
-using CarSumo.StateMachine;
-using CarSumo.StateMachine.States;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Infrastructure.Initialization;
-using UnityEngine;
 using Zenject;
 
 namespace Infrastructure
 {
-    public class ProjectInitialization : MonoBehaviour
+    public class ProjectInitialization
     {
-        private DataFilesInitialization _dataFilesInitialization;
-        private ResourcesStorageInitialization _resourcesStorageInitialization;
-        private AccountStorageInitialization _accountStorageInitialization;
-        private AudioSettingsInitialization _audioSettingsInitialization;
-        private GameStateMachine _stateMachine;
+        private readonly DiContainer _container;
 
-        [Inject]
-        private void Construct(DataFilesInitialization dataFilesInitialization,
-                               ResourcesStorageInitialization resourcesStorageInitialization,
-                               AccountStorageInitialization accountStorageInitialization,
-                               AudioSettingsInitialization audioSettingsInitialization,
-                               GameStateMachine gameStateMachine)
+        public ProjectInitialization(DiContainer container)
         {
-            _dataFilesInitialization = dataFilesInitialization;
-            _resourcesStorageInitialization = resourcesStorageInitialization;
-            _accountStorageInitialization = accountStorageInitialization;
-            _audioSettingsInitialization = audioSettingsInitialization;
-            _stateMachine = gameStateMachine;
+            _container = container;
         }
-        
-        private async void OnEnable()
-        {
-            _dataFilesInitialization.Initialize();
 
-            await Task.WhenAll(
-                _resourcesStorageInitialization.InitializeAsync(),
-                _accountStorageInitialization.InitializeAsync(),
-                _audioSettingsInitialization.InitializeAsync());
+        public async Task InitializeAsync()
+        {
+            var dataFilesInitialization = _container.Instantiate<DataFilesInitialization>();
+            dataFilesInitialization.Initialize();
+
+            IEnumerable<Type> initializationTypes = GetProjectAsyncInitializationsTypes();
+            IEnumerable<IAsyncInitializable> initializations = CreateProjectInitializations(initializationTypes);
+
+            await Task.WhenAll(initializations.Select(initialization => initialization.InitializeAsync()));
+        }
+
+        private IEnumerable<IAsyncInitializable> CreateProjectInitializations(IEnumerable<Type> types)
+        {
+            return types.Select(type => (IAsyncInitializable)_container.Instantiate(type));
+        }
+
+        private IEnumerable<Type> GetProjectAsyncInitializationsTypes()
+        {
+            Type initializableBaseType = typeof(IAsyncInitializable);
             
-            _stateMachine.Enter<BootstrapState>();
+            return AppDomain
+                .CurrentDomain
+                .GetAssemblies()
+                .SelectMany(assembly => assembly.GetTypes())
+                .Where(type => type.IsAssignableFrom(initializableBaseType) && type.IsClass);
         }
     }
 }

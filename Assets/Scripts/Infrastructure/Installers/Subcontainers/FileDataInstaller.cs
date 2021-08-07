@@ -9,16 +9,6 @@ namespace Infrastructure.Installers.SubContainers
         public override void InstallBindings()
         {
             BindFileService();
-            BindDataFilesInitialization();
-        }
-
-        private void BindDataFilesInitialization()
-        {
-            Container
-                .Bind<DataFilesInitialization>()
-                .FromNew()
-                .AsSingle()
-                .NonLazy();
         }
 
         private void BindFileService()

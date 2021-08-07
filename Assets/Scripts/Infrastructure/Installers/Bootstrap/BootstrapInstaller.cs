@@ -15,6 +15,7 @@ namespace Infrastructure.Installers.Bootstrap
             BindProjectConfiguration();
             BindSceneLoading();
             ProcessSubContainers();
+            BindProjectInitialization();
         }
 
         private void ProcessSubContainers()
@@ -22,9 +23,16 @@ namespace Infrastructure.Installers.Bootstrap
             FileDataInstaller.Install(Container);
             VehiclesInstaller.Install(Container);
             AccountsInstaller.Install(Container);
-            SettingsInstaller.Install(Container);
             ResourcesInstaller.Install(Container);
             StateMachineInstaller.Install(Container);
+        }
+
+        private void BindProjectInitialization()
+        {
+            Container
+                .Bind<ProjectInitialization>()
+                .FromNew()
+                .AsSingle();
         }
 
         private void BindSceneLoading()

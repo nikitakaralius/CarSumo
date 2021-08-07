@@ -10,7 +10,6 @@ namespace Infrastructure.Installers.SubContainers
         public override void InstallBindings()
         {
             BindInitialResourcesProvider();
-            BindResourcesStorageInitialization();
             BindResourceStorageBinding();
         }
 
@@ -20,15 +19,6 @@ namespace Infrastructure.Installers.SubContainers
                 .Bind<IResourceStorageBinding>()
                 .To<ResourceStorageBinding>()
                 .AsSingle();
-        }
-
-        private void BindResourcesStorageInitialization()
-        {
-            Container
-                .Bind<ResourcesStorageInitialization>()
-                .FromNew()
-                .AsSingle()
-                .NonLazy();
         }
 
         private void BindInitialResourcesProvider()

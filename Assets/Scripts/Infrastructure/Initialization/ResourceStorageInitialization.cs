@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Infrastructure.Initialization
 {
-    public class ResourcesStorageInitialization : IAsyncInitializable
+    public class ResourceStorageInitialization : IAsyncInitializable
     {
         private readonly DiContainer _container;
         private readonly IAsyncFileService _fileService;
@@ -16,7 +16,7 @@ namespace Infrastructure.Initialization
         private readonly IResourceStorageBinding _storageBinding;
         private readonly IInitialResourceStorageProvider _initialResourceStorage;
 
-        public ResourcesStorageInitialization(DiContainer container,
+        public ResourceStorageInitialization(DiContainer container,
                                               IAsyncFileService fileService,
                                               IResourcesConfiguration configuration,
                                               IResourceStorageBinding storageBinding,
