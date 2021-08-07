@@ -15,10 +15,12 @@ namespace Infrastructure.Initialization
         private readonly IAsyncFileService _fileService;
 
         public VehicleStorageInitialization(DiContainer container,
-            IVehicleStorageConfiguration configuration)
+                                            IVehicleStorageConfiguration configuration,
+                                            IAsyncFileService fileService)
         {
             _container = container;
             _configuration = configuration;
+            _fileService = fileService;
         }
 
         public async Task InitializeAsync()

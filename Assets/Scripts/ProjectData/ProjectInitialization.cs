@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Infrastructure.Initialization;
+using UnityEngine;
 using Zenject;
 
 namespace Infrastructure
@@ -22,6 +23,11 @@ namespace Infrastructure
             dataFilesInitialization.Initialize();
 
             IEnumerable<Type> initializationTypes = GetProjectAsyncInitializationsTypes();
+            foreach (Type type in initializationTypes)
+            {
+                Debug.Log(type);
+            }
+            
             IEnumerable<IAsyncInitializable> initializations = CreateProjectInitializations(initializationTypes);
 
             await Task.WhenAll(initializations.Select(initialization => initialization.InitializeAsync()));
@@ -40,7 +46,14 @@ namespace Infrastructure
                 .CurrentDomain
                 .GetAssemblies()
                 .SelectMany(assembly => assembly.GetTypes())
-                .Where(type => type.IsAssignableFrom(initializableBaseType) && type.IsClass);
+                .Where(type => initializableBaseType.IsAssignableFrom(type) && IsRealClass(type));
+        }
+        
+        private bool IsRealClass(Type testType)
+        {
+            return testType.IsAbstract == false
+                   && testType.IsGenericTypeDefinition == false
+                   && testType.IsInterface == false;
         }
     }
 }
