@@ -34,11 +34,6 @@ namespace Menu.Accounts
             _button = button;
         }
 
-        private void Start()
-        {
-            _button = GetComponent<Button>();
-        }
-
         public void OnBeginDrag(PointerEventData eventData)
         {
             transform.SetParent(_draggingParent);
