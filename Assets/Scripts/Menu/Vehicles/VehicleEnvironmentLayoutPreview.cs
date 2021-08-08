@@ -5,6 +5,7 @@ using CarSumo.DataModel.Accounts;
 using DataModel.GameData.Vehicles;
 using DataModel.Vehicles;
 using Services.Instantiate;
+using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -12,9 +13,10 @@ using Zenject;
 
 namespace Menu.Vehicles
 {
-    internal class VehicleLayoutPreview : MonoBehaviour
+    internal class VehicleEnvironmentLayoutPreview : SerializedMonoBehaviour
     {
-        private IVehicleAssetsProvider _assetsProvider;
+        [SerializeField] private IVehicleAssetsProvider _assetsProvider;
+        
         private IAccountStorage _accountStorage;
         private IAsyncInstantiation _instantiation;
 
@@ -25,10 +27,8 @@ namespace Menu.Vehicles
         private int _selectedVehicleIndex;
 
         [Inject]
-        private void Construct(IVehicleAssetsProvider assetsProvider, IAccountStorage accountStorage,
-            IAsyncInstantiation instantiation)
+        private void Construct(IAccountStorage accountStorage, IAsyncInstantiation instantiation)
         {
-            _assetsProvider = assetsProvider;
             _accountStorage = accountStorage;
             _instantiation = instantiation;
         }
