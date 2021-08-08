@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using CarSumo.DataModel.Accounts;
 using CarSumo.DataModel.GameResources;
@@ -22,6 +21,8 @@ namespace Menu.Accounts
         private IAccountStorage _accountStorage;
         private IResourceStorage _resourceStorage;
         private IDisposable _subscription;
+
+        private readonly List<GameObject> _views = new List<GameObject>();
 
         [Inject]
         private void Construct(IAsyncInstantiation instantiation,
@@ -50,44 +51,55 @@ namespace Menu.Accounts
         private async Task FillList()
         {
             ClearViews(_itemsRoot);
-            await CreateAccountViews(_itemsRoot);
-            await CreateBlankAccountViews(_itemsRoot);
+            
+            IEnumerable<GameObject> accountViews = await CreateAccountViews(_accountStorage.AllAccounts, _itemsRoot);
+            IEnumerable<GameObject> blankAccountViews = await CreateBlankAccountViews(_itemsRoot);
+
+            _views.AddRange(accountViews);
+            _views.AddRange(blankAccountViews);
         }
 
         private void ClearViews(Transform root)
         {
-            IEnumerable<RectTransform> views = root
-                .GetComponentsInChildren<RectTransform>()
-                .Where(component => ReferenceEquals(component, root) == false);
-
-            foreach (RectTransform view in views)
+            foreach (GameObject view in _views)
             {
-                Destroy(view.gameObject);
-            }
+                Destroy(view);
+            } 
+            _views.Clear();
         }
 
-        private async Task CreateAccountViews(Transform root)
+        private async Task<IEnumerable<GameObject>> CreateAccountViews(IEnumerable<Account> accounts, Transform root)
         {
             if (AreAccountsFitIntoLimit(_resourceStorage, _accountStorage) == false)
             {
                 throw new InvalidOperationException("The allowed number of accounts has been exceeded");
             }
 
-            foreach (Account account in _accountStorage.AllAccounts)
+            var views = new List<GameObject>();
+            
+            foreach (Account account in accounts)
             {
                 AccountListItem listItem =
                     await _instantiation.InstantiateAsync<AccountListItem>(_accountViewPrefab, root);
                 listItem.Initialize(account, _itemsRoot, transform);
+                views.Add(listItem.gameObject);
             }
+
+            return views;
         }
 
-        private async Task CreateBlankAccountViews(Transform root)
+        private async Task<IEnumerable<GameObject>> CreateBlankAccountViews(Transform root)
         {
             int blanksCount = CountBlankAccounts(_resourceStorage, _accountStorage);
+            var views = new GameObject[blanksCount];
+            
             for (int i = 0; i < blanksCount; i++)
             {
-                await _instantiation.InstantiateAsync<BlankAccountListView>(_blankAccountViewPrefab, root);
+                var view = await _instantiation.InstantiateAsync<BlankAccountListView>(_blankAccountViewPrefab, root);
+                views[i] = view.gameObject;
             }
+
+            return views;
         }
 
         private int CountBlankAccounts(IResourceStorage resourceStorage, IAccountStorage accountStorage)
