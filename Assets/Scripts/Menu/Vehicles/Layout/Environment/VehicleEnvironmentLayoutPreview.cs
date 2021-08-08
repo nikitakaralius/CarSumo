@@ -9,7 +9,7 @@ namespace Menu.Vehicles
     {
         private int _selectedVehicleIndex;
 
-        protected override Transform LayoutRoot => transform;
+        protected override Transform CollectionRoot => transform;
 
         public void ChangeOnNext()
         {

@@ -8,7 +8,7 @@ namespace Menu.Vehicles.Layout
         [SerializeField] private Transform _layoutRoot;
         [SerializeField] private Vector3 _cardSize = Vector3.one * 0.75f;
 
-        protected override Transform LayoutRoot => _layoutRoot;
+        protected override Transform CollectionRoot => _layoutRoot;
         
         protected override void ProcessCreatedLayout(IEnumerable<VehicleCard> layout)
         {
