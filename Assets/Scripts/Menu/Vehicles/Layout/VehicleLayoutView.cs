@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using CarSumo.DataModel.Accounts;
 using DataModel.GameData.Vehicles;
@@ -32,7 +33,9 @@ namespace Menu.Vehicles.Layout
             _instantiation = instantiation;
         }
 
-        public IReadOnlyList<T> Items => _items;
+        protected abstract Transform LayoutRoot { get; }
+        
+        protected IReadOnlyList<T> Items => _items;
         private IReadOnlyReactiveProperty<Account> ActiveAccount => _accountStorage.ActiveAccount;
         private IReadOnlyReactiveProperty<IVehicleLayout> Layout => _accountStorage.ActiveAccount.Value.VehicleLayout;
 
@@ -47,20 +50,25 @@ namespace Menu.Vehicles.Layout
             _accountChangedSubscription?.Dispose();
         }
 
-        public abstract Task SpawnLayoutAsync(IVehicleLayout layout);
+        protected abstract void ProcessCreatedLayout(IEnumerable<T> layout);
 
-        public void Clear()
+        private async Task SpawnLayoutAsync(IVehicleLayout layout)
+        {
+            Clear();
+            
+            IEnumerable<T> items = await GetVehicleItemsAsync(layout.ActiveVehicles, LayoutRoot);
+            _items = items.ToList();
+            ProcessCreatedLayout(_items);
+        }
+
+        private void Clear()
         {
             foreach (T vehicle in _items)
             {
                 Destroy(vehicle.gameObject);
             }
-        }
-
-        private void OnActiveAccountChanged(Account account)
-        {
-            _layoutChangedSubscription?.Dispose();
-            _layoutChangedSubscription = Layout.Subscribe(async layout => await SpawnLayoutAsync(layout));
+            
+            _items.Clear();
         }
 
         private async Task<IEnumerable<T>> GetVehicleItemsAsync(IEnumerable<VehicleId> vehicleIds, Transform parent)
@@ -74,6 +82,12 @@ namespace Menu.Vehicles.Layout
             }
             
             return vehicles;
+        }
+
+        private void OnActiveAccountChanged(Account account)
+        {
+            _layoutChangedSubscription?.Dispose();
+            _layoutChangedSubscription = Layout.Subscribe(async layout => await SpawnLayoutAsync(layout));
         }
     }
 }
