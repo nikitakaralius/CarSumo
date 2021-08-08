@@ -1,15 +1,15 @@
-﻿using System.Threading.Tasks;
-using Services.SceneManagement;
+﻿using Services.SceneManagement;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace CarSumo.StateMachine.States
 {
     public class GameEntryState : IState
     {
         private readonly IAsyncSceneLoading _sceneLoading;
-        private readonly GameStateMachine _stateMachine;
+        private readonly LazyInject<GameStateMachine> _stateMachine;
 
-        public GameEntryState(IAsyncSceneLoading sceneLoading, GameStateMachine stateMachine)
+        public GameEntryState(IAsyncSceneLoading sceneLoading, LazyInject<GameStateMachine> stateMachine)
         {
             _sceneLoading = sceneLoading;
             _stateMachine = stateMachine;
@@ -22,7 +22,7 @@ namespace CarSumo.StateMachine.States
         {
             await _sceneLoading.LoadAsync(Game);
             await _sceneLoading.LoadAsync(Ui);
-            _stateMachine.Enter<GameState>();
+            _stateMachine.Value.Enter<GameState>();
         }
 
         public void Exit()

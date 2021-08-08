@@ -1,22 +1,23 @@
 ﻿using Infrastructure;
+using Zenject;
 
 namespace CarSumo.StateMachine.States
 {
     public class BootstrapState : IState
     {
-        private readonly GameStateMachine _stateMachine;
         private readonly ProjectInitialization _projectInitialization;
+        private readonly LazyInject<GameStateMachine> _stateMachine;
 
-        public BootstrapState(GameStateMachine stateMachine, ProjectInitialization projectInitialization)
+        public BootstrapState(ProjectInitialization projectInitialization, LazyInject<GameStateMachine> stateMachine)
         {
-            _stateMachine = stateMachine;
             _projectInitialization = projectInitialization;
+            _stateMachine = stateMachine;
         }
-        
+
         public async void Enter()
         {
             await _projectInitialization.InitializeAsync();
-            _stateMachine.Enter<MenuEntryState>();
+            _stateMachine.Value.Enter<MenuEntryState>();
         }
 
         public void Exit()
