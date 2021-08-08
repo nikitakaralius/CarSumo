@@ -3,9 +3,9 @@ using TweenAnimations;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Menu.Accounts.Animations
+namespace Menu.Animations
 {
-    public class AccountListItemDragAnimation : MonoBehaviour,
+    public class DragItemAnimation : MonoBehaviour,
         IBeginDragHandler, IEndDragHandler
     {
         [SerializeField] private Vector3TweenData _tweenData;
