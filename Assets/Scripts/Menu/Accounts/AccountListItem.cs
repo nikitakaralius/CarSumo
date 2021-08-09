@@ -32,6 +32,8 @@ namespace Menu.Accounts
         public void Initialize(Account account, Transform originalParent, Transform draggingParent)
         {
             ChangeAccount(account);
+            gameObject.name = account.Name.Value;
+
             Button button = GetComponent<Button>();
             button.onClick.AddListener(() => SetActiveAccount(account));
             button.onClick.AddListener(_audioPlayer.Play);

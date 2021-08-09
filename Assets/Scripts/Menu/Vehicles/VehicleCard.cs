@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using TweenAnimations;
+using UniRx;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Menu.Vehicles
@@ -9,7 +12,7 @@ namespace Menu.Vehicles
         {
             base.Initialize(originalParent);
         }
-        
+
         public override void OnDragUpdate(PointerEventData eventData)
         {
             transform.position = eventData.position;
