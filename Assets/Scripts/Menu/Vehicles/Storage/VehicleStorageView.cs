@@ -14,7 +14,6 @@ namespace Menu.Vehicles.Storage
     {
         [SerializeField] private Transform _layoutRoot;
         [SerializeField] private LayoutGroup _layoutGroup;
-        [SerializeField] private ScrollRect _scrollRect;
 
         private IVehicleStorage _vehicleStorage;
         private IAccountStorage _accountStorage;
@@ -55,7 +54,7 @@ namespace Menu.Vehicles.Storage
         {
             foreach (VehicleCard card in layout)
             {
-                card.Initialize(CollectionRoot, transform, _layoutGroup, _scrollRect);
+                card.Initialize(CollectionRoot, transform, _layoutGroup);
             }
         }
 

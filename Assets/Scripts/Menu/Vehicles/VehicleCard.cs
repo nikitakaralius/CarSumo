@@ -7,43 +7,15 @@ namespace Menu.Vehicles
     public class VehicleCard : ItemDragHandler<VehicleCard>
     {
         private const float Bias = 50.0f;
-        private ScrollRect _scrollRect;
 
-        public void Initialize(Transform contentParent, Transform draggingParent, LayoutGroup layoutGroup, ScrollRect scrollRect = null)
+        public new void Initialize(Transform contentParent, Transform draggingParent, LayoutGroup layoutGroup)
         {
             base.Initialize(contentParent, draggingParent, layoutGroup);
-            _scrollRect = scrollRect;
         }
 
         protected override void OnDragUpdate(PointerEventData eventData)
         {
             transform.position = eventData.position;
-        }
-
-        private void Update()
-        {
-            if (CanDrag.Value == false)
-                return;
-
-            if (_scrollRect != null)
-            {
-                float originalParentVerticalPosition = ((RectTransform)ContentParent).anchoredPosition.y;
-                float bottomVerticalPosition = ((RectTransform)_scrollRect.transform).sizeDelta.y;
-
-                if (transform.localPosition.y + originalParentVerticalPosition > -Bias)
-                {
-                    MoveScrollRect(Time.deltaTime);
-                }
-                if (transform.localPosition.y + originalParentVerticalPosition < bottomVerticalPosition + Bias)
-                {
-                    MoveScrollRect(-Time.deltaTime);
-                }
-            }
-        }
-
-        private void MoveScrollRect(float delta)
-        {
-            _scrollRect.verticalNormalizedPosition = Mathf.Clamp01(_scrollRect.verticalNormalizedPosition + delta);
         }
     }
 }
