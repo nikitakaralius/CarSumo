@@ -25,9 +25,11 @@ namespace Menu
 
         protected IReadOnlyReactiveProperty<bool> CanDrag => _canDrag;
 
-        protected void Initialize(Transform originalParent)
+        protected Transform LayoutRoot => _layoutRoot;
+
+        protected void Initialize(Transform layoutRoot)
         {
-            _layoutRoot = originalParent;
+            _layoutRoot = layoutRoot;
         }
         
         public void OnPointerDown(PointerEventData eventData)

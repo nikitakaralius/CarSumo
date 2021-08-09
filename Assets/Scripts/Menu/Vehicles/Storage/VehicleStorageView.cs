@@ -5,6 +5,7 @@ using CarSumo.DataModel.Accounts;
 using DataModel.Vehicles;
 using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace Menu.Vehicles.Storage
@@ -12,6 +13,7 @@ namespace Menu.Vehicles.Storage
     public class VehicleStorageView : VehicleCollectionView<VehicleCard>
     {
         [SerializeField] private Transform _layoutRoot;
+        [SerializeField] private ScrollRect _scrollRect;
 
         private IVehicleStorage _vehicleStorage;
         private IAccountStorage _accountStorage;
@@ -52,7 +54,7 @@ namespace Menu.Vehicles.Storage
         {
             foreach (VehicleCard card in layout)
             {
-                card.Initialize(CollectionRoot);
+                card.Initialize(CollectionRoot, _scrollRect);
             }
         }
 
