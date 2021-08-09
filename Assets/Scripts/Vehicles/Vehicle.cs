@@ -38,7 +38,7 @@ namespace CarSumo.Vehicles
             Engine = GetComponent<VehicleEngine>().Init(_statsProvider, _rigidbody, coroutineExecutor);
             Rotation = new ForwardVectorVehicleRotation(transform, _statsProvider);
             
-            GetComponent<MeshRenderer>().material = _typeStats.GetMatetialByTeam(team);
+            GetComponent<MeshRenderer>().material = _typeStats.GetMaterialByTeam(team);
 
             transform.position = placement.Position;
             transform.forward = placement.ForwardVector;

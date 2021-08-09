@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Menu.Vehicles.Layout
+namespace Menu.Vehicles
 {
     public class VehicleCard : MonoBehaviour
     {
-        
     }
 }

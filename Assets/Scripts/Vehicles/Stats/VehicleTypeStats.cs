@@ -16,7 +16,7 @@ namespace CarSumo.Vehicles.Stats
             return new VehicleStats(Team.First, _enginePower, _rotationalSpeed);
         }
 
-        public Material GetMatetialByTeam(Team team)
+        public Material GetMaterialByTeam(Team team)
         {
             return _materials[team];
         }
