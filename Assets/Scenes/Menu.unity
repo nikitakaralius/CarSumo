@@ -9069,7 +9069,6 @@ MonoBehaviour:
       Data: 0
   _layoutRoot: {fileID: 5857635362438841528}
   _layoutGroup: {fileID: 5857635362438841542}
-  _scrollRect: {fileID: 5857635362157322558}
 --- !u!222 &5857635362157322555
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9128,7 +9127,7 @@ MonoBehaviour:
   m_Inertia: 1
   m_DecelerationRate: 0.135
   m_ScrollSensitivity: 1
-  m_Viewport: {fileID: 0}
+  m_Viewport: {fileID: 1972754028}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
   m_HorizontalScrollbarVisibility: 0
@@ -9290,8 +9289,8 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 415, y: 585}
-  m_Spacing: {x: 67.3, y: 66}
+  m_CellSize: {x: 415, y: 635}
+  m_Spacing: {x: 65, y: 35}
   m_Constraint: 0
   m_ConstraintCount: 5
 --- !u!224 &5857635362488453268

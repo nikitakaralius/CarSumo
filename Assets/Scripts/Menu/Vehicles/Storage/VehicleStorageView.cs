@@ -52,10 +52,7 @@ namespace Menu.Vehicles.Storage
 
         protected override void ProcessCreatedLayout(IEnumerable<VehicleCard> layout)
         {
-            foreach (VehicleCard card in layout)
-            {
-                card.Initialize(CollectionRoot, transform, _layoutGroup);
-            }
+            
         }
 
         private async Task SpawnPreparedCollectionAsync(IVehicleLayout layout)

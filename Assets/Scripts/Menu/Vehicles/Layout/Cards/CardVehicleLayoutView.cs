@@ -17,7 +17,6 @@ namespace Menu.Vehicles.Layout
             foreach (VehicleCard card in layout)
             {
                 card.transform.localScale = _cardSize;
-                card.Initialize(_layoutRoot, transform, _layoutGroup);
             }
         }
     }

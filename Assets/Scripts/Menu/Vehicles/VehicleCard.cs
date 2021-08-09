@@ -1,21 +1,12 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+﻿using DataModel.Vehicles;
+using UnityEngine;
 
 namespace Menu.Vehicles
 {
-    public class VehicleCard : ItemDragHandler<VehicleCard>
+    public class VehicleCard : MonoBehaviour
     {
-        private const float Bias = 50.0f;
+        [SerializeField] private VehicleId _id;
 
-        public new void Initialize(Transform contentParent, Transform draggingParent, LayoutGroup layoutGroup)
-        {
-            base.Initialize(contentParent, draggingParent, layoutGroup);
-        }
-
-        protected override void OnDragUpdate(PointerEventData eventData)
-        {
-            transform.position = eventData.position;
-        }
+        public VehicleId Id => _id;
     }
 }
