@@ -9,13 +9,13 @@ namespace Menu.Vehicles
         private const float Bias = 50.0f;
         private ScrollRect _scrollRect;
 
-        public void Initialize(Transform originalParent, ScrollRect scrollRect = null)
+        public void Initialize(Transform contentParent, Transform draggingParent, LayoutGroup layoutGroup, ScrollRect scrollRect = null)
         {
-            base.Initialize(originalParent);
+            base.Initialize(contentParent, draggingParent, layoutGroup);
             _scrollRect = scrollRect;
         }
 
-        public override void OnDragUpdate(PointerEventData eventData)
+        protected override void OnDragUpdate(PointerEventData eventData)
         {
             transform.position = eventData.position;
         }
@@ -27,7 +27,7 @@ namespace Menu.Vehicles
 
             if (_scrollRect != null)
             {
-                float originalParentVerticalPosition = ((RectTransform)LayoutRoot).anchoredPosition.y;
+                float originalParentVerticalPosition = ((RectTransform)ContentParent).anchoredPosition.y;
                 float bottomVerticalPosition = ((RectTransform)_scrollRect.transform).sizeDelta.y;
 
                 if (transform.localPosition.y + originalParentVerticalPosition > -Bias)

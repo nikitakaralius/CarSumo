@@ -1,56 +1,60 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Menu
 {
     public abstract class ItemDragHandler<T> : SerializedMonoBehaviour,
-                                               IBeginDragHandler,
-                                               IDragHandler,
-                                               IEndDragHandler,
-                                               IPointerDownHandler,
-                                               IPointerUpHandler where T : Component
+            IDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
+            where T : Component
     {
         [SerializeField] private float _requiredHoldTime;
-        
-        private Transform _layoutRoot;
+
+        private LayoutGroup _layoutGroup;
+
         private ReactiveProperty<bool> _canDrag = new ReactiveProperty<bool>(false);
         private bool _pointerDown;
 
-        protected IEnumerable<T> Siblings => GetAllSiblingAccounts(_layoutRoot);
+        private IReadOnlyDictionary<T, int> _itemIndexes;
+
+        protected Transform ContentParent { get; private set; }
+
+        protected Transform DraggingParent { get; private set; }
 
         protected IReadOnlyReactiveProperty<bool> CanDrag => _canDrag;
 
-        protected Transform LayoutRoot => _layoutRoot;
-
-        protected void Initialize(Transform layoutRoot)
+        protected void Initialize(Transform contentParent, Transform draggingParent, LayoutGroup layoutGroup)
         {
-            _layoutRoot = layoutRoot;
+            ContentParent = contentParent;
+            DraggingParent = draggingParent;
+            _layoutGroup = layoutGroup;
         }
-        
+
         public void OnPointerDown(PointerEventData eventData)
         {
-            _pointerDown = true;    
-            MainThreadDispatcher.StartUpdateMicroCoroutine(IncreaseHoldTime(_requiredHoldTime));
-        }
-        
-        public void OnPointerUp(PointerEventData eventData)
-        {
-            _pointerDown = false;
+            _pointerDown = true;
+            MainThreadDispatcher
+               .StartUpdateMicroCoroutine(
+                StartTimingHoldTime(_requiredHoldTime, IsPlayerHoldingItem, BeginDrag));
         }
 
-        public void OnBeginDrag(PointerEventData eventData)
+        private void BeginDrag()
         {
-            if (_canDrag.Value == false)
-                return;
+            _canDrag.Value = true;
 
-            OnLateBeginDrag(eventData);
+            _itemIndexes = PrepareLayoutItemIndexes(ContentParent);
+            transform.SetParent(DraggingParent);
+
+            _layoutGroup.enabled = false;
+            OnLateBeginDrag();
         }
-        
+
         public void OnDrag(PointerEventData eventData)
         {
             if (_canDrag.Value == false)
@@ -59,79 +63,99 @@ namespace Menu
             OnDragUpdate(eventData);
         }
 
-        public abstract void OnDragUpdate(PointerEventData eventData);
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            _pointerDown = false;
+        }
 
         public void OnEndDrag(PointerEventData eventData)
         {
             if (_canDrag.Value == false)
                 return;
-            
-            IEnumerable<T> siblings = GetAllSiblingAccounts(_layoutRoot);
-            T closest = FindClosest(siblings, transform.GetSiblingIndex());
 
-            int siblingIndex = closest.transform.GetSiblingIndex();
-            transform.SetSiblingIndex(siblingIndex);
+            int closestIndex = FindClosestIndex(_itemIndexes);
 
-            OnLateEndDrag(eventData);
-            
+            transform.SetParent(ContentParent);
+            _layoutGroup.enabled = true;
+            transform.SetSiblingIndex(closestIndex);
+
+            OnLateEndDrag();
+
             _pointerDown = false;
             _canDrag.Value = false;
         }
 
-        protected virtual void OnLateBeginDrag(PointerEventData eventData) { }
+        protected abstract void OnDragUpdate(PointerEventData eventData);
 
-        protected virtual void OnLateEndDrag(PointerEventData eventData) { }
+        protected virtual void OnLateBeginDrag() { }
 
-        private IEnumerator IncreaseHoldTime(float requiredHoldTime)
+        protected virtual void OnLateEndDrag() { }
+
+        private IEnumerator StartTimingHoldTime(float requiredHoldTime, Func<bool> stopTiming, Action onReachingRequiredTime)
         {
-            float holdTime = 0.0f;
-            
-            while (_pointerDown)
+            float holdTime = 0;
+
+            while (stopTiming.Invoke())
             {
                 if (holdTime >= requiredHoldTime)
                 {
-                    _canDrag.Value = true;
+                    onReachingRequiredTime?.Invoke();
                     yield break;
                 }
-                
+
                 holdTime += Time.deltaTime;
                 yield return null;
             }
         }
 
-        private T FindClosest(IEnumerable<T> items, int originalSiblingIndex)
+        private int FindClosestIndex(IReadOnlyDictionary<T, int> itemIndexes)
         {
-            T closestItem = items.FirstOrDefault(item => item.transform.GetSiblingIndex() != originalSiblingIndex);
-
-            if (closestItem is null)
-                return items.First();
-            
-            foreach (T item in items)
+            if (itemIndexes.Count == 1)
             {
-                if (item.transform.GetSiblingIndex() == originalSiblingIndex)
+                return 0;
+            }
+
+            KeyValuePair<T, int> closestItem = itemIndexes.First(item => item.Key != this);
+
+            foreach (KeyValuePair<T, int> item in itemIndexes)
+            {
+                if (item.Key == this)
+                {
                     continue;
-                
-                if (Vector3.Distance(transform.position, item.transform.position) <
-                    Vector3.Distance(transform.position, closestItem.transform.position))
+                }
+
+                if (Vector3.Distance(transform.position, item.Key.transform.position) <
+                    Vector3.Distance(transform.position, closestItem.Key.transform.position))
                 {
                     closestItem = item;
                 }
             }
 
-            return closestItem;
+            return closestItem.Value;
         }
 
-        private IEnumerable<T> GetAllSiblingAccounts(Transform layoutParent)
+        private IReadOnlyDictionary<T, int> PrepareLayoutItemIndexes(Transform contentTransform)
         {
-            for (int i = 0; i < layoutParent.childCount; i++)
+            var itemIndexes = new Dictionary<T, int>(contentTransform.childCount);
+
+            for (int i = 0; i < contentTransform.childCount; i++)
             {
-                Transform child = layoutParent.GetChild(i);
+                Transform child = contentTransform.GetChild(i);
 
-                if (child.TryGetComponent<T>(out var sibling) == false)
+                if (child.TryGetComponent(out T item) == false)
+                {
                     continue;
+                }
 
-                yield return sibling;
+                itemIndexes.Add(item, item.transform.GetSiblingIndex());
             }
+
+            return itemIndexes;
+        }
+
+        private bool IsPlayerHoldingItem()
+        {
+            return _pointerDown;
         }
     }
 }

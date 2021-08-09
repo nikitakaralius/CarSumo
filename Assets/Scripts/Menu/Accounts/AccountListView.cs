@@ -7,6 +7,7 @@ using Services.Instantiate;
 using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.UI;
 using Zenject;
 
 namespace Menu.Accounts
@@ -16,6 +17,7 @@ namespace Menu.Accounts
         [SerializeField] private AssetReferenceGameObject _accountViewPrefab;
         [SerializeField] private AssetReferenceGameObject _blankAccountViewPrefab;
         [SerializeField] private Transform _itemsRoot;
+        [SerializeField] private LayoutGroup _layoutGroup;
 
         private IAsyncInstantiation _instantiation;
         private IAccountStorage _accountStorage;
@@ -81,7 +83,7 @@ namespace Menu.Accounts
             {
                 AccountListItem listItem =
                     await _instantiation.InstantiateAsync<AccountListItem>(_accountViewPrefab, root);
-                listItem.Initialize(account, _itemsRoot, transform);
+                listItem.Initialize(account, _itemsRoot, transform, _layoutGroup);
                 views.Add(listItem.gameObject);
             }
 

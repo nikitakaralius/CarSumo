@@ -29,7 +29,7 @@ namespace Menu.Accounts
             _audioPlayer = audioPlayer;
         }
 
-        public void Initialize(Account account, Transform originalParent, Transform draggingParent)
+        public void Initialize(Account account, Transform originalParent, Transform draggingParent, LayoutGroup layoutGroup)
         {
             ChangeAccount(account);
             gameObject.name = account.Name.Value;
@@ -39,7 +39,7 @@ namespace Menu.Accounts
             button.onClick.AddListener(_audioPlayer.Play);
 
             AccountListItemDragHandler dragHandler = GetComponent<AccountListItemDragHandler>();
-            dragHandler.Initialize(account, button, originalParent);
+            dragHandler.Initialize(account, button, originalParent, draggingParent, layoutGroup);
             
             _subscription = _accountStorage
                             .ActiveAccount

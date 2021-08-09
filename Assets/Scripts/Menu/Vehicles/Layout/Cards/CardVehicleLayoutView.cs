@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Menu.Vehicles.Layout
 {
     public class CardVehicleLayoutView : VehicleLayoutView<VehicleCard>
     {
+        [SerializeField] private LayoutGroup _layoutGroup;
         [SerializeField] private Transform _layoutRoot;
         [SerializeField] private Vector3 _cardSize = Vector3.one * 0.75f;
 
@@ -15,7 +17,7 @@ namespace Menu.Vehicles.Layout
             foreach (VehicleCard card in layout)
             {
                 card.transform.localScale = _cardSize;
-                card.Initialize(_layoutRoot);
+                card.Initialize(_layoutRoot, transform, _layoutGroup);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using CarSumo.DataModel.Accounts;
 using TweenAnimations;
@@ -13,9 +14,9 @@ namespace Menu.Accounts
     public class AccountListItemDragHandler : ItemDragHandler<AccountListItemDragHandler>
     {
         [SerializeField] private SizeTweenAnimation _animation;
-        
+
         private IClientAccountStorageOperations _storageOperations;
-        
+
         private Account _account;
         private Button _button;
         private IDisposable _animationSubscription;
@@ -26,11 +27,15 @@ namespace Menu.Accounts
             _storageOperations = storageOperations;
         }
 
-        public void Initialize(Account account, Button button, Transform originalParent)
+        public void Initialize(Account account,
+                               Button button,
+                               Transform contentParent,
+                               Transform draggingParent,
+                               LayoutGroup layoutGroup)
         {
             _account = account;
             _button = button;
-            Initialize(originalParent);
+            Initialize(contentParent, draggingParent, layoutGroup);
         }
 
         private void OnEnable()
@@ -53,25 +58,38 @@ namespace Menu.Accounts
             _animationSubscription.Dispose();
         }
 
-        protected override void OnLateBeginDrag(PointerEventData eventData)
+        protected override void OnLateBeginDrag()
         {
             _button.enabled = false;
         }
 
-        public override void OnDragUpdate(PointerEventData eventData)
+        protected override void OnDragUpdate(PointerEventData eventData)
         {
             Vector3 originalPosition = transform.position;
             Vector2 dragPosition = eventData.position;
             transform.position = new Vector3(originalPosition.x, dragPosition.y);
         }
 
-        protected override void OnLateEndDrag(PointerEventData eventData)
+        protected override void OnLateEndDrag()
         {
-            _storageOperations.ChangeOrder(Siblings
-                .Select(item => item._account)
+            _storageOperations.ChangeOrder(
+                GetAccountLayout(ContentParent)
                 .ToArray());
 
             _button.enabled = true;
+        }
+
+        private IEnumerable<Account> GetAccountLayout(Transform contentParent)
+        {
+            for (int i = 0; i < contentParent.childCount; i++)
+            {
+                var child = contentParent.GetChild(i);
+
+                if (child.TryGetComponent<AccountListItemDragHandler>(out var item) == false)
+                    continue;
+
+                yield return item._account;
+            }
         }
     }
 }
