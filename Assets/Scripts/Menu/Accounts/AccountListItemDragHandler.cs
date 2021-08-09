@@ -1,5 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using CarSumo.DataModel.Accounts;
+using TweenAnimations;
+using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,10 +12,13 @@ namespace Menu.Accounts
 {
     public class AccountListItemDragHandler : ItemDragHandler<AccountListItemDragHandler>
     {
+        [SerializeField] private SizeTweenAnimation _animation;
+        
         private IClientAccountStorageOperations _storageOperations;
         
         private Account _account;
         private Button _button;
+        private IDisposable _animationSubscription;
 
         [Inject]
         private void Construct(IClientAccountStorageOperations storageOperations)
@@ -20,11 +26,31 @@ namespace Menu.Accounts
             _storageOperations = storageOperations;
         }
 
-        public void Initialize(Account account, Button button, Transform originalParent, Transform draggingParent)
+        public void Initialize(Account account, Button button, Transform originalParent)
         {
             _account = account;
             _button = button;
-            Initialize(originalParent, draggingParent);
+            Initialize(originalParent);
+        }
+
+        private void OnEnable()
+        {
+            _animationSubscription = CanDrag.Subscribe(canDrag =>
+            {
+                if (canDrag)
+                {
+                    _animation.IncreaseSize();
+                }
+                else
+                {
+                    _animation.DecreaseSize();
+                }
+            });
+        }
+
+        private void OnDisable()
+        {
+            _animationSubscription.Dispose();
         }
 
         protected override void OnLateBeginDrag(PointerEventData eventData)
@@ -32,7 +58,7 @@ namespace Menu.Accounts
             _button.enabled = false;
         }
 
-        public override void OnDrag(PointerEventData eventData)
+        public override void OnDragUpdate(PointerEventData eventData)
         {
             Vector3 originalPosition = transform.position;
             Vector2 dragPosition = eventData.position;

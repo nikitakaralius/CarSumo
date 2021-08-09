@@ -5,12 +5,12 @@ namespace Menu.Vehicles
 {
     public class VehicleCard : ItemDragHandler<VehicleCard>
     {
-        public new void Initialize(Transform originalParent, Transform draggingParent)
+        public new void Initialize(Transform originalParent)
         {
-            base.Initialize(originalParent, draggingParent);
+            base.Initialize(originalParent);
         }
         
-        public override void OnDrag(PointerEventData eventData)
+        public override void OnDragUpdate(PointerEventData eventData)
         {
             transform.position = eventData.position;
         }

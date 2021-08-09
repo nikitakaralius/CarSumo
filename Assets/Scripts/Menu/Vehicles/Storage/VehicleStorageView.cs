@@ -52,7 +52,7 @@ namespace Menu.Vehicles.Storage
         {
             foreach (VehicleCard card in layout)
             {
-                card.Initialize(CollectionRoot, transform);
+                card.Initialize(CollectionRoot);
             }
         }
 
