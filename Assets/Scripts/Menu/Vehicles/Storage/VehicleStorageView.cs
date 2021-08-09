@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using CarSumo.DataModel.Accounts;
 using DataModel.Vehicles;
-using Menu.Vehicles.Layout;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -51,6 +50,10 @@ namespace Menu.Vehicles.Storage
 
         protected override void ProcessCreatedLayout(IEnumerable<VehicleCard> layout)
         {
+            foreach (VehicleCard card in layout)
+            {
+                card.Initialize(CollectionRoot, transform);
+            }
         }
 
         private async Task SpawnPreparedCollectionAsync(IVehicleLayout layout)
