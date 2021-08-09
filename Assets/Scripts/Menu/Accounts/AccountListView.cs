@@ -50,7 +50,7 @@ namespace Menu.Accounts
 
         private async Task FillList()
         {
-            ClearViews(_itemsRoot);
+            ClearViews();
             
             IEnumerable<GameObject> accountViews = await CreateAccountViews(_accountStorage.AllAccounts, _itemsRoot);
             IEnumerable<GameObject> blankAccountViews = await CreateBlankAccountViews(_itemsRoot);
@@ -59,7 +59,7 @@ namespace Menu.Accounts
             _views.AddRange(blankAccountViews);
         }
 
-        private void ClearViews(Transform root)
+        private void ClearViews()
         {
             foreach (GameObject view in _views)
             {
