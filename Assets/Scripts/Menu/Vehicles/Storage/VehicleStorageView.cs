@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using CarSumo.DataModel.Accounts;
 using DataModel.Vehicles;
 using Menu.Vehicles.Layout;
@@ -16,7 +17,7 @@ namespace Menu.Vehicles.Storage
 
         private IVehicleStorage _vehicleStorage;
         private IAccountStorage _accountStorage;
-        private IDisposable _storageChangedSubscription;
+        private readonly CompositeDisposable _subscriptions = new CompositeDisposable();
 
         [Inject]
         private void Construct(IVehicleStorage vehicleStorage, IAccountStorage accountStorage)
@@ -29,36 +30,45 @@ namespace Menu.Vehicles.Storage
 
         private IReadOnlyReactiveCollection<VehicleId> BoughtVehicles => _vehicleStorage.BoughtVehicles;
 
-        private IReadOnlyReactiveCollection<VehicleId> Layout =>
-            _accountStorage.ActiveAccount.Value.VehicleLayout.Value.ActiveVehicles;
+        private IVehicleLayout Layout =>
+            _accountStorage.ActiveAccount.Value.VehicleLayout.Value;
 
-        private async void OnEnable()
+        private void OnEnable()
         {
-            await SpawnCollectionAsync(GetVehiclesExceptLayout());
-
-            _storageChangedSubscription = BoughtVehicles
+            BoughtVehicles
                 .ObserveCountChanged()
-                .Subscribe(async _ => await SpawnCollectionAsync(GetVehiclesExceptLayout()));
+                .Subscribe(async _ => await SpawnPreparedCollectionAsync(Layout))
+                .AddTo(_subscriptions);
+
+            _accountStorage.ActiveAccount
+                .Subscribe(async account => await SpawnPreparedCollectionAsync(account.VehicleLayout.Value))
+                .AddTo(_subscriptions);
         }
 
         private void OnDisable()
         {
-            _storageChangedSubscription.Dispose();
+            _subscriptions.Dispose();
         }
 
         protected override void ProcessCreatedLayout(IEnumerable<VehicleCard> layout)
         {
         }
 
-        private IEnumerable<VehicleId> GetVehiclesExceptLayout()
+        private async Task SpawnPreparedCollectionAsync(IVehicleLayout layout)
         {
-            List<VehicleId> layout = new List<VehicleId>(Layout);
+            IEnumerable<VehicleId> vehicles = GetVehiclesExceptLayout(layout);
+            await SpawnCollectionAsync(vehicles);
+        }
+
+        private IEnumerable<VehicleId> GetVehiclesExceptLayout(IVehicleLayout layout)
+        {
+            List<VehicleId> cachedLayout = new List<VehicleId>(layout.ActiveVehicles);
 
             foreach (VehicleId vehicle in BoughtVehicles)
             {
-                if (layout.Any(layoutVehicle => layoutVehicle == vehicle))
+                if (cachedLayout.Any(layoutVehicle => layoutVehicle == vehicle))
                 {
-                    layout.Remove(vehicle);
+                    cachedLayout.Remove(vehicle);
                     continue;
                 }
 
