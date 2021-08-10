@@ -1,5 +1,4 @@
-﻿using System;
-using Menu.Vehicles.Cards;
+﻿using Menu.Vehicles.Cards;
 using System.Collections.Generic;
 using System.Linq;
 using CarSumo.DataModel.Accounts;

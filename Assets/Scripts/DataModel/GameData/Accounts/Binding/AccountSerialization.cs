@@ -10,7 +10,7 @@ namespace CarSumo.DataModel.GameData.Accounts
             {
                 Name = account.Name.Value,
                 Icon = account.Icon.Value.Asset,
-                VehicleLayout = account.VehicleLayout.Value.ActiveVehicles
+                VehicleLayout = account.VehicleLayout.ActiveVehicles
             };
         }
     }

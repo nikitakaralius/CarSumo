@@ -5,6 +5,6 @@ namespace DataModel.Vehicles
     public interface IVehicleLayout
     {
         IReadOnlyReactiveCollection<VehicleId> ActiveVehicles { get; }
-        void ChangeActiveVehicle(VehicleId vehicle, int slot);
+        bool TryChangeActiveVehicle(VehicleId vehicle, int slot);
     }
 }

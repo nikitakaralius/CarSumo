@@ -31,22 +31,21 @@ namespace Menu.Vehicles.Storage
 
         private IReadOnlyReactiveCollection<VehicleId> BoughtVehicles => _vehicleStorage.BoughtVehicles;
 
-        private IReactiveProperty<IVehicleLayout> Layout =>
-            _accountStorage.ActiveAccount.Value.VehicleLayout;
+        private IVehicleLayout Layout => _accountStorage.ActiveAccount.Value.VehicleLayout;
 
         private void OnEnable()
         {
             BoughtVehicles
                 .ObserveCountChanged()
-                .Subscribe(async _ => await SpawnPreparedCollectionAsync(Layout.Value))
+                .Subscribe(async _ => await SpawnPreparedCollectionAsync(Layout))
                 .AddTo(_subscriptions);
 
             _accountStorage.ActiveAccount
-	            .Subscribe(async account => await SpawnPreparedCollectionAsync(account.VehicleLayout.Value))
+	            .Subscribe(async account => await SpawnPreparedCollectionAsync(account.VehicleLayout))
 	            .AddTo(_subscriptions);
             
-            Layout.Value.ActiveVehicles.ObserveReplace()
-                .Subscribe(async _ => await SpawnPreparedCollectionAsync(Layout.Value))
+            Layout.ActiveVehicles.ObserveReplace()
+                .Subscribe(async _ => await SpawnPreparedCollectionAsync(Layout))
                 .AddTo(_subscriptions);
         }
 

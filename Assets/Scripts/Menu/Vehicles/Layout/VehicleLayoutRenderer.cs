@@ -22,7 +22,7 @@ namespace Menu.Vehicles.Layout
         }
         
         private IReadOnlyReactiveProperty<Account> ActiveAccount => _accountStorage.ActiveAccount;
-        private IEnumerable<VehicleId> Layout => _accountStorage.ActiveAccount.Value.VehicleLayout.Value.ActiveVehicles;
+        private IEnumerable<VehicleId> Layout => _accountStorage.ActiveAccount.Value.VehicleLayout.ActiveVehicles;
 
         private async void OnEnable()
         {
@@ -42,7 +42,7 @@ namespace Menu.Vehicles.Layout
             _layoutChangedSubscription?.Dispose();
             
             _layoutChangedSubscription = account
-	            .VehicleLayout.Value.ActiveVehicles.ObserveReplace()
+	            .VehicleLayout.ActiveVehicles.ObserveReplace()
 	            .Subscribe(async _ => await SpawnCollectionAsync(Layout));
         }
     }
