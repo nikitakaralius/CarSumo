@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CarSumo.DataModel.Accounts;
 using DataModel.Vehicles;
 using UniRx;
@@ -21,10 +22,12 @@ namespace Menu.Vehicles.Layout
         }
         
         private IReadOnlyReactiveProperty<Account> ActiveAccount => _accountStorage.ActiveAccount;
-        private IReadOnlyReactiveProperty<IVehicleLayout> Layout => _accountStorage.ActiveAccount.Value.VehicleLayout;
+        private IEnumerable<VehicleId> Layout => _accountStorage.ActiveAccount.Value.VehicleLayout.Value.ActiveVehicles;
 
-        private void OnEnable()
+        private async void OnEnable()
         {
+	        await SpawnCollectionAsync(Layout);
+	        
             _accountChangedSubscription = ActiveAccount.Subscribe(OnActiveAccountChanged);
         }
 
@@ -37,7 +40,10 @@ namespace Menu.Vehicles.Layout
         private void OnActiveAccountChanged(Account account)
         {
             _layoutChangedSubscription?.Dispose();
-            _layoutChangedSubscription = Layout.Subscribe(async layout => await SpawnCollectionAsync(layout.ActiveVehicles));
+            
+            _layoutChangedSubscription = account
+	            .VehicleLayout.Value.ActiveVehicles.ObserveReplace()
+	            .Subscribe(async _ => await SpawnCollectionAsync(Layout));
         }
     }
 }

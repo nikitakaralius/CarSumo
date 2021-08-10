@@ -14,7 +14,7 @@ namespace Menu.Vehicles.Storage
     public class VehicleStorageView : VehicleCollectionView<VehicleCard>, IVehicleCardSelectHandler
     {
         [SerializeField] private Transform _layoutRoot;
-        [SerializeField] private ILayoutSlotProvider _slotProvider;
+        [SerializeField] private IVehicleLayoutView _layoutView;
 
         private IVehicleStorage _vehicleStorage;
         private IAccountStorage _accountStorage;
@@ -63,8 +63,7 @@ namespace Menu.Vehicles.Storage
 
         public void OnCardSelected(VehicleCard card)
         {
-	        Debug.Log("Card Selected");
-	        Layout.Value.ChangeActiveVehicle(card.VehicleId, _slotProvider.Slot);
+	        _layoutView.ChangeLayoutVehicle(card.VehicleId);
         }
 
         public void OnCardDeselected(VehicleCard card)

@@ -9088,7 +9088,7 @@ MonoBehaviour:
     - Name: _assetsProvider
       Entry: 10
       Data: 0
-    - Name: _slotProvider
+    - Name: _layoutView
       Entry: 10
       Data: 1
   _layoutRoot: {fileID: 5857635362438841528}
