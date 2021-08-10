@@ -1,108 +1,83 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AdvancedAudioSystem;
 using DataModel.Vehicles;
-using Sirenix.Utilities;
-using TweenAnimations;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace Menu.Vehicles.Cards
 {
     [RequireComponent(typeof(Button))]
     public class VehicleCard : MonoBehaviour
     {
-        [SerializeField] private VehicleId _id;
-        [SerializeField] private SizeDeltaTweenAnimation _animation;
-
-        private IAudioPlayer _audioPlayer;
-
-        private Transform _contentRoot;
-        private Transform _selectedRoot;
-        private LayoutGroup _layoutGroup;
-        private IEnumerable<VehicleCard> _layout;
-
-        private Button _button;
+        [SerializeField] private VehicleId _vehicleId;
         
-        private bool _clicked = false;
-        private int _siblingIndex;
+        private readonly ReactiveProperty<bool> _selected = new ReactiveProperty<bool>(false);
+        private bool _notifyingDisabled;
+        private int _dynamicSiblingIndex;
 
-        public VehicleId Id => _id;
+        private IDisposable _selectedSubscription;
+        private IVehicleCardSelectHandler _selectHandler;
 
-        [Inject]
-        private void Construct(IAudioPlayer audioPlayer)
+        private void Awake()
         {
-            _audioPlayer = audioPlayer;
-        }
+            Button button = GetComponent<Button>();
+            button.onClick.AddListener(() => _selected.Value = !_selected.Value);
 
-        public void Initialize(Transform contentRoot,
-                                Transform selectedRoot,
-                                LayoutGroup layoutGroup,
-                                Action<bool> onButtonClicked,
-                                IEnumerable<VehicleCard> layout)
-        {
-            _layout = layout;
-            _contentRoot = contentRoot;
-            _selectedRoot = selectedRoot;
-            _layoutGroup = layoutGroup;
-
-            _button ??= GetComponent<Button>();
-
-            _button.onClick.RemoveAllListeners();
-            _button.onClick.AddListener(() => OnButtonClickedInternal(onButtonClicked));
-        }
-
-        private void OnDisable()
-        {
-            _clicked = false;
-            _layoutGroup.enabled = true;
-            transform.SetParent(_contentRoot);
-            transform.SetSiblingIndex(_siblingIndex);
-            _animation.DecreaseSize();
-        }
-
-        private void SetInactive()
-        {
-            _clicked = false;
+            _notifyingDisabled = true;
             
-            transform.SetParent(_contentRoot);
-            transform.SetSiblingIndex(_siblingIndex);
-            _animation.DecreaseSize();
-        }
-        
-        private void OnButtonClickedInternal(Action<bool> onButtonClicked)
-        {
-            _clicked = _clicked == false;
-            _audioPlayer.Play();
-            onButtonClicked.Invoke(_clicked);
-
-            if (_clicked)
+            _selectedSubscription = _selected.Subscribe(selected =>
             {
-                _siblingIndex = transform.GetSiblingIndex();
-
-                _layoutGroup.enabled = false;
-                transform.SetParent(_selectedRoot);
+                if (_notifyingDisabled)
+                {
+                    return;
+                }
                 
-                _animation.IncreaseSize();
-                NotifyOtherCardsBeingClicked();
-            }
-            else
-            {
-                _layoutGroup.enabled = true;
-                transform.SetParent(_contentRoot);
-                transform.SetSiblingIndex(_siblingIndex);
-                
-                _animation.DecreaseSize();
-            }
+                if (selected)
+                {
+                    OnCardSelectedInternal();
+                    _selectHandler?.OnCardSelected(this);
+                }
+                else
+                {
+                    OnCardDeselectedInternal();
+                    _selectHandler?.OnCardDeselected(this);
+                }
+            });
+            
+            _notifyingDisabled = false;
         }
 
-        private void NotifyOtherCardsBeingClicked()
+        private void OnDestroy()
         {
-            _layout
-                .Where(x => x != this)
-                .ForEach(x => x.SetInactive());
+            _selectedSubscription?.Dispose();
+        }
+
+        public void SetSelectHandler(IVehicleCardSelectHandler selectHandler)
+        {
+            _selectHandler = selectHandler;
+        }
+
+        public void NotifyBeingDeselected(bool disableHandlerNotify)
+        {
+            _notifyingDisabled = disableHandlerNotify;
+            _selected.Value = false;
+            _notifyingDisabled = false;
+            
+            OnCardDeselectedInternal();
+        }
+
+        public void SetLatestSiblingIndex()
+        {
+            transform.SetSiblingIndex(_dynamicSiblingIndex);
+        }
+
+        private void OnCardSelectedInternal()
+        {
+            _dynamicSiblingIndex = transform.GetSiblingIndex();
+        }
+
+        private void OnCardDeselectedInternal()
+        {
         }
     }
 }

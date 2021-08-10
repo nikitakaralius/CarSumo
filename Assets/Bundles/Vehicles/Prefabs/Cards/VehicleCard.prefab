@@ -179,7 +179,6 @@ GameObject:
   - component: {fileID: 1479995022716098279}
   - component: {fileID: 8954410985775858868}
   - component: {fileID: 8014260723648156991}
-  - component: {fileID: 7438002796482851497}
   m_Layer: 5
   m_Name: VehicleCard
   m_TagString: Untagged
@@ -263,23 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3ef8ef4c3f4843bf707801a2e7f7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 0
-  _animation: {fileID: 7438002796482851497}
---- !u!114 &7438002796482851497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1479995022716098278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e61d791f4524aa39c7aad80a1266b7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _delta: {x: 0.15, y: 0.15, z: 0.15}
-  _duration: 0.3
-  _ease: 19
+  _vehicleId: 0
 --- !u!1 &1479995022811924171
 GameObject:
   m_ObjectHideFlags: 0
