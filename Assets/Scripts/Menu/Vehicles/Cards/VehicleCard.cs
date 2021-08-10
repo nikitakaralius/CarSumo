@@ -25,6 +25,8 @@ namespace Menu.Vehicles.Cards
             Button button = GetComponent<Button>();
             button.onClick.AddListener(() => _selected.Value = !_selected.Value);
 
+            DynamicSiblingIndex = transform.GetSiblingIndex();
+            
             _notifyingDisabled = true;
             
             _selectedSubscription = _selected.Subscribe(selected =>
@@ -59,13 +61,9 @@ namespace Menu.Vehicles.Cards
             _selectHandler = selectHandler;
         }
 
-        public void NotifyBeingDeselected(bool disableHandlerNotify)
+        public void NotifyBeingDeselected()
         {
-            _notifyingDisabled = disableHandlerNotify;
             _selected.Value = false;
-            _notifyingDisabled = false;
-            
-            OnCardDeselectedInternal();
         }
 
         public void SetLatestSiblingIndex()

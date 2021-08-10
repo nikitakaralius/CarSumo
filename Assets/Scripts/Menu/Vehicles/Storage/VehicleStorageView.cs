@@ -41,8 +41,12 @@ namespace Menu.Vehicles.Storage
                 .Subscribe(async _ => await SpawnPreparedCollectionAsync(Layout.Value))
                 .AddTo(_subscriptions);
 
-            Layout
-                .Subscribe(async layout => await SpawnPreparedCollectionAsync(layout))
+            _accountStorage.ActiveAccount
+	            .Subscribe(async account => await SpawnPreparedCollectionAsync(account.VehicleLayout.Value))
+	            .AddTo(_subscriptions);
+            
+            Layout.Value.ActiveVehicles.ObserveReplace()
+                .Subscribe(async _ => await SpawnPreparedCollectionAsync(Layout.Value))
                 .AddTo(_subscriptions);
         }
 
@@ -50,17 +54,7 @@ namespace Menu.Vehicles.Storage
         {
             _subscriptions.Dispose();
         }
-
-        public void Enable()
-        {
-            gameObject.SetActive(true);
-        }
-
-        public void Disable()
-        {
-            gameObject.SetActive(false);
-        }
-
+        
         public void OnCardSelected(VehicleCard card)
         {
 	        _layoutView.ChangeLayoutVehicle(card.VehicleId);
@@ -70,7 +64,7 @@ namespace Menu.Vehicles.Storage
         {
         }
 
-        protected override void ProcessCreatedLayout(IEnumerable<VehicleCard> layout)
+        protected override void ProcessCreatedCollection(IEnumerable<VehicleCard> layout)
         {
 	        foreach (VehicleCard card in layout)
 	        {

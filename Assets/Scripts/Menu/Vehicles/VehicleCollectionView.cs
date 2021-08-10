@@ -28,15 +28,15 @@ namespace Menu.Vehicles
         
         protected IReadOnlyList<T> Items => _items;
         
-        protected abstract void ProcessCreatedLayout(IEnumerable<T> layout);
+        protected abstract void ProcessCreatedCollection(IEnumerable<T> layout);
 
         protected async Task SpawnCollectionAsync(IEnumerable<VehicleId> vehicles)
         {
             Clear();
-            
+
             IEnumerable<T> items = await GetVehicleItemsAsync(vehicles, CollectionRoot);
             _items = items.ToList();
-            ProcessCreatedLayout(_items);
+            ProcessCreatedCollection(_items);
         }
         
         private void Clear()

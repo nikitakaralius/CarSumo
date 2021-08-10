@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Menu.Vehicles.Layout
 {
-    public abstract class VehicleLayoutView<T> : VehicleCollectionView<T> where T : Component
+    public abstract class VehicleLayoutRenderer<T> : VehicleCollectionView<T> where T : Component
     {
         private IAccountStorage _accountStorage;
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Menu.Vehicles
 {
-    internal class VehicleEnvironmentLayoutPreview : VehicleLayoutView<MenuVehicle>
+    internal class VehicleEnvironmentLayoutPreview : VehicleLayoutRenderer<MenuVehicle>
     {
         private int _selectedVehicleIndex;
 
@@ -23,7 +23,7 @@ namespace Menu.Vehicles
             SelectVehicle(index);
         }
 
-        protected override void ProcessCreatedLayout(IEnumerable<MenuVehicle> layout)
+        protected override void ProcessCreatedCollection(IEnumerable<MenuVehicle> layout)
         {
             foreach (MenuVehicle vehicle in layout)
             {

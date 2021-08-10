@@ -1074,10 +1074,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 107066605}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffe10fc6ee2b432b92f7038746eade14, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fcfa035544843d8aaea0d9672b1426c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tweenData:
+  _sizeData:
     From: {x: 0.75, y: 0.75, z: 0.75}
     To: {x: 0.9, y: 0.9, z: 0.9}
     Duration: 0.3
@@ -1109,9 +1109,7 @@ MonoBehaviour:
       Data: 0
   _layoutRoot: {fileID: 2090160403}
   _contentLayoutGroup: {fileID: 2090160404}
-  _storage: {fileID: 5857635362157322545}
-  _animation: {fileID: 107066609}
-  _cardSize: {x: 0.75, y: 0.75, z: 0.75}
+  _vehicleScaling: {fileID: 107066609}
 --- !u!1 &218206413
 GameObject:
   m_ObjectHideFlags: 0
@@ -9079,7 +9077,6 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 2fa714d0b2edcc14197cd78375a65b38, type: 2}
-    - {fileID: 107066610}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -9089,8 +9086,8 @@ MonoBehaviour:
       Entry: 10
       Data: 0
     - Name: _layoutView
-      Entry: 10
-      Data: 1
+      Entry: 6
+      Data: 
   _layoutRoot: {fileID: 5857635362438841528}
 --- !u!222 &5857635362157322555
 CanvasRenderer:
