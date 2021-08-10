@@ -13,10 +13,12 @@ namespace Menu.Vehicles.Cards
         
         private readonly ReactiveProperty<bool> _selected = new ReactiveProperty<bool>(false);
         private bool _notifyingDisabled;
-        private int _dynamicSiblingIndex;
 
         private IDisposable _selectedSubscription;
         private IVehicleCardSelectHandler _selectHandler;
+
+        public int DynamicSiblingIndex { get; private set; }
+        public VehicleId VehicleId => _vehicleId;
 
         private void Awake()
         {
@@ -68,12 +70,12 @@ namespace Menu.Vehicles.Cards
 
         public void SetLatestSiblingIndex()
         {
-            transform.SetSiblingIndex(_dynamicSiblingIndex);
+            transform.SetSiblingIndex(DynamicSiblingIndex);
         }
 
         private void OnCardSelectedInternal()
         {
-            _dynamicSiblingIndex = transform.GetSiblingIndex();
+            DynamicSiblingIndex = transform.GetSiblingIndex();
         }
 
         private void OnCardDeselectedInternal()

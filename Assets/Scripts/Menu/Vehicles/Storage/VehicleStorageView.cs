@@ -4,15 +4,17 @@ using System.Threading.Tasks;
 using CarSumo.DataModel.Accounts;
 using DataModel.Vehicles;
 using Menu.Vehicles.Cards;
+using Menu.Vehicles.Layout;
 using UniRx;
 using UnityEngine;
 using Zenject;
 
 namespace Menu.Vehicles.Storage
 {
-    public class VehicleStorageView : VehicleCollectionView<VehicleCard>
+    public class VehicleStorageView : VehicleCollectionView<VehicleCard>, IVehicleCardSelectHandler
     {
         [SerializeField] private Transform _layoutRoot;
+        [SerializeField] private ILayoutSlotProvider _slotProvider;
 
         private IVehicleStorage _vehicleStorage;
         private IAccountStorage _accountStorage;
@@ -39,10 +41,6 @@ namespace Menu.Vehicles.Storage
                 .Subscribe(async _ => await SpawnPreparedCollectionAsync(Layout.Value))
                 .AddTo(_subscriptions);
 
-            //_accountStorage.ActiveAccount
-            //    .Subscribe(async account => await SpawnPreparedCollectionAsync(account.VehicleLayout.Value))
-            //    .AddTo(_subscriptions);
-
             Layout
                 .Subscribe(async layout => await SpawnPreparedCollectionAsync(layout))
                 .AddTo(_subscriptions);
@@ -63,9 +61,22 @@ namespace Menu.Vehicles.Storage
             gameObject.SetActive(false);
         }
 
+        public void OnCardSelected(VehicleCard card)
+        {
+	        Debug.Log("Card Selected");
+	        Layout.Value.ChangeActiveVehicle(card.VehicleId, _slotProvider.Slot);
+        }
+
+        public void OnCardDeselected(VehicleCard card)
+        {
+        }
+
         protected override void ProcessCreatedLayout(IEnumerable<VehicleCard> layout)
         {
-            
+	        foreach (VehicleCard card in layout)
+	        {
+		        card.SetSelectHandler(this);
+	        }
         }
 
         private async Task SpawnPreparedCollectionAsync(IVehicleLayout layout)

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Menu.Vehicles.Layout
 {
-    public class CardVehicleLayoutView : VehicleLayoutView<VehicleCard>, IVehicleCardSelectHandler
+    public class CardVehicleLayoutView : VehicleLayoutView<VehicleCard>, IVehicleCardSelectHandler, ILayoutSlotProvider
     {
         [Header("View Components")]
         [SerializeField] private Transform _layoutRoot;
@@ -22,11 +22,14 @@ namespace Menu.Vehicles.Layout
         
         protected override Transform CollectionRoot => _layoutRoot;
         private Transform CardSelectedRoot => transform;
+        
+        public int Slot { get; private set; }
 
         private void OnDisable()
         {
             _contentLayoutGroup.enabled = true;
             _storage.Disable();
+            Slot = -1;
         }
 
         protected override void ProcessCreatedLayout(IEnumerable<VehicleCard> layout)
@@ -43,7 +46,10 @@ namespace Menu.Vehicles.Layout
         public void OnCardSelected(VehicleCard card)
         {
             _contentLayoutGroup.enabled = false;
+
+            Slot = card.DynamicSiblingIndex;
             card.transform.SetParent(CardSelectedRoot);
+            
             _storage.Enable();
             _animation.ApplyIncreaseSizeAnimation(card.transform);
             
