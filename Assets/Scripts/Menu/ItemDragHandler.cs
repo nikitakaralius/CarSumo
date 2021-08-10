@@ -91,6 +91,11 @@ namespace Menu
 
         protected virtual void OnLateEndDrag() { }
 
+        protected void SetRequiredHoldTime(float requiredHoldTime)
+        {
+	        _requiredHoldTime = requiredHoldTime;
+        }
+
         private IEnumerator StartTimingHoldTime(float requiredHoldTime, Func<bool> stopTiming, Action onReachingRequiredTime)
         {
             float holdTime = 0;

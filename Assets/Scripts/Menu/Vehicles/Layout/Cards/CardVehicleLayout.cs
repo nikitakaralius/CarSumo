@@ -20,6 +20,7 @@ namespace Menu.Vehicles.Layout
 
 		[Header("Card Select Handle Components")] 
 		[SerializeField] private CardVehicleLayoutScaling _vehicleScaling;
+		[SerializeField] private float _holdTimeToDrag = 0.3f;
 
 		private IAccountStorage _accountStorage;
 		private int _selectedCardIndex = -1;
@@ -49,6 +50,10 @@ namespace Menu.Vehicles.Layout
 			{
 				vehicleCard.SetSelectHandler(this);
 				_vehicleScaling.ApplyInitialScale(vehicleCard.transform);
+				
+				vehicleCard.gameObject
+					.AddComponent<VehicleCardDragHandler>()
+					.Initialize(_holdTimeToDrag, CollectionRoot, SelectedRoot, _contentLayoutGroup);
 			}			
 		}
 
