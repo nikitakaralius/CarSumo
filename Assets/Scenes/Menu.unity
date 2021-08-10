@@ -9079,6 +9079,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 2fa714d0b2edcc14197cd78375a65b38, type: 2}
+    - {fileID: 107066610}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -9087,6 +9088,9 @@ MonoBehaviour:
     - Name: _assetsProvider
       Entry: 10
       Data: 0
+    - Name: _slotProvider
+      Entry: 10
+      Data: 1
   _layoutRoot: {fileID: 5857635362438841528}
 --- !u!222 &5857635362157322555
 CanvasRenderer:
