@@ -1090,6 +1090,7 @@ MonoBehaviour:
       Entry: 10
       Data: 0
   _layoutRoot: {fileID: 2090160403}
+  _layoutGroup: {fileID: 2090160404}
   _storage: {fileID: 5857635362157322545}
   _cardSize: {x: 0.75, y: 0.75, z: 0.75}
 --- !u!1 &218206413
