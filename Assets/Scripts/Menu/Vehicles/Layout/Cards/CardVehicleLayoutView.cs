@@ -19,13 +19,14 @@ namespace Menu.Vehicles.Layout
         [SerializeField] private Vector3 _cardSize = Vector3.one * 0.75f;
 
         private IEnumerable<VehicleCard> _layout;
-
+        
         protected override Transform CollectionRoot => _layoutRoot;
         private Transform CardSelectedRoot => transform;
 
         private void OnDisable()
         {
             _contentLayoutGroup.enabled = true;
+            _storage.Disable();
         }
 
         protected override void ProcessCreatedLayout(IEnumerable<VehicleCard> layout)
