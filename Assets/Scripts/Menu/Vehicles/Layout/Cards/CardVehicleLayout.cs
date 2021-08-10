@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CarSumo.DataModel.Accounts;
+using DataModel.Vehicles;
 using Menu.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,9 @@ using Zenject;
 
 namespace Menu.Vehicles.Layout
 {
-	public class CardVehicleLayout : VehicleLayoutRenderer<VehicleCard>, IVehicleCardSelectHandler
+	public class CardVehicleLayout : VehicleLayoutRenderer<VehicleCard>,
+		IVehicleCardSelectHandler,
+		IVehicleLayoutChanger
 	{
 		[Header("View Components")] 
 		[SerializeField] private Transform _layoutRoot;
@@ -19,6 +22,7 @@ namespace Menu.Vehicles.Layout
 		[SerializeField] private CardVehicleLayoutScaling _vehicleScaling;
 
 		private IAccountStorage _accountStorage;
+		private int _selectedCardIndex = -1;
 
 		[Inject]
 		private void Construct(IAccountStorage accountStorage)
@@ -30,24 +34,34 @@ namespace Menu.Vehicles.Layout
 
 		private Transform SelectedRoot => transform;
 
+		private void OnDisable()
+		{
+			_contentLayoutGroup.EnableElementsUpdate();
+			_selectedCardIndex = -1;
+		}
+
 		protected override void ProcessCreatedCollection(IEnumerable<VehicleCard> layout)
 		{
+			_selectedCardIndex = -1;
+			_contentLayoutGroup.EnableElementsUpdate();
+
 			foreach (VehicleCard vehicleCard in layout)
 			{
 				vehicleCard.SetSelectHandler(this);
 				_vehicleScaling.ApplyInitialScale(vehicleCard.transform);
-			}
+			}			
 		}
-		
+
 		public void OnCardSelected(VehicleCard card)
 		{
 			Transform cardTransform = card.transform;
-			
+
 			_contentLayoutGroup.DisableElementsUpdate();
-			
+
+			_selectedCardIndex = card.DynamicSiblingIndex;
 			cardTransform.SetParent(SelectedRoot);
 			_vehicleScaling.ApplySelectedAnimation(cardTransform);
-			
+
 			NotifyOtherCards(Items, card);
 		}
 
@@ -58,6 +72,12 @@ namespace Menu.Vehicles.Layout
 			card.transform.SetParent(CollectionRoot);
 			card.SetLatestSiblingIndex();
 			_vehicleScaling.ApplyDeselectedAnimation(cardTransform);
+		}
+
+		public bool TryChangeVehicleOn(VehicleId vehicle)
+		{
+			return _accountStorage.ActiveAccount.Value.VehicleLayout
+				.TryChangeActiveVehicle(vehicle, _selectedCardIndex);
 		}
 
 		private void NotifyOtherCards(IEnumerable<VehicleCard> allCards, VehicleCard selectedCard)

@@ -2,9 +2,8 @@
 
 namespace DataModel.Vehicles
 {
-    public interface IVehicleLayout
+    public interface IVehicleLayout : IVehicleLayoutOperations
     {
         IReadOnlyReactiveCollection<VehicleId> ActiveVehicles { get; }
-        bool TryChangeActiveVehicle(VehicleId vehicle, int slot);
     }
 }

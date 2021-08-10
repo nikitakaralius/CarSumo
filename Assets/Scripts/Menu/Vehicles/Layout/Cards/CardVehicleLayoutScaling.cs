@@ -19,12 +19,16 @@ namespace Menu.Vehicles.Layout
 
 		public void ApplySelectedAnimation(Transform card)
 		{
+			_selectedSizeTween?.Kill(true);
+			
 			_selectedSizeTween = card.DOScale(_sizeData.To, _sizeData.Duration)
 				.SetEase(_sizeData.Ease);
 		}
 
 		public void ApplyDeselectedAnimation(Transform card)
 		{
+			_deselectedSizeTween?.Kill(true);
+			
 			_deselectedSizeTween = card.DOScale(_sizeData.From, _sizeData.Duration)
 				.SetEase(_sizeData.Ease);
 		}
