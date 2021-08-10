@@ -14,6 +14,8 @@ namespace DataModel.GameData.GameSave
         private readonly IAccountStorageConfiguration _configuration;
         private readonly IAccountSerialization _accountSerialization;
 
+        private IDisposable _layoutChangedSubscription;
+        
         public AccountStorageSave(IAsyncFileService fileService,
                                 IAccountStorage accountStorage,
                                 IAccountStorageConfiguration configuration,
@@ -24,7 +26,7 @@ namespace DataModel.GameData.GameSave
             _configuration = configuration;
             _accountSerialization = accountSerialization;
 
-            accountStorage.ActiveAccount.Subscribe(_ => Save());
+            accountStorage.ActiveAccount.Subscribe(OnActiveAccountChanged);
             accountStorage.AllAccounts.ObserveCountChanged().Subscribe(_ => Save());
             accountStorage.AllAccounts.ObserveReplace().Subscribe(_ => Save());
         }
@@ -48,6 +50,17 @@ namespace DataModel.GameData.GameSave
                 ActiveAccount = _accountSerialization.SerializeFrom(storage.ActiveAccount.Value),
                 AllAccounts = storage.AllAccounts.Select(player => _accountSerialization.SerializeFrom(player))
             };
+        }
+        
+        private void OnActiveAccountChanged(Account account)
+        {
+	        _layoutChangedSubscription?.Dispose();
+            
+	        Save();
+	        
+	        _layoutChangedSubscription = account
+		        .VehicleLayout.ActiveVehicles.ObserveReplace()
+		        .Subscribe(_ => Save());
         }
     }
 }
