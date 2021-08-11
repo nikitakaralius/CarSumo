@@ -88,7 +88,7 @@ namespace Menu.Vehicles.Layout
 			if (_selectedCard is null)
 				return;
 
-			_selectedCard.NotifySelected(false);
+			_selectedCard.SetSelected(false);
 
 			VehicleId[] newItems = GetSortedLayoutVehicles();
 			newItems[_selectedCard.DynamicSiblingIndex] = vehicle;
@@ -104,7 +104,7 @@ namespace Menu.Vehicles.Layout
 
 			foreach (VehicleCard card in otherCards)
 			{
-				card.NotifySelected(false);
+				card.SetSelected(false);
 			}
 		}
 

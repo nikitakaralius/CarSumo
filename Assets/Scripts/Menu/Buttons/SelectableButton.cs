@@ -48,7 +48,7 @@ namespace Menu.Buttons
 			_notificationEnabled = true;
 		}
 
-		public void NotifySelected(bool selected)
+		public void SetSelected(bool selected)
 		{
 			_selected.Value = selected;
 		}
