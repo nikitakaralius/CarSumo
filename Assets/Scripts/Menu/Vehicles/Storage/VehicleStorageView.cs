@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CarSumo.DataModel.Accounts;
@@ -22,6 +23,7 @@ namespace Menu.Vehicles.Storage
         private IVehicleStorage _vehicleStorage;
         private IAccountStorage _accountStorage;
         private readonly CompositeDisposable _subscriptions = new CompositeDisposable();
+        private IDisposable _layoutSubscription;
 
         [Inject]
         private void Construct(IVehicleStorage vehicleStorage, IAccountStorage accountStorage)
@@ -44,17 +46,14 @@ namespace Menu.Vehicles.Storage
                 .AddTo(_subscriptions);
 
             _accountStorage.ActiveAccount
-	            .Subscribe(async account => await SpawnPreparedCollectionAsync(account.VehicleLayout))
+	            .Subscribe(OnActiveAccountChanged)
 	            .AddTo(_subscriptions);
-            
-            Layout.ActiveVehicles.ObserveReplace()
-                .Subscribe(async _ => await SpawnPreparedCollectionAsync(Layout))
-                .AddTo(_subscriptions);
         }
 
         private void OnDisable()
         {
             _subscriptions.Dispose();
+            _layoutSubscription?.Dispose();
         }
         
         public void OnCardSelected(VehicleCard card)
@@ -94,6 +93,16 @@ namespace Menu.Vehicles.Storage
 
                 yield return vehicle;
             }
+        }
+
+        private async void OnActiveAccountChanged(Account account)
+        {
+	        _layoutSubscription?.Dispose();
+
+	        await SpawnPreparedCollectionAsync(account.VehicleLayout);
+	        
+	        _layoutSubscription = Layout.ObserveLayoutCompletedChanging()
+		        .Subscribe(async _ => await SpawnPreparedCollectionAsync(Layout));
         }
     }
 }
