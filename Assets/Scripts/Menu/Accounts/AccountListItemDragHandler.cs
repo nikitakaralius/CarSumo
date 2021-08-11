@@ -58,7 +58,7 @@ namespace Menu.Accounts
             _animationSubscription.Dispose();
         }
 
-        protected override void OnLateBeginDrag()
+        protected override void OnAfterBeginDrag()
         {
             _button.enabled = false;
         }
@@ -70,7 +70,7 @@ namespace Menu.Accounts
             transform.position = new Vector3(originalPosition.x, dragPosition.y);
         }
 
-        protected override void OnLateEndDrag()
+        protected override void OnAfterEndDrag()
         {
             _storageOperations.ChangeOrder(
                 GetAccountLayout(ContentParent)

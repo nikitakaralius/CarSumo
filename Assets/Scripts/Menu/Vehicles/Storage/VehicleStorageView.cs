@@ -59,7 +59,7 @@ namespace Menu.Vehicles.Storage
         
         public void OnCardSelected(VehicleCard card)
         {
-	        _layoutChanger.TryChangeVehicleOn(card.VehicleId);
+	        _layoutChanger.AddVehicleToChange(card.VehicleId);
         }
 
         public void OnCardDeselected(VehicleCard card)

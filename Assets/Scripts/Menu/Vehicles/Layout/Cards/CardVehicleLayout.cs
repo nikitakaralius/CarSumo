@@ -23,7 +23,7 @@ namespace Menu.Vehicles.Layout
 		[SerializeField] private float _holdTimeToDrag = 0.3f;
 
 		private IAccountStorage _accountStorage;
-		private int _selectedCardIndex = -1;
+		private VehicleCard _selectedCard;
 
 		[Inject]
 		private void Construct(IAccountStorage accountStorage)
@@ -38,12 +38,12 @@ namespace Menu.Vehicles.Layout
 		private void OnDisable()
 		{
 			_contentLayoutGroup.EnableElementsUpdate();
-			_selectedCardIndex = -1;
+			_selectedCard = null;
 		}
 
 		protected override void ProcessCreatedCollection(IEnumerable<VehicleCard> layout)
 		{
-			_selectedCardIndex = -1;
+			_selectedCard = null;
 			_contentLayoutGroup.EnableElementsUpdate();
 
 			foreach (VehicleCard vehicleCard in layout)
@@ -53,7 +53,10 @@ namespace Menu.Vehicles.Layout
 				
 				vehicleCard.gameObject
 					.AddComponent<VehicleCardDragHandler>()
-					.Initialize(_holdTimeToDrag, CollectionRoot, SelectedRoot, _contentLayoutGroup);
+					.Initialize(_holdTimeToDrag,
+								() => NotifyOtherCards(Items, null),
+								CollectionRoot, SelectedRoot,
+								_contentLayoutGroup);
 			}			
 		}
 
@@ -63,7 +66,6 @@ namespace Menu.Vehicles.Layout
 
 			_contentLayoutGroup.DisableElementsUpdate();
 
-			_selectedCardIndex = card.DynamicSiblingIndex;
 			cardTransform.SetParent(SelectedRoot);
 			_vehicleScaling.ApplySelectedAnimation(cardTransform);
 
@@ -79,14 +81,26 @@ namespace Menu.Vehicles.Layout
 			_vehicleScaling.ApplyDeselectedAnimation(cardTransform);
 		}
 
-		public bool TryChangeVehicleOn(VehicleId vehicle)
+		public void AddVehicleToChange(VehicleId vehicle)
 		{
-			return _accountStorage.ActiveAccount.Value.VehicleLayout
-				.TryChangeActiveVehicle(vehicle, _selectedCardIndex);
+			if (_selectedCard is null)
+				return;
+
+			_selectedCard.NotifyBeingDeselected();
+			
+			VehicleId[] newItems = Items
+				.OrderBy(item => item.transform.GetSiblingIndex())
+				.Select(item => item.VehicleId)
+				.ToArray();
+			
+			newItems[_selectedCard.DynamicSiblingIndex] = vehicle;
+			_accountStorage.ActiveAccount.Value.VehicleLayout.ChangeLayout(newItems);
 		}
 
 		private void NotifyOtherCards(IEnumerable<VehicleCard> allCards, VehicleCard selectedCard)
 		{
+			_selectedCard = selectedCard;
+			
 			IEnumerable<VehicleCard> otherCards = allCards.Where(card => card != selectedCard);
 
 			foreach (VehicleCard card in otherCards)

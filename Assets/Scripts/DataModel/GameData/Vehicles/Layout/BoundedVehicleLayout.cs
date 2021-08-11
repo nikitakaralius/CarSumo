@@ -24,13 +24,17 @@ namespace DataModel.GameData.Vehicles
         
         public IReadOnlyReactiveCollection<VehicleId> ActiveVehicles => _activeVehicles;
         
-        public bool TryChangeActiveVehicle(VehicleId vehicle, int slot)
+        public void ChangeLayout(IReadOnlyList<VehicleId> layout)
         {
-	        if (slot < 0 || slot >= _activeVehicles.Count)
-		        return false;
+	        if (layout.Count != _activeVehicles.Count)
+	        {
+		        throw new InvalidOperationException("Trying to change layout with different size");
+	        }
 
-	        _activeVehicles[slot] = vehicle;
-	        return true;
+	        for (var i = 0; i < _activeVehicles.Count; i++)
+	        {
+		        _activeVehicles[i] = layout[i];
+	        }
         }
     }
 }

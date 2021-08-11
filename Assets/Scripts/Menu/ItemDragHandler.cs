@@ -46,13 +46,14 @@ namespace Menu
 
         private void BeginDrag()
         {
+	        OnBeforeBeginDrag();
             _canDrag.Value = true;
 
             _itemIndexes = PrepareLayoutItemIndexes(ContentParent);
             transform.SetParent(DraggingParent);
 
             _layoutGroup.enabled = false;
-            OnLateBeginDrag();
+            OnAfterBeginDrag();
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -79,7 +80,7 @@ namespace Menu
             _layoutGroup.enabled = true;
             transform.SetSiblingIndex(closestIndex);
 
-            OnLateEndDrag();
+            OnAfterEndDrag();
 
             _pointerDown = false;
             _canDrag.Value = false;
@@ -87,9 +88,11 @@ namespace Menu
 
         protected abstract void OnDragUpdate(PointerEventData eventData);
 
-        protected virtual void OnLateBeginDrag() { }
+        protected virtual void OnBeforeBeginDrag() { }
+        
+        protected virtual void OnAfterBeginDrag() { }
 
-        protected virtual void OnLateEndDrag() { }
+        protected virtual void OnAfterEndDrag() { }
 
         protected void SetRequiredHoldTime(float requiredHoldTime)
         {
