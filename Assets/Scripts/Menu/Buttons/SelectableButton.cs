@@ -53,7 +53,7 @@ namespace Menu.Buttons
 			_selected.Value = selected;
 		}
 
-		private void OnDisable()
+		private void OnDestroy()
 		{
 			_selectedSubscription.Dispose();
 		}
