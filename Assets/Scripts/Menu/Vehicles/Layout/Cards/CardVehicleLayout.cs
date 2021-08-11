@@ -41,6 +41,27 @@ namespace Menu.Vehicles.Layout
 			UpdateLayout(GetSortedLayoutVehicles());
 			_selectedCard = null;
 		}
+		
+		public void OnButtonSelected(VehicleCard element)
+		{
+			Transform cardTransform = element.transform;
+
+			_contentLayoutGroup.DisableElementsUpdate();
+
+			cardTransform.SetParent(SelectedRoot);
+			_vehicleScaling.ApplySelectedAnimation(cardTransform);
+
+			NotifyOtherCards(Items, element);
+		}
+
+		public void OnButtonDeselected(VehicleCard element)
+		{
+			Transform cardTransform = element.transform;
+
+			element.transform.SetParent(CollectionRoot);
+			element.SetLatestSiblingIndex();
+			_vehicleScaling.ApplyDeselectedAnimation(cardTransform);
+		}
 
 		protected override void ProcessCreatedCollection(IEnumerable<VehicleCard> layout)
 		{
@@ -49,7 +70,7 @@ namespace Menu.Vehicles.Layout
 
 			foreach (VehicleCard vehicleCard in layout)
 			{
-				vehicleCard.SetSelectHandler(this);
+				vehicleCard.Initialize(this);
 				_vehicleScaling.ApplyInitialScale(vehicleCard.transform);
 
 				vehicleCard.gameObject
@@ -62,33 +83,12 @@ namespace Menu.Vehicles.Layout
 			}
 		}
 
-		public void OnCardSelected(VehicleCard card)
-		{
-			Transform cardTransform = card.transform;
-
-			_contentLayoutGroup.DisableElementsUpdate();
-
-			cardTransform.SetParent(SelectedRoot);
-			_vehicleScaling.ApplySelectedAnimation(cardTransform);
-
-			NotifyOtherCards(Items, card);
-		}
-
-		public void OnCardDeselected(VehicleCard card)
-		{
-			Transform cardTransform = card.transform;
-
-			card.transform.SetParent(CollectionRoot);
-			card.SetLatestSiblingIndex();
-			_vehicleScaling.ApplyDeselectedAnimation(cardTransform);
-		}
-
 		public void AddVehicleToChange(VehicleId vehicle)
 		{
 			if (_selectedCard is null)
 				return;
 
-			_selectedCard.NotifyBeingDeselected();
+			_selectedCard.NotifySelected(false);
 
 			VehicleId[] newItems = GetSortedLayoutVehicles();
 			newItems[_selectedCard.DynamicSiblingIndex] = vehicle;
@@ -104,7 +104,7 @@ namespace Menu.Vehicles.Layout
 
 			foreach (VehicleCard card in otherCards)
 			{
-				card.NotifyBeingDeselected();
+				card.NotifySelected(false);
 			}
 		}
 

@@ -1,8 +1,9 @@
-﻿namespace Menu.Vehicles.Cards
+﻿using Menu.Buttons;
+
+namespace Menu.Vehicles.Cards
 {
-    public interface IVehicleCardSelectHandler
+    public interface IVehicleCardSelectHandler : IButtonSelectHandler<VehicleCard>
     {
-        void OnCardSelected(VehicleCard card);
-        void OnCardDeselected(VehicleCard card);
+	    
     }
 }

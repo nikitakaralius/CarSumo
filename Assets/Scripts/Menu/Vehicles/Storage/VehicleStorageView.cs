@@ -56,20 +56,21 @@ namespace Menu.Vehicles.Storage
             _layoutSubscription?.Dispose();
         }
         
-        public void OnCardSelected(VehicleCard card)
+        public void OnButtonSelected(VehicleCard element)
         {
-	        _layoutChanger.AddVehicleToChange(card.VehicleId);
+	        _layoutChanger.AddVehicleToChange(element.VehicleId);
         }
 
-        public void OnCardDeselected(VehicleCard card)
+        public void OnButtonDeselected(VehicleCard element)
         {
+	        
         }
 
         protected override void ProcessCreatedCollection(IEnumerable<VehicleCard> layout)
         {
 	        foreach (VehicleCard card in layout)
 	        {
-		        card.SetSelectHandler(this);
+		        card.Initialize(this);
 	        }
         }
 
