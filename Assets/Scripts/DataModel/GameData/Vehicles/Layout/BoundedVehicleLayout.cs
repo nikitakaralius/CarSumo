@@ -10,6 +10,7 @@ namespace DataModel.GameData.Vehicles
     public class BoundedVehicleLayout : IVehicleLayout
     {
         private readonly ReactiveCollection<VehicleId> _activeVehicles;
+        private readonly Subject<IEnumerable<VehicleId>> _layoutCompletedChanging;
 
         public BoundedVehicleLayout(int slotsAmount, IEnumerable<VehicleId> vehicles)
         {
@@ -20,10 +21,17 @@ namespace DataModel.GameData.Vehicles
             
             _activeVehicles = new ReactiveCollection<VehicleId>(vehicles);
             _activeVehicles.SetLength(slotsAmount);
+
+            _layoutCompletedChanging = new Subject<IEnumerable<VehicleId>>();
         }
         
         public IReadOnlyReactiveCollection<VehicleId> ActiveVehicles => _activeVehicles;
-        
+
+        public IObservable<IEnumerable<VehicleId>> ObserveLayoutCompletedChanging()
+        {
+	        return _layoutCompletedChanging;
+        }
+
         public void ChangeLayout(IReadOnlyList<VehicleId> layout)
         {
 	        if (layout.Count != _activeVehicles.Count)
@@ -35,6 +43,8 @@ namespace DataModel.GameData.Vehicles
 	        {
 		        _activeVehicles[i] = layout[i];
 	        }
+	        
+	        _layoutCompletedChanging.OnNext(_activeVehicles);
         }
     }
 }

@@ -42,7 +42,7 @@ namespace Menu.Vehicles.Layout
             _layoutChangedSubscription?.Dispose();
             
             _layoutChangedSubscription = account
-	            .VehicleLayout.ActiveVehicles.ObserveReplace()
+	            .VehicleLayout.ObserveLayoutCompletedChanging()
 	            .Subscribe(async _ => await SpawnCollectionAsync(Layout));
         }
     }

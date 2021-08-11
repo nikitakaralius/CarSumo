@@ -14,12 +14,14 @@ namespace Menu.Vehicles.Layout
 		IVehicleCardSelectHandler,
 		IVehicleLayoutChanger
 	{
-		[Header("View Components")] 
-		[SerializeField] private Transform _layoutRoot;
+		[Header("View Components")] [SerializeField]
+		private Transform _layoutRoot;
+
 		[SerializeField] private LayoutGroup _contentLayoutGroup;
 
-		[Header("Card Select Handle Components")] 
-		[SerializeField] private CardVehicleLayoutScaling _vehicleScaling;
+		[Header("Card Select Handle Components")] [SerializeField]
+		private CardVehicleLayoutScaling _vehicleScaling;
+
 		[SerializeField] private float _holdTimeToDrag = 0.3f;
 
 		private IAccountStorage _accountStorage;
@@ -38,6 +40,7 @@ namespace Menu.Vehicles.Layout
 		private void OnDisable()
 		{
 			_contentLayoutGroup.EnableElementsUpdate();
+			UpdateLayout(GetSortedLayoutVehicles());
 			_selectedCard = null;
 		}
 
@@ -50,14 +53,15 @@ namespace Menu.Vehicles.Layout
 			{
 				vehicleCard.SetSelectHandler(this);
 				_vehicleScaling.ApplyInitialScale(vehicleCard.transform);
-				
+
 				vehicleCard.gameObject
 					.AddComponent<VehicleCardDragHandler>()
 					.Initialize(_holdTimeToDrag,
 								() => NotifyOtherCards(Items, null),
-								CollectionRoot, SelectedRoot,
+								CollectionRoot,
+								SelectedRoot,
 								_contentLayoutGroup);
-			}			
+			}
 		}
 
 		public void OnCardSelected(VehicleCard card)
@@ -87,26 +91,37 @@ namespace Menu.Vehicles.Layout
 				return;
 
 			_selectedCard.NotifyBeingDeselected();
-			
-			VehicleId[] newItems = Items
-				.OrderBy(item => item.transform.GetSiblingIndex())
-				.Select(item => item.VehicleId)
-				.ToArray();
-			
+
+			VehicleId[] newItems = GetSortedLayoutVehicles();
 			newItems[_selectedCard.DynamicSiblingIndex] = vehicle;
-			_accountStorage.ActiveAccount.Value.VehicleLayout.ChangeLayout(newItems);
+
+			UpdateLayout(newItems);
 		}
 
 		private void NotifyOtherCards(IEnumerable<VehicleCard> allCards, VehicleCard selectedCard)
 		{
 			_selectedCard = selectedCard;
-			
+
 			IEnumerable<VehicleCard> otherCards = allCards.Where(card => card != selectedCard);
 
 			foreach (VehicleCard card in otherCards)
 			{
 				card.NotifyBeingDeselected();
 			}
+		}
+
+		private void UpdateLayout(IReadOnlyList<VehicleId> newLayout)
+		{
+			_accountStorage.ActiveAccount.Value.VehicleLayout.ChangeLayout(newLayout);
+		}
+
+		private VehicleId[] GetSortedLayoutVehicles()
+		{
+			VehicleId[] newItems = Items
+				.OrderBy(item => item.transform.GetSiblingIndex())
+				.Select(item => item.VehicleId)
+				.ToArray();
+			return newItems;
 		}
 	}
 }
