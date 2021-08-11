@@ -18,7 +18,7 @@ namespace Menu
 
         private LayoutGroup _layoutGroup;
 
-        private ReactiveProperty<bool> _canDrag = new ReactiveProperty<bool>(false);
+        private readonly ReactiveProperty<bool> _canDrag = new ReactiveProperty<bool>(false);
         private bool _pointerDown;
 
         private IReadOnlyDictionary<T, int> _itemIndexes;
