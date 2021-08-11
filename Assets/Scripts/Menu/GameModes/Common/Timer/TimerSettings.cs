@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -23,11 +22,6 @@ namespace Menu.GameModes.Common.Timer
 			}
 			
 			_cachedTimerButtons.First().SetSelected(true);
-		}
-
-		private void Update()
-		{
-			Debug.Log(SelectedTimeAmount);
 		}
 
 		public void OnButtonSelected(TimerButton element)
