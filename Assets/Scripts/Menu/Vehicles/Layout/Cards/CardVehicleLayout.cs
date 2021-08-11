@@ -14,14 +14,12 @@ namespace Menu.Vehicles.Layout
 		IVehicleCardSelectHandler,
 		IVehicleLayoutChanger
 	{
-		[Header("View Components")] [SerializeField]
-		private Transform _layoutRoot;
-
+		[Header("View Components")] 
+		[SerializeField] private Transform _layoutRoot;
 		[SerializeField] private LayoutGroup _contentLayoutGroup;
 
-		[Header("Card Select Handle Components")] [SerializeField]
-		private CardVehicleLayoutScaling _vehicleScaling;
-
+		[Header("Card Select Handle Components")] 
+		[SerializeField] private CardVehicleLayoutScaling _vehicleScaling;
 		[SerializeField] private float _holdTimeToDrag = 0.3f;
 
 		private IAccountStorage _accountStorage;
