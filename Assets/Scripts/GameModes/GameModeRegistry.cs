@@ -31,7 +31,14 @@ namespace GameModes
 
 		public void RegisterAccount(Team team, Account account)
 		{
-			if (_registeredAccounts.TryGetValue(team, out var registeredAccount) == false)
+			(bool containsSameAccount, Team sameAccountTeam) = IsAlreadyContainSameAccount(account);
+			
+			if (containsSameAccount)
+			{
+				_registeredAccounts[sameAccountTeam].Value = null;
+			}
+			
+			if (_registeredAccounts.TryGetValue(team, out var registeredAccount))
 			{
 				registeredAccount.Value = account;
 			}
@@ -49,6 +56,20 @@ namespace GameModes
 			}
 
 			TimerTimeAmount = timeAmount;
+		}
+
+		private (bool, Team) IsAlreadyContainSameAccount(Account account)
+		{
+			foreach (var pair in _registeredAccounts)
+			{
+				if (pair.Value.Value is null)
+					continue;
+
+				if (pair.Value.Value.Equals(account))
+					return (true, pair.Key);
+			}
+
+			return (false, Team.Blue);
 		}
 	}
 }

@@ -16,6 +16,10 @@ namespace Menu.GameModes.Common.Accounts
 	[RequireComponent(typeof(Button))]
 	public class SelectedAccountView : AccountView, IAccountListRules, IAccountSelectHandler
 	{
+		[Header("Null Account Preferences")] 
+		[SerializeField] private string _nullAccountName = "None";
+		[SerializeField] private Sprite _nullAccountIcon;
+		
 		[Header("Selected Account View Preferences")]
 		[SerializeField] private Team _team;
 		[SerializeField] private AccountListView _accountList;
@@ -45,16 +49,18 @@ namespace Menu.GameModes.Common.Accounts
 		public IEnumerable<Account> AccountsToRender
 			=> _accountStorage.AllAccounts.Where(account => account.Equals(_selectedAccount) == false);
 
-		private void OnEnable()
+		private void Awake()
 		{
 			_changeAccountSubscription = _gameModePreferences
 									.GetAccountByTeam(_team)
-									.Subscribe(ChangeAccount);
+									.Subscribe(OnAccountChanged);
 		}
 
 		private void Start()
 		{
 			Button button = GetComponent<Button>();
+			
+			Debug.Log(button);
 			
 			button.onClick.AddListener(() =>
 			{
@@ -63,7 +69,7 @@ namespace Menu.GameModes.Common.Accounts
 			});
 		}
 
-		private void OnDisable()
+		private void OnDestroy()
 		{
 			_changeAccountSubscription?.Dispose();
 		}
@@ -71,7 +77,7 @@ namespace Menu.GameModes.Common.Accounts
 		public void OnButtonSelected(AccountListItem element)
 		{
 			_gameModeOperations.RegisterAccount(_team, element.Account);
-			_accountList.Close();
+			//_accountList.Close();
 		}
 
 		public void OnButtonDeselected(AccountListItem element)
@@ -79,9 +85,17 @@ namespace Menu.GameModes.Common.Accounts
 			
 		}
 
-		protected override void OnAccountChanged(Account account)
+		private void OnAccountChanged(Account account)
 		{
-			_selectedAccount = account;
+			if (account is null)
+			{
+				ChangeViewValues(_nullAccountName, _nullAccountIcon);
+			}
+			else
+			{
+				_selectedAccount = account;
+				ChangeAccount(account);
+			}
 		}
 	}
 }

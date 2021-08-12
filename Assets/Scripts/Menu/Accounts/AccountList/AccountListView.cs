@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using CarSumo.DataModel.Accounts;
 using CarSumo.DataModel.GameResources;
+using CarSumo.Teams;
+using GameModes;
+using JetBrains.Annotations;
 using Menu.Buttons;
 using Services.Instantiate;
 using Sirenix.Utilities;
@@ -21,6 +24,7 @@ namespace Menu.Accounts
 	    [SerializeField] private AssetReferenceGameObject _blankAccountViewPrefab;
 
 	    [SerializeField] private DragHandlerData _dragHandlerData;
+	    [SerializeField] private Team _onItemSelectedTeamRegister;
 
 	    private IAccountListRules _rules;
 	    private IButtonSelectHandler<AccountListItem> _itemSelectHandler;
@@ -28,6 +32,7 @@ namespace Menu.Accounts
 	    private IAsyncInstantiation _instantiation;
 	    private IAccountStorage _accountStorage;
 	    private IResourceStorage _resourceStorage;
+	    private IGameModeOperations _gameModeOperations;
 
 	    private IClientAccountOperations _accountOperations;
 
@@ -42,12 +47,14 @@ namespace Menu.Accounts
 	    private void Construct(IAsyncInstantiation instantiation,
 		    					IAccountStorage accountStorage,
 		    					IResourceStorage resourceStorage,
-		    					IClientAccountOperations accountOperations)
+		    					IClientAccountOperations accountOperations,
+		                        IGameModeOperations gameModeOperations)
 	    {
 		    _instantiation = instantiation;
 		    _accountStorage = accountStorage;
 		    _resourceStorage = resourceStorage;
 		    _accountOperations = accountOperations;
+		    _gameModeOperations = gameModeOperations;
 	    }
 	    
 	    public bool SelectActivated => true;
@@ -58,8 +65,6 @@ namespace Menu.Accounts
 
 	    private void Awake()
 	    {
-		    FillList();
-		    
 		    _accountsChangedSubscription = _accountStorage.AllAccounts
 			    .ObserveCountChanged()
 			    .Subscribe(_ => FillList());
@@ -80,6 +85,8 @@ namespace Menu.Accounts
 		    _rules = rules;
 		    _itemSelectHandler = selectHandler;
 		    gameObject.SetActive(true);
+		    
+		    FillList();
 	    }
 
 	    public void Close()
@@ -91,6 +98,7 @@ namespace Menu.Accounts
 	    {
 		    _activeAccountListItem = element;
 		    _accountOperations.SetActive(_activeAccountListItem.Account);
+		    _gameModeOperations.RegisterAccount(_onItemSelectedTeamRegister, element.Account);
 		    _items.Where(item => item != _activeAccountListItem).ForEach(item => item.SetSelected(false));
 	    }
 
@@ -112,7 +120,7 @@ namespace Menu.Accounts
 		    IEnumerable<GameObject> accountListViews = accountListItems.Select(item => item.gameObject);
 
 		    _activeAccountListItem = GetActiveAccountListItem(_accountStorage.ActiveAccount.Value, accountListItems);
-		    _activeAccountListItem.SetSelected(SelectActivated);
+		    _activeAccountListItem?.SetSelected(SelectActivated);
 		    
 		    _allViews.AddRange(accountListViews);
 		    _allViews.AddRange(blankAccountViews);
@@ -133,9 +141,10 @@ namespace Menu.Accounts
 		    _items.Clear();
 	    }
 
+	    [CanBeNull]
 	    private AccountListItem GetActiveAccountListItem(Account activeAccount, IEnumerable<AccountListItem> allAccounts)
 	    {
-		    return allAccounts.First(accountListItem => accountListItem.Account.Equals(activeAccount));
+		    return allAccounts.FirstOrDefault(accountListItem => accountListItem.Account.Equals(activeAccount));
 	    }
 	    
 	    private async Task<IEnumerable<AccountListItem>> CreateAccountListItems(IEnumerable<Account> accounts, Transform root)

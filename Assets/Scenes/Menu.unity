@@ -3604,7 +3604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &620196724
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8171,6 +8171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: {fileID: 891634906}
   _icon: {fileID: 1100215390}
+  _nullAccountName: None
+  _nullAccountIcon: {fileID: 21300000, guid: 6a6d038084c3b41f2986f29ef2206570, type: 3}
   _team: 1
   _accountList: {fileID: 3968380112225767021}
 --- !u!114 &1329539178
@@ -16926,6 +16928,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: {fileID: 8435365899771433508}
   _icon: {fileID: 2445645380561902843}
+  _nullAccountName: None
+  _nullAccountIcon: {fileID: 21300000, guid: 6a6d038084c3b41f2986f29ef2206570, type: 3}
   _team: 0
   _accountList: {fileID: 3968380112225767021}
 --- !u!222 &7519031982977065447
