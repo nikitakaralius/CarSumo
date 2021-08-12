@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GameModes;
 using Sirenix.Utilities;
 using UnityEngine;
 
 namespace Menu.GameModes.Common.Timer
 {
-	public class TimerSettings : MonoBehaviour, ITimerButtonSelectHandler
+	public class TimerSettings : MonoBehaviour, ITimerPreferences, ITimerButtonSelectHandler
 	{
+		private IGameModeOperations _gameModeOperations;
 		private IEnumerable<TimerButton> _cachedTimerButtons;
 		private TimerButton _selectedButton;
 
-		public float SelectedTimeAmount => _selectedButton.TimeAmount;
+		public float TimeAmount => _selectedButton.TimeAmount;
 		
 		private void Start()
 		{

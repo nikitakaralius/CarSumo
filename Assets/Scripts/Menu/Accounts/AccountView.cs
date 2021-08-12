@@ -11,7 +11,7 @@ namespace Menu.Accounts
         [SerializeField] private TMP_Text _name;
         [SerializeField] private Image _icon;
 
-        protected void ChangeAccount(Account account)
+        public void ChangeAccount(Account account)
         {
             _name.text = account.Name.Value;
             _icon.sprite = account.Icon.Value.Sprite;
