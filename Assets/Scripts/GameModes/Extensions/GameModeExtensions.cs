@@ -8,12 +8,12 @@ namespace GameModes.Extensions
 	{
 		public static bool CanEnterGameModeWith(this IGameModePreferences gameModePreferences, params Team[] teamsToCheck)
 		{
-			return teamsToCheck.All(team => gameModePreferences.GetAccountByTeam(team).Value != null);
+			return CanEnterGameModeWith(gameModePreferences, teams: teamsToCheck);
 		}
 		
-		public static bool CanEnterGameModeWith(this IGameModePreferences gameModePreferences, IEnumerable<Team> teamsToCheck)
+		public static bool CanEnterGameModeWith(this IGameModePreferences gameModePreferences, IEnumerable<Team> teams)
 		{
-			return teamsToCheck.All(team => gameModePreferences.GetAccountByTeam(team).Value != null);
+			return teams.All(team => gameModePreferences.GetAccountByTeam(team).Value != null);
 		}
 	}
 }
