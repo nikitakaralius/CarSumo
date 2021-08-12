@@ -14,7 +14,7 @@ using Zenject;
 
 namespace Menu.Accounts
 {
-	public class AccountListView : MonoBehaviour, IButtonSelectHandler<AccountListItem>, IAccountListRules
+	public class AccountListView : MonoBehaviour, IAccountSelectHandler, IAccountListRules
     {
 	    [Header("Account Views")]
 	    [SerializeField] private AssetReferenceGameObject _accountViewPrefab;
@@ -55,11 +55,6 @@ namespace Menu.Accounts
 
 	    private void Awake()
 	    {
-		    if (_rules is null || _itemSelectHandler is null)
-		    {
-			    SetInternalInterfaces();
-		    }
-		    
 		    FillList();
 		    
 		    _accountsChangedSubscription = _accountStorage.AllAccounts
@@ -72,22 +67,18 @@ namespace Menu.Accounts
 		    _accountsChangedSubscription?.Dispose();
 	    }
 
-	    public void SetInternalInterfaces()
+	    public void OpenInternal()
 	    {
-		    SetItemSelectHandler(this);
-		    SetRules(this);
-	    }
-	    
-	    public void SetRules(IAccountListRules rules)
-	    {
-		    _rules = rules;
+		    Open(this, this);
 	    }
 
-	    public void SetItemSelectHandler(IButtonSelectHandler<AccountListItem> selectHandler)
+	    public void Open(IAccountListRules rules, IButtonSelectHandler<AccountListItem> selectHandler)
 	    {
+		    _rules = rules;
 		    _itemSelectHandler = selectHandler;
+		    gameObject.SetActive(true);
 	    }
-	    
+
 	    public void OnButtonSelected(AccountListItem element)
 	    {
 		    _activeAccountListItem = element;

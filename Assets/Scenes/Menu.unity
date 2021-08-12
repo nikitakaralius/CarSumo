@@ -854,7 +854,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 8507199831912767617}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Menu.Accounts.AccountListView, Menu
         m_MethodName: SetInternalInterfaces
         m_Mode: 1
@@ -1801,7 +1801,7 @@ RectTransform:
   - {fileID: 722538294}
   - {fileID: 620196724}
   m_Father: {fileID: 2059186930}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3604,7 +3604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &620196724
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12242,8 +12242,8 @@ RectTransform:
   - {fileID: 1535535523}
   - {fileID: 5857635362488453268}
   - {fileID: 7210045001992706292}
-  - {fileID: 3957157983631137347}
   - {fileID: 270085566}
+  - {fileID: 3957157983631137347}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13747,7 +13747,7 @@ RectTransform:
   - {fileID: 6798767054296295334}
   - {fileID: 5640912683093926630}
   m_Father: {fileID: 2059186930}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -13763,6 +13763,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3957157983631137347}
+  - component: {fileID: 3968380112225767021}
   m_Layer: 5
   m_Name: Accounts
   m_TagString: Untagged
@@ -13770,6 +13771,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4
   m_IsActive: 0
+--- !u!114 &3968380112225767021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3968380112225767020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1610e110aecc410689a87567c795b0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _accountViewPrefab:
+    m_AssetGUID: 1047262389c9d0248885ae37054f2b36
+    m_SubObjectName: 
+    m_SubObjectType: 
+  _blankAccountViewPrefab:
+    m_AssetGUID: dda430833a867114e846fe5d20e2b70e
+    m_SubObjectName: 
+    m_SubObjectType: 
+  _dragHandlerData:
+    _contentParent: {fileID: 5461614469430063031}
+    _draggingParent: {fileID: 6798767054296295334}
+    _contentLayoutGroup: {fileID: 218642297019105793}
 --- !u!1 &4813192137378432595
 GameObject:
   m_ObjectHideFlags: 0
@@ -18147,7 +18172,6 @@ GameObject:
   - component: {fileID: 5097356894484331790}
   - component: {fileID: 7519031982977065447}
   - component: {fileID: 5250969689586417387}
-  - component: {fileID: 8507199831912767617}
   m_Layer: 5
   m_Name: AccountsListView
   m_TagString: Untagged
@@ -18155,30 +18179,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4
   m_IsActive: 1
---- !u!114 &8507199831912767617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8507199831912767616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1610e110aecc410689a87567c795b0fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _accountViewPrefab:
-    m_AssetGUID: 1047262389c9d0248885ae37054f2b36
-    m_SubObjectName: 
-    m_SubObjectType: 
-  _blankAccountViewPrefab:
-    m_AssetGUID: dda430833a867114e846fe5d20e2b70e
-    m_SubObjectName: 
-    m_SubObjectType: 
-  _dragHandlerData:
-    _contentParent: {fileID: 5461614469430063031}
-    _draggingParent: {fileID: 6798767054296295334}
-    _contentLayoutGroup: {fileID: 218642297019105793}
 --- !u!114 &8520660984483544439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18388,10 +18388,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3968380112225767020}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 941786101}
+        m_TargetAssemblyTypeName: AdvancedAudioSystem.MonoAudioCuePlayer, AdvancedAudioSystem
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -18400,9 +18400,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 941786101}
-        m_TargetAssemblyTypeName: AdvancedAudioSystem.MonoAudioCuePlayer, AdvancedAudioSystem
-        m_MethodName: Play
+      - m_Target: {fileID: 3968380112225767021}
+        m_TargetAssemblyTypeName: Menu.Accounts.AccountListView, Menu
+        m_MethodName: OpenInternal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
