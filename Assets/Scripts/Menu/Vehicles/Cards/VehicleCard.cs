@@ -14,7 +14,7 @@ namespace Menu.Vehicles.Cards
         public void Initialize(IVehicleCardSelectHandler selectHandler)
         {
 	        Initialize(this, selectHandler, false);
-	        DynamicSiblingIndex = transform.GetSiblingIndex();
+	        UpdateSiblingIndex();
         }
 
         public void SetLatestSiblingIndex()
@@ -22,13 +22,19 @@ namespace Menu.Vehicles.Cards
             transform.SetSiblingIndex(DynamicSiblingIndex);
         }
 
-        protected override void OnButtonSelectedInternal()
+        public void UpdateSiblingIndex()
         {
 	        DynamicSiblingIndex = transform.GetSiblingIndex();
         }
 
+        protected override void OnButtonSelectedInternal()
+        {
+	        UpdateSiblingIndex();
+        }
+
         protected override void OnButtonDeselectedInternal()
         {
+	        
         }
     }
 }

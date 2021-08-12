@@ -53,11 +53,7 @@ namespace Menu.Vehicles.Layout
 
 			NotifyOtherCards(Items, element);
 
-			Items.ForEach(x =>
-			{
-				x.DynamicSiblingIndex = x.transform.GetSiblingIndex();
-			});
-			
+			Items.ForEach(item => item.UpdateSiblingIndex());
 			cardTransform.SetParent(SelectedRoot);
 		}
 
