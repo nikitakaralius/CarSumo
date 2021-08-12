@@ -1,4 +1,5 @@
-﻿using Infrastructure.Installers.SubContainers;
+﻿using GameModes;
+using Infrastructure.Installers.SubContainers;
 using Infrastructure.Settings;
 using Services.SceneManagement;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace Infrastructure.Installers.Bootstrap
         {
             BindProjectConfiguration();
             BindSceneLoading();
+            BindGameModeRegistryInterfaces();
             ProcessSubContainers();
             BindProjectInitialization();
         }
@@ -50,6 +52,14 @@ namespace Infrastructure.Installers.Bootstrap
                 .FromInstance(_configuration)
                 .AsSingle()
                 .NonLazy();
+        }
+
+        private void BindGameModeRegistryInterfaces()
+        {
+	        Container
+		        .BindInterfacesTo<GameModeRegistry>()
+		        .FromNew()
+		        .AsSingle();
         }
     }
 }
