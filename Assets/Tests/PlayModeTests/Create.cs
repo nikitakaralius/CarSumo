@@ -12,7 +12,7 @@ public static class Create
         return new VehicleCollection();
     }
 
-    public static IVehicle.FakeVehicleMono FakeVehicleMono(Team team = Team.First)
+    public static IVehicle.FakeVehicleMono FakeVehicleMono(Team team = Team.Blue)
     {
         return new GameObject().AddComponent<IVehicle.FakeVehicleMono>().Init(team);
     }

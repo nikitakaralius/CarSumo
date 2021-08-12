@@ -2,7 +2,7 @@
 {
     public enum Team
     {
-        First,
-        Second
+        Blue,
+        Red
     }
 }

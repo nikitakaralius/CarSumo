@@ -28,8 +28,8 @@ public class VehicleCollectionTests
 
         // Act.
         Action addingByMethod = () => collection.AddVehicle(vehicle);
-        Action addingByMethodWithTeam = () => collection.AddVehicle(vehicle, Team.First);
-        Action addingByIndexer = () => collection[Team.First] = vehicle;
+        Action addingByMethodWithTeam = () => collection.AddVehicle(vehicle, Team.Blue);
+        Action addingByIndexer = () => collection[Team.Blue] = vehicle;
 
         // Assert.
         addingByMethod.Should().Throw<NullReferenceException>();
@@ -57,8 +57,8 @@ public class VehicleCollectionTests
         VehicleCollection collection = Create.VehicleCollection();
 
         // Act.
-        Action addingByMethod = () => collection.AddVehicle(new IVehicle.FakeVehicle(Team.First), Team.Second);
-        Action addingByIndexer = () => collection[Team.First] = new IVehicle.FakeVehicle(Team.Second);
+        Action addingByMethod = () => collection.AddVehicle(new IVehicle.FakeVehicle(Team.Blue), Team.Red);
+        Action addingByIndexer = () => collection[Team.Blue] = new IVehicle.FakeVehicle(Team.Red);
 
         // Assert.
         addingByMethod.Should().Throw<InvalidOperationException>();

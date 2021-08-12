@@ -1,0 +1,16 @@
+{
+    "name": "GameModes",
+    "rootNamespace": "",
+    "references": [
+        "GUID:253cb816f0a38b742904da5254e9f27c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

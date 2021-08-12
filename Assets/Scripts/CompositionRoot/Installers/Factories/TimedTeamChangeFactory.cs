@@ -20,7 +20,7 @@ namespace Infrastructure.Installers.Factories
 
         public TimedTeamChange Create()
         {
-            Team initialTeam = new RandomTeamDefiner().DefineNext(Team.First);
+            Team initialTeam = new RandomTeamDefiner().DefineNext(Team.Blue);
             return new TimedTeamChange(initialTeam, _teamDefiner, _timer, _timerOperations);
         }
     }

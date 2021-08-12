@@ -12,7 +12,7 @@ public class VehicleCollectionTests
     {
         // Arrange.
         VehicleCollection collection = Create.VehicleCollection();
-        var team = Team.First;
+        var team = Team.Blue;
         IVehicle vehicle = Create.FakeVehicleMono(team);
         collection.AddVehicle(vehicle);
 

@@ -13,7 +13,7 @@ namespace CarSumo.Vehicles.Stats
 
         public override VehicleStats GetStatsInternal()
         {
-            return new VehicleStats(Team.First, _enginePower, _rotationalSpeed);
+            return new VehicleStats(Team.Blue, _enginePower, _rotationalSpeed);
         }
 
         public Material GetMaterialByTeam(Team team)
