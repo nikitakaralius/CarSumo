@@ -6,7 +6,7 @@ namespace Menu.Accounts
 	public interface IAccountListRules
 	{
 		bool SelectActivated { get; }
-		void OnItemListCreated(AccountListItem item);
+		void OnListItemCreated(AccountListItem item);
 		IEnumerable<Account> AccountsToRender { get; }
 	}
 }

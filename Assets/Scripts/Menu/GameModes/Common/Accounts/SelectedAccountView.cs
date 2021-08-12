@@ -85,7 +85,7 @@ namespace Menu.GameModes.Common.Accounts
 			
 		}
 
-		public void OnItemListCreated(AccountListItem item)
+		public void OnListItemCreated(AccountListItem item)
 		{
 			
 		}

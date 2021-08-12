@@ -102,7 +102,7 @@ namespace Menu.Accounts
 		    gameObject.SetActive(false);
 	    }
 	    
-	    public void OnItemListCreated(AccountListItem item)
+	    public void OnListItemCreated(AccountListItem item)
 	    {
 			item.gameObject
 				.AddComponent<AccountListItemDragHandler>()
@@ -175,7 +175,7 @@ namespace Menu.Accounts
 		    {
 			    AccountListItem listItem = await _instantiation.InstantiateAsync<AccountListItem>(_accountViewPrefab, root);
 			    listItem.Initialize(account, _itemSelectHandler);
-			    _rules.OnItemListCreated(listItem);
+			    _rules.OnListItemCreated(listItem);
 			    views.Add(listItem);
 		    }
 
