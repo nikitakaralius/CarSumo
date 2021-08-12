@@ -1,9 +1,10 @@
-﻿using CarSumo.DataModel.Accounts;
+﻿using System;
+using CarSumo.DataModel.Accounts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Menu.Accounts
+namespace GuiBaseData.Accounts
 {
     public abstract class AccountView : MonoBehaviour
     {
@@ -15,6 +16,12 @@ namespace Menu.Accounts
         {
             _name.text = account.Name.Value;
             _icon.sprite = account.Icon.Value.Sprite;
+        }
+
+        protected void ChangeViewValues(string name, Sprite icon)
+        {
+	        _name.text = name;
+	        _icon.sprite = icon;
         }
     }
 }

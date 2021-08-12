@@ -7,58 +7,47 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Zenject;
 
 namespace Menu.Accounts
 {
     public class AccountListItemDragHandler : ItemDragHandler<AccountListItemDragHandler>
     {
-        [SerializeField] private SizeTweenAnimation _animation;
-
+	    private SizeTweenAnimation _animation;
         private IClientAccountStorageOperations _storageOperations;
 
         private Account _account;
         private Button _button;
         private IDisposable _animationSubscription;
 
-        [Inject]
-        private void Construct(IClientAccountStorageOperations storageOperations)
+        public void Initialize(float requiredHoldTime,
+								IClientAccountStorageOperations storageOperations,
+	        					Account account,
+	        					Button button,
+	        					SizeTweenAnimation tweenAnimation,
+	        					IReadOnlyDragHandlerData dragHandlerData)
         {
-            _storageOperations = storageOperations;
+	        _account = account;
+	        _button = button;
+	        _animation = tweenAnimation;
+	        _storageOperations = storageOperations;
+	        
+	        Initialize(dragHandlerData);
+	        SetRequiredHoldTime(requiredHoldTime);
+	        
+	        _animationSubscription = CanDrag.Subscribe(canDrag =>
+	        {
+		        if (canDrag)
+		        {
+			        _animation.IncreaseSize(transform);
+		        }
+		        else
+		        {
+			        _animation.DecreaseSize(transform);
+		        }
+	        });
         }
 
-        public void Initialize(Account account, Button button, IReadOnlyDragHandlerData dragHandlerData)
-        {
-	        Initialize(account, button, dragHandlerData.ContentParent, dragHandlerData.DraggingParent, dragHandlerData.ContentLayoutGroup);
-        }
-
-        public void Initialize(Account account,
-                               Button button,
-                               Transform contentParent,
-                               Transform draggingParent,
-                               LayoutGroup layoutGroup)
-        {
-            _account = account;
-            _button = button;
-            Initialize(contentParent, draggingParent, layoutGroup);
-        }
-
-        private void OnEnable()
-        {
-            _animationSubscription = CanDrag.Subscribe(canDrag =>
-            {
-                if (canDrag)
-                {
-                    _animation.IncreaseSize();
-                }
-                else
-                {
-                    _animation.DecreaseSize();
-                }
-            });
-        }
-
-        private void OnDisable()
+        private void OnDestroy()
         {
             _animationSubscription.Dispose();
         }

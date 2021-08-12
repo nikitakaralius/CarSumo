@@ -1,5 +1,6 @@
 ﻿using System;
 using CarSumo.DataModel.Accounts;
+using GuiBaseData.Accounts;
 using UniRx;
 using Zenject;
 

@@ -1,11 +1,12 @@
 ﻿using CarSumo.DataModel.Accounts;
 using CarSumo.Teams;
+using UniRx;
 
 namespace GameModes
 {
 	public interface IGameModePreferences
 	{
 		float TimerTimeAmount { get; }
-		Account GetAccountByTeam(Team team);
+		IReadOnlyReactiveProperty<Account> GetAccountByTeam(Team team);
 	}
 }

@@ -3,16 +3,22 @@ using System.Linq;
 using GameModes;
 using Sirenix.Utilities;
 using UnityEngine;
+using Zenject;
 
 namespace Menu.GameModes.Common.Timer
 {
-	public class TimerSettings : MonoBehaviour, ITimerPreferences, ITimerButtonSelectHandler
+	public class TimerSettings : MonoBehaviour, ITimerButtonSelectHandler
 	{
 		private IGameModeOperations _gameModeOperations;
 		private IEnumerable<TimerButton> _cachedTimerButtons;
 		private TimerButton _selectedButton;
 
-		public float TimeAmount => _selectedButton.TimeAmount;
+
+		[Inject]
+		private void Construct(IGameModeOperations gameModeOperations)
+		{
+			_gameModeOperations = gameModeOperations;
+		}
 		
 		private void Start()
 		{
@@ -29,6 +35,7 @@ namespace Menu.GameModes.Common.Timer
 		public void OnButtonSelected(TimerButton element)
 		{
 			_selectedButton = element;
+			_gameModeOperations.ConfigureTimer(element.TimeAmount);
 			SetButtonsDeselected(_cachedTimerButtons, element);
 		}
 

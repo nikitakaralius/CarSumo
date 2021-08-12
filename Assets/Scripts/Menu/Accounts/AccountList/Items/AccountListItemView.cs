@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GuiBaseData.Accounts;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Menu.Accounts

@@ -9,12 +9,12 @@ namespace Menu.Vehicles.Cards
         [SerializeField] private VehicleId _vehicleId;
 
         public VehicleId VehicleId => _vehicleId;
-        public int DynamicSiblingIndex { get; private set; }
+        public int DynamicSiblingIndex { get; set; }
 
         public void Initialize(IVehicleCardSelectHandler selectHandler)
         {
 	        Initialize(this, selectHandler, false);
-	        DynamicSiblingIndex = transform.GetSiblingIndex();
+	        UpdateSiblingIndex();
         }
 
         public void SetLatestSiblingIndex()
@@ -22,13 +22,19 @@ namespace Menu.Vehicles.Cards
             transform.SetSiblingIndex(DynamicSiblingIndex);
         }
 
-        protected override void OnButtonSelectedInternal()
+        public void UpdateSiblingIndex()
         {
 	        DynamicSiblingIndex = transform.GetSiblingIndex();
         }
 
+        protected override void OnButtonSelectedInternal()
+        {
+	        UpdateSiblingIndex();
+        }
+
         protected override void OnButtonDeselectedInternal()
         {
+	        
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CarSumo.Coroutines;
+using Infrastructure.Installers.Factories;
 using Infrastructure.Installers.SubContainers;
 using Services.Timer;
 using UnityEngine;
@@ -9,7 +10,6 @@ namespace Infrastructure.Installers.Game
     public class GameInstaller : MonoInstaller
     {
         [SerializeField] private Camera _mainCamera;
-        [SerializeField] private float _timerSecondsToElapse;
 
         public override void InstallBindings()
         {
@@ -30,7 +30,7 @@ namespace Infrastructure.Installers.Game
         {
             Container
                 .BindInterfacesAndSelfTo<CountdownTimer>()
-                .FromInstance(new CountdownTimer(_timerSecondsToElapse, new CoroutineExecutor(this)))
+                .FromFactory<CountdownTimer, CountdownTimerFactory>()
                 .AsSingle();
         }
 

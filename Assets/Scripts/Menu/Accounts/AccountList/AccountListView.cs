@@ -4,9 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using CarSumo.DataModel.Accounts;
 using CarSumo.DataModel.GameResources;
+using CarSumo.Teams;
+using GameModes;
+using JetBrains.Annotations;
 using Menu.Buttons;
 using Services.Instantiate;
 using Sirenix.Utilities;
+using TweenAnimations;
 using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -14,13 +18,18 @@ using Zenject;
 
 namespace Menu.Accounts
 {
-	public class AccountListView : MonoBehaviour, IButtonSelectHandler<AccountListItem>, IAccountListRules
+	public class AccountListView : MonoBehaviour, IAccountSelectHandler, IAccountListRules
     {
 	    [Header("Account Views")]
 	    [SerializeField] private AssetReferenceGameObject _accountViewPrefab;
 	    [SerializeField] private AssetReferenceGameObject _blankAccountViewPrefab;
+	    [SerializeField] private Team _onItemSelectedTeamRegister;
 
+	    [Header("Item Drag Handler Preferences")]
 	    [SerializeField] private DragHandlerData _dragHandlerData;
+	    [SerializeField] private SizeTweenAnimation _dragAnimation;
+	    [Range(0.0f, 1.0f)] 
+	    [SerializeField] private float _requiredHoldTime;
 
 	    private IAccountListRules _rules;
 	    private IButtonSelectHandler<AccountListItem> _itemSelectHandler;
@@ -28,8 +37,10 @@ namespace Menu.Accounts
 	    private IAsyncInstantiation _instantiation;
 	    private IAccountStorage _accountStorage;
 	    private IResourceStorage _resourceStorage;
+	    private IGameModeOperations _gameModeOperations;
 
 	    private IClientAccountOperations _accountOperations;
+	    private IClientAccountStorageOperations _accountStorageOperations;
 
 	    private IDisposable _accountsChangedSubscription;
 
@@ -42,26 +53,26 @@ namespace Menu.Accounts
 	    private void Construct(IAsyncInstantiation instantiation,
 		    					IAccountStorage accountStorage,
 		    					IResourceStorage resourceStorage,
-		    					IClientAccountOperations accountOperations)
+		    					IClientAccountOperations accountOperations,
+		                        IGameModeOperations gameModeOperations,
+		                        IClientAccountStorageOperations accountStorageOperations)
 	    {
 		    _instantiation = instantiation;
 		    _accountStorage = accountStorage;
 		    _resourceStorage = resourceStorage;
 		    _accountOperations = accountOperations;
+		    _gameModeOperations = gameModeOperations;
+		    _accountStorageOperations = accountStorageOperations;
 	    }
+	    
+	    public bool SelectActivated => true;
 
 	    public IEnumerable<Account> AccountsToRender => _accountStorage.AllAccounts;
+	    
 	    private Transform ItemsRoot => _dragHandlerData.ContentParent;
 
 	    private void Awake()
 	    {
-		    if (_rules is null || _itemSelectHandler is null)
-		    {
-			    SetInternalInterfaces();
-		    }
-		    
-		    FillList();
-		    
 		    _accountsChangedSubscription = _accountStorage.AllAccounts
 			    .ObserveCountChanged()
 			    .Subscribe(_ => FillList());
@@ -72,26 +83,37 @@ namespace Menu.Accounts
 		    _accountsChangedSubscription?.Dispose();
 	    }
 
-	    public void SetInternalInterfaces()
+	    public void OpenInternal()
 	    {
-		    SetItemSelectHandler(this);
-		    SetRules(this);
-	    }
-	    
-	    public void SetRules(IAccountListRules rules)
-	    {
-		    _rules = rules;
+		    Open(this, this);
 	    }
 
-	    public void SetItemSelectHandler(IButtonSelectHandler<AccountListItem> selectHandler)
+	    public void Open(IAccountListRules rules, IButtonSelectHandler<AccountListItem> selectHandler)
 	    {
+		    _rules = rules;
 		    _itemSelectHandler = selectHandler;
+		    gameObject.SetActive(true);
+		    
+		    FillList();
+	    }
+
+	    public void Close()
+	    {
+		    gameObject.SetActive(false);
 	    }
 	    
+	    public void OnListItemCreated(AccountListItem item)
+	    {
+			item.gameObject
+				.AddComponent<AccountListItemDragHandler>()
+				.Initialize(_requiredHoldTime, _accountStorageOperations, item.Account, item.Button, _dragAnimation, _dragHandlerData);
+	    }
+
 	    public void OnButtonSelected(AccountListItem element)
 	    {
 		    _activeAccountListItem = element;
 		    _accountOperations.SetActive(_activeAccountListItem.Account);
+		    _gameModeOperations.RegisterAccount(_onItemSelectedTeamRegister, element.Account);
 		    _items.Where(item => item != _activeAccountListItem).ForEach(item => item.SetSelected(false));
 	    }
 
@@ -113,7 +135,7 @@ namespace Menu.Accounts
 		    IEnumerable<GameObject> accountListViews = accountListItems.Select(item => item.gameObject);
 
 		    _activeAccountListItem = GetActiveAccountListItem(_accountStorage.ActiveAccount.Value, accountListItems);
-		    _activeAccountListItem.SetSelected(true);
+		    _activeAccountListItem?.SetSelected(_rules.SelectActivated);
 		    
 		    _allViews.AddRange(accountListViews);
 		    _allViews.AddRange(blankAccountViews);
@@ -134,9 +156,10 @@ namespace Menu.Accounts
 		    _items.Clear();
 	    }
 
+	    [CanBeNull]
 	    private AccountListItem GetActiveAccountListItem(Account activeAccount, IEnumerable<AccountListItem> allAccounts)
 	    {
-		    return allAccounts.First(accountListItem => accountListItem.Account.Equals(activeAccount));
+		    return allAccounts.FirstOrDefault(accountListItem => accountListItem.Account.Equals(activeAccount));
 	    }
 	    
 	    private async Task<IEnumerable<AccountListItem>> CreateAccountListItems(IEnumerable<Account> accounts, Transform root)
@@ -151,7 +174,8 @@ namespace Menu.Accounts
 		    foreach (Account account in accounts)
 		    {
 			    AccountListItem listItem = await _instantiation.InstantiateAsync<AccountListItem>(_accountViewPrefab, root);
-			    listItem.Initialize(account, _itemSelectHandler, _dragHandlerData);
+			    listItem.Initialize(account, _itemSelectHandler);
+			    _rules.OnListItemCreated(listItem);
 			    views.Add(listItem);
 		    }
 

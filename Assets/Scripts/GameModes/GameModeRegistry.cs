@@ -1,24 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CarSumo.DataModel.Accounts;
 using CarSumo.Teams;
+using UniRx;
 
 namespace GameModes
 {
 	public class GameModeRegistry : IGameModePreferences, IGameModeOperations
 	{
-		private readonly Dictionary<Team, Account> _accounts;
+		private readonly Dictionary<Team, ReactiveProperty<Account>> _registeredAccounts;
 
-		public GameModeRegistry()
+		public GameModeRegistry(IReadOnlyDictionary<Team, Account> initialRegisteredAccounts)
 		{
-			_accounts = new Dictionary<Team, Account>();
+			_registeredAccounts = initialRegisteredAccounts
+				.ToDictionary(x => x.Key, x => new ReactiveProperty<Account>(x.Value));
 		}
 		
 		public float TimerTimeAmount { get; private set; }
 		
-		public Account GetAccountByTeam(Team team)
+		public IReadOnlyReactiveProperty<Account> GetAccountByTeam(Team team)
 		{
-			if (_accounts.TryGetValue(team, out Account account) == false)
+			if (_registeredAccounts.TryGetValue(team, out var account) == false)
 			{
 				throw new InvalidOperationException($"Can not find account with team {team}. Make sure it registered");
 			}
@@ -26,14 +29,23 @@ namespace GameModes
 			return account;
 		}
 
-		public void RegisterAccount(Account account, Team team)
+		public void RegisterAccount(Team team, Account account)
 		{
-			if (account is null)
+			(bool containsSameAccount, Team sameAccountTeam) = AlreadyContainsSameAccount(account);
+			
+			if (containsSameAccount)
 			{
-				throw new InvalidOperationException("Account can not be null");
+				_registeredAccounts[sameAccountTeam].Value = null;
 			}
 			
-			_accounts[team] = account;
+			if (_registeredAccounts.TryGetValue(team, out var registeredAccount))
+			{
+				registeredAccount.Value = account;
+			}
+			else
+			{
+				_registeredAccounts[team] = new ReactiveProperty<Account>(account);
+			}
 		}
 
 		public void ConfigureTimer(float timeAmount)
@@ -44,6 +56,20 @@ namespace GameModes
 			}
 
 			TimerTimeAmount = timeAmount;
+		}
+
+		private (bool, Team) AlreadyContainsSameAccount(Account account)
+		{
+			foreach (var pair in _registeredAccounts)
+			{
+				if (pair.Value.Value is null)
+					continue;
+
+				if (pair.Value.Value.Equals(account))
+					return (true, pair.Key);
+			}
+
+			return (false, Team.Blue);
 		}
 	}
 }

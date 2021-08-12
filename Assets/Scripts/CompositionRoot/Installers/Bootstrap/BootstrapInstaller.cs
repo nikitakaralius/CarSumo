@@ -1,4 +1,5 @@
 ﻿using GameModes;
+using Infrastructure.Installers.Factories;
 using Infrastructure.Installers.SubContainers;
 using Infrastructure.Settings;
 using Services.SceneManagement;
@@ -58,7 +59,7 @@ namespace Infrastructure.Installers.Bootstrap
         {
 	        Container
 		        .BindInterfacesTo<GameModeRegistry>()
-		        .FromNew()
+		        .FromFactory<GameModeRegistry, GameModeRegistryFactory>()
 		        .AsSingle();
         }
     }

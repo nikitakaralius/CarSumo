@@ -4,6 +4,7 @@ using System.Linq;
 using CarSumo.DataModel.Accounts;
 using DataModel.Vehicles;
 using Menu.Extensions;
+using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -48,10 +49,12 @@ namespace Menu.Vehicles.Layout
 
 			_contentLayoutGroup.DisableElementsUpdate();
 
-			cardTransform.SetParent(SelectedRoot);
 			_vehicleScaling.ApplySelectedAnimation(cardTransform);
 
 			NotifyOtherCards(Items, element);
+
+			Items.ForEach(item => item.UpdateSiblingIndex());
+			cardTransform.SetParent(SelectedRoot);
 		}
 
 		public void OnButtonDeselected(VehicleCard element)
