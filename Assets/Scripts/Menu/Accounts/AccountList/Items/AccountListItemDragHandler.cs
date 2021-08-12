@@ -27,6 +27,11 @@ namespace Menu.Accounts
             _storageOperations = storageOperations;
         }
 
+        public void Initialize(Account account, Button button, IReadOnlyDragHandlerData dragHandlerData)
+        {
+	        Initialize(account, button, dragHandlerData.ContentParent, dragHandlerData.DraggingParent, dragHandlerData.ContentLayoutGroup);
+        }
+
         public void Initialize(Account account,
                                Button button,
                                Transform contentParent,

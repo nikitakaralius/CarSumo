@@ -15,10 +15,12 @@ namespace Menu.Buttons
 		private IDisposable _selectedSubscription;
 		private IButtonSelectHandler<THandlerElement> _selectHandler;
 		
+		protected Button Button { get; private set; }
+		
 		protected void Initialize(THandlerElement element, IButtonSelectHandler<THandlerElement> selectHandler, bool notifyOnInitialize = true)
 		{
-			Button button = GetComponent<Button>();
-			button.onClick.AddListener(() => _selected.Value = !_selected.Value);
+			Button = GetComponent<Button>();
+			Button.onClick.AddListener(() => _selected.Value = !_selected.Value);
 			
 			_selectHandler = selectHandler;
 

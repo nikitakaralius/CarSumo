@@ -47,7 +47,7 @@ namespace Menu.Accounts
             if (_storageOperations.TryAddAccount(account))
             {
                 Hide();
-                _accountOperations.SetActive(account);
+                // _accountOperations.SetActive(account);
             }
             else
             {

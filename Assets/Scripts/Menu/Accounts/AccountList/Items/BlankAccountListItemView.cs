@@ -6,7 +6,7 @@ using Zenject;
 namespace Menu.Accounts
 {
     [RequireComponent(typeof(Button))]
-    public class BlankAccountListView : MonoBehaviour
+    public class BlankAccountListItemView : MonoBehaviour
     {
         private IAccountPopup _accountPopup;
         private IAudioPlayer _audioPlayer;

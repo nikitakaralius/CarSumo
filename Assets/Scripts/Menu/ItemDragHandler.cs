@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 namespace Menu
 {
-    public abstract class ItemDragHandler<T> : SerializedMonoBehaviour,
+	public abstract class ItemDragHandler<T> : SerializedMonoBehaviour,
             IDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
             where T : Component
     {
@@ -28,6 +28,11 @@ namespace Menu
         protected Transform DraggingParent { get; private set; }
 
         protected IReadOnlyReactiveProperty<bool> CanDrag => _canDrag;
+
+        protected void Initialize(IReadOnlyDragHandlerData data)
+        {
+	        Initialize(data.ContentParent, data.DraggingParent, data.ContentLayoutGroup);
+        }
 
         protected void Initialize(Transform contentParent, Transform draggingParent, LayoutGroup layoutGroup)
         {
