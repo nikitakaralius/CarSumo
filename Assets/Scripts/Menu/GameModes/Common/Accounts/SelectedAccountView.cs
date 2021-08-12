@@ -61,8 +61,6 @@ namespace Menu.GameModes.Common.Accounts
 		{
 			Button button = GetComponent<Button>();
 			
-			Debug.Log(button);
-			
 			button.onClick.AddListener(() =>
 			{
 				_audioPlayer.Play();
