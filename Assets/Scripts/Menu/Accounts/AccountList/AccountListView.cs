@@ -49,8 +49,11 @@ namespace Menu.Accounts
 		    _resourceStorage = resourceStorage;
 		    _accountOperations = accountOperations;
 	    }
-
+	    
+	    public bool SelectActivated => true;
+	    
 	    public IEnumerable<Account> AccountsToRender => _accountStorage.AllAccounts;
+	    
 	    private Transform ItemsRoot => _dragHandlerData.ContentParent;
 
 	    private void Awake()
@@ -104,7 +107,7 @@ namespace Menu.Accounts
 		    IEnumerable<GameObject> accountListViews = accountListItems.Select(item => item.gameObject);
 
 		    _activeAccountListItem = GetActiveAccountListItem(_accountStorage.ActiveAccount.Value, accountListItems);
-		    _activeAccountListItem.SetSelected(true);
+		    _activeAccountListItem.SetSelected(SelectActivated);
 		    
 		    _allViews.AddRange(accountListViews);
 		    _allViews.AddRange(blankAccountViews);
