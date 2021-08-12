@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
@@ -8,16 +7,15 @@ using UnityEngine.UI;
 namespace Menu.Buttons
 {
 	[RequireComponent(typeof(Button))]
-	public abstract class SelectableButton<THandler, THandlerParameter> : SerializedMonoBehaviour
-		where THandler : IButtonSelectHandler<THandlerParameter>
+	public abstract class SelectableButton<THandlerElement> : SerializedMonoBehaviour
 	{
 		private readonly ReactiveProperty<bool> _selected = new ReactiveProperty<bool>(false);
 		private bool _notificationEnabled = true;
 
 		private IDisposable _selectedSubscription;
-		private THandler _selectHandler;
+		private IButtonSelectHandler<THandlerElement> _selectHandler;
 		
-		protected void Initialize(THandlerParameter parameter, [CanBeNull] THandler selectHandler, bool notifyOnInitialize = true)
+		protected void Initialize(THandlerElement element, IButtonSelectHandler<THandlerElement> selectHandler, bool notifyOnInitialize = true)
 		{
 			Button button = GetComponent<Button>();
 			button.onClick.AddListener(() => _selected.Value = !_selected.Value);
@@ -36,12 +34,12 @@ namespace Menu.Buttons
 				if (selected)
 				{
 					OnButtonSelectedInternal();
-					_selectHandler?.OnButtonSelected(parameter);
+					_selectHandler?.OnButtonSelected(element);
 				}
 				else
 				{
 					OnButtonDeselectedInternal();
-					_selectHandler?.OnButtonDeselected(parameter);	
+					_selectHandler?.OnButtonDeselected(element);	
 				}
 			});
 			

@@ -7,7 +7,7 @@ using Zenject;
 namespace Menu.GameModes.Common.Timer
 {
 	[RequireComponent(typeof(Image))]
-	public class TimerButton : SelectableButton<ITimerButtonSelectHandler, TimerButton>
+	public class TimerButton : SelectableButton<TimerButton>
 	{
 		[Header("Graphics")]
 		[SerializeField] private Sprite _selectedBackground;

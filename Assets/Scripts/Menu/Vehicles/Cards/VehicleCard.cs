@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Menu.Vehicles.Cards
 {
-    public class VehicleCard : SelectableButton<IVehicleCardSelectHandler, VehicleCard>
+    public class VehicleCard : SelectableButton<VehicleCard>
     {
         [SerializeField] private VehicleId _vehicleId;
 
