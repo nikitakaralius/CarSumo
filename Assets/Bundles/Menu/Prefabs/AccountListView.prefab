@@ -389,8 +389,6 @@ GameObject:
   - component: {fileID: 3583904303770198249}
   - component: {fileID: 4915719877099135044}
   - component: {fileID: 7534759614776522687}
-  - component: {fileID: 3358028525453107096}
-  - component: {fileID: 1919712922498362420}
   m_Layer: 5
   m_Name: AccountListView
   m_TagString: Untagged
@@ -540,43 +538,3 @@ MonoBehaviour:
   _backgroundImage: {fileID: 6414896591698746196}
   _selectedBackground: {fileID: 21300000, guid: 840a54519d139421686eb868f94c36fc, type: 3}
   _deselectedBackground: {fileID: 21300000, guid: 1c2eec4f264c34c92b06e3c5ad8dc5ed, type: 3}
---- !u!114 &3358028525453107096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7385673058972946842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cda85000000d467096ce75af7682f7bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  _requiredHoldTime: 0.2
-  _animation: {fileID: 1919712922498362420}
---- !u!114 &1919712922498362420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7385673058972946842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6cec08d4b774a2ebb9d1e1e57585d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tweenData:
-    From: {x: 1, y: 1, z: 1}
-    To: {x: 1.15, y: 1.15, z: 1.15}
-    Duration: 0.3
-    Ease: 19

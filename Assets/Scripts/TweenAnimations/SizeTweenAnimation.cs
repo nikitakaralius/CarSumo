@@ -17,14 +17,14 @@ namespace TweenAnimations
             transform.localScale = _tweenData.From;
         }
 
-        public void IncreaseSize()
+        public void IncreaseSize(Transform transform)
         {
             _increaseSizeTween = transform
                 .DOScale(_tweenData.To, _tweenData.Duration)
                 .SetEase(_tweenData.Ease);
         }
 
-        public void DecreaseSize()
+        public void DecreaseSize(Transform transform)
         {
             _decreaseSizeTween = transform
                 .DOScale(_tweenData.From, _tweenData.Duration)

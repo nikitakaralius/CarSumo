@@ -73,14 +73,19 @@ namespace Menu.GameModes.Common.Accounts
 		{
 			_changeAccountSubscription?.Dispose();
 		}
-		
+
 		public void OnButtonSelected(AccountListItem element)
 		{
 			_gameModeOperations.RegisterAccount(_team, element.Account);
-			//_accountList.Close();
+			_accountList.Close();
 		}
 
 		public void OnButtonDeselected(AccountListItem element)
+		{
+			
+		}
+
+		public void OnItemListCreated(AccountListItem item)
 		{
 			
 		}

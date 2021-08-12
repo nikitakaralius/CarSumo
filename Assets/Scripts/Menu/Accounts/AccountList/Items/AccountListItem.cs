@@ -6,7 +6,6 @@ using Zenject;
 
 namespace Menu.Accounts
 {
-	[RequireComponent(typeof(AccountListItemDragHandler))]
 	public class AccountListItem : SelectableButton<AccountListItem>
 	{
 		[SerializeField] private AccountListItemView _view;
@@ -21,16 +20,11 @@ namespace Menu.Accounts
 		
 		public Account Account { get; private set; }
 
-		public void Initialize(Account account, IButtonSelectHandler<AccountListItem> selectHandler, IReadOnlyDragHandlerData dragData)
+		public void Initialize(Account account, IButtonSelectHandler<AccountListItem> selectHandler)
 		{
 			Initialize(this, selectHandler);
-
 			Account = account;
-
 			_view.ChangeAccount(Account);
-			
-			AccountListItemDragHandler dragHandler = GetComponent<AccountListItemDragHandler>();
-			dragHandler.Initialize(Account, Button, dragData);
 		}
 
 		protected override void OnButtonSelectedInternal()

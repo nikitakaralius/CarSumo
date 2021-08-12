@@ -15,7 +15,7 @@ namespace Menu.Buttons
 		private IDisposable _selectedSubscription;
 		private IButtonSelectHandler<THandlerElement> _selectHandler;
 		
-		protected Button Button { get; private set; }
+		public Button Button { get; private set; }
 		
 		protected void Initialize(THandlerElement element, IButtonSelectHandler<THandlerElement> selectHandler, bool notifyOnInitialize = true)
 		{

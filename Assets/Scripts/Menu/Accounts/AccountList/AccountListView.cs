@@ -10,6 +10,7 @@ using JetBrains.Annotations;
 using Menu.Buttons;
 using Services.Instantiate;
 using Sirenix.Utilities;
+using TweenAnimations;
 using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -22,9 +23,13 @@ namespace Menu.Accounts
 	    [Header("Account Views")]
 	    [SerializeField] private AssetReferenceGameObject _accountViewPrefab;
 	    [SerializeField] private AssetReferenceGameObject _blankAccountViewPrefab;
-
-	    [SerializeField] private DragHandlerData _dragHandlerData;
 	    [SerializeField] private Team _onItemSelectedTeamRegister;
+
+	    [Header("Item Drag Handler Preferences")]
+	    [SerializeField] private DragHandlerData _dragHandlerData;
+	    [SerializeField] private SizeTweenAnimation _dragAnimation;
+	    [Range(0.0f, 1.0f)] 
+	    [SerializeField] private float _requiredHoldTime;
 
 	    private IAccountListRules _rules;
 	    private IButtonSelectHandler<AccountListItem> _itemSelectHandler;
@@ -35,6 +40,7 @@ namespace Menu.Accounts
 	    private IGameModeOperations _gameModeOperations;
 
 	    private IClientAccountOperations _accountOperations;
+	    private IClientAccountStorageOperations _accountStorageOperations;
 
 	    private IDisposable _accountsChangedSubscription;
 
@@ -48,17 +54,19 @@ namespace Menu.Accounts
 		    					IAccountStorage accountStorage,
 		    					IResourceStorage resourceStorage,
 		    					IClientAccountOperations accountOperations,
-		                        IGameModeOperations gameModeOperations)
+		                        IGameModeOperations gameModeOperations,
+		                        IClientAccountStorageOperations accountStorageOperations)
 	    {
 		    _instantiation = instantiation;
 		    _accountStorage = accountStorage;
 		    _resourceStorage = resourceStorage;
 		    _accountOperations = accountOperations;
 		    _gameModeOperations = gameModeOperations;
+		    _accountStorageOperations = accountStorageOperations;
 	    }
 	    
 	    public bool SelectActivated => true;
-	    
+
 	    public IEnumerable<Account> AccountsToRender => _accountStorage.AllAccounts;
 	    
 	    private Transform ItemsRoot => _dragHandlerData.ContentParent;
@@ -93,6 +101,13 @@ namespace Menu.Accounts
 	    {
 		    gameObject.SetActive(false);
 	    }
+	    
+	    public void OnItemListCreated(AccountListItem item)
+	    {
+			item.gameObject
+				.AddComponent<AccountListItemDragHandler>()
+				.Initialize(_requiredHoldTime, _accountStorageOperations, item.Account, item.Button, _dragAnimation, _dragHandlerData);
+	    }
 
 	    public void OnButtonSelected(AccountListItem element)
 	    {
@@ -120,7 +135,7 @@ namespace Menu.Accounts
 		    IEnumerable<GameObject> accountListViews = accountListItems.Select(item => item.gameObject);
 
 		    _activeAccountListItem = GetActiveAccountListItem(_accountStorage.ActiveAccount.Value, accountListItems);
-		    _activeAccountListItem?.SetSelected(SelectActivated);
+		    _activeAccountListItem?.SetSelected(_rules.SelectActivated);
 		    
 		    _allViews.AddRange(accountListViews);
 		    _allViews.AddRange(blankAccountViews);
@@ -159,7 +174,8 @@ namespace Menu.Accounts
 		    foreach (Account account in accounts)
 		    {
 			    AccountListItem listItem = await _instantiation.InstantiateAsync<AccountListItem>(_accountViewPrefab, root);
-			    listItem.Initialize(account, _itemSelectHandler, _dragHandlerData);
+			    listItem.Initialize(account, _itemSelectHandler);
+			    _rules.OnItemListCreated(listItem);
 			    views.Add(listItem);
 		    }
 

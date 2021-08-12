@@ -31,7 +31,7 @@ namespace GameModes
 
 		public void RegisterAccount(Team team, Account account)
 		{
-			(bool containsSameAccount, Team sameAccountTeam) = IsAlreadyContainSameAccount(account);
+			(bool containsSameAccount, Team sameAccountTeam) = AlreadyContainsSameAccount(account);
 			
 			if (containsSameAccount)
 			{
@@ -58,7 +58,7 @@ namespace GameModes
 			TimerTimeAmount = timeAmount;
 		}
 
-		private (bool, Team) IsAlreadyContainSameAccount(Account account)
+		private (bool, Team) AlreadyContainsSameAccount(Account account)
 		{
 			foreach (var pair in _registeredAccounts)
 			{
