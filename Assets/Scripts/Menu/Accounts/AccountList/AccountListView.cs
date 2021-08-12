@@ -82,6 +82,11 @@ namespace Menu.Accounts
 		    gameObject.SetActive(true);
 	    }
 
+	    public void Close()
+	    {
+		    gameObject.SetActive(false);
+	    }
+
 	    public void OnButtonSelected(AccountListItem element)
 	    {
 		    _activeAccountListItem = element;

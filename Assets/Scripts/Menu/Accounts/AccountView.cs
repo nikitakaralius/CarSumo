@@ -15,6 +15,10 @@ namespace Menu.Accounts
         {
             _name.text = account.Name.Value;
             _icon.sprite = account.Icon.Value.Sprite;
+            
+            OnAccountChanged(account);
         }
+        
+        protected virtual void OnAccountChanged(Account account) { }
     }
 }

@@ -5,7 +5,7 @@ namespace GameModes
 {
 	public interface IGameModeOperations
 	{
-		void RegisterAccount(Account account, Team team);
+		void RegisterAccount(Team team, Account account);
 		void ConfigureTimer(float timeAmount);
 	}
 }
