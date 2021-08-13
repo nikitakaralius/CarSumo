@@ -8,7 +8,7 @@ using Zenject;
 
 namespace CarSumo.Units
 {
-    public class Unit : MonoBehaviour, IVehicleUpgrader, IVehicleDestroyer
+    public class Unit : MonoBehaviour, IVehicleDestroyer
     {
         [SerializeField] private Team _team;
         
@@ -41,25 +41,12 @@ namespace CarSumo.Units
             Destroy(gameObject);
         }
 
-        public async void Upgrade(Vehicle vehicle)
-        {
-            if (_vehicleHierarchy.CanCreate(_generation + 1) == false)
-                return;
-
-            var transform = vehicle.transform;
-            var worldPlacement = new WorldPlacement(transform.position, transform.forward);
-
-            Destroy(vehicle.gameObject);
-
-            await CreateVehicleInstance(worldPlacement);
-        }
-
         private async Task CreateVehicleInstance(WorldPlacement worldPlacement)
         {
             var factory = _vehicleHierarchy.GetVehicleFactoryByGeneration(_team, ++_generation);
 
             Vehicle vehicle = await factory.Create(transform);
-            vehicle.Init(_team, worldPlacement, this, this);
+            vehicle.Initialize(_team, worldPlacement, this, this);
         }
     }
 }

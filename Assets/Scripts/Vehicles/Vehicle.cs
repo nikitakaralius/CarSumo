@@ -1,4 +1,5 @@
 ﻿using CarSumo.Coroutines;
+using CarSumo.Extensions;
 using CarSumo.Structs;
 using CarSumo.Teams;
 using CarSumo.Vehicles.Engine;
@@ -17,7 +18,6 @@ namespace CarSumo.Vehicles
         private Rigidbody _rigidbody;
         private IVehicleStatsProvider _statsProvider;
 
-        private IVehicleUpgrader _upgrader;
         private IVehicleDestroyer _destroyer;
 
         public IVehicleEngine Engine { get; private set; }
@@ -29,21 +29,21 @@ namespace CarSumo.Vehicles
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        public void Init(Team team, WorldPlacement placement, IVehicleUpgrader upgrader, IVehicleDestroyer destroyer)
+        public void Initialize(Team team, WorldPlacement placement, IVehicleDestroyer destroyer)
         {
             _statsProvider = _typeStats;
             _statsProvider = new VehicleTeamStats(_statsProvider, team);
             
             var coroutineExecutor = new CoroutineExecutor(this);
-            Engine = GetComponent<VehicleEngine>().Init(_statsProvider, _rigidbody, coroutineExecutor);
-            Rotation = new ForwardVectorVehicleRotation(transform, _statsProvider);
             
-            GetComponent<MeshRenderer>().material = _typeStats.GetMaterialByTeam(team);
+            Engine = GetComponent<VehicleEngine>().Initialize(_statsProvider, _rigidbody, coroutineExecutor);
+            Rotation = new ForwardVectorVehicleRotation(transform, _statsProvider);
 
-            transform.position = placement.Position;
-            transform.forward = placement.ForwardVector;
+            MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+            meshRenderer.material = _typeStats.GetMaterialByTeam(team);
 
-            _upgrader = upgrader;
+            transform.SetWorldPlacement(placement);
+            
             _destroyer = destroyer;
         }
 
@@ -53,7 +53,5 @@ namespace CarSumo.Vehicles
         }
 
         public void Destroy() => _destroyer.Destroy(this);
-
-        public void Upgrade() => _upgrader.Upgrade(this);
     }
 }

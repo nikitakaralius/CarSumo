@@ -6,7 +6,6 @@ namespace CarSumo.Vehicles
 {
     public interface IVehicle : IVehicleStatsProvider
     {
-        void Upgrade();
         void Destroy();
 
         public class FakeVehicle : IVehicle

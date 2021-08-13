@@ -17,7 +17,7 @@ namespace CarSumo.Vehicles.Engine
         private CoroutineExecutor _executor;
         private IVehicleStatsProvider _statsProvider;
 
-        public VehicleEngine Init(IVehicleStatsProvider statsProvider, Rigidbody rigidbody, CoroutineExecutor executor)
+        public VehicleEngine Initialize(IVehicleStatsProvider statsProvider, Rigidbody rigidbody, CoroutineExecutor executor)
         {
             _rigidbody = rigidbody;
             _executor = executor;
