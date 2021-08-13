@@ -9,15 +9,6 @@ namespace Infrastructure.Installers.SubContainers
 
         public override void InstallBindings()
         {
-            BindUnitTracker();
-        }
-
-        private void BindUnitTracker()
-        {
-            Container
-                .Bind<IUnitTracker>()
-                .FromInstance(new UnitTracker(TeamsCount))
-                .AsSingle();
         }
     }
 }
