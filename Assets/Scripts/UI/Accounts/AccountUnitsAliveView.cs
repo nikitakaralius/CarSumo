@@ -1,8 +1,6 @@
-﻿using System;
-using CarSumo.Teams;
+﻿using CarSumo.Teams;
 using CarSumo.Teams.TeamChanging;
 using CarSumo.Units.Tracking;
-using GameModes;
 using Sirenix.OdinInspector;
 using TMPro;
 using TweenAnimations;
@@ -13,7 +11,7 @@ using Zenject;
 namespace UI.Accounts
 {
     [RequireComponent(typeof(TMP_Text))]
-    public class AccountUnitAliveView : SerializedMonoBehaviour
+    public class AccountUnitsAliveView : SerializedMonoBehaviour
     {
         [SerializeField] private Team _team;
         [SerializeField] private Color _highlightedColor;
