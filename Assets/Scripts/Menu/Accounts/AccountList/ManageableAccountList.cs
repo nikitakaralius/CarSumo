@@ -48,9 +48,11 @@ namespace Menu.Accounts
 		public void OnButtonSelected(AccountListItem element)
 		{
 			_activeAccountListItem = element;
+			
 			_accountOperations.SetActive(element.Account);
 			_gameModeOperations.RegisterAccount(_selectedItemTeamToRegister, element.Account);
-			_items.Where(item => item != _activeAccountListItem).ForEach(item => item.SetSelected(false));
+
+			NotifyOtherAccounts(_items, element);
 		}
 
 		public void OnButtonDeselected(AccountListItem element)
@@ -63,8 +65,7 @@ namespace Menu.Accounts
 
 		public void OnAccountCreated(AccountListItem listItem)
 		{
-			listItem.gameObject.AddComponent<AccountListItemDragHandler>()
-				.Initialize(_requiredHoldTime, _storageOperations, listItem.Account, listItem.Button, _dragAnimation, _dragHandlerData);
+			AddDragHandlerComponent(listItem);
 		}
 
 		public void OnAllItemsCreated(IEnumerable<AccountListItem> items)
@@ -74,6 +75,25 @@ namespace Menu.Accounts
 
 			_activeAccountListItem = GetActiveAccountListItem(_accountStorage.ActiveAccount.Value, _items);
 			_activeAccountListItem?.SetSelected(true);
+		}
+
+		private void NotifyOtherAccounts(IEnumerable<AccountListItem> allAccounts, AccountListItem activeAccount)
+		{
+			allAccounts
+				.Where(item => item != activeAccount)
+				.ForEach(item => item.SetSelected(false));
+		}
+
+		private void AddDragHandlerComponent(AccountListItem listItem)
+		{
+			listItem.gameObject
+				.AddComponent<AccountListItemDragHandler>()
+				.Initialize(_requiredHoldTime,
+							_storageOperations,
+							listItem.Account,
+							listItem.Button,
+							_dragAnimation,
+							_dragHandlerData);
 		}
 
 		[CanBeNull]

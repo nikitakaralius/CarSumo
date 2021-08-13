@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CarSumo.DataModel.Accounts;
 using CarSumo.DataModel.GameResources;
+using JetBrains.Annotations;
 using Menu.Buttons;
 using Services.Instantiate;
 using UniRx;
@@ -62,7 +63,9 @@ namespace Menu.Accounts
 		    Open(_defaultBehaviour, _defaultBehaviour, _defaultBehaviour);
 	    }
 
-	    public void Open(IAccountListRules rules, IButtonSelectHandler<AccountListItem> selectHandler, IAccountListObserver observer = null)
+	    public void Open(IAccountListRules rules,
+		    			 IButtonSelectHandler<AccountListItem> selectHandler,
+		    			 [CanBeNull] IAccountListObserver observer = null)
 	    {
 		    _rules = rules;
 		    _itemSelectHandler = selectHandler;
