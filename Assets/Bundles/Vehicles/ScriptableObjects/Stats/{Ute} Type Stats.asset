@@ -25,12 +25,12 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _materials
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[CarSumo.Teams.Team, Assembly-CSharp],[UnityEngine.Material,
+      Data: 0|System.Collections.Generic.Dictionary`2[[CarSumo.Teams.Team, Teams],[UnityEngine.Material,
         UnityEngine.CoreModule]], mscorlib
     - Name: comparer
       Entry: 7
       Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[CarSumo.Teams.Team,
-        Assembly-CSharp]], mscorlib
+        Teams]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -73,5 +73,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  _enginePower: -7
+  _enginePower: -5
   _rotationalSpeed: 20
