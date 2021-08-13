@@ -27,8 +27,8 @@ MonoBehaviour:
     m_Address: Assets/Bundles/Vehicles/Materials
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 102900000, guid: c064a8cdb30455b40a0302d4e90740b3, type: 3}
-    m_TargetAsset: {fileID: 102900000, guid: c064a8cdb30455b40a0302d4e90740b3, type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 5cabab48a44a69e49816f520f13d746c
     m_Address: Assets/Bundles/Vehicles/Models
     m_ReadOnly: 0
@@ -39,31 +39,25 @@ MonoBehaviour:
     m_Address: Assets/Bundles/Vehicles/PhysicsMaterials
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 102900000, guid: f6fb777808bb6d44fb733b89eb400245, type: 3}
-    m_TargetAsset: {fileID: 102900000, guid: f6fb777808bb6d44fb733b89eb400245, type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 72026b9bd8cd0a94da072abab6f13056
     m_Address: Assets/Bundles/Vehicles/Prefabs
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 102900000, guid: 72026b9bd8cd0a94da072abab6f13056, type: 3}
-    m_TargetAsset: {fileID: 102900000, guid: 72026b9bd8cd0a94da072abab6f13056, type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 73691ebb06ad4d34097f720e4de0a503
     m_Address: Assets/Bundles/Vehicles/ScriptableObjects
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 102900000, guid: 73691ebb06ad4d34097f720e4de0a503, type: 3}
-    m_TargetAsset: {fileID: 102900000, guid: 73691ebb06ad4d34097f720e4de0a503, type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: b2c5f33fc05309d49bac38476334e2a7
     m_Address: Assets/Bundles/Vehicles/Textures
     m_ReadOnly: 0
     m_SerializedLabels:
     - VehicleFactories
-    m_MainAsset: {fileID: 102900000, guid: b2c5f33fc05309d49bac38476334e2a7, type: 3}
-    m_TargetAsset: {fileID: 102900000, guid: b2c5f33fc05309d49bac38476334e2a7, type: 3}
-  - m_GUID: ec6840853f642414ea4ec79fbaebf3ff
-    m_Address: Assets/Bundles/Vehicles/ScriptableObjects/Factory
-    m_ReadOnly: 0
-    m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
