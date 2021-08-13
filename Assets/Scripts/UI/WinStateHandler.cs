@@ -1,4 +1,6 @@
-﻿using CarSumo.DataModel.Accounts;
+﻿using AdvancedAudioSystem;
+using CarSumo.Audio;
+using CarSumo.DataModel.Accounts;
 using CarSumo.StateMachine;
 using CarSumo.StateMachine.States;
 using CarSumo.Teams;
@@ -15,19 +17,22 @@ namespace UI
 	{
 		[SerializeField] private GameObject _winnerWindow;
 		[SerializeField] private WinnerAccount _winnerAccount;
+		[SerializeField] private AudioCue _winCue;
 		
 		private IUnitTracker _unitTracker;
 		private IGameModePreferences _gameModePreferences;
+		private BackgroundMusic _backgroundMusic;
 		private GameStateMachine _stateMachine;
 
 		private readonly CompositeDisposable _subscriptions = new CompositeDisposable();
 
 		[Inject]
-		private void Construct(IUnitTracker unitTracker, IGameModePreferences preferences, GameStateMachine stateMachine)
+		private void Construct(IUnitTracker unitTracker, IGameModePreferences preferences, BackgroundMusic music, GameStateMachine stateMachine)
 		{
 			_unitTracker = unitTracker;
 			_gameModePreferences = preferences;
 			_stateMachine = stateMachine;
+			_backgroundMusic = music;
 		}
 
 		private void OnEnable()
@@ -53,6 +58,8 @@ namespace UI
 			if (unitsAlive == 0)
 			{
 				_stateMachine.Enter<PauseState>();
+				
+				_backgroundMusic.ChangeAudioCue(_winCue);
 				
 				Account winnerAccount = _gameModePreferences.GetAccountByTeam(team).Value;
 				

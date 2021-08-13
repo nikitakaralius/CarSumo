@@ -8,7 +8,8 @@ namespace AdvancedAudioSystem.Emitters
     public class MonoSoundEmitter : MonoBehaviour, ISoundEmitter
     {
         private AudioSource _audioSource;
-
+        private Coroutine _finishPlayingRoutine;
+        
         public event Action FinishedPlaying;
 
         public IAudioSourceProperty AudioSourceProperty { get; private set; }
@@ -22,12 +23,15 @@ namespace AdvancedAudioSystem.Emitters
 
         public void Play(AudioCue audioCue)
         {
+	        if (_finishPlayingRoutine != null)
+		        StopCoroutine(_finishPlayingRoutine);
+	        
             audioCue.PlayOn(_audioSource);
 
             if (_audioSource.loop)
                 return;
 
-            StartCoroutine(FinishPlaying(_audioSource.clip.length));
+            _finishPlayingRoutine = StartCoroutine(FinishPlaying(_audioSource.clip.length));
         }
 
         public void Stop()
