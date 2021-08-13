@@ -1,6 +1,8 @@
 ﻿using System;
 using CarSumo.Teams;
 using CarSumo.Teams.TeamChanging;
+using CarSumo.Units.Tracking;
+using GameModes;
 using Sirenix.OdinInspector;
 using TMPro;
 using TweenAnimations;
@@ -11,7 +13,7 @@ using Zenject;
 namespace UI.Accounts
 {
     [RequireComponent(typeof(TMP_Text))]
-    public class AccountTextHighlight : SerializedMonoBehaviour
+    public class AccountUnitAliveView : SerializedMonoBehaviour
     {
         [SerializeField] private Team _team;
         [SerializeField] private Color _highlightedColor;
@@ -20,23 +22,34 @@ namespace UI.Accounts
 
         private TMP_Text _score;
         private ITeamPresenter _teamPresenter;
-        private IDisposable _subscription;
+        private IUnitTracker _unitTracker;
+
+        private readonly CompositeDisposable _subscriptions = new CompositeDisposable();
 
         [Inject]
-        private void Construct(ITeamPresenter teamPresenter)
+        private void Construct(ITeamPresenter teamPresenter, IUnitTracker unitTracker)
         {
             _teamPresenter = teamPresenter;
+            _unitTracker = unitTracker;
         }
 
         private void Start()
         {
             _score = GetComponent<TMP_Text>();
-            _subscription = _teamPresenter.ActiveTeam.Subscribe(ChangeScoreColor);
+            
+            _teamPresenter.ActiveTeam
+	            .Subscribe(ChangeScoreColor)
+	            .AddTo(_subscriptions);
+
+            _unitTracker
+	            .GetUnitsAlive(_team)
+	            .Subscribe(count => _score.text = $"{count}")
+	            .AddTo(_subscriptions);
         }
 
         private void OnDestroy()
         {
-            _subscription.Dispose();
+            _subscriptions.Dispose();
         }
 
         private void ChangeScoreColor(Team activeTeam)
