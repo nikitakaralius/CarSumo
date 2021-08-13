@@ -13627,6 +13627,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3957157983631137347}
   - component: {fileID: 3968380112225767021}
+  - component: {fileID: 3968380112225767023}
   - component: {fileID: 3968380112225767022}
   m_Layer: 5
   m_Name: Accounts
@@ -13655,13 +13656,8 @@ MonoBehaviour:
     m_AssetGUID: dda430833a867114e846fe5d20e2b70e
     m_SubObjectName: 
     m_SubObjectType: 
-  _onItemSelectedTeamRegister: 0
-  _dragHandlerData:
-    _contentParent: {fileID: 5461614469430063031}
-    _draggingParent: {fileID: 6798767054296295334}
-    _contentLayoutGroup: {fileID: 218642297019105793}
-  _dragAnimation: {fileID: 3968380112225767022}
-  _requiredHoldTime: 0.2
+  _itemsRoot: {fileID: 5461614469430063031}
+  _defaultBehaviour: {fileID: 3968380112225767023}
 --- !u!114 &3968380112225767022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13679,6 +13675,25 @@ MonoBehaviour:
     To: {x: 1.15, y: 1.15, z: 1.15}
     Duration: 0.3
     Ease: 19
+--- !u!114 &3968380112225767023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3968380112225767020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c38878fc4b28494ea8d32de0a022b911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selectedItemTeamToRegister: 0
+  _requiredHoldTime: 0.2
+  _dragHandlerData:
+    _contentParent: {fileID: 5461614469430063031}
+    _draggingParent: {fileID: 6798767054296295334}
+    _contentLayoutGroup: {fileID: 218642297019105793}
+  _dragAnimation: {fileID: 3968380112225767022}
 --- !u!1 &4813192137378432595
 GameObject:
   m_ObjectHideFlags: 0

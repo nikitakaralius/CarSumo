@@ -44,9 +44,7 @@ namespace Menu.GameModes.Common.Accounts
 			_gameModePreferences = preferences;
 			_gameModeOperations = operations;
 		}
-
-		public bool SelectActivated => false;
-
+		
 		public IEnumerable<Account> AccountsToRender
 			=> _accountStorage.AllAccounts.Where(account => account.Equals(_selectedAccount) == false);
 
@@ -80,11 +78,6 @@ namespace Menu.GameModes.Common.Accounts
 		}
 
 		public void OnButtonDeselected(AccountListItem element)
-		{
-			
-		}
-
-		public void OnListItemCreated(AccountListItem item)
 		{
 			
 		}
