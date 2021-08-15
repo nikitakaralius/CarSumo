@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1479995022716098278, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
       propertyPath: m_Name
-      value: VehicleCard
+      value: JeepVehicleCard
       objectReference: {fileID: 0}
     - target: {fileID: 1479995022716098279, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
       propertyPath: m_Pivot.x
@@ -95,5 +95,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3109148404717411769, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
+      propertyPath: m_text
+      value: '7
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014260723648156991, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 8014260723648156991, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}

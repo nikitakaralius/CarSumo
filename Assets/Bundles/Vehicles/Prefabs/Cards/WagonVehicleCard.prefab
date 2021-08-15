@@ -111,6 +111,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Wagon
       objectReference: {fileID: 0}
+    - target: {fileID: 1506007852085807559, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
+      propertyPath: m_text
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109148404717411769, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
+      propertyPath: m_text
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6348933166303608018, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -127,5 +135,9 @@ PrefabInstance:
       propertyPath: _vehicleId
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8014260723648156991, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 8014260723648156991, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
