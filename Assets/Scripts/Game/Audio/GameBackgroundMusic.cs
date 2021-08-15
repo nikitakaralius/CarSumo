@@ -27,9 +27,11 @@ namespace Game.Audio
 			_winMessage = winMessage;
 		}
 		
-		private void OnEnable()
+		private void Start()
 		{
 			_playingCue = _backgroundMusic;
+			
+			PlayNextClip();
 			
 			_soundEmitter.FinishedPlaying += PlayNextClip;
 
