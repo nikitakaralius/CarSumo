@@ -37,6 +37,9 @@ namespace AdvancedAudioSystem.Emitters
         public void Stop()
         {
             _audioSource.Stop();
+            
+            if (_finishPlayingRoutine != null)
+	            StopCoroutine(_finishPlayingRoutine);
         }
 
         private IEnumerator FinishPlaying(float clipLength)

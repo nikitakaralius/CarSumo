@@ -1625,7 +1625,6 @@ GameObject:
   - component: {fileID: 983416404}
   - component: {fileID: 983416403}
   - component: {fileID: 983416405}
-  - component: {fileID: 983416407}
   m_Layer: 0
   m_Name: Background Audio
   m_TagString: Untagged
@@ -1764,53 +1763,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 983416401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4da92c077bd27494d89f5fad74f3e393, type: 3}
+  m_Script: {fileID: 11500000, guid: f0694e7cbcf74740b4f82f76c793ab47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundMusicCue: {fileID: 11400000, guid: 43e817c7b8f1e444f90d5211d3f49f39, type: 2}
+  _backgroundMusic: {fileID: 11400000, guid: 43e817c7b8f1e444f90d5211d3f49f39, type: 2}
+  _winMusic: {fileID: 11400000, guid: c9cff6a876ffc134da4396f4e0ad7958, type: 2}
   _soundEmitter: {fileID: 983416403}
---- !u!114 &983416407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983416401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ImpulseDefinition:
-    m_ImpulseChannel: 1
-    m_RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
-    m_AmplitudeGain: 5
-    m_FrequencyGain: 5
-    m_RepeatMode: 0
-    m_Randomize: 1
-    m_TimeEnvelope:
-      m_AttackShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      m_DecayShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      m_AttackTime: 0
-      m_SustainTime: 0.2
-      m_DecayTime: 0.7
-      m_ScaleWithImpact: 1
-      m_HoldForever: 0
-    m_ImpactRadius: 100
-    m_DirectionMode: 0
-    m_DissipationMode: 2
-    m_DissipationDistance: 1000
-    m_PropagationSpeed: 343
 --- !u!1 &1066533300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,7 +2214,6 @@ GameObject:
   - component: {fileID: 1714606416}
   - component: {fileID: 1714606417}
   - component: {fileID: 1714606418}
-  - component: {fileID: 1714606419}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -2281,7 +2238,6 @@ MonoBehaviour:
   - {fileID: 1714606416}
   - {fileID: 1714606417}
   - {fileID: 1714606418}
-  - {fileID: 1714606419}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -2354,19 +2310,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _assetsProvider: {fileID: 11400000, guid: e0a0b97c43ed7d347bcefdf2fd5ab536, type: 2}
---- !u!114 &1714606419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714606413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9ea440e461c4e58ac03df1e8f9f52e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _backgroundMusicSceneObject: {fileID: 983416405}
 --- !u!1 &1777856713
 GameObject:
   m_ObjectHideFlags: 0

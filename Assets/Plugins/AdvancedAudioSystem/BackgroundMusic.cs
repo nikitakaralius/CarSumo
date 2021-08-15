@@ -24,12 +24,6 @@ namespace CarSumo.Audio
             PlayNextClip();
         }
 
-        public void ChangeAudioCue(AudioCue cue)
-        {
-	        _backgroundMusicCue = cue;
-	        PlayNextClip();
-        }
-
         private void PlayNextClip()
         {
             _soundEmitter.Play(_backgroundMusicCue);
