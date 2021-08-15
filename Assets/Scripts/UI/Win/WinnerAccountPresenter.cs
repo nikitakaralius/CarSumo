@@ -2,7 +2,7 @@
 
 namespace UI.Accounts
 {
-	public class WinnerAccount : AccountView
+	public class WinnerAccountPresenter : AccountView
 	{
 		
 	}

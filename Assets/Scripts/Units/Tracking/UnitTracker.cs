@@ -11,7 +11,11 @@ namespace CarSumo.Units.Tracking
 
 		public UnitTracker()
 		{
-			_unitsCount = new Dictionary<Team, ReactiveProperty<int>>();
+			_unitsCount = new Dictionary<Team, ReactiveProperty<int>>()
+			{
+				{Team.Blue, new ReactiveProperty<int>(0)},
+				{Team.Red, new ReactiveProperty<int>(0)}
+			};
 		}
 		
 		public IReadOnlyReactiveProperty<int> GetUnitsAlive(Team team)
