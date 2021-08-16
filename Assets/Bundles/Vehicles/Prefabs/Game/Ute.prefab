@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 3924899448871401233}
   - component: {fileID: 3924899448872728369}
   - component: {fileID: 3924899448873694705}
-  - component: {fileID: 9012721135845578796}
-  - component: {fileID: 5984539672830295726}
   - component: {fileID: 5305357900296715392}
   - component: {fileID: 411056610094011996}
   - component: {fileID: 5668654344462895491}
   - component: {fileID: 851993885610040572}
+  - component: {fileID: 3279938997130627972}
   m_Layer: 0
   m_Name: Ute
   m_TagString: Untagged
@@ -94,32 +93,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &9012721135845578796
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3924899448871496497}
-  m_Material: {fileID: 13400000, guid: 5a9d777ef74693b4e822d3e77e50bb55, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.381536, y: 1.0456797, z: 5.284811}
-  m_Center: {x: -0.005983591, y: 0.8677935, z: 0.046025753}
---- !u!65 &5984539672830295726
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3924899448871496497}
-  m_Material: {fileID: 13400000, guid: 5a9d777ef74693b4e822d3e77e50bb55, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.3699956, y: 2.18753, z: 1.6053014}
-  m_Center: {x: 0.007748127, y: 1.4229138, z: -0.47941184}
 --- !u!54 &5305357900296715392
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -177,6 +150,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _typeStats: {fileID: 11400000, guid: d207dba1ca218f946bf078587ef7bbf7, type: 2}
+--- !u!65 &3279938997130627972
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3924899448871496497}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3725672, y: 2.5704002, z: 5.343375}
+  m_Center: {x: -0.008370578, y: 1.2555542, z: 0.033484936}
 --- !u!1 &3924899448871496505
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +174,6 @@ GameObject:
   - component: {fileID: 3924899448871401241}
   - component: {fileID: 3924899448872728377}
   - component: {fileID: 3924899448873694713}
-  - component: {fileID: 646471605966241447}
   m_Layer: 0
   m_Name: ute_rr_wheel_mesh
   m_TagString: Untagged
@@ -260,19 +245,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &646471605966241447
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3924899448871496505}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.23298973, y: 0.7233082, z: 0.7233107}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3924899448871496507
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +256,6 @@ GameObject:
   - component: {fileID: 3924899448871401243}
   - component: {fileID: 3924899448872728379}
   - component: {fileID: 3924899448873694715}
-  - component: {fileID: 4844304853608590518}
   m_Layer: 0
   m_Name: ute_rl_wheel_mesh
   m_TagString: Untagged
@@ -356,19 +327,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4844304853608590518
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3924899448871496507}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.23298973, y: 0.7233082, z: 0.7233107}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3924899448871496509
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +338,6 @@ GameObject:
   - component: {fileID: 3924899448871401245}
   - component: {fileID: 3924899448872728381}
   - component: {fileID: 3924899448873694717}
-  - component: {fileID: 2532861817680276861}
   m_Layer: 0
   m_Name: ute_fr_wheel_mesh
   m_TagString: Untagged
@@ -452,19 +409,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2532861817680276861
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3924899448871496509}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.23298973, y: 0.72330815, z: 0.7233107}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3924899448871496511
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +420,6 @@ GameObject:
   - component: {fileID: 3924899448871401247}
   - component: {fileID: 3924899448872728383}
   - component: {fileID: 3924899448873694719}
-  - component: {fileID: 4794460154856807869}
   m_Layer: 0
   m_Name: ute_fl_wheel_mesh
   m_TagString: Untagged
@@ -548,19 +491,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4794460154856807869
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3924899448871496511}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.23298973, y: 0.72330815, z: 0.7233107}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &5609901586928757566
 PrefabInstance:
   m_ObjectHideFlags: 0
