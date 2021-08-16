@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6128209619904301409}
   - component: {fileID: 6128209619907201345}
   - component: {fileID: 6128209619906071425}
-  - component: {fileID: 1289952025408234575}
   m_Layer: 0
   m_Name: small_4x4_rr_wheel
   m_TagString: Untagged
@@ -83,19 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1289952025408234575
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6128209619903878465}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3030734, y: 1.0979943, z: 1.0979996}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6128209619903878467
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +93,6 @@ GameObject:
   - component: {fileID: 6128209619904301411}
   - component: {fileID: 6128209619907201347}
   - component: {fileID: 6128209619906071427}
-  - component: {fileID: 7125829063543907251}
   m_Layer: 0
   m_Name: small_4x4_rl_wheel
   m_TagString: Untagged
@@ -179,19 +164,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7125829063543907251
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6128209619903878467}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3030734, y: 1.0979943, z: 1.0979996}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6128209619903878469
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +175,6 @@ GameObject:
   - component: {fileID: 6128209619904301413}
   - component: {fileID: 6128209619907201349}
   - component: {fileID: 6128209619906071429}
-  - component: {fileID: 7796403299927291557}
   m_Layer: 0
   m_Name: small_4x4_fr_wheel
   m_TagString: Untagged
@@ -275,19 +246,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7796403299927291557
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6128209619903878469}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3030734, y: 1.0979943, z: 1.097992}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6128209619903878471
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +257,6 @@ GameObject:
   - component: {fileID: 6128209619904301415}
   - component: {fileID: 6128209619907201351}
   - component: {fileID: 6128209619906071431}
-  - component: {fileID: 5414751059553607816}
   m_Layer: 0
   m_Name: small_4x4_fl_wheel
   m_TagString: Untagged
@@ -371,19 +328,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5414751059553607816
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6128209619903878471}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3030734, y: 1.0979943, z: 1.097992}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6128209619903878473
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,8 +339,7 @@ GameObject:
   - component: {fileID: 6128209619904301417}
   - component: {fileID: 6128209619907201353}
   - component: {fileID: 6128209619906071433}
-  - component: {fileID: 1312126277397798055}
-  - component: {fileID: 760137870122153600}
+  - component: {fileID: 3999515636997988393}
   - component: {fileID: 1551585034137492206}
   - component: {fileID: 7250457038827579175}
   - component: {fileID: 8132962604890299026}
@@ -478,32 +421,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1312126277397798055
+--- !u!65 &3999515636997988393
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6128209619903878473}
-  m_Material: {fileID: 13400000, guid: 2562893ed2ad58d4da252abc01aeb239, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5540562, y: 1.0551836, z: 4.6137342}
-  m_Center: {x: -0.005733192, y: 1.2279296, z: 0.022928715}
---- !u!65 &760137870122153600
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6128209619903878473}
-  m_Material: {fileID: 13400000, guid: 2562893ed2ad58d4da252abc01aeb239, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.5540562, y: 1.0895824, z: 2.4122076}
-  m_Center: {x: 0.005733013, y: 2.3114939, z: 0.7911697}
+  m_Size: {x: 2.5620434, y: 2.8655586, z: 4.6595993}
+  m_Center: {x: 0.007473588, y: 1.4235058, z: -0.0000038146973}
 --- !u!54 &1551585034137492206
 Rigidbody:
   m_ObjectHideFlags: 0

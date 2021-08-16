@@ -17437,7 +17437,6 @@ GameObject:
   - component: {fileID: 8020315153988644296}
   - component: {fileID: 8020315153987312932}
   - component: {fileID: 8020315153986235190}
-  - component: {fileID: 8020315153988419117}
   m_Layer: 0
   m_Name: SM_Bld_OfficeRound_Roof_01
   m_TagString: Untagged
@@ -17445,19 +17444,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!65 &8020315153988419117
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8020315153988419116}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 22.966366, y: 1.1523323, z: 23.05133}
-  m_Center: {x: 0, y: 0.30436897, z: -0.00000047683716}
 --- !u!4 &8020315153988644296
 Transform:
   m_ObjectHideFlags: 0
