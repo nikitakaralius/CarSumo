@@ -16,5 +16,134 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 0
-  supportSerializedTypes: []
+  lastScan: 637646678206309406
+  supportSerializedTypes:
+  - TypeName: AdvancedAudioSystem.Configuration.AssetAudioConfiguration, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.AudioClip, UnityEngine.AudioModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.AudioClips, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Configuration.AudioConfigurationList, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Configuration.AudioConfigurationScriptableObject,
+      AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.Audio.AudioMixerGroup, UnityEngine.AudioModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Boolean, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[CarSumo.Teams.Team, Teams],[System.Single,
+      mscorlib]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[CarSumo.Teams.Team, Teams],[CarSumo.Units.IUnit[],
+      Units]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[CarSumo.Teams.Team, Teams],[UnityEngine.Material,
+      UnityEngine.CoreModule]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Configuration.DistanceConfiguration, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[CarSumo.Teams.Team,
+      Teams]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Single, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Configuration.IAudioConfiguration, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Configuration.IAudioConfigurationEnumerable, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Sequences.IAudioSequence, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IDictionary`2[[CarSumo.Teams.Team, Teams],[System.Single,
+      mscorlib]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IEqualityComparer`1[[CarSumo.Teams.Team,
+      Teams]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Int32, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[CarSumo.Teams.Team,
+      Teams],[CarSumo.Units.IUnit[], Units]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[CarSumo.Teams.Team,
+      Teams],[UnityEngine.Material, UnityEngine.CoreModule]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: TweenAnimations.ITweenAnimation, TweenAnimations
+    IsCustom: 0
+    Emit: 1
+  - TypeName: CarSumo.Units.IUnit, Units
+    IsCustom: 0
+    Emit: 1
+  - TypeName: CarSumo.Units.IUnit[], Units
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DataModel.GameData.Vehicles.IVehicleAssetsProvider, GameData
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Menu.Vehicles.Layout.IVehicleLayoutChanger, Menu
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.List`1[[AdvancedAudioSystem.Configuration.IAudioConfiguration,
+      AdvancedAudioSystem]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Configuration.LoopConfiguration, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.Material, UnityEngine.CoreModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Configuration.OutputMixerGroupConfiguration, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Sequences.RandomAudioSequence, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Sequences.RandomNoImmediateRepeatAudioSequence,
+      AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Configuration.RandomPitchConfiguration, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Sequences.SequentialSequence, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Configuration.SpatialBlendConfiguration, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Configuration.SpatialBlendConfiguration+SpatialBlendMode,
+      AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Configuration.SpreadConfiguration, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: CarSumo.Teams.Team, Teams
+    IsCustom: 0
+    Emit: 1
+  - TypeName: AdvancedAudioSystem.Configuration.VolumeConfiguration, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
