@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5692673065729128817}
   - component: {fileID: 5692673065725704529}
   - component: {fileID: 5692673065726704529}
-  - component: {fileID: 3825917193262840933}
   m_Layer: 0
   m_Name: station_wagon_fl_wheel
   m_TagString: Untagged
@@ -83,19 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3825917193262840933
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692673065728632145}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.31590688, y: 1.0430281, z: 1.0430298}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5692673065728632147
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +93,6 @@ GameObject:
   - component: {fileID: 5692673065729128819}
   - component: {fileID: 5692673065725704531}
   - component: {fileID: 5692673065726704531}
-  - component: {fileID: 1309151657516403705}
   m_Layer: 0
   m_Name: station_wagon_fr_wheel
   m_TagString: Untagged
@@ -179,19 +164,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1309151657516403705
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692673065728632147}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.31590688, y: 1.0430281, z: 1.0430298}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5692673065728632149
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +175,6 @@ GameObject:
   - component: {fileID: 5692673065729128821}
   - component: {fileID: 5692673065725704533}
   - component: {fileID: 5692673065726704533}
-  - component: {fileID: 8724662477168263071}
   m_Layer: 0
   m_Name: station_wagon_lr_wheel
   m_TagString: Untagged
@@ -275,19 +246,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8724662477168263071
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692673065728632149}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.31590688, y: 1.0430281, z: 1.0430298}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5692673065728632151
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +257,6 @@ GameObject:
   - component: {fileID: 5692673065729128823}
   - component: {fileID: 5692673065725704535}
   - component: {fileID: 5692673065726704535}
-  - component: {fileID: 8284848751814656366}
   m_Layer: 0
   m_Name: station_wagon_rl_wheel
   m_TagString: Untagged
@@ -371,19 +328,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8284848751814656366
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692673065728632151}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.31590688, y: 1.0430281, z: 1.0430298}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5692673065728632159
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,8 +339,6 @@ GameObject:
   - component: {fileID: 5692673065729128831}
   - component: {fileID: 5692673065725704543}
   - component: {fileID: 5692673065726704543}
-  - component: {fileID: 4215811937500819412}
-  - component: {fileID: 2586680620204629180}
   - component: {fileID: -5937435251840822131}
   m_Layer: 0
   m_Name: Wagon
@@ -473,32 +415,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4215811937500819412
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692673065728632159}
-  m_Material: {fileID: 13400000, guid: 2562893ed2ad58d4da252abc01aeb239, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.5874832, y: 1.075944, z: 6.445388}
-  m_Center: {x: 0.0070129633, y: 1.1800573, z: 0.035065174}
---- !u!65 &2586680620204629180
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692673065728632159}
-  m_Material: {fileID: 13400000, guid: 2562893ed2ad58d4da252abc01aeb239, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.44307, y: 1.1039963, z: 4.0048604}
-  m_Center: {x: 0, y: 2.2740865, z: 0.904679}
 --- !u!114 &-5937435251840822131
 MonoBehaviour:
   m_ObjectHideFlags: 0

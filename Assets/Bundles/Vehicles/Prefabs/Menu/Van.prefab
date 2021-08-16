@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7697197111584986481}
   - component: {fileID: 7697197111583692113}
   - component: {fileID: 7697197111582562193}
-  - component: {fileID: 6055977633994132279}
   m_Layer: 0
   m_Name: van_rl_wheel_mesh
   m_TagString: Untagged
@@ -83,19 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6055977633994132279
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7697197111584491857}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.23762214, y: 0.7235358, z: 0.7235379}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7697197111584491859
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +93,6 @@ GameObject:
   - component: {fileID: 7697197111584986483}
   - component: {fileID: 7697197111583692115}
   - component: {fileID: 7697197111582562195}
-  - component: {fileID: 8162992207812387902}
   m_Layer: 0
   m_Name: van_rr_wheel_mesh
   m_TagString: Untagged
@@ -179,19 +164,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8162992207812387902
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7697197111584491859}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.23762214, y: 0.7235358, z: 0.7235379}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7697197111584491861
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +175,6 @@ GameObject:
   - component: {fileID: 7697197111584986485}
   - component: {fileID: 7697197111583692117}
   - component: {fileID: 7697197111582562197}
-  - component: {fileID: 2759136768719388298}
   m_Layer: 0
   m_Name: van_fl_wheel_mesh
   m_TagString: Untagged
@@ -275,19 +246,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2759136768719388298
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7697197111584491861}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.23762214, y: 0.7235358, z: 0.7235377}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7697197111584491863
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +257,6 @@ GameObject:
   - component: {fileID: 7697197111584986487}
   - component: {fileID: 7697197111583692119}
   - component: {fileID: 7697197111582562199}
-  - component: {fileID: 8795059546261704633}
   m_Layer: 0
   m_Name: van_fr_wheel_mesh
   m_TagString: Untagged
@@ -371,19 +328,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8795059546261704633
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7697197111584491863}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.23762214, y: 0.72353566, z: 0.7235372}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7697197111584491867
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +339,6 @@ GameObject:
   - component: {fileID: 7697197111584986491}
   - component: {fileID: 7697197111583692123}
   - component: {fileID: 7697197111582562203}
-  - component: {fileID: 9160356879076007002}
   - component: {fileID: -8611291891474841225}
   m_Layer: 0
   m_Name: Van
@@ -472,19 +415,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &9160356879076007002
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7697197111584491867}
-  m_Material: {fileID: 13400000, guid: 2562893ed2ad58d4da252abc01aeb239, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.7681952, y: 2.5246477, z: 5.5547647}
-  m_Center: {x: 0.004845619, y: 1.5946937, z: 0.023958802}
 --- !u!114 &-8611291891474841225
 MonoBehaviour:
   m_ObjectHideFlags: 0
