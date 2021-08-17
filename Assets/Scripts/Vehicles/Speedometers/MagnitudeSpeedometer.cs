@@ -12,10 +12,10 @@ namespace CarSumo.Vehicles.Speedometers
 
         public MagnitudeSpeedometer(Rigidbody rigidbody, CoroutineExecutor executor)
         {
-            executor.StartCoroutine(CalcualtePowerPercentage(rigidbody));
+            executor.StartCoroutine(CalculatePowerPercentage(rigidbody));
         }
 
-        private IEnumerator CalcualtePowerPercentage(Rigidbody rigidbody)
+        private IEnumerator CalculatePowerPercentage(Rigidbody rigidbody)
         {
             var maxSpeed = rigidbody.velocity.magnitude;
 

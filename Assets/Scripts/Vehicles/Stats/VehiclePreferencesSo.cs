@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace CarSumo.Vehicles.Stats
 {
+	[CreateAssetMenu(fileName = "Vehicle Preferences", menuName = "CarSumo/Vehicles/Vehicle Preferences")]
 	public class VehiclePreferencesSo : SerializedScriptableObject, IVehicleStatsProvider
 	{
 		[SerializeField] private AnimationCurve _normalizedDrivingSpeed;

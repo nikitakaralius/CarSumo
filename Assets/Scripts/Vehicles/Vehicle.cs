@@ -29,6 +29,12 @@ namespace CarSumo.Vehicles
 
 		    MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
 		    meshRenderer.material = _vehiclePreferences.GetTeamVehicleMaterial(team);
+
+		    VehicleEngine engine = GetComponent<VehicleEngine>();
+		    engine.Initialize(_statsProvider, _rigidbody);
+		    
+		    Engine = engine;
+		    Rotation = new ForwardVectorVehicleRotation(transform, _statsProvider.GetStats());
 	    }
 	    
 	    public IVehicleEngine Engine { get; private set; }

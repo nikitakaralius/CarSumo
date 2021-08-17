@@ -1,7 +1,10 @@
-﻿using AdvancedAudioSystem;
+﻿using System;
+using System.Collections;
+using AdvancedAudioSystem;
 using CarSumo.Coroutines;
 using CarSumo.Vehicles.Speedometers;
 using CarSumo.Vehicles.Stats;
+using UniRx;
 using UnityEngine;
 
 namespace CarSumo.Vehicles.Engine
@@ -13,17 +16,27 @@ namespace CarSumo.Vehicles.Engine
         [SerializeField] private VehicleEngineSound _engineSound;
         [SerializeField] private MonoAudioCuePlayer _hornSound;
 
+        [Header("Preferences")] 
+        [SerializeField] private bool _invertedForwardVector = true;
+        
         private Rigidbody _rigidbody;
         private CoroutineExecutor _executor;
+        
         private IVehicleStatsProvider _statsProvider;
+        private IDisposable _speedUpRoutine;
 
-        public VehicleEngine Initialize(IVehicleStatsProvider statsProvider, Rigidbody rigidbody, CoroutineExecutor executor)
+        public void Initialize(IVehicleStatsProvider statsProvider, Rigidbody rigidbody)
         {
             _rigidbody = rigidbody;
-            _executor = executor;
+            _executor = new CoroutineExecutor(this);
             _statsProvider = statsProvider;
+        }
 
-            return this;
+        private VehicleStats Stats => _statsProvider.GetStats();
+
+        private void OnDisable()
+        {
+	        _speedUpRoutine?.Dispose();
         }
 
         public void TurnOn(IVehicleSpeedometer speedometer)
@@ -40,12 +53,13 @@ namespace CarSumo.Vehicles.Engine
 
         public void SpeedUp(float forceModifier)
         {
-            var enginePower = _statsProvider.GetStats().EnginePower;
-            var forceToAdd = enginePower * forceModifier * transform.forward;
+	        _speedUpRoutine?.Dispose();
 
-            _rigidbody.AddForce(forceToAdd, ForceMode.VelocityChange);
+	        _speedUpRoutine = Observable
+		        .FromMicroCoroutine(() => ConfigureVelocity(forceModifier, Stats))
+		        .Subscribe();
 
-            _engineSound.Stop();
+	        _engineSound.Stop();
             _engineSound.PlayUntil(IsVehicleStopped, new MagnitudeSpeedometer(_rigidbody, _executor));
 
             _particles.StopAllParticles();
@@ -54,9 +68,37 @@ namespace CarSumo.Vehicles.Engine
             _hornSound.Play();
         }
 
+        private IEnumerator ConfigureVelocity(float modifer, VehicleStats stats)
+        {
+	        float enterTime = Time.time;
+	        float timePassed = 0.0f;
+	        Vector3 direction = transform.forward;
+	        
+	        while (Time.time <= enterTime + stats.DrivingTime)
+	        {
+		        Vector3 velocity = direction * GetDrivingSpeedValue(stats, timePassed) * modifer;
+
+		        _rigidbody.velocity = ProcessVelocityDirection(velocity);
+		        
+		        timePassed += Time.deltaTime;
+		        
+		        yield return null;
+	        }
+        }
+
         private bool IsVehicleStopped()
         {
             return _rigidbody.velocity.magnitude == 0.0f;
+        }
+
+        private Vector3 ProcessVelocityDirection(Vector3 originalVelocity)
+        {
+	        return _invertedForwardVector ? -originalVelocity : originalVelocity;
+        }
+
+        private float GetDrivingSpeedValue(VehicleStats stats, float timePassed)
+        {
+	        return stats.NormalizedDrivingSpeed.Evaluate(timePassed / stats.DrivingTime);
         }
     }
 }
