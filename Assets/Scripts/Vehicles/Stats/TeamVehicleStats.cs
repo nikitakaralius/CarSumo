@@ -16,7 +16,11 @@ namespace CarSumo.Vehicles.Stats
 		public VehicleStats GetStats()
 		{
 			VehicleStats wrappedEntityStats = _wrappedEntity.GetStats();
-			return new VehicleStats(_team, wrappedEntityStats.NormalizedDrivingSpeed, wrappedEntityStats.DrivingTime);
+			
+			return new VehicleStats(_team,
+				wrappedEntityStats.NormalizedDrivingSpeed,
+				wrappedEntityStats.DrivingTime,
+				wrappedEntityStats.RotationalSpeed);
 		}
 	}
 }

@@ -10,12 +10,15 @@ namespace CarSumo.Vehicles.Stats
 		public AnimationCurve NormalizedDrivingSpeed { get; }
 		
 		public float DrivingTime { get; }
+		
+		public float RotationalSpeed { get; }
 
-		public VehicleStats(Team team, AnimationCurve normalizedDrivingSpeed, float drivingTime)
+		public VehicleStats(Team team, AnimationCurve normalizedDrivingSpeed, float drivingTime, float rotationalSpeed)
 		{
 			Team = team;
 			NormalizedDrivingSpeed = normalizedDrivingSpeed;
 			DrivingTime = drivingTime;
+			RotationalSpeed = rotationalSpeed;
 		}
 	}
 }

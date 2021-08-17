@@ -9,6 +9,7 @@ namespace CarSumo.Vehicles.Stats
 	{
 		[SerializeField] private AnimationCurve _normalizedDrivingSpeed;
 		[SerializeField] private float _drivingTime;
+		[SerializeField] private float _rotationalSpeed;
 
 		[SerializeField] private IReadOnlyDictionary<Team, Material> _materials = new Dictionary<Team, Material>(0);
 
@@ -19,7 +20,7 @@ namespace CarSumo.Vehicles.Stats
 		
 		public VehicleStats GetStats()
 		{
-			return new VehicleStats(Team.Blue, _normalizedDrivingSpeed, _drivingTime);
+			return new VehicleStats(Team.Blue, _normalizedDrivingSpeed, _drivingTime, _rotationalSpeed);
 		}
 	}
 }
