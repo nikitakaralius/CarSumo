@@ -11,6 +11,11 @@ namespace CarSumo.Vehicles.Stats
 		[SerializeField] private float _drivingTime;
 
 		[SerializeField] private IReadOnlyDictionary<Team, Material> _materials = new Dictionary<Team, Material>(0);
+
+		public Material GetTeamVehicleMaterial(Team team)
+		{
+			return _materials[team];
+		}
 		
 		public VehicleStats GetStats()
 		{

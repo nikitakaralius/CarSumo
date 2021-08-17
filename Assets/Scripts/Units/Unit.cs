@@ -7,7 +7,7 @@ using Zenject;
 
 namespace CarSumo.Units
 {
-    public class Unit : MonoBehaviour, IUnit, IVehicleDestroyer
+    public class Unit : MonoBehaviour, IUnit
     {
 	    [SerializeField] private Team _team;
 
@@ -24,14 +24,8 @@ namespace CarSumo.Units
 	    public void InitializeVehicleBySelf(Vehicle vehicle)
 	    {
 		    var worldPlacement = new WorldPlacement(transform.position, -transform.forward);
-		    vehicle.Initialize(_team, worldPlacement, this);
+		    vehicle.Initialize(_team, worldPlacement, () => _trackerOperations.Remove(this));
 		    _trackerOperations.Add(this);
-	    }
-	    
-	    public void Destroy(Vehicle vehicle)
-	    {
-		    _trackerOperations.Remove(this);
-		    Destroy(vehicle.gameObject);
 	    }
     }
 }

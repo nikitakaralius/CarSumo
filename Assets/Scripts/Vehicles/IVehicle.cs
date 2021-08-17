@@ -1,11 +1,13 @@
-﻿using CarSumo.Teams;
+﻿using BaseData.Abstract;
+using CarSumo.Vehicles.Rotation;
 using CarSumo.Vehicles.Stats;
-using UnityEngine;
 
 namespace CarSumo.Vehicles
 {
-    public interface IVehicle
+    public interface IVehicle : IDestroyable
     {
-	    
+		IVehicleEngine Engine { get; }
+		IRotation Rotation { get; }
+		VehicleStats Stats { get; }
     }
 }
