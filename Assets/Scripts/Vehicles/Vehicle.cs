@@ -14,7 +14,7 @@ namespace CarSumo.Vehicles
     public class Vehicle : MonoBehaviour, IVehicle
     {
 	    [SerializeField] private VehiclePreferencesSo _vehiclePreferences;
-
+	    
 	    private Rigidbody _rigidbody;
 	    private Action _destroyHandler;
 	    private IVehicleStatsProvider _statsProvider;
@@ -34,7 +34,7 @@ namespace CarSumo.Vehicles
 		    engine.Initialize(_statsProvider, _rigidbody);
 		    
 		    Engine = engine;
-		    Rotation = new ForwardVectorVehicleRotation(transform, _statsProvider.GetStats());
+		    Rotation = new ForwardVectorVehicleRotation(transform, _statsProvider);
 	    }
 	    
 	    public IVehicleEngine Engine { get; private set; }

@@ -6,17 +6,19 @@ namespace CarSumo.Vehicles.Rotation
     public class ForwardVectorVehicleRotation : IRotation
     {
         private readonly Transform _transform;
-        private readonly VehicleStats _stats;
+        private readonly IVehicleStatsProvider _statsProvider;
 
-        public ForwardVectorVehicleRotation(Transform transform, VehicleStats stats)
+        public ForwardVectorVehicleRotation(Transform transform, IVehicleStatsProvider statsProvider)
         {
             _transform = transform;
-            _stats = stats;
+            _statsProvider = statsProvider;
         }
+
+        private VehicleStats Stats => _statsProvider.GetStats();
 
         public void RotateBy(Vector3 vector)
         {
-            var rotationalSpeed = _stats.RotationalSpeed;
+            var rotationalSpeed = Stats.RotationalSpeed;
             _transform.forward = Vector3.MoveTowards(_transform.forward, vector, rotationalSpeed);
         }
     }

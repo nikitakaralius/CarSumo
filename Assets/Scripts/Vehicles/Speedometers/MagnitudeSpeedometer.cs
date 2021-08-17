@@ -9,7 +9,7 @@ namespace CarSumo.Vehicles.Speedometers
     public class MagnitudeSpeedometer : IVehicleSpeedometer
     {
         public float PowerPercentage { get; private set; }
-
+        
         public MagnitudeSpeedometer(Rigidbody rigidbody, CoroutineExecutor executor)
         {
             executor.StartCoroutine(CalculatePowerPercentage(rigidbody));
