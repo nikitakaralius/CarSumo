@@ -43,7 +43,7 @@ namespace CarSumo.Vehicles.Engine
             var enginePower = _statsProvider.GetStats().EnginePower;
             var forceToAdd = enginePower * forceModifier * transform.forward;
 
-            _rigidbody.AddForce(forceToAdd, ForceMode.Impulse);
+            _rigidbody.AddForce(forceToAdd, ForceMode.VelocityChange);
 
             _engineSound.Stop();
             _engineSound.PlayUntil(IsVehicleStopped, new MagnitudeSpeedometer(_rigidbody, _executor));
