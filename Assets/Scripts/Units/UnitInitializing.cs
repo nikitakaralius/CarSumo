@@ -45,7 +45,7 @@ namespace CarSumo.Units
 			
 			if (units.Count != layoutVehicles.Count)
 			{
-				throw new InvalidOperationException("Еhe number of units does not match the number of vehicles");
+				throw new InvalidOperationException("The number of units does not match the number of vehicles");
 			}
 			
 			for (var i = 0; i < layoutVehicles.Count; i++)
