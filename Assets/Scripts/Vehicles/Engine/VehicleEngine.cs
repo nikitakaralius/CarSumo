@@ -54,12 +54,12 @@ namespace CarSumo.Vehicles.Engine
             _particles.StopAllParticles();
         }
 
-        public void SpeedUp(float forceModifier)
+        public void SpeedUp(float timeModifier)
         {
 	        _speedUpRoutine?.Dispose();
 
 	        _speedUpRoutine = Observable
-		        .FromMicroCoroutine(() => ConfigureVelocity(forceModifier, Stats))
+		        .FromMicroCoroutine(() => ConfigureVelocity(timeModifier, Stats))
 		        .Subscribe();
 
 	        _speedometer.StartCalculatingPowerPercentage();
@@ -73,15 +73,19 @@ namespace CarSumo.Vehicles.Engine
             _hornSound.Play();
         }
 
-        private IEnumerator ConfigureVelocity(float modifer, VehicleStats stats)
+        private IEnumerator ConfigureVelocity(float timeModifer, VehicleStats stats)
         {
+	        timeModifer = Mathf.Clamp01(timeModifer);
+	        
 	        float enterTime = Time.time;
 	        float timePassed = 0.0f;
 	        Vector3 direction = transform.forward;
+
+	        float drivingTime = stats.DrivingTime * timeModifer;
 	        
-	        while (Time.time <= enterTime + stats.DrivingTime)
+	        while (Time.time <= enterTime + drivingTime)
 	        {
-		        Vector3 velocity = direction * GetDrivingSpeedValue(stats, timePassed) * modifer;
+		        Vector3 velocity = direction * GetDrivingSpeedValue(stats, timePassed);
 
 		        _rigidbody.velocity = ProcessVelocityDirection(velocity);
 		        

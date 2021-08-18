@@ -43,6 +43,7 @@ namespace CarSumo.Vehicles.Selector
             }
 
             var forceModifier = CalculateForceMultiplier(swipeData);
+            
             vehicle.Engine.SpeedUp(forceModifier);
             _executor.StartCoroutine(PerformMove());
         }
@@ -57,7 +58,7 @@ namespace CarSumo.Vehicles.Selector
             var clampedDistance = Mathf.Clamp(swipeData.Distance, _data.MinSelectDistance, _data.MaxSelectDistance);
 
             var part = (clampedDistance - _data.MinSelectDistance) / (_data.MaxSelectDistance - _data.MinSelectDistance);
-
+            
             return _data.MaxAccelerationMultiplier * part;
         }
 
