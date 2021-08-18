@@ -31,7 +31,7 @@ namespace Menu.Vehicles.Layout
 
         private void OnDisable()
         {
-            _layoutChangedSubscription?.Dispose();
+	        _layoutChangedSubscription?.Dispose();
             _accountChangedSubscription?.Dispose();
         }
 

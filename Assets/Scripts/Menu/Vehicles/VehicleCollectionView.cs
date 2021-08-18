@@ -29,13 +29,13 @@ namespace Menu.Vehicles
         
         protected IReadOnlyList<T> Items => _items;
 
-        private void OnDisable()
+        private void OnDestroy()
         {
 	        _items.Clear();
         }
 
         protected abstract void ProcessCreatedCollection(IEnumerable<T> layout);
-
+        
         protected async Task SpawnCollectionAsync(IEnumerable<VehicleId> vehicles)
         {
             Clear();

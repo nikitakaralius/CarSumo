@@ -55,7 +55,7 @@ namespace Menu.Buttons
 
 		private void OnDestroy()
 		{
-			_selectedSubscription.Dispose();
+			_selectedSubscription?.Dispose();
 		}
 
 		protected abstract void OnButtonSelectedInternal();
