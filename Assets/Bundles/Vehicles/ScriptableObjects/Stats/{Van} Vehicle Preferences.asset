@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a0d6ece82454baa9a3974593ecb4e15, type: 3}
-  m_Name: '{Jeep} Vehicle Preferences'
+  m_Name: '{Van} Vehicle Preferences'
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 2100000, guid: 0fb49f6e607ef8b408af4ac605683f5f, type: 2}
-    - {fileID: 2100000, guid: 11ecdc268b851ce44827fd07cea880a8, type: 2}
+    - {fileID: 2100000, guid: c61d667ab31c5a84db824d59d0fa86d7, type: 2}
+    - {fileID: 2100000, guid: 2f1eaa18358c5a740b06ca4f0f63168f, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -78,18 +78,27 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 20
-      inSlope: -19
-      outSlope: -19
+      value: 10
+      inSlope: -4.5592647
+      outSlope: -4.5592647
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
+      time: 0.47365054
+      value: 7.840502
+      inSlope: -8.777694
+      outSlope: -8.777694
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -19
-      outSlope: -19
+      inSlope: -12.996122
+      outSlope: -12.996122
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -97,5 +106,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _drivingTime: 2
-  _rotationalSpeed: 25
+  _drivingTime: 3
+  _rotationalSpeed: 15

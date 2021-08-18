@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a0d6ece82454baa9a3974593ecb4e15, type: 3}
-  m_Name: '{Jeep} Vehicle Preferences'
+  m_Name: '{Wagon} Vehicle Preferences'
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -78,9 +78,9 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 20
-      inSlope: -19
-      outSlope: -19
+      value: 18
+      inSlope: -17
+      outSlope: -17
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
@@ -88,8 +88,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -19
-      outSlope: -19
+      inSlope: -17
+      outSlope: -17
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -97,5 +97,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _drivingTime: 2
-  _rotationalSpeed: 25
+  _drivingTime: 2.3
+  _rotationalSpeed: 22

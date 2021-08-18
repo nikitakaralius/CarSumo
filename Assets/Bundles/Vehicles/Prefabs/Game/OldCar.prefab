@@ -465,6 +465,7 @@ MonoBehaviour:
   _particles: {fileID: 8103427715090268393}
   _engineSound: {fileID: 2677278464570640123}
   _hornSound: {fileID: 1850146836779519124}
+  _invertedForwardVector: 1
 --- !u!114 &4916377852967626974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a762c5c962e5d6243a947b14cae0d774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _typeStats: {fileID: 11400000, guid: 9ac641bd2d66b2a4f95da6d9c84b2063, type: 2}
+  _vehiclePreferences: {fileID: 11400000, guid: 682036a9d66fb5f4fb6312d101903616, type: 2}
 --- !u!1001 &299018709272352896
 PrefabInstance:
   m_ObjectHideFlags: 0
