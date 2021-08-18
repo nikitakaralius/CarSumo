@@ -6,6 +6,6 @@ namespace CarSumo.Vehicles
     {
         void TurnOn(IVehicleSpeedometer speedometer);
         void TurnOff();
-        void SpeedUp(float forceModifier);
+        void SpeedUp(float timeModifier);
     }
 }

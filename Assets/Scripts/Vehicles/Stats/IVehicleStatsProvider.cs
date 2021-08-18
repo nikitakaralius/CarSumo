@@ -1,9 +1,7 @@
-﻿using CarSumo.Teams;
-
-namespace CarSumo.Vehicles.Stats
+﻿namespace CarSumo.Vehicles.Stats
 {
-    public interface IVehicleStatsProvider
-    {
-        VehicleStats GetStats();
-    }
+	public interface IVehicleStatsProvider
+	{
+		VehicleStats GetStats();
+	}
 }

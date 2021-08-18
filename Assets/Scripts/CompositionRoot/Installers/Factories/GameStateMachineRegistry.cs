@@ -27,7 +27,8 @@ namespace Infrastructure.Installers.Factories
                 _container.Instantiate<GameEntryState>(),
                 _container.Instantiate<MenuEntryState>(),
                 _container.Instantiate<GameState>(),
-                _container.Instantiate<PauseState>()
+                _container.Instantiate<PauseState>(),
+                _container.Instantiate<WinState>()
             };
         }
     }

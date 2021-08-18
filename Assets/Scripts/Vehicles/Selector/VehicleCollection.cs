@@ -11,16 +11,7 @@ namespace CarSumo.Vehicles.Selector
         private static readonly int s_teamCount = Enum.GetValues(typeof(Team)).Length;
 
         private readonly IVehicle[] _vehicles = new IVehicle[s_teamCount];
-
-        public VehicleCollection()
-        {
-            for (int i = 0; i < _vehicles.Length; i++)
-            {
-                var team = (Team)i;
-                _vehicles[i] = new IVehicle.FakeVehicle(team);
-            }
-        }
-
+        
         public int Count => _vehicles.Length;
 
         public IVehicle this[Team team]
@@ -33,14 +24,12 @@ namespace CarSumo.Vehicles.Selector
         {
             int index = (int)team;
 
-            return IsDestroyed(_vehicles[index])
-                ? new IVehicle.FakeVehicle(team)
-                : _vehicles[index];
+            return _vehicles[index];
         }
 
         public void AddVehicle(IVehicle vehicle)
         {
-            AddVehicle(vehicle, vehicle.GetStats().Team);
+            AddVehicle(vehicle, vehicle.Stats.Team);
         }
 
         public void AddVehicle(IVehicle vehicle, Team team)
@@ -48,7 +37,7 @@ namespace CarSumo.Vehicles.Selector
             if (vehicle is null)
                 throw new NullReferenceException();
 
-            if (vehicle.GetStats().Team != team)
+            if (vehicle.Stats.Team != team)
                 throw new InvalidOperationException(nameof(team));
 
             _vehicles[(int)team] = vehicle;

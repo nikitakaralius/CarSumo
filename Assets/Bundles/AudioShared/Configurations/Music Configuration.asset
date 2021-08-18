@@ -25,13 +25,13 @@ MonoBehaviour:
     - Name: _configurations
       Entry: 7
       Data: 0|System.Collections.Generic.List`1[[AdvancedAudioSystem.Configuration.IAudioConfiguration,
-        Assembly-CSharp-firstpass]], mscorlib
+        AdvancedAudioSystem]], mscorlib
     - Name: 
       Entry: 12
       Data: 3
     - Name: 
       Entry: 7
-      Data: 1|AdvancedAudioSystem.Configuration.OutputMixerGroupConfiguration, Assembly-CSharp-firstpass
+      Data: 1|AdvancedAudioSystem.Configuration.OutputMixerGroupConfiguration, AdvancedAudioSystem
     - Name: _outputAudioMixerGroup
       Entry: 10
       Data: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 2|AdvancedAudioSystem.Configuration.SpatialBlendConfiguration, Assembly-CSharp-firstpass
+      Data: 2|AdvancedAudioSystem.Configuration.SpatialBlendConfiguration, AdvancedAudioSystem
     - Name: _spatialBlend
       Entry: 3
       Data: 0
@@ -49,10 +49,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 3|AdvancedAudioSystem.Configuration.VolumeConfiguration, Assembly-CSharp-firstpass
+      Data: 3|AdvancedAudioSystem.Configuration.VolumeConfiguration, AdvancedAudioSystem
     - Name: _volume
       Entry: 4
-      Data: 0.1
+      Data: 0.2
     - Name: 
       Entry: 8
       Data: 

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5692673065729128817}
   - component: {fileID: 5692673065725704529}
   - component: {fileID: 5692673065726704529}
-  - component: {fileID: 3825917193262840933}
   m_Layer: 0
   m_Name: station_wagon_fl_wheel
   m_TagString: Untagged
@@ -52,6 +51,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -82,19 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3825917193262840933
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692673065728632145}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.31590688, y: 1.0430281, z: 1.0430298}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5692673065728632147
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +93,6 @@ GameObject:
   - component: {fileID: 5692673065729128819}
   - component: {fileID: 5692673065725704531}
   - component: {fileID: 5692673065726704531}
-  - component: {fileID: 1309151657516403705}
   m_Layer: 0
   m_Name: station_wagon_fr_wheel
   m_TagString: Untagged
@@ -147,6 +133,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -177,19 +164,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1309151657516403705
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692673065728632147}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.31590688, y: 1.0430281, z: 1.0430298}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5692673065728632149
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +175,6 @@ GameObject:
   - component: {fileID: 5692673065729128821}
   - component: {fileID: 5692673065725704533}
   - component: {fileID: 5692673065726704533}
-  - component: {fileID: 8724662477168263071}
   m_Layer: 0
   m_Name: station_wagon_lr_wheel
   m_TagString: Untagged
@@ -242,6 +215,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -272,19 +246,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8724662477168263071
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692673065728632149}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.31590688, y: 1.0430281, z: 1.0430298}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5692673065728632151
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +257,6 @@ GameObject:
   - component: {fileID: 5692673065729128823}
   - component: {fileID: 5692673065725704535}
   - component: {fileID: 5692673065726704535}
-  - component: {fileID: 8284848751814656366}
   m_Layer: 0
   m_Name: station_wagon_rl_wheel
   m_TagString: Untagged
@@ -337,6 +297,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -367,19 +328,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8284848751814656366
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692673065728632151}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.31590688, y: 1.0430281, z: 1.0430298}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5692673065728632159
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,9 +339,8 @@ GameObject:
   - component: {fileID: 5692673065729128831}
   - component: {fileID: 5692673065725704543}
   - component: {fileID: 5692673065726704543}
-  - component: {fileID: 4215811937500819412}
-  - component: {fileID: 2586680620204629180}
   - component: {fileID: 3647223397075190309}
+  - component: {fileID: 155900703551271597}
   - component: {fileID: 2957851401250464121}
   - component: {fileID: 254056545058185625}
   - component: {fileID: 2592190591188895156}
@@ -440,9 +387,10 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5692673065728632159}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
@@ -473,32 +421,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4215811937500819412
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692673065728632159}
-  m_Material: {fileID: 13400000, guid: 2562893ed2ad58d4da252abc01aeb239, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.5874832, y: 1.075944, z: 6.445388}
-  m_Center: {x: 0.0070129633, y: 1.1800573, z: 0.035065174}
---- !u!65 &2586680620204629180
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692673065728632159}
-  m_Material: {fileID: 13400000, guid: 2562893ed2ad58d4da252abc01aeb239, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.44307, y: 1.1039963, z: 4.0048604}
-  m_Center: {x: 0, y: 2.2740865, z: 0.904679}
 --- !u!54 &3647223397075190309
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -515,6 +437,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!65 &155900703551271597
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692673065728632159}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6138997, y: 2.8267367, z: 6.450302}
+  m_Center: {x: -0.013974667, y: 1.4032973, z: 0.032608032}
 --- !u!114 &2957851401250464121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,6 +465,7 @@ MonoBehaviour:
   _particles: {fileID: 3405683108200506222}
   _engineSound: {fileID: 1705844938834323471}
   _hornSound: {fileID: 3109437325606199904}
+  _invertedForwardVector: 1
 --- !u!114 &254056545058185625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a762c5c962e5d6243a947b14cae0d774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _typeStats: {fileID: 11400000, guid: 43fa207be2a7e1c45aaf77715920b84b, type: 2}
+  _vehiclePreferences: {fileID: 11400000, guid: f593904c21da03c45a803c06d723a687, type: 2}
 --- !u!1001 &40490822523225980
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,5 +15,5 @@ MonoBehaviour:
   _minSelectDistance: 100
   _maxSelectDistance: 300
   _cancelDistancePercent: 0.9
-  _maxAccelerationMultiplier: 4.8
+  _maxAccelerationMultiplier: 1
   _timeForMove: 2

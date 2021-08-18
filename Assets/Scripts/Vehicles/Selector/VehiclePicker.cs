@@ -29,7 +29,7 @@ namespace CarSumo.Vehicles.Selector
             if (TryPickVehicle(swipeData, out var vehicle))
             {
                 vehicle.Engine.TurnOn(_speedometer);
-                var team = vehicle.GetStats().Team;
+                var team = vehicle.Stats.Team;
                 _lastValidVehicles[team] = vehicle;
             }
 
@@ -47,9 +47,9 @@ namespace CarSumo.Vehicles.Selector
                    && CanPickVehicle(vehicle);
         }
 
-        private bool CanPickVehicle(Vehicle vehicle)
+        private bool CanPickVehicle(IVehicle vehicle)
         {
-            return vehicle.GetStats().Team == _teamPresenter.ActiveTeam.Value;
+            return vehicle.Stats.Team == _teamPresenter.ActiveTeam.Value;
         }
     }
 }

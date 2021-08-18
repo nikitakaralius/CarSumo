@@ -14,9 +14,11 @@ namespace CarSumo.Vehicles.Rotation
             _statsProvider = statsProvider;
         }
 
+        private VehicleStats Stats => _statsProvider.GetStats();
+
         public void RotateBy(Vector3 vector)
         {
-            var rotationalSpeed = _statsProvider.GetStats().RotationalSpeed;
+            var rotationalSpeed = Stats.RotationalSpeed;
             _transform.forward = Vector3.MoveTowards(_transform.forward, vector, rotationalSpeed);
         }
     }

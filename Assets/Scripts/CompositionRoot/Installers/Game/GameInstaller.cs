@@ -1,4 +1,5 @@
 ﻿using CarSumo.Coroutines;
+using Game;
 using Infrastructure.Installers.Factories;
 using Infrastructure.Installers.SubContainers;
 using Services.Timer;
@@ -16,6 +17,7 @@ namespace Infrastructure.Installers.Game
             BindMainCamera();
             BindTimer();
             BindCoroutineExecutor();
+            BindWinTrackerInterfaces();
             ProcessSubContainers();
         }
 
@@ -48,6 +50,13 @@ namespace Infrastructure.Installers.Game
                 .Bind<CoroutineExecutor>()
                 .FromInstance(new CoroutineExecutor(this))
                 .AsSingle();
+        }
+
+        private void BindWinTrackerInterfaces()
+        {
+	        Container
+		        .BindInterfacesAndSelfTo<WinTracker>()
+		        .AsSingle();
         }
     }
 }

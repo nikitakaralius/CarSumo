@@ -1,7 +1,5 @@
-﻿using System;
-using CarSumo.Extensions;
+﻿using CarSumo.Extensions;
 using CarSumo.Vehicles;
-using CarSumo.Vehicles.Stats;
 using Cinemachine;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -10,9 +8,7 @@ namespace CarSumo.Level
 {
     public class VehicleDestroyer : SerializedMonoBehaviour
     {
-        public event Action<IVehicleStatsProvider> VehicleDestroying;
-
-        [SerializeField] private CinemachineImpulseSource _impulseSource;
+	    [SerializeField] private CinemachineImpulseSource _impulseSource;
         [SerializeField] private VehicleDestroyerAudio _audio;
 
         private Vehicle _previousVehicle;
@@ -28,7 +24,6 @@ namespace CarSumo.Level
                 _previousVehicle = vehicle;
 
                 _impulseSource.GenerateImpulse();
-                VehicleDestroying?.Invoke(vehicle);
                 _audio.PlayExplosionSound(other);
                 vehicle.Destroy();
             });

@@ -41,7 +41,21 @@ namespace Infrastructure.Initialization
         {
             return new SerializableVehicleStorage()
             {
-                Vehicles = new[] {VehicleId.Jeep, VehicleId.Jeep, VehicleId.Jeep}
+                Vehicles = new[]
+                {
+	                VehicleId.Jeep,
+	                VehicleId.Jeep,
+	                VehicleId.Jeep,
+	            
+	                VehicleId.Wagon,
+	                VehicleId.Wagon,
+
+	                VehicleId.OldCar,
+	                
+	                VehicleId.Van,
+	                
+	                VehicleId.Ute,
+                }
             };
         }
 
