@@ -21,15 +21,18 @@ namespace CarSumo.Vehicles.Engine
         
         private Rigidbody _rigidbody;
         private CoroutineExecutor _executor;
-        
+        private MagnitudeSpeedometer _speedometer;
+
         private IVehicleStatsProvider _statsProvider;
         private IDisposable _speedUpRoutine;
 
         public void Initialize(IVehicleStatsProvider statsProvider, Rigidbody rigidbody)
         {
             _rigidbody = rigidbody;
-            _executor = new CoroutineExecutor(this);
             _statsProvider = statsProvider;
+            
+            _executor = new CoroutineExecutor(this);
+            _speedometer = new MagnitudeSpeedometer(rigidbody, _executor);
         }
 
         private VehicleStats Stats => _statsProvider.GetStats();
@@ -59,8 +62,10 @@ namespace CarSumo.Vehicles.Engine
 		        .FromMicroCoroutine(() => ConfigureVelocity(forceModifier, Stats))
 		        .Subscribe();
 
+	        _speedometer.StartCalculatingPowerPercentage();
+	        
 	        _engineSound.Stop();
-            _engineSound.PlayUntil(IsVehicleStopped, new MagnitudeSpeedometer(_rigidbody, _executor));
+	        _engineSound.PlayUntil(IsVehicleStopped, _speedometer);
 
             _particles.StopAllParticles();
             _particles.EmitExhaustParticlesUntil(IsVehicleStopped);
