@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataModel.GameData.Vehicles;
@@ -27,7 +28,12 @@ namespace Menu.Vehicles
         protected abstract Transform CollectionRoot { get; }
         
         protected IReadOnlyList<T> Items => _items;
-        
+
+        private void OnDisable()
+        {
+	        _items.Clear();
+        }
+
         protected abstract void ProcessCreatedCollection(IEnumerable<T> layout);
 
         protected async Task SpawnCollectionAsync(IEnumerable<VehicleId> vehicles)
