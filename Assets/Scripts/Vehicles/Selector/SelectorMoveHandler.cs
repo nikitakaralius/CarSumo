@@ -42,9 +42,9 @@ namespace CarSumo.Vehicles.Selector
                 return;
             }
 
-            var forceModifier = CalculateForceMultiplier(swipeData);
+            var timeModifier = CalculateDrivingTimeModifier(swipeData);
             
-            vehicle.Engine.SpeedUp(forceModifier);
+            vehicle.Engine.SpeedUp(timeModifier);
             _executor.StartCoroutine(PerformMove());
         }
 
@@ -53,13 +53,13 @@ namespace CarSumo.Vehicles.Selector
             return _isMovePerforming == false;
         }
 
-        private float CalculateForceMultiplier(SwipeData swipeData)
+        private float CalculateDrivingTimeModifier(SwipeData swipeData)
         {
             var clampedDistance = Mathf.Clamp(swipeData.Distance, _data.MinSelectDistance, _data.MaxSelectDistance);
 
             var part = (clampedDistance - _data.MinSelectDistance) / (_data.MaxSelectDistance - _data.MinSelectDistance);
             
-            return _data.MaxAccelerationMultiplier * part;
+            return _data.MAXAccelerationTimeMultiplier * part;
         }
 
         private IEnumerator PerformMove()
