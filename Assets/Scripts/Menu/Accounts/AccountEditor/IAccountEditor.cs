@@ -4,6 +4,6 @@ namespace Menu.Accounts.AccountEditor
 {
 	public interface IAccountEditor
 	{
-		AccountOperation ChangeAccount(Account account);
+		AccountOperation ChangeAccountValues(Account account);
 	}
 }

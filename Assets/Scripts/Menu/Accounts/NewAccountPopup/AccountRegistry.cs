@@ -10,7 +10,7 @@ namespace Menu.Accounts
     public class AccountRegistry : SerializedMonoBehaviour, INewAccountPopup, IAccountEditorPopup
     {
 	    [SerializeField] private AccountChangerButton _button;
-	    [SerializeField] private INewAccountRecorder _newAccountRegistry;
+	    [SerializeField] private INewAccountRecorder _newAccountRecorder;
 	    [SerializeField] private IAccountExceptionPopup _exceptionPopup;
 	    [SerializeField] private IAccountEditor _accountEditor;
 	    
@@ -26,19 +26,19 @@ namespace Menu.Accounts
 
 	    private void AddNewAccount()
 	    {
-		    AccountOperation operation = _newAccountRegistry.RecordNewAccount();
+		    AccountOperation operation = _newAccountRecorder.RecordNewAccount();
 		    
-		    HandleOperationMessages(in operation);
+		    HandleOperationMessages(ref operation);
 	    }
 
 	    private void ChangeExistingAccount(Account account)
 	    {
-		    AccountOperation operation = _accountEditor.ChangeAccount(account);
+		    AccountOperation operation = _accountEditor.ChangeAccountValues(account);
 		    
-		    HandleOperationMessages(in operation);
+		    HandleOperationMessages(ref operation);
 	    }
 
-	    private void HandleOperationMessages(in AccountOperation operation)
+	    private void HandleOperationMessages(ref AccountOperation operation)
 	    {
 		    if (operation.Valid)
 			    return;
