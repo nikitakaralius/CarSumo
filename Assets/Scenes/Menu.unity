@@ -14450,7 +14450,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 5640912683093926631}
         m_TargetAssemblyTypeName: Menu.Accounts.NewAccountPopupView, Menu
-        m_MethodName: Hide
+        m_MethodName: Close
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

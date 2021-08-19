@@ -8,11 +8,11 @@ namespace Menu.Accounts
     [RequireComponent(typeof(Button))]
     public class BlankAccountListItemView : MonoBehaviour
     {
-        private IAccountPopup _accountPopup;
+        private INewAccountPopup _accountPopup;
         private IAudioPlayer _audioPlayer;
 
         [Inject]
-        private void Construct(IAccountPopup accountPopup, IAudioPlayer audioPlayer)
+        private void Construct(INewAccountPopup accountPopup, IAudioPlayer audioPlayer)
         {
             _accountPopup = accountPopup;
             _audioPlayer = audioPlayer;
@@ -21,7 +21,7 @@ namespace Menu.Accounts
         private void Start()
         {
             Button button = GetComponent<Button>();
-            button.onClick.AddListener(_accountPopup.Show);
+            button.onClick.AddListener(_accountPopup.Open);
             button.onClick.AddListener(_audioPlayer.Play);
         }
     }

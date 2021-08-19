@@ -2,7 +2,7 @@
 
 namespace Menu.Accounts
 {
-    public interface IAccountPopup : IPopup
+    public interface INewAccountPopup : IPopup
     {
         
     }
