@@ -15,7 +15,7 @@ namespace Menu.Accounts
 		private enum AccountOperationException
 		{
 			NotEnoughCharactersInName,
-			AccountWithTheSameIsAlreadyExist
+			AccountWithTheSameAlreadyExists
 		}
 		
 		[Header("Required Components")]
@@ -75,7 +75,7 @@ namespace Menu.Accounts
 			if (checkedAddAction.Invoke(account))
 				return new AccountOperation(exceptionDescription, account);
 
-			exceptionDescription = _exceptionsDescriptions[AccountOperationException.AccountWithTheSameIsAlreadyExist];
+			exceptionDescription = _exceptionsDescriptions[AccountOperationException.AccountWithTheSameAlreadyExists];
 			return new AccountOperation(exceptionDescription, null);
 		}
 		
