@@ -101,6 +101,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 5899222260818741695, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8014260723648156991, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
       propertyPath: serializationData.Prefab
       value: 
