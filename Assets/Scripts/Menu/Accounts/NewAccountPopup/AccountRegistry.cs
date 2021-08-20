@@ -15,11 +15,19 @@ namespace Menu.Accounts
 	    [SerializeField] private IAccountEditor _accountEditor;
 	    
 	    public void Open()
-		    => _button.ChangeOnButtonClickedSubscription(AddNewAccount, ButtonTitle.NewAccount);
+	    {
+		    _button.ChangeOnButtonClickedSubscription(AddNewAccount, ButtonTitle.NewAccount);
+		    
+		    gameObject.SetActive(true);
+	    }
 
 	    public void Open(Account account)
-		    => _button.ChangeOnButtonClickedSubscription(() =>
+	    {
+		    _button.ChangeOnButtonClickedSubscription(() =>
 			    ChangeExistingAccount(account), ButtonTitle.ChangeAccount);
+		    
+		    gameObject.SetActive(true);
+	    }
 
 	    public void Close()
 		    => gameObject.SetActive(false);

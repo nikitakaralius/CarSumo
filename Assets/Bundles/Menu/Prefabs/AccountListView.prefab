@@ -718,6 +718,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _view: {fileID: 7534759614776522687}
+  _editButton: {fileID: 1625595867327862909}
 --- !u!114 &7534759614776522687
 MonoBehaviour:
   m_ObjectHideFlags: 0
