@@ -16,8 +16,59 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 637646678206309406
+  lastScan: 637650557090552825
   supportSerializedTypes:
+  - TypeName: Menu.Accounts.AccountChangerButton+ButtonTitle, Menu
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Menu.Accounts.AccountOperationsProvider+AccountOperationException,
+      Menu
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[Menu.Accounts.AccountChangerButton+ButtonTitle,
+      Menu],[System.String, mscorlib]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[Menu.Accounts.AccountOperationsProvider+AccountOperationException,
+      Menu],[System.String, mscorlib]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[Menu.Accounts.AccountChangerButton+ButtonTitle,
+      Menu]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[Menu.Accounts.AccountOperationsProvider+AccountOperationException,
+      Menu]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Menu.Accounts.AccountEditor.IAccountEditor, Menu
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Menu.Accounts.AccountExceptionPopup.IAccountExceptionPopup, Menu
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IEqualityComparer`1[[Menu.Accounts.AccountChangerButton+ButtonTitle,
+      Menu]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IEqualityComparer`1[[Menu.Accounts.AccountOperationsProvider+AccountOperationException,
+      Menu]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Menu.Accounts.INewAccountRecorder, Menu
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[Menu.Accounts.AccountChangerButton+ButtonTitle,
+      Menu],[System.String, mscorlib]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[Menu.Accounts.AccountOperationsProvider+AccountOperationException,
+      Menu],[System.String, mscorlib]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.String, mscorlib
+    IsCustom: 0
+    Emit: 1
   - TypeName: AdvancedAudioSystem.Configuration.AssetAudioConfiguration, AdvancedAudioSystem
     IsCustom: 0
     Emit: 1

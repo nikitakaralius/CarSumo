@@ -9,6 +9,7 @@ namespace Menu.Accounts
 {
     public class AccountRegistry : SerializedMonoBehaviour, INewAccountPopup, IAccountEditorPopup
     {
+	    [Header("Required Components")]
 	    [SerializeField] private AccountChangerButton _button;
 	    [SerializeField] private INewAccountRecorder _newAccountRecorder;
 	    [SerializeField] private IAccountExceptionPopup _exceptionPopup;
@@ -23,12 +24,12 @@ namespace Menu.Accounts
 
 	    public void Open(Account account)
 	    {
-		    gameObject.SetActive(true);
-
 		    _accountEditor.SetInitialAccountValues(account);
 		    
 		    _button.ChangeOnButtonClickedSubscription(() =>
 			    ChangeExistingAccount(account), ButtonTitle.ChangeAccount);
+		    
+		    gameObject.SetActive(true);
 	    }
 
 	    public void Close()

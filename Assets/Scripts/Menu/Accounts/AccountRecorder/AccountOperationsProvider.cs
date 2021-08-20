@@ -24,6 +24,7 @@ namespace Menu.Accounts
 		[Header("Preferences")]
 		[SerializeField] private int _minNameSymbolsCount;
 		[SerializeField] private IReadOnlyDictionary<AccountOperationException, string> _exceptionsDescriptions;
+
 		
 		private IAccountIconPresenter _iconPresenter;
 		private IAccountIconReceiver _iconReceiver;
