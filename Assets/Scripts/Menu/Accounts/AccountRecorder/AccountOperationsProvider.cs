@@ -26,17 +26,20 @@ namespace Menu.Accounts
 		[SerializeField] private IReadOnlyDictionary<AccountOperationException, string> _exceptionsDescriptions;
 		
 		private IAccountIconPresenter _iconPresenter;
+		private IAccountIconReceiver _iconReceiver;
 		private IClientAccountStorageOperations _storageOperations;
 		private IVehicleLayoutBuilder _layoutBuilder;
 		private IServerAccountOperations _accountOperations;
 		
 		[Inject]
 		private void Construct(IAccountIconPresenter iconPresenter,
+			IAccountIconReceiver iconReceiver,
 			IClientAccountStorageOperations storageOperations,
 			IVehicleLayoutBuilder layoutBuilder,
 			IServerAccountOperations accountOperations)
 		{
 			_iconPresenter = iconPresenter;
+			_iconReceiver = iconReceiver;
 			_storageOperations = storageOperations;
 			_layoutBuilder = layoutBuilder;
 			_accountOperations = accountOperations;
@@ -47,9 +50,17 @@ namespace Menu.Accounts
 			_minNameSymbolsCount = Mathf.Clamp(_minNameSymbolsCount, 0, _nameInputField.characterLimit);
 		}
 
+		private void OnDisable() => Flush();
+
 		public AccountOperation RecordNewAccount() =>
 			ValidateAccountOperation(BuildAccount(), validatedAccount =>
 				_storageOperations.TryAddAccount(validatedAccount));
+
+		public void SetInitialAccountValues(Account account)
+		{
+			_iconReceiver.ReceiveIcon(account.Icon.Value);
+			_nameInputField.text = account.Name.Value;
+		}
 
 		public AccountOperation ChangeAccountValues(Account account) =>
 			ValidateAccountOperation(account, validatedAccount =>
@@ -83,5 +94,11 @@ namespace Menu.Accounts
 			new Account(_nameInputField.text,
 				_iconPresenter.Icon.Value,
 				_layoutBuilder.Create(new DefaultVehicleLayout()));
+
+		private void Flush()
+		{
+			_nameInputField.ReleaseSelection();
+			_nameInputField.text = string.Empty;
+		}
 	}
 }

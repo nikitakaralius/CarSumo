@@ -4,6 +4,7 @@ namespace Menu.Accounts.AccountEditor
 {
 	public interface IAccountEditor
 	{
+		void SetInitialAccountValues(Account account);
 		AccountOperation ChangeAccountValues(Account account);
 	}
 }

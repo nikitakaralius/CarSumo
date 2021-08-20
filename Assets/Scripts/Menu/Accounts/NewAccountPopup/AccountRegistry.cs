@@ -16,42 +16,45 @@ namespace Menu.Accounts
 	    
 	    public void Open()
 	    {
-		    _button.ChangeOnButtonClickedSubscription(AddNewAccount, ButtonTitle.NewAccount);
-		    
 		    gameObject.SetActive(true);
+		    
+		    _button.ChangeOnButtonClickedSubscription(AddNewAccount, ButtonTitle.NewAccount);
 	    }
 
 	    public void Open(Account account)
 	    {
+		    gameObject.SetActive(true);
+
+		    _accountEditor.SetInitialAccountValues(account);
+		    
 		    _button.ChangeOnButtonClickedSubscription(() =>
 			    ChangeExistingAccount(account), ButtonTitle.ChangeAccount);
-		    
-		    gameObject.SetActive(true);
 	    }
 
 	    public void Close()
 		    => gameObject.SetActive(false);
 
-	    private void AddNewAccount()
+	    private bool AddNewAccount()
 	    {
 		    AccountOperation operation = _newAccountRecorder.RecordNewAccount();
 		    
-		    HandleOperationMessages(ref operation);
+		    return HandleOperationMessages(ref operation);
 	    }
 
-	    private void ChangeExistingAccount(Account account)
+	    private bool ChangeExistingAccount(Account account)
 	    {
 		    AccountOperation operation = _accountEditor.ChangeAccountValues(account);
 		    
-		    HandleOperationMessages(ref operation);
+		    return HandleOperationMessages(ref operation);
 	    }
 
-	    private void HandleOperationMessages(ref AccountOperation operation)
+	    private bool HandleOperationMessages(ref AccountOperation operation)
 	    {
 		    if (operation.Valid)
-			    return;
+			    return true;
 		    
 		    _exceptionPopup.Show(operation.ExceptionMessage);
+		    return false;
 	    }
     }
 }

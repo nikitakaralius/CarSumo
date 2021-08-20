@@ -16,15 +16,16 @@ namespace Menu.Accounts
 			NewAccount,
 			ChangeAccount
 		}
-	    
-		[Header("Required Components")]
-		[SerializeField] private Button _button;
+
+		[Header("Required Components")] [SerializeField]
+		private Button _button;
+
 		[SerializeField] private TMP_Text _text;
+		[SerializeField] private GameObject _window;
 
-		[Header("Titles")] 
-		[SerializeField] private IReadOnlyDictionary<ButtonTitle, string> _buttonTitles;
+		[Header("Titles")] [SerializeField] private IReadOnlyDictionary<ButtonTitle, string> _buttonTitles;
 
-		private Action _onButtonClicked;
+		private Func<bool> _onButtonClickedHandler;
 		private IAudioPlayer _audioPlayer;
 
 		[Inject]
@@ -32,19 +33,22 @@ namespace Menu.Accounts
 		{
 			_audioPlayer = audioPlayer;
 		}
-		
+
 		private void Start()
 		{
 			_button.onClick.AddListener(() =>
 			{
 				_audioPlayer.Play();
-				_onButtonClicked?.Invoke();
+				bool operationSuccess = _onButtonClickedHandler.Invoke();
+
+				if (operationSuccess)
+					_window.SetActive(false);
 			});
 		}
-	    
-		public void ChangeOnButtonClickedSubscription(Action onButtonClicked, ButtonTitle buttonTitle)
+
+		public void ChangeOnButtonClickedSubscription(Func<bool> onButtonClicked, ButtonTitle buttonTitle)
 		{
-			_onButtonClicked = onButtonClicked;
+			_onButtonClickedHandler = onButtonClicked;
 			_text.text = _buttonTitles[buttonTitle];
 		}
 	}
