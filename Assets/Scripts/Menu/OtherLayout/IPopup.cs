@@ -2,7 +2,7 @@
 {
     public interface IPopup
     {
-        void Show();
-        void Hide();
+        void Open();
+        void Close();
     }
 }

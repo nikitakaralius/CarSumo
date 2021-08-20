@@ -30,32 +30,43 @@ namespace Menu.Accounts
 	    
 	    private IAsyncInstantiation _instantiation;
 	    private IAccountStorage _accountStorage;
+	    private IAccountStorageMessages _storageMessages;
 	    private IResourceStorage _resourceStorage;
 	    
-	    private IDisposable _accountsChangedSubscription;
+	    private readonly CompositeDisposable _accountsChangedSubscriptions = new CompositeDisposable();
 
 	    private readonly List<AccountListItem> _items = new List<AccountListItem>();
 	    private readonly List<GameObject> _allViews = new List<GameObject>();
 	    
 	    [Inject]
-	    private void Construct(IAsyncInstantiation instantiation, IAccountStorage accountStorage, IResourceStorage resourceStorage)
+	    private void Construct(IAsyncInstantiation instantiation,
+		    					IAccountStorage accountStorage,
+		    					IAccountStorageMessages storageMessages,
+		    					IResourceStorage resourceStorage)
 	    {
 		    _instantiation = instantiation;
 		    _accountStorage = accountStorage;
+		    _storageMessages = storageMessages;
 		    _resourceStorage = resourceStorage;
 	    }
 
 
 	    private void Awake()
 	    {
-		    _accountsChangedSubscription = _accountStorage.AllAccounts
+		    _accountStorage.AllAccounts
 			    .ObserveCountChanged()
-			    .Subscribe(_ => FillList());
+			    .Subscribe(_ => FillList())
+			    .AddTo(_accountsChangedSubscriptions);
+
+		    _storageMessages
+			    .ObserveAnyAccountValueChanged()
+			    .Subscribe(_ => FillList())
+			    .AddTo(_accountsChangedSubscriptions);
 	    }
 	    
 	    private void OnDestroy()
 	    {
-		    _accountsChangedSubscription?.Dispose();
+		    _accountsChangedSubscriptions?.Dispose();
 	    }
 
 	    public void OpenInternal()
