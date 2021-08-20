@@ -6,7 +6,7 @@ namespace Infrastructure.Installers.Menu
 {
     public class NewAccountPopupInstaller : MonoInstaller
     {
-        [SerializeField] private AccountRegistry _accountRegistry;
+        [SerializeField] private AccountRegistryPopup _accountRegistryPopup;
 
         public override void InstallBindings()
         {
@@ -17,8 +17,8 @@ namespace Infrastructure.Installers.Menu
         private void BindAccountPopup()
         {
             Container
-                .BindInterfacesAndSelfTo<AccountRegistry>()
-                .FromInstance(_accountRegistry)
+                .BindInterfacesAndSelfTo<AccountRegistryPopup>()
+                .FromInstance(_accountRegistryPopup)
                 .AsSingle();
         }
 

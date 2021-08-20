@@ -89,6 +89,19 @@ namespace DataModel.GameData.Accounts
 	        _anyAccountChangedObserver.OnNext(account);
         }
 
+        public bool TryRemove(Account account)
+        {
+	        if (_allAccounts.Count == 1)
+		        return false;
+	        
+	        if (_activeAccount.Value.Equals(account))
+		        _activeAccount.Value = _allAccounts.First(x => x.Equals(account) == false);
+	        
+	        _allAccounts.Remove(account);
+
+	        return true;
+        }
+
         private bool ContainsAccountWithTheSameName(Account accountToChange, string newName)
         {
 	        foreach (Account account in _allAccounts)

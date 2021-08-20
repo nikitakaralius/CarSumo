@@ -7,33 +7,40 @@ using ButtonTitle = Menu.Accounts.AccountChangerButton.ButtonTitle;
 
 namespace Menu.Accounts
 {
-    public class AccountRegistry : SerializedMonoBehaviour, INewAccountPopup, IAccountEditorPopup
+    public class AccountRegistryPopup : SerializedMonoBehaviour, INewAccountPopup, IAccountEditorPopup
     {
 	    [Header("Required Components")]
-	    [SerializeField] private AccountChangerButton _button;
+	    [SerializeField] private AccountChangerButton _changerButton;
+	    [SerializeField] private RemoveAccountButton _removeButton;
 	    [SerializeField] private INewAccountRecorder _newAccountRecorder;
 	    [SerializeField] private IAccountExceptionPopup _exceptionPopup;
 	    [SerializeField] private IAccountEditor _accountEditor;
+	    [SerializeField] private GameObject _openRemoveDialogueButton;
 	    
 	    public void Open()
 	    {
 		    gameObject.SetActive(true);
 		    
-		    _button.ChangeOnButtonClickedSubscription(AddNewAccount, ButtonTitle.NewAccount);
+		    _changerButton.ChangeOnButtonClickedSubscription(AddNewAccount, ButtonTitle.NewAccount);
 	    }
 
 	    public void Open(Account account)
 	    {
 		    _accountEditor.SetInitialAccountValues(account);
 		    
-		    _button.ChangeOnButtonClickedSubscription(() =>
+		    _changerButton.ChangeOnButtonClickedSubscription(() =>
 			    ChangeExistingAccount(account), ButtonTitle.ChangeAccount);
 		    
 		    gameObject.SetActive(true);
+		    _openRemoveDialogueButton.SetActive(true);
+		    _removeButton.ChangeOnButtonClicked(() => RemoveAccount(account));
 	    }
 
 	    public void Close()
-		    => gameObject.SetActive(false);
+	    {
+		    gameObject.SetActive(false);
+		    _openRemoveDialogueButton.SetActive(false);
+	    }
 
 	    private bool AddNewAccount()
 	    {
@@ -46,6 +53,13 @@ namespace Menu.Accounts
 	    {
 		    AccountOperation operation = _accountEditor.ChangeAccountValues(account);
 		    
+		    return HandleOperationMessages(ref operation);
+	    }
+
+	    private bool RemoveAccount(Account account)
+	    {
+		    AccountOperation operation = _accountEditor.RemoveAccount(account);
+
 		    return HandleOperationMessages(ref operation);
 	    }
 

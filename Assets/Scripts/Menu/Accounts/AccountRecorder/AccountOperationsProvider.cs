@@ -15,7 +15,8 @@ namespace Menu.Accounts
 		private enum AccountOperationException
 		{
 			NotEnoughCharactersInName,
-			AccountWithTheSameAlreadyExists
+			AccountWithTheSameAlreadyExists,
+			CanNotRemoveLastAccount
 		}
 		
 		[Header("Required Components")]
@@ -61,6 +62,15 @@ namespace Menu.Accounts
 		{
 			_iconReceiver.ReceiveIcon(account.Icon.Value);
 			_nameInputField.text = account.Name.Value;
+		}
+
+		public AccountOperation RemoveAccount(Account account)
+		{
+			if (_accountOperations.TryRemove(account))
+				return new AccountOperation(null, account);
+
+			string exceptionMessage = _exceptionsDescriptions[AccountOperationException.CanNotRemoveLastAccount];
+			return new AccountOperation(exceptionMessage, account);
 		}
 
 		public AccountOperation ChangeAccountValues(Account account) =>

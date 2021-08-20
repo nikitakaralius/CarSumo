@@ -4,5 +4,6 @@
     {
         bool TryChangeName(Account account, string newName);
         void ChangeIcon(Account account, Icon icon);
+        bool TryRemove(Account account);
     }
 }
