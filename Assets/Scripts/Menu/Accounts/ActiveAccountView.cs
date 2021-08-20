@@ -1,30 +1,38 @@
-﻿using System;
-using CarSumo.DataModel.Accounts;
+﻿using CarSumo.DataModel.Accounts;
 using GuiBaseData.Accounts;
 using UniRx;
 using Zenject;
 
 namespace Menu.Accounts
 {
-    public class ActiveAccountView : AccountView
-    {
-        private IAccountStorage _accountStorage;
-        private IDisposable _subscription;
+	public class ActiveAccountView : AccountView
+	{
+		private IAccountStorage _accountStorage;
+		private IAccountStorageMessages _storageMessages;
+		private readonly CompositeDisposable _subscriptions = new CompositeDisposable();
 
-        [Inject]
-        private void Construct(IAccountStorage accountStorage)
-        {
-            _accountStorage = accountStorage;
-        }
+		[Inject]
+		private void Construct(IAccountStorage accountStorage, IAccountStorageMessages storageMessages)
+		{
+			_accountStorage = accountStorage;
+			_storageMessages = storageMessages;
+		}
 
-        private void Awake()
-        {
-            _subscription = _accountStorage.ActiveAccount.Subscribe(ChangeAccount);
-        }
+		private void Awake()
+		{
+			_accountStorage.ActiveAccount
+				.Subscribe(ChangeAccount)
+				.AddTo(_subscriptions);
 
-        private void OnDestroy()
-        {
-            _subscription.Dispose();   
-        }
-    }
+			_storageMessages
+				.ObserveAnyAccountValueChanged()
+				.Subscribe(ChangeAccount)
+				.AddTo(_subscriptions);
+		}
+
+		private void OnDestroy()
+		{
+			_subscriptions.Dispose();
+		}
+	}
 }

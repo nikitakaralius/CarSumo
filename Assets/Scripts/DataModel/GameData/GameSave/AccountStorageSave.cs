@@ -11,6 +11,7 @@ namespace DataModel.GameData.GameSave
     {
         private readonly IAsyncFileService _fileService;
         private readonly IAccountStorage _accountStorage;
+        private readonly IAccountStorageMessages _storageMessages;
         private readonly IAccountStorageConfiguration _configuration;
         private readonly IAccountSerialization _accountSerialization;
 
@@ -18,6 +19,7 @@ namespace DataModel.GameData.GameSave
         
         public AccountStorageSave(IAsyncFileService fileService,
                                 IAccountStorage accountStorage,
+                                IAccountStorageMessages storageMessages,
                                 IAccountStorageConfiguration configuration,
                                 IAccountSerialization accountSerialization)
         {
@@ -25,10 +27,12 @@ namespace DataModel.GameData.GameSave
             _accountStorage = accountStorage;
             _configuration = configuration;
             _accountSerialization = accountSerialization;
+            _storageMessages = storageMessages;
 
             accountStorage.ActiveAccount.Subscribe(OnActiveAccountChanged);
             accountStorage.AllAccounts.ObserveCountChanged().Subscribe(_ => Save());
             accountStorage.AllAccounts.ObserveReplace().Subscribe(_ => Save());
+            _storageMessages.ObserveAnyAccountValueChanged().Subscribe(_ => Save());
         }
         
         public void Dispose()
