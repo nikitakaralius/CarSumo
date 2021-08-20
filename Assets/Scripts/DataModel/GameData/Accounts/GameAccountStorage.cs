@@ -6,20 +6,32 @@ using UniRx;
 
 namespace DataModel.GameData.Accounts
 {
-    public class GameAccountStorage : IAccountStorage, IClientAccountOperations, IClientAccountStorageOperations
+    public class GameAccountStorage : IAccountStorage,
+									IAccountStorageMessages,
+	    							IClientAccountOperations,
+	    							IClientAccountStorageOperations,
+	    							IServerAccountOperations
     {
         private readonly ReactiveCollection<Account> _allAccounts;
         private readonly ReactiveProperty<Account> _activeAccount;
+        private readonly Subject<Account> _anyAccountChangedObserver;
 
         public GameAccountStorage(Account activeAccount, IEnumerable<Account> allAccounts)
         {
             _activeAccount = new ReactiveProperty<Account>(activeAccount);
             _allAccounts = new ReactiveCollection<Account>(allAccounts);
+
+            _anyAccountChangedObserver = new Subject<Account>();
         }
 
         public IReadOnlyReactiveCollection<Account> AllAccounts => _allAccounts;
 
         public IReadOnlyReactiveProperty<Account> ActiveAccount => _activeAccount;
+
+        public IObservable<Account> ObserveAnyAccountValueChanged()
+        {
+	        return _anyAccountChangedObserver;
+        }
 
         public void SetActive(Account account)
         {
@@ -59,6 +71,36 @@ namespace DataModel.GameData.Accounts
                     throw new InvalidOperationException("Trying to change order with non-existing account");
                 }
             }
+        }
+
+        public bool TryChangeName(Account account, string newName)
+        {
+	        if (ContainsAccountWithTheSameName(account, newName))
+		        return false;
+
+	        account.Name.Value = newName;
+	        _anyAccountChangedObserver.OnNext(account);
+	        return true;
+        }
+
+        public void ChangeIcon(Account account, Icon icon)
+        {
+	        account.Icon.Value = icon;
+	        _anyAccountChangedObserver.OnNext(account);
+        }
+
+        private bool ContainsAccountWithTheSameName(Account accountToChange, string newName)
+        {
+	        foreach (Account account in _allAccounts)
+	        {
+		        if (accountToChange.Equals(account))
+			        continue;
+
+		        if (account.Name.Value == newName)
+			        return true;
+	        }
+
+	        return false;
         }
     }
 }

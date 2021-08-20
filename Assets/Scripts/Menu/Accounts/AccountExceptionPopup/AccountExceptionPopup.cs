@@ -11,6 +11,7 @@ namespace Menu.Accounts.AccountExceptionPopup
 		public void Show(string exceptionMessage)
 		{
 			_exceptionMessage.text = exceptionMessage;
+			gameObject.SetActive(true);
 		}
 	}
 }
