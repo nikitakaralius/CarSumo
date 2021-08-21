@@ -12,13 +12,12 @@ namespace Shop
 {
 	public abstract class Purchasable : SerializedMonoBehaviour
 	{
-		[Header("Resources")] [SerializeField]
-		private IReadOnlyDictionary<ResourceId, int> _prices = new Dictionary<ResourceId, int>();
+		[Header("Resources")] 
+		[SerializeField] private IReadOnlyDictionary<ResourceId, int> _prices = new Dictionary<ResourceId, int>();
+		[SerializeField] private IReadOnlyDictionary<ResourceId, TMP_Text> _priceTexts = new Dictionary<ResourceId, TMP_Text>();
 
-		[SerializeField]
-		private IReadOnlyDictionary<ResourceId, TMP_Text> _priceTexts = new Dictionary<ResourceId, TMP_Text>();
-
-		[Header("Audio")] [SerializeField] private AudioCue _purchasedCue;
+		[Header("Audio")]
+		[SerializeField] private AudioCue _purchasedCue;
 		[SerializeField] private AudioCue _canceledCue;
 
 		private ISoundEmitter _soundEmitter;
