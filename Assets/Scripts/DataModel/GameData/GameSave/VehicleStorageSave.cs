@@ -12,9 +12,7 @@ namespace DataModel.GameData.GameSave
         private readonly IVehicleStorageConfiguration _configuration;
         private readonly IAsyncFileService _fileService;
 
-        public VehicleStorageSave(IVehicleStorage storage,
-            IAsyncFileService fileService,
-            IVehicleStorageConfiguration configuration)
+        public VehicleStorageSave(IVehicleStorage storage, IAsyncFileService fileService, IVehicleStorageConfiguration configuration)
         {
             _storage = storage;
             _fileService = fileService;

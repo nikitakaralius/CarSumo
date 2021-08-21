@@ -6,11 +6,13 @@ using UnityEngine;
 
 namespace DataModel.GameData.Resources
 {
-    public class GameResourceStorage : IResourceStorage, IClientResourceOperations
+    public class GameResourceStorage : IResourceStorage, IClientResourceOperations, IResourceStorageMessages
     {
         private readonly Dictionary<ResourceId, ReactiveProperty<int>> _resourceAmounts;
         private readonly Dictionary<ResourceId, ReactiveProperty<int?>> _resourceLimits;
 
+        private readonly Subject<ResourceId> _resourceChangedObserver = new Subject<ResourceId>();
+        
         public GameResourceStorage(Dictionary<ResourceId, ReactiveProperty<int>> resourceAmounts,
                                    Dictionary<ResourceId, ReactiveProperty<int?>> resourceLimits)
         {
@@ -48,6 +50,7 @@ namespace DataModel.GameData.Resources
             }
 
             ClampResourceLimit();
+            _resourceChangedObserver.OnNext(id);
             
             void ClampResourceLimit()
             {
@@ -77,10 +80,16 @@ namespace DataModel.GameData.Resources
                 if (currentAmount.Value >= amount)
                 {
                     currentAmount.Value -= amount;
+                    _resourceChangedObserver.OnNext(id);
                     return true;
                 }
             }
             return false;
+        }
+
+        public IObservable<ResourceId> ObserveResourceChanged()
+        {
+	        return _resourceChangedObserver;
         }
     }
 }
