@@ -3,6 +3,7 @@ using DataModel.FileData;
 using DataModel.GameData.Vehicles;
 using DataModel.Vehicles;
 using UniRx;
+using UnityEngine;
 
 namespace DataModel.GameData.GameSave
 {
@@ -18,8 +19,7 @@ namespace DataModel.GameData.GameSave
             _fileService = fileService;
             _configuration = configuration;
 
-            _storage.BoughtVehicles.ObserveCountChanged().Subscribe(_ => Save());
-            _storage.BoughtVehicles.ObserveReplace().Subscribe(_ => Save());
+            storage.BoughtVehicles.ObserveCountChanged().Subscribe(_ => Save());
         }
 
         public void Dispose()
