@@ -5,5 +5,6 @@ namespace DataModel.Vehicles
     public interface IVehicleStorageOperations
     {
         void ChangeOrder(IReadOnlyList<VehicleId> order);
+        void AddVehicle(VehicleId vehicle);
     }
 }

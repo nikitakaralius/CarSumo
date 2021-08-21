@@ -24,7 +24,7 @@ namespace DataModel.GameData.Vehicles
                 throw new InvalidOperationException("Trying to change order with different count");
             }
 
-            IEnumerable<VehicleId> cachedVehicles = _boughtVehicles.ToArray();
+            VehicleId[] cachedVehicles = _boughtVehicles.ToArray();
 
             for (var i = 0; i < _boughtVehicles.Count; i++)
             {
@@ -37,6 +37,11 @@ namespace DataModel.GameData.Vehicles
                     throw new InvalidOperationException("Trying to change order with non-existing account");
                 }
             }
+        }
+
+        public void AddVehicle(VehicleId vehicle)
+        {
+	        _boughtVehicles.Add(vehicle);
         }
     }
 }

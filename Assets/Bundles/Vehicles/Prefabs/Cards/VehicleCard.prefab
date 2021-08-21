@@ -157,9 +157,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '25
-
-'
+  m_text: 25
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
   m_sharedMaterial: {fileID: 3074828514974314926, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
@@ -757,6 +755,7 @@ GameObject:
   - component: {fileID: 2029936314713290493}
   - component: {fileID: 216316312648002348}
   - component: {fileID: 912704561460108736}
+  - component: {fileID: 845427689615494183}
   m_Layer: 5
   m_Name: PuchaseByGemsButton
   m_TagString: Untagged
@@ -866,7 +865,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 216316312648002348}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 845427689615494183}
+        m_TargetAssemblyTypeName: Shop.ResourceSpendInvoker, Shop
+        m_MethodName: TrySpend
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &845427689615494183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538809165234913277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb9670c47844123803ea93083ee23bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resource: 2
+  _purchasable: {fileID: 4182568157604550127}
 --- !u!1 &2984960166577597576
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +980,7 @@ GameObject:
   - component: {fileID: 8072535158510186026}
   - component: {fileID: 5771528354630781469}
   - component: {fileID: 7471226272737602260}
+  - component: {fileID: 1133664866288796852}
   m_Layer: 5
   m_Name: PuchaseByCoinsButton
   m_TagString: Untagged
@@ -1064,7 +1090,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5771528354630781469}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1133664866288796852}
+        m_TargetAssemblyTypeName: Shop.ResourceSpendInvoker, Shop
+        m_MethodName: TrySpend
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1133664866288796852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3512754690842474024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb9670c47844123803ea93083ee23bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resource: 1
+  _purchasable: {fileID: 4182568157604550127}
 --- !u!1 &4346704300591340421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,6 +1503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2698042815393177657}
+  - component: {fileID: 4182568157604550127}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -1479,6 +1532,120 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &4182568157604550127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5899222260818741695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1ed5b61b2d4a5a87abadcba69b8781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 6981613645023953129}
+    - {fileID: 3983153424569002124}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _prices
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[CarSumo.DataModel.GameResources.ResourceId,
+        GameResources],[System.Int32, mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[CarSumo.DataModel.GameResources.ResourceId,
+        GameResources]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 3
+      Data: 250
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 3
+      Data: 25
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _priceTexts
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[CarSumo.DataModel.GameResources.ResourceId,
+        GameResources],[TMPro.TMP_Text, Unity.TextMeshPro]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 1
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _vehicle: 0
 --- !u!1 &6409210182309732438
 GameObject:
   m_ObjectHideFlags: 0
