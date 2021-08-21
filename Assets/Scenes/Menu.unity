@@ -2190,6 +2190,8 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  _purchasedCue: {fileID: 11400000, guid: 03efd34a6d0912b4f90424b028ad9c1b, type: 2}
+  _canceledCue: {fileID: 11400000, guid: 46c3baadc1c35a940b4350d0a003588a, type: 2}
   _amount: 5
   _countText: {fileID: 643907218}
 --- !u!1 &201687373
@@ -5144,6 +5146,8 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  _purchasedCue: {fileID: 11400000, guid: 03efd34a6d0912b4f90424b028ad9c1b, type: 2}
+  _canceledCue: {fileID: 11400000, guid: 46c3baadc1c35a940b4350d0a003588a, type: 2}
   _amount: 3
   _countText: {fileID: 2012013445}
 --- !u!1 &500598246
@@ -9286,6 +9290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioCuePlayer: {fileID: 941786101}
+  _soundEmitter: {fileID: 941786099}
 --- !u!114 &803184306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19704,6 +19709,8 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  _purchasedCue: {fileID: 11400000, guid: 03efd34a6d0912b4f90424b028ad9c1b, type: 2}
+  _canceledCue: {fileID: 11400000, guid: 46c3baadc1c35a940b4350d0a003588a, type: 2}
   _amount: 1
   _countText: {fileID: 1829670046}
 --- !u!1 &1934493795
@@ -25747,6 +25754,8 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  _purchasedCue: {fileID: 11400000, guid: 03efd34a6d0912b4f90424b028ad9c1b, type: 2}
+  _canceledCue: {fileID: 11400000, guid: 46c3baadc1c35a940b4350d0a003588a, type: 2}
   _vehicle: 4
 --- !u!222 &3344994249326668062
 CanvasRenderer:
@@ -30897,7 +30906,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  _vehicle: 4
+  _purchasedCue: {fileID: 11400000, guid: 71d5df16b6ba4d24ab58a87c2d9dac64, type: 2}
+  _canceledCue: {fileID: 11400000, guid: 46c3baadc1c35a940b4350d0a003588a, type: 2}
+  _vehicle: 2
 --- !u!114 &5788880897335252800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34932,6 +34943,8 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  _purchasedCue: {fileID: 11400000, guid: 03efd34a6d0912b4f90424b028ad9c1b, type: 2}
+  _canceledCue: {fileID: 11400000, guid: 46c3baadc1c35a940b4350d0a003588a, type: 2}
   _vehicle: 1
 --- !u!1 &7385673058665359050
 GameObject:
@@ -35952,6 +35965,8 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  _purchasedCue: {fileID: 11400000, guid: 03efd34a6d0912b4f90424b028ad9c1b, type: 2}
+  _canceledCue: {fileID: 11400000, guid: 46c3baadc1c35a940b4350d0a003588a, type: 2}
   _vehicle: 3
 --- !u!224 &7650955859719944481
 RectTransform:
@@ -36945,6 +36960,8 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  _purchasedCue: {fileID: 11400000, guid: 03efd34a6d0912b4f90424b028ad9c1b, type: 2}
+  _canceledCue: {fileID: 11400000, guid: 46c3baadc1c35a940b4350d0a003588a, type: 2}
   _vehicle: 0
 --- !u!224 &8077423918597459547
 RectTransform:

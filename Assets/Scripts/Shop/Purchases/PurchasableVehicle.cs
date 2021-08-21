@@ -6,6 +6,7 @@ namespace Shop
 {
 	public class PurchasableVehicle : Purchasable
 	{
+		[Header("Vehicle Preferences")]
 		[SerializeField] private VehicleId _vehicle;
 		
 		private IVehicleStorageOperations _storageOperations;
@@ -15,7 +16,12 @@ namespace Shop
 		{
 			_storageOperations = storageOperations;
 		}
-	
+
+		protected override Purchase ValidatePurchase()
+		{
+			return Purchase.Valid;
+		}
+
 		protected override void OnPurchaseCompleted()
 		{
 			_storageOperations.Add(_vehicle);

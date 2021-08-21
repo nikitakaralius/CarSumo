@@ -8,6 +8,7 @@ namespace Shop
 {
 	public class PurchasableAccountSlot : Purchasable
 	{
+		[Header("Accounts Preferences")]
 		[Range(0, 100)] 
 		[SerializeField] private int _amount;
 		[SerializeField] private TMP_Text _countText;
@@ -20,26 +21,22 @@ namespace Shop
 
 		private void OnValidate() => _countText.text = $"{_amount}";
 
-		protected override void OnPurchaseCompleted()
+		protected override Purchase ValidatePurchase()
 		{
 			int slotsAmount = _resourceStorage.GetResourceAmount(ResourceId.AccountSlots).Value;
 			int? slotsLimit = _resourceStorage.GetResourceLimit(ResourceId.AccountSlots).Value;
 
 			if (slotsLimit is null)
-			{
-				MakeRefund();
 				throw new InvalidOperationException("Slots limit must be specified");
-			}
 
-			if (slotsAmount + _amount <= slotsLimit)
-			{
-				ResourceOperations.Receive(ResourceId.AccountSlots, _amount);
-			}
-			else
-			{
-				MakeRefund();
-				throw new InvalidOperationException("Reached slots limit");
-			}
+			return slotsAmount + _amount <= slotsLimit
+				? Purchase.Valid
+				: new Purchase($"The slot limit has been reached. Maximum number of slots is {slotsLimit}");
+		}
+
+		protected override void OnPurchaseCompleted()
+		{
+			ResourceOperations.Receive(ResourceId.AccountSlots, _amount);
 		}
 
 		protected override void OnPurchaseCanceled()

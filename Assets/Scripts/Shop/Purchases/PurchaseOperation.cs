@@ -14,14 +14,5 @@ namespace Shop
 			Price = price;
 			Valid = true;
 		}
-
-		private PurchaseOperation(ResourceId resource, int price, bool valid)
-		{
-			Resource = resource;
-			Price = price;
-			Valid = valid;
-		}
-
-		public static PurchaseOperation Uninitialized = new PurchaseOperation(ResourceId.Energy, -1, false);
 	}
 }
