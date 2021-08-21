@@ -27,9 +27,9 @@ namespace Shop
 			_storageOperations.Add(_vehicle);
 		}
 
-		protected override void OnPurchaseCanceled()
+		protected override void OnPurchaseCanceled(Purchase purchase)
 		{
-			Debug.Log("Purchase canceled");	
+			
 		}
 	}
 }

@@ -39,7 +39,9 @@ namespace Shop
 			ResourceOperations.Receive(ResourceId.AccountSlots, _amount);
 		}
 
-		protected override void OnPurchaseCanceled()
-			=> Debug.Log("Purchase canceled");
+		protected override void OnPurchaseCanceled(Purchase purchase)
+		{
+			Debug.Log(purchase.ExceptionMessage);
+		}
 	}
 }

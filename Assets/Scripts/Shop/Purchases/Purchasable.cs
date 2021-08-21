@@ -48,7 +48,8 @@ namespace Shop
 			bool purchaseSuccessful = ResourceOperations.TrySpend(resource, price);
 			PurchaseOperation operation = new PurchaseOperation(resource, price);
 
-			if (purchaseSuccessful && ValidatePurchase().IsValid)
+			Purchase validatedPurchase = ValidatePurchase();
+			if (purchaseSuccessful && validatedPurchase.IsValid)
 			{
 				OnPurchaseCompleted();
 				OnPurchaseCompletedInternal();
@@ -58,7 +59,7 @@ namespace Shop
 			if (purchaseSuccessful)
 				operation.Rollback(ResourceOperations);
 
-			OnPurchaseCanceled();
+			OnPurchaseCanceled(validatedPurchase);
 			OnPurchaseCanceledInternal();
 		}
 
@@ -66,7 +67,7 @@ namespace Shop
 
 		protected abstract void OnPurchaseCompleted();
 
-		protected abstract void OnPurchaseCanceled();
+		protected abstract void OnPurchaseCanceled(Purchase purchase);
 
 		private void OnPurchaseCompletedInternal()
 			=> _soundEmitter.Play(_purchasedCue);
