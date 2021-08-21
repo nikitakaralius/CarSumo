@@ -157,26 +157,16 @@ namespace Menu.Accounts
 	    
 	    private int CountBlankAccounts(IResourceStorage resourceStorage, IAccountStorage accountStorage)
 	    {
-		    IReadOnlyReactiveProperty<int?> slotsLimit = resourceStorage.GetResourceLimit(ResourceId.AccountSlots);
-
-		    if (slotsLimit.HasValue == false)
-		    {
-			    throw new InvalidOperationException("Slots limit must be determined");
-		    }
-
-		    return slotsLimit.Value.Value - accountStorage.AllAccounts.Count;
+		    IReadOnlyReactiveProperty<int> slotsLimit = resourceStorage.GetResourceAmount(ResourceId.AccountSlots);
+		    
+		    return slotsLimit.Value - accountStorage.AllAccounts.Count;
 	    }
 
 
 	    private bool AreAccountsFitIntoLimit(IResourceStorage resourceStorage, IAccountStorage accountStorage)
 	    {
-		    IReadOnlyReactiveProperty<int?> slotsLimit = resourceStorage.GetResourceLimit(ResourceId.AccountSlots);
-
-		    if (slotsLimit.HasValue == false)
-		    {
-			    throw new InvalidOperationException("Slots limit must be determined");
-		    }
-
+		    IReadOnlyReactiveProperty<int> slotsLimit = resourceStorage.GetResourceAmount(ResourceId.AccountSlots);
+		    
 		    return slotsLimit.Value >= accountStorage.AllAccounts.Count;
 	    }
     }
