@@ -18,7 +18,7 @@ namespace Shop
 	
 		protected override void OnPurchaseCompleted()
 		{
-			_storageOperations.AddVehicle(_vehicle);
+			_storageOperations.Add(_vehicle);
 		}
 
 		protected override void OnPurchaseCanceled()

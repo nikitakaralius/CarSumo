@@ -39,7 +39,7 @@ namespace DataModel.GameData.Vehicles
             }
         }
 
-        public void AddVehicle(VehicleId vehicle)
+        public void Add(VehicleId vehicle)
         {
 	        _boughtVehicles.Add(vehicle);
         }
