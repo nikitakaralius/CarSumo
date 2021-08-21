@@ -31,7 +31,11 @@ namespace Menu.Accounts
 			Account = account;
 			_view.ChangeAccount(Account);
 			
-			_editButton.onClick.AddListener(() => _editorPopup.Open(Account));
+			_editButton.onClick.AddListener(() =>
+			{
+				_editorPopup.Open(Account);
+				_audioPlayer.Play();
+			});
 		}
 
 		protected override void OnButtonSelectedInternal()
