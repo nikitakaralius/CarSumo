@@ -12,6 +12,7 @@ namespace Menu.Tabs
 		[SerializeField] private TMP_Text _title;
 		[SerializeField] private Button _button;
 		[SerializeField] private GameObject _tabFocus;
+		[SerializeField] private GameObject _associatedWindow;
 
 		[Header("Preferences")] 
 		[SerializeField] private Color _selectedColor = Color.white;
@@ -35,6 +36,7 @@ namespace Menu.Tabs
 		{
 			_title.color = selected ? _selectedColor : _defaultColor;
 			_tabFocus.gameObject.SetActive(selected);
+			_associatedWindow.gameObject.SetActive(selected);
 		}
 
 		public IObservable<TabElement> ObserveSelected() => _selectedObserver;

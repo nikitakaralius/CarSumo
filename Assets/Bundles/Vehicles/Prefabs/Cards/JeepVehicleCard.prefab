@@ -133,6 +133,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6348933166303608018, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348933166303608018, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0aff41489ca2441879fe4da19a0b8589, type: 3}
     - target: {fileID: 8014260723648156991, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
       propertyPath: serializationData.Prefab
       value: 
