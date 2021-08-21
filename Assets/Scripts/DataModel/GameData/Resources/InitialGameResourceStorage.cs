@@ -20,7 +20,7 @@ namespace DataModel.GameData.Resources
                 {ResourceId.Energy, new ReactiveProperty<int?>(25)},
                 {ResourceId.Gold, new ReactiveProperty<int?>(null)},
                 {ResourceId.Gems, new ReactiveProperty<int?>(null)},
-                {ResourceId.AccountSlots, new ReactiveProperty<int?>(null)}
+                {ResourceId.AccountSlots, new ReactiveProperty<int?>(16)}
             };
 
             return new GameResourceStorage(amounts, limits);

@@ -11,14 +11,16 @@ namespace Shop
 	{
 		[SerializeField] private IReadOnlyDictionary<ResourceId, int> _prices = new Dictionary<ResourceId, int>();
 		[SerializeField] private IReadOnlyDictionary<ResourceId, TMP_Text> _priceTexts = new Dictionary<ResourceId, TMP_Text>();
-		
-		private IClientResourceOperations _resourceOperations;
 
+		private PurchaseOperation _purchaseOperation = PurchaseOperation.Uninitialized;
+		
 		[Inject]
 		private void Construct(IClientResourceOperations resourceOperations)
 		{
-			_resourceOperations = resourceOperations;
+			ResourceOperations = resourceOperations;
 		}
+
+		protected IClientResourceOperations ResourceOperations { get; private set; }
 
 		private void OnValidate()
 		{
@@ -34,16 +36,29 @@ namespace Shop
 		public void TrySpend(ResourceId resource)
 		{
 			int price = _prices[resource];
-			bool purchaseSuccessful = _resourceOperations.TrySpend(resource, price);
-			
+			bool purchaseSuccessful = ResourceOperations.TrySpend(resource, price);
+
 			if (purchaseSuccessful)
+			{
 				OnPurchaseCompleted();
+				_purchaseOperation = new PurchaseOperation(resource, price);
+			}
 			else
+			{
 				OnPurchaseCanceled();
+			}
 		}
 
 		protected abstract void OnPurchaseCompleted();
 
 		protected abstract void OnPurchaseCanceled();
+
+		protected void MakeRefund()
+		{
+			if (_purchaseOperation.Valid == false)
+				return;
+			
+			ResourceOperations.Receive(_purchaseOperation.Resource, _purchaseOperation.Price);
+		}
 	}
 }

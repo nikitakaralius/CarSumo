@@ -62,6 +62,12 @@ namespace Menu.Accounts
 			    .ObserveAnyAccountValueChanged()
 			    .Subscribe(_ => FillList())
 			    .AddTo(_accountsChangedSubscriptions);
+
+		    _resourceStorage
+			    .GetResourceAmount(ResourceId.AccountSlots)
+			    .Skip(1)
+			    .Subscribe(_ => FillList())
+			    .AddTo(_accountsChangedSubscriptions);
 	    }
 	    
 	    private void OnDestroy()
