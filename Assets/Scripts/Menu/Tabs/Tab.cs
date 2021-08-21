@@ -2,14 +2,16 @@
 using Sirenix.Utilities;
 using UniRx;
 using UnityEngine;
+using Zenject;
 
 namespace Menu.Tabs
 {
 	public class Tab : MonoBehaviour
 	{
 		private readonly CompositeDisposable _subscriptions = new CompositeDisposable();
-		
-		private void Start()
+
+		[Inject]
+		private void Construct()
 		{
 			TabElement[] elements = GetComponentsInChildren<TabElement>();
 			
@@ -23,7 +25,7 @@ namespace Menu.Tabs
 					.AddTo(_subscriptions);
 			}
 		}
-
+		
 		private void OnDestroy() => _subscriptions?.Dispose();
 	}
 }
