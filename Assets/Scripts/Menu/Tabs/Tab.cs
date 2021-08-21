@@ -2,7 +2,6 @@
 using Sirenix.Utilities;
 using UniRx;
 using UnityEngine;
-using Zenject;
 
 namespace Menu.Tabs
 {
@@ -10,8 +9,7 @@ namespace Menu.Tabs
 	{
 		private readonly CompositeDisposable _subscriptions = new CompositeDisposable();
 
-		[Inject]
-		private void Construct()
+		private void Start()
 		{
 			TabElement[] elements = GetComponentsInChildren<TabElement>();
 			
