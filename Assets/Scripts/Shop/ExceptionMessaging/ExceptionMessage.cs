@@ -37,7 +37,10 @@ namespace Shop.ExceptionMessaging
 			PlayAnimation();
 		}
 
-		private void PlayAnimation() =>
+		private void PlayAnimation()
+		{
+			_animation?.Kill();
+			
 			_animation = _rectTransform
 				.DOAnchorPos(_positionTweenData.To, _positionTweenData.Duration)
 				.SetEase(_positionTweenData.Ease)
@@ -48,6 +51,7 @@ namespace Shop.ExceptionMessaging
 						.SetEase(_positionTweenData.Ease)
 						.SetDelay(_timePerMessage);
 				});
+		}
 
 		private void RestoreOriginPosition() =>
 			_rectTransform.anchoredPosition = _positionTweenData.From;

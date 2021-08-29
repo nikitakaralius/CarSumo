@@ -11724,9 +11724,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _messageText: {fileID: 2134060767}
-  _timePerMessage: 3
+  _timePerMessage: 2.4
   _positionTweenData:
-    From: {x: 0, y: -150}
+    From: {x: 0, y: -175}
     To: {x: 0, y: 25}
     Duration: 0.4
     Ease: 19
