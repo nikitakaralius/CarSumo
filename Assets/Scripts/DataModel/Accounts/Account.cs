@@ -24,7 +24,7 @@ namespace CarSumo.DataModel.Accounts
                 return false;
             }
 
-            return Name.Value == other.Name.Value;
+            return string.Equals(Name.Value, other.Name.Value, StringComparison.CurrentCultureIgnoreCase);
         }
     }
 }

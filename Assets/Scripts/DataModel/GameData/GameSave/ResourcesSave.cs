@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using CarSumo.DataModel.GameResources;
 using DataModel.FileData;
-using UnityEngine;
+using UniRx;
 
 namespace DataModel.GameData.GameSave
 {
@@ -10,13 +10,20 @@ namespace DataModel.GameData.GameSave
     {
         private readonly IResourceStorage _storage;
         private readonly IResourcesConfiguration _configuration;
+        private readonly IResourceStorageMessages _storageMessages;
         private readonly IFileService _fileService;
 
-        public ResourcesSave(IResourceStorage storage, IResourcesConfiguration configuration, IFileService fileService)
+        public ResourcesSave(IResourceStorage storage, 
+	        				IResourcesConfiguration configuration,
+	        				IResourceStorageMessages storageMessages,
+	        				IFileService fileService)
         {
             _storage = storage;
             _configuration = configuration;
+            _storageMessages = storageMessages;
             _fileService = fileService;
+
+            _storageMessages.ObserveResourceChanged().Subscribe(_ => Save());
         }
         
         public void Dispose()

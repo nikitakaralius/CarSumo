@@ -3,6 +3,7 @@ using DataModel.FileData;
 using DataModel.GameData.Vehicles;
 using DataModel.Vehicles;
 using UniRx;
+using UnityEngine;
 
 namespace DataModel.GameData.GameSave
 {
@@ -12,16 +13,13 @@ namespace DataModel.GameData.GameSave
         private readonly IVehicleStorageConfiguration _configuration;
         private readonly IAsyncFileService _fileService;
 
-        public VehicleStorageSave(IVehicleStorage storage,
-            IAsyncFileService fileService,
-            IVehicleStorageConfiguration configuration)
+        public VehicleStorageSave(IVehicleStorage storage, IAsyncFileService fileService, IVehicleStorageConfiguration configuration)
         {
             _storage = storage;
             _fileService = fileService;
             _configuration = configuration;
 
-            _storage.BoughtVehicles.ObserveCountChanged().Subscribe(_ => Save());
-            _storage.BoughtVehicles.ObserveReplace().Subscribe(_ => Save());
+            storage.BoughtVehicles.ObserveCountChanged().Subscribe(_ => Save());
         }
 
         public void Dispose()

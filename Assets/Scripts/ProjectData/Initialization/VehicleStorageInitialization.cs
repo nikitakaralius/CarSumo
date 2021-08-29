@@ -4,6 +4,7 @@ using DataModel.FileData;
 using DataModel.GameData.GameSave;
 using DataModel.GameData.Vehicles;
 using DataModel.Vehicles;
+using UnityEngine;
 using Zenject;
 
 namespace Infrastructure.Initialization
@@ -61,10 +62,13 @@ namespace Infrastructure.Initialization
 
         private void BindVehicleStorageSave()
         {
-            _container
+	        _container
                 .Bind<VehicleStorageSave>()
                 .FromNew()
-                .AsSingle();
+                .AsSingle()
+                .NonLazy();
+
+	        _container.Resolve<VehicleStorageSave>();
         }
 
         private void BindVehicleStorageInterfaces(IEnumerable<VehicleId> vehicles)

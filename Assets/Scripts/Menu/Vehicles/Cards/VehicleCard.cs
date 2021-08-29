@@ -9,7 +9,7 @@ namespace Menu.Vehicles.Cards
         [SerializeField] private VehicleId _vehicleId;
 
         public VehicleId VehicleId => _vehicleId;
-        public int DynamicSiblingIndex { get; set; }
+        public int DynamicSiblingIndex { get; private set; }
 
         public void Initialize(IVehicleCardSelectHandler selectHandler)
         {
