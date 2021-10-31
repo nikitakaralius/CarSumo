@@ -15,7 +15,11 @@ namespace Advertisement.Units.Rewarded
 
 		public void Show(RewardedPlacement placement, Action<int> reward)
 		{
-			IronSource.Agent.showRewardedVideo(_placements[placement]);
+			if (_placements.TryGetValue(placement, out var rewarded) == false)
+				throw new ArgumentOutOfRangeException(nameof(placement),
+					"Rewarded Unit does not contain such placement. Make sure it has registered");
+
+			IronSource.Agent.showRewardedVideo(rewarded);
 			_reward = reward;
 		}
 
