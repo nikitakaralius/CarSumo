@@ -16,7 +16,14 @@ namespace Advertisement.Units.Interstitial
 				throw new ArgumentOutOfRangeException(nameof(placement),
 					"Interstitial Unit does not contain such placement. Make sure it has registered");
 			
-			IronSource.Agent.showInterstitial(interstitial);
+			IronSource.Agent.loadInterstitial();
+			IronSourceEvents.onInterstitialAdReadyEvent += ShowInterstitial;
+
+			void ShowInterstitial()
+			{
+				IronSource.Agent.showInterstitial(interstitial);
+				IronSourceEvents.onInterstitialAdReadyEvent -= ShowInterstitial;
+			}
 		}
 	}
 }
