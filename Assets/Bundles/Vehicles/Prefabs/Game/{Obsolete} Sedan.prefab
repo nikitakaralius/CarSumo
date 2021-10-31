@@ -151,6 +151,7 @@ MonoBehaviour:
   _particles: {fileID: 6309682699637172971}
   _engineSound: {fileID: 4239882516229906728}
   _hornSound: {fileID: 458670646008933191}
+  _invertedForwardVector: 1
 --- !u!114 &8504893910184513907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a762c5c962e5d6243a947b14cae0d774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _typeStats: {fileID: 11400000, guid: e4acbf25093df3a4591be422b4b32668, type: 2}
+  _vehiclePreferences: {fileID: 0}
 --- !u!1 &6535506333388847209
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +719,10 @@ PrefabInstance:
     - target: {fileID: 5375901879289308759, guid: 74cf1850fd8c1a44fb14de567c4bf5d7, type: 3}
       propertyPath: m_Name
       value: Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041061198430847512, guid: 74cf1850fd8c1a44fb14de567c4bf5d7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9154900428608613029, guid: 74cf1850fd8c1a44fb14de567c4bf5d7, type: 3}
       propertyPath: m_LocalPosition.y
