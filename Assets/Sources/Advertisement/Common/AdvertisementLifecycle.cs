@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Advertisement
+namespace Advertisement.Common
 {
 	public class AdvertisementLifecycle : MonoBehaviour
 	{

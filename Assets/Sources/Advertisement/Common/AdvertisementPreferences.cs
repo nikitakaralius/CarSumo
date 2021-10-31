@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Advertisement
+namespace Advertisement.Common
 {
 	[CreateAssetMenu(fileName = "AdvertisementPreferences", menuName = "Advertisement/Preferences")]
 	public class AdvertisementPreferences : ScriptableObject
