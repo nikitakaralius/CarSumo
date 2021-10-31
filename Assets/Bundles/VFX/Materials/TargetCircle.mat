@@ -112,7 +112,7 @@ Material:
     - _RotationSpeed: 10
     - _ScaleAmplitude: 0.11
     - _ScaleBias: 1
-    - _ScaleSpeed: 2
+    - _ScaleSpeed: 3
     - _SizeAmplitude: 0.1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
