@@ -110,6 +110,10 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RotationSpeed: 10
+    - _ScaleAmplitude: 0.11
+    - _ScaleBias: 1
+    - _ScaleSpeed: 2
+    - _SizeAmplitude: 0.1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 0

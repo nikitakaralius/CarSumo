@@ -6,6 +6,9 @@ Shader "Custom/TargetCircle"
         _Color ("Color", Color) = (1, 1, 1, 1)
         _CutOff("Cut off", Range(0, 1)) = 0
         _RotationSpeed("Rotation Speed", Float) = 1
+        _ScaleAmplitude("Size Amplitude", Float) = 1
+        _ScaleSpeed("Scale Speed", Float) = 1
+        _ScaleBias("Scale Bias", Float) = 1
     }
     SubShader
     {
@@ -35,13 +38,16 @@ Shader "Custom/TargetCircle"
             fixed4 _Color;
             half _CutOff;
             float _RotationSpeed;
+            half _ScaleAmplitude;
+            half _ScaleSpeed;
+            half _ScaleBias;
 
             float2 rotateUv(float2 uv, float2 pivot, float speed)
             {
-                float cosAngle = cos(speed * _Time);
-                float sinAngle = sin(speed * _Time);
+                const float cos_angle = cos(speed * _Time);
+                const float sin_angle = sin(speed * _Time);
 
-                float2x2 rotation = float2x2(cosAngle, -sinAngle, sinAngle, cosAngle);
+                const float2x2 rotation = float2x2(cos_angle, -sin_angle, sin_angle, cos_angle);
 
                 float2 rotatedUv = uv - pivot;
                 rotatedUv = mul(rotation, rotatedUv);
@@ -49,11 +55,19 @@ Shader "Custom/TargetCircle"
 
                 return rotatedUv;
             }
+
+            float4 scaleVertex(float4 vertex)
+            {
+                return vertex * abs(cos(_Time.y * _ScaleSpeed) * _ScaleAmplitude + _ScaleBias);
+            }
             
             v2f vert (appdata v)
             {
                 v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
+
+                const float4 vertex = scaleVertex(v.vertex);
+                
+                o.vertex = UnityObjectToClipPos(vertex);
                 o.uv = rotateUv(v.uv, 0.5, _RotationSpeed);
                 
                 return o;
