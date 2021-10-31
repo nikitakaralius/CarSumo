@@ -28,6 +28,7 @@ namespace Infrastructure.Installers.Bootstrap
             AccountsInstaller.Install(Container);
             ResourcesInstaller.Install(Container);
             StateMachineInstaller.Install(Container);
+            AdvertisementInstaller.Install(Container);
         }
 
         private void BindProjectInitialization()
