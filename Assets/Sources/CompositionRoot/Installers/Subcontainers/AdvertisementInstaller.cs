@@ -8,9 +8,17 @@ namespace Infrastructure.Installers.SubContainers
 		public override void InstallBindings()
 		{
 			BindRewardedUnit();
+			BindInterstitialUnit();
 		}
 
 		private void BindRewardedUnit()
+		{
+			Container
+				.BindInterfacesTo<IronSourceRewardedUnit>()
+				.AsSingle();
+		}
+
+		private void BindInterstitialUnit()
 		{
 			Container
 				.BindInterfacesTo<IronSourceRewardedUnit>()
