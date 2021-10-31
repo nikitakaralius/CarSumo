@@ -2,6 +2,7 @@
 using AdvancedAudioSystem;
 using AdvancedAudioSystem.Emitters;
 using CarSumo.DataModel.GameResources;
+using Shop.ExceptionMessaging;
 using Shop.Extensions;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -21,12 +22,14 @@ namespace Shop
 		[SerializeField] private AudioCue _canceledCue;
 
 		private ISoundEmitter _soundEmitter;
+		private IExceptionMessage _exceptionMessage;
 
 		[Inject]
-		private void Construct(IClientResourceOperations resourceOperations, ISoundEmitter soundEmitter)
+		private void Construct(IClientResourceOperations resourceOperations, ISoundEmitter soundEmitter, IExceptionMessage exceptionMessage)
 		{
 			ResourceOperations = resourceOperations;
 			_soundEmitter = soundEmitter;
+			_exceptionMessage = exceptionMessage;
 		}
 
 		protected IClientResourceOperations ResourceOperations { get; private set; }
@@ -60,7 +63,7 @@ namespace Shop
 				operation.Rollback(ResourceOperations);
 
 			OnPurchaseCanceled(validatedPurchase);
-			OnPurchaseCanceledInternal();
+			OnPurchaseCanceledInternal(validatedPurchase);
 		}
 
 		protected abstract Purchase ValidatePurchase();
@@ -69,10 +72,13 @@ namespace Shop
 
 		protected abstract void OnPurchaseCanceled(Purchase purchase);
 
-		private void OnPurchaseCompletedInternal()
-			=> _soundEmitter.Play(_purchasedCue);
+		private void OnPurchaseCompletedInternal() => 
+			_soundEmitter.Play(_purchasedCue);
 
-		private void OnPurchaseCanceledInternal()
-			=> _soundEmitter.Play(_canceledCue);
+		private void OnPurchaseCanceledInternal(Purchase purchase)
+		{
+			_soundEmitter.Play(_canceledCue);
+			_exceptionMessage.Show(purchase.ExceptionMessage);
+		}
 	}
 }
