@@ -48,37 +48,40 @@ namespace Shop
 		public void TrySpend(ResourceId resource)
 		{
 			int price = _prices[resource];
-			bool purchaseSuccessful = ResourceOperations.TrySpend(resource, price);
+			bool hasResources = ResourceOperations.TrySpend(resource, price);
+			
 			PurchaseOperation operation = new PurchaseOperation(resource, price);
-
-			Purchase validatedPurchase = ValidatePurchase();
-			if (purchaseSuccessful && validatedPurchase.IsValid)
+			Bargain validatedBargain = Validate();
+			
+			if (hasResources && validatedBargain.IsValid)
 			{
 				OnPurchaseCompleted();
 				OnPurchaseCompletedInternal();
 				return;
 			}
 
-			if (purchaseSuccessful)
+			if (HadResourcesButPurchaseIsNotValid())
 				operation.Rollback(ResourceOperations);
 
-			OnPurchaseCanceled(validatedPurchase);
-			OnPurchaseCanceledInternal(validatedPurchase);
+			OnPurchaseCanceled(validatedBargain);
+			OnPurchaseCanceledInternal(validatedBargain);
+
+			bool HadResourcesButPurchaseIsNotValid() => hasResources;
 		}
 
-		protected abstract Purchase ValidatePurchase();
+		protected abstract Bargain Validate();
 
 		protected abstract void OnPurchaseCompleted();
 
-		protected abstract void OnPurchaseCanceled(Purchase purchase);
+		protected abstract void OnPurchaseCanceled(Bargain bargain);
 
 		private void OnPurchaseCompletedInternal() => 
 			_soundEmitter.Play(_purchasedCue);
 
-		private void OnPurchaseCanceledInternal(Purchase purchase)
+		private void OnPurchaseCanceledInternal(Bargain bargain)
 		{
 			_soundEmitter.Play(_canceledCue);
-			_exceptionMessage.Show(purchase.ExceptionMessage);
+			_exceptionMessage.Show(bargain.ExceptionMessage);
 		}
 	}
 }

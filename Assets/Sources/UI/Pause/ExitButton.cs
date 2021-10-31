@@ -30,7 +30,7 @@ namespace UI.Pause
         private void EnterMenu()
         {
             _audioPlayer.Play();
-            _stateMachine.Enter<MenuEntryState>();
+            _stateMachine.Enter<AdvertisedMenuEntryState>();
         }
     }
 }

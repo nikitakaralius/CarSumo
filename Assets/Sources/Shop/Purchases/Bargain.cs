@@ -1,23 +1,23 @@
 ﻿namespace Shop
 {
-	public readonly struct Purchase
+	public readonly struct Bargain
 	{
 		public string ExceptionMessage { get; }
 		
 		public bool IsValid { get; }
 
-		public Purchase(string exceptionMessage)
+		public Bargain(string exceptionMessage)
 		{
 			ExceptionMessage = exceptionMessage;
 			IsValid = false;
 		}
 		
-		private Purchase(string exceptionMessage, bool isValid)
+		private Bargain(string exceptionMessage, bool isValid)
 		{
 			ExceptionMessage = exceptionMessage;
 			IsValid = isValid;
 		}
 
-		public static Purchase Valid => new Purchase(string.Empty, true);
+		public static Bargain Valid => new Bargain(string.Empty, true);
 	}
 }
