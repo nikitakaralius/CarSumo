@@ -1,4 +1,5 @@
-﻿using Advertisement.Units.Rewarded;
+﻿using Advertisement.Units.Interstitial;
+using Advertisement.Units.Rewarded;
 using Zenject;
 
 namespace Infrastructure.Installers.SubContainers
@@ -21,7 +22,7 @@ namespace Infrastructure.Installers.SubContainers
 		private void BindInterstitialUnit()
 		{
 			Container
-				.BindInterfacesTo<IronSourceRewardedUnit>()
+				.BindInterfacesTo<IronSourceInterstitialUnit>()
 				.AsSingle();
 		}
 	}
