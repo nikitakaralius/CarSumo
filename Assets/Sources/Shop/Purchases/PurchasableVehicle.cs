@@ -17,9 +17,9 @@ namespace Shop
 			_storageOperations = storageOperations;
 		}
 
-		protected override Purchase ValidatePurchase()
+		protected override Bargain Validate()
 		{
-			return Purchase.Valid;
+			return Bargain.Valid;
 		}
 
 		protected override void OnPurchaseCompleted()
@@ -27,7 +27,7 @@ namespace Shop
 			_storageOperations.Add(_vehicle);
 		}
 
-		protected override void OnPurchaseCanceled(Purchase purchase)
+		protected override void OnPurchaseCanceled(Bargain bargain)
 		{
 			
 		}

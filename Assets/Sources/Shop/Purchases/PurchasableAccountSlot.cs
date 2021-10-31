@@ -21,7 +21,7 @@ namespace Shop
 
 		private void OnValidate() => _countText.text = $"{_amount}";
 
-		protected override Purchase ValidatePurchase()
+		protected override Bargain Validate()
 		{
 			int slotsAmount = _resourceStorage.GetResourceAmount(ResourceId.AccountSlots).Value;
 			int? slotsLimit = _resourceStorage.GetResourceLimit(ResourceId.AccountSlots).Value;
@@ -30,8 +30,8 @@ namespace Shop
 				throw new InvalidOperationException("Slots limit must be specified");
 
 			return slotsAmount + _amount <= slotsLimit
-				? Purchase.Valid
-				: new Purchase($"The slot limit has been reached. Maximum number of slots is {slotsLimit}");
+				? Bargain.Valid
+				: new Bargain($"The slot limit has been reached. Maximum number of slots is {slotsLimit}");
 		}
 
 		protected override void OnPurchaseCompleted()
@@ -39,9 +39,9 @@ namespace Shop
 			ResourceOperations.Receive(ResourceId.AccountSlots, _amount);
 		}
 
-		protected override void OnPurchaseCanceled(Purchase purchase)
+		protected override void OnPurchaseCanceled(Bargain bargain)
 		{
-			Debug.Log(purchase.ExceptionMessage);
+			Debug.Log(bargain.ExceptionMessage);
 		}
 	}
 }

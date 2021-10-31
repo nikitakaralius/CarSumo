@@ -51,9 +51,9 @@ namespace Shop
 			bool hasResources = ResourceOperations.TrySpend(resource, price);
 			
 			PurchaseOperation operation = new PurchaseOperation(resource, price);
-			Purchase validatedPurchase = ValidatePurchase();
+			Bargain validatedBargain = Validate();
 			
-			if (hasResources && validatedPurchase.IsValid)
+			if (hasResources && validatedBargain.IsValid)
 			{
 				OnPurchaseCompleted();
 				OnPurchaseCompletedInternal();
@@ -63,25 +63,25 @@ namespace Shop
 			if (HadResourcesButPurchaseIsNotValid())
 				operation.Rollback(ResourceOperations);
 
-			OnPurchaseCanceled(validatedPurchase);
-			OnPurchaseCanceledInternal(validatedPurchase);
+			OnPurchaseCanceled(validatedBargain);
+			OnPurchaseCanceledInternal(validatedBargain);
 
 			bool HadResourcesButPurchaseIsNotValid() => hasResources;
 		}
 
-		protected abstract Purchase ValidatePurchase();
+		protected abstract Bargain Validate();
 
 		protected abstract void OnPurchaseCompleted();
 
-		protected abstract void OnPurchaseCanceled(Purchase purchase);
+		protected abstract void OnPurchaseCanceled(Bargain bargain);
 
 		private void OnPurchaseCompletedInternal() => 
 			_soundEmitter.Play(_purchasedCue);
 
-		private void OnPurchaseCanceledInternal(Purchase purchase)
+		private void OnPurchaseCanceledInternal(Bargain bargain)
 		{
 			_soundEmitter.Play(_canceledCue);
-			_exceptionMessage.Show(purchase.ExceptionMessage);
+			_exceptionMessage.Show(bargain.ExceptionMessage);
 		}
 	}
 }
