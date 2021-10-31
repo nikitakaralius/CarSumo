@@ -48,22 +48,25 @@ namespace Shop
 		public void TrySpend(ResourceId resource)
 		{
 			int price = _prices[resource];
-			bool purchaseSuccessful = ResourceOperations.TrySpend(resource, price);
+			bool hasResources = ResourceOperations.TrySpend(resource, price);
+			
 			PurchaseOperation operation = new PurchaseOperation(resource, price);
-
 			Purchase validatedPurchase = ValidatePurchase();
-			if (purchaseSuccessful && validatedPurchase.IsValid)
+			
+			if (hasResources && validatedPurchase.IsValid)
 			{
 				OnPurchaseCompleted();
 				OnPurchaseCompletedInternal();
 				return;
 			}
 
-			if (purchaseSuccessful)
+			if (HadResourcesButPurchaseIsNotValid())
 				operation.Rollback(ResourceOperations);
 
 			OnPurchaseCanceled(validatedPurchase);
 			OnPurchaseCanceledInternal(validatedPurchase);
+
+			bool HadResourcesButPurchaseIsNotValid() => hasResources;
 		}
 
 		protected abstract Purchase ValidatePurchase();
