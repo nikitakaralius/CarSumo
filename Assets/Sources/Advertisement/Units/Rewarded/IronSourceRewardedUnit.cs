@@ -8,7 +8,8 @@ namespace Advertisement.Units.Rewarded
 	{
 		private readonly Dictionary<RewardedPlacement, string> _placements = new Dictionary<RewardedPlacement, string>()
 		{
-			{RewardedPlacement.ExtraAccountSlot, "ExtraSlot_Store"}
+			{RewardedPlacement.ExtraAccountSlot, "ExtraSlot_Store"},
+			{RewardedPlacement.ExtraEnergy, "ExtraEnergy_Store"}
 		};
 
 		private Action<int> _reward = null;

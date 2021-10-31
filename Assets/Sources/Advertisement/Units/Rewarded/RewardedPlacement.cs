@@ -2,6 +2,7 @@
 {
 	public enum RewardedPlacement
 	{
-		ExtraAccountSlot
+		ExtraAccountSlot,
+		ExtraEnergy
 	}
 }
