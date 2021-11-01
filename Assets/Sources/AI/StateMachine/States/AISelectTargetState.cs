@@ -16,10 +16,13 @@ namespace AI.StateMachine.States
 
 		private readonly Team _aiTeam;
 		private readonly Team _enemyTeam;
+
+		private readonly PairTransfer _transfer;
 		
-		public AISelectTargetState(IVehicleTracker tracker, Team aiTeam, Team enemyTeam)
+		public AISelectTargetState(IVehicleTracker tracker, PairTransfer transfer, Team aiTeam, Team enemyTeam)
 		{
 			_tracker = tracker;
+			_transfer = transfer;
 			_aiTeam = aiTeam;
 			_enemyTeam = enemyTeam;
 		}
@@ -33,6 +36,8 @@ namespace AI.StateMachine.States
 			VehiclePair closestPair = Pairs(ControlledVehicles, EnemyVehicles)
 				.Closest();
 
+			_transfer.Pair = closestPair;
+			
 			await Task.CompletedTask;
 		}
 
