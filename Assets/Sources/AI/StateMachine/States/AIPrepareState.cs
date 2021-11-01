@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using AI.StateMachine.Common;
 using AI.Structures;
 using CarSumo.Vehicles;
-using CarSumo.Vehicles.Speedometers;
 using UnityEngine;
 
 namespace AI.StateMachine.States
@@ -44,25 +43,20 @@ namespace AI.StateMachine.States
 
 		private async Task ConfigureBoost(CancellationToken token)
 		{
-			AISpeedometer vehicleSpeedometer = new AISpeedometer();
+			var vehicleSpeedometer = new AISpeedometer();
 			ControlledVehicle.Engine.TurnOn(vehicleSpeedometer);
 
 			const float time = 2.0f;
-			float waitOverTime = time + Time.time;
+			float enteredTime = Time.time;
 
-			while (token.IsCancellationRequested == false && Time.time <= waitOverTime)
+			while (token.IsCancellationRequested == false && Time.time <= time + enteredTime)
 			{
-				float percentDone = Time.time / waitOverTime * 100.0f;
+				float percentDone = (Time.time - enteredTime) / time * 100.0f;
 				
 				vehicleSpeedometer.PowerPercentage = percentDone;
 				
 				await Task.Yield();
 			}
 		}
-	}
-
-	public class AISpeedometer : IVehicleSpeedometer
-	{
-		public float PowerPercentage { get; set; }
 	}
 }
