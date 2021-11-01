@@ -23,20 +23,38 @@ namespace AI.StateMachine.States
 		
 		public async Task DoAsync(CancellationToken token)
 		{
+			await Task.WhenAll(
+				Rotate(token),
+				ConfigureBoost(token));
+		}
+
+		private async Task Rotate(CancellationToken token)
+		{
 			Vector3 direction = ControlledVehicle.transform.forward;
-			AISpeedometer vehicleSpeedometer = new AISpeedometer();
-			
-			ControlledVehicle.Engine.TurnOn(vehicleSpeedometer);
-			
-			
+
 			while (token.IsCancellationRequested == false && direction != TargetDirection)
 			{
 				direction = Vector3.MoveTowards(direction, TargetDirection, Time.deltaTime);
 
-				vehicleSpeedometer.PowerPercentage =
-					Mathf.Lerp(vehicleSpeedometer.PowerPercentage, 100, Time.deltaTime);
-				
 				ControlledVehicle.Rotation.RotateBy(direction);
+
+				await Task.Yield();
+			}
+		}
+
+		private async Task ConfigureBoost(CancellationToken token)
+		{
+			AISpeedometer vehicleSpeedometer = new AISpeedometer();
+			ControlledVehicle.Engine.TurnOn(vehicleSpeedometer);
+
+			const float time = 2.0f;
+			float waitOverTime = time + Time.time;
+
+			while (token.IsCancellationRequested == false && Time.time <= waitOverTime)
+			{
+				float percentDone = Time.time / waitOverTime * 100.0f;
+				
+				vehicleSpeedometer.PowerPercentage = percentDone;
 				
 				await Task.Yield();
 			}
