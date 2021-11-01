@@ -18,12 +18,12 @@ namespace AI.StateMachine.States
 		private Vector3 TargetDirection => _transfer.Pair.Direction * -1;
 		private Vehicle ControlledVehicle => _transfer.Pair.Controlled;
 
-		public Task DoAsync()
+		public async Task DoAsync()
 		{
 			ControlledVehicle.Rotation.RotateBy(TargetDirection);
 			ControlledVehicle.Engine.SpeedUp(1);
 			
-			return Task.CompletedTask;
+			await Task.CompletedTask;
 		}
 	}
 }
