@@ -8652,7 +8652,7 @@ MonoBehaviour:
   _associatedWindow: {fileID: 1845897750}
   _selectedColor: {r: 1, g: 1, b: 1, a: 1}
   _defaultColor: {r: 0.2901961, g: 0.6745098, b: 0.96862745, a: 1}
-  _selectedOnStart: 1
+  _selectedOnStart: 0
 --- !u!114 &714799853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8683,7 +8683,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.2901961, g: 0.6745098, b: 0.96862745, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16113,7 +16113,7 @@ GameObject:
   - component: {fileID: 1450065121}
   - component: {fileID: 1450065120}
   m_Layer: 5
-  m_Name: WatchAddButton
+  m_Name: WatchAdButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17939,7 +17939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1588763486
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20525,7 +20525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1845897751
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22870,7 +22870,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Watch Add
+  m_text: Watch Ad
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
   m_sharedMaterial: {fileID: 3074828514974314926, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
