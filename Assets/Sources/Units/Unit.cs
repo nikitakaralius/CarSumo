@@ -26,6 +26,8 @@ namespace CarSumo.Units
 		    var worldPlacement = new WorldPlacement(transform.position, -transform.forward);
 		    vehicle.Initialize(_team, worldPlacement, () => _trackerOperations.Remove(this));
 		    _trackerOperations.Add(this);
+		    
+		    vehicle.transform.SetParent(transform);
 	    }
     }
 }
