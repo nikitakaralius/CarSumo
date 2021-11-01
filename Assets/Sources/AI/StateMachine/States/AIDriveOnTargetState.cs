@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using AI.StateMachine.Common;
 using AI.Structures;
 using CarSumo.Vehicles;
@@ -16,7 +17,7 @@ namespace AI.StateMachine.States
 		
 		private Vehicle ControlledVehicle => _transfer.Pair.Controlled;
 
-		public async Task DoAsync()
+		public async Task DoAsync(CancellationToken token)
 		{
 			ControlledVehicle.Engine.SpeedUp(1);
 			

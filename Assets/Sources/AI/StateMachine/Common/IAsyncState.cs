@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace AI.StateMachine.Common
 {
 	public interface IAsyncState
 	{
-		Task DoAsync();
+		Task DoAsync(CancellationToken token);
 	}
 }

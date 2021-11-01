@@ -19,7 +19,7 @@ namespace AI.StateMachine.Common
 				if (token.IsCancellationRequested)
 					return;
 				
-				await state.DoAsync();
+				await state.DoAsync(token);
 			}
 		}
 	}

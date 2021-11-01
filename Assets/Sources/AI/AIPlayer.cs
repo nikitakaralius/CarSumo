@@ -32,7 +32,7 @@ namespace Sources.AI
 				new AIPrepareState(transfer),
 				new AIThinkDelayState(_thinkMillisecondsDelay),
 				new AIDriveOnTargetState(transfer),
-				new AICompleteMoveState(teamChange, transfer, _source.Token)
+				new AICompleteMoveState(teamChange, transfer)
 			});
 
 			teamPresenter.ActiveTeam.Subscribe(team =>

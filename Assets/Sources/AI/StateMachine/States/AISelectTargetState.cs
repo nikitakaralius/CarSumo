@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using AI.Extensions;
 using AI.StateMachine.Common;
@@ -31,7 +32,7 @@ namespace AI.StateMachine.States
 
 		private IEnumerable<Vehicle> EnemyVehicles => _tracker.VehiclesBy(_enemyTeam);
 
-		public async Task DoAsync()
+		public async Task DoAsync(CancellationToken token)
 		{
 			VehiclePair closestPair = Pairs(ControlledVehicles, EnemyVehicles)
 				.Closest();

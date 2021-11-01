@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using AI.StateMachine.Common;
 
 namespace AI.StateMachine.States
@@ -12,9 +13,9 @@ namespace AI.StateMachine.States
 			_millisecondsDelay = millisecondsDelay;
 		}
 
-		public async Task DoAsync()
+		public async Task DoAsync(CancellationToken token)
 		{
-			await Task.Delay(_millisecondsDelay);
+			await Task.Delay(_millisecondsDelay, token);
 		}
 	}
 }

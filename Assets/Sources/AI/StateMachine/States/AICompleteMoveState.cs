@@ -13,32 +13,25 @@ namespace AI.StateMachine.States
 
 		private readonly ITeamChange _teamChange;
 		private readonly PairTransfer _transfer;
-
-		private readonly CancellationToken _token;
 		
-		public AICompleteMoveState(ITeamChange teamChange, PairTransfer transfer, CancellationToken token)
+		public AICompleteMoveState(ITeamChange teamChange, PairTransfer transfer)
 		{
 			_teamChange = teamChange;
 			_transfer = transfer;
-			_token = token;
 		}
 
 		private Vehicle ControlledVehicle => _transfer.Pair.Controlled;
 
-		private bool IsMoving => 
-			_token.IsCancellationRequested == false
-			&& ControlledVehicle.Engine.Stopped == false;
+		private bool IsMoving => ControlledVehicle.Engine.Stopped == false;
 
-		public async Task DoAsync()
+		public async Task DoAsync(CancellationToken token)
 		{
-			await Task.Delay(DelayBeforeChecking, _token);
+			await Task.Delay(DelayBeforeChecking, token);
 			
-			while (IsMoving)
-			{
+			while (token.IsCancellationRequested == false && IsMoving) 
 				await Task.Yield();
-			}
-			
-			if (_token.IsCancellationRequested)
+
+			if (token.IsCancellationRequested)
 				return;
 
 			ControlledVehicle.Engine.TurnOff();
