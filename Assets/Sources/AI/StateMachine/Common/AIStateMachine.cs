@@ -11,10 +11,10 @@ namespace AI.StateMachine.Common
 			_states = states;
 		}
 
-		public async void Run()
+		public async void RunAsync()
 		{
 			foreach (IAsyncState state in _states) 
-				await state.Do();
+				await state.DoAsync();
 		}
 	}
 }

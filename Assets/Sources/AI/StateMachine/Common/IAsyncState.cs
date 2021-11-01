@@ -4,6 +4,6 @@ namespace AI.StateMachine.Common
 {
 	public interface IAsyncState
 	{
-		Task Do();
+		Task DoAsync();
 	}
 }
