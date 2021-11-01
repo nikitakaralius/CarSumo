@@ -30,6 +30,7 @@ namespace AI.StateMachine.States
 				await Task.Yield();
 			}
 			
+			ControlledVehicle.Engine.TurnOff();
 			_teamChange.ChangeOnNextTeam();
 		}
 	}

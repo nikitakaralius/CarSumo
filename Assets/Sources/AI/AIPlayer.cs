@@ -28,6 +28,8 @@ namespace Sources.AI
 			{
 				new AIThinkDelayState(_thinkMillisecondsDelay),
 				new AISelectTargetState(tracker, transfer, BotTeam, EnemyTeam),
+				new AIPrepareState(transfer),
+				new AIThinkDelayState(_thinkMillisecondsDelay),
 				new AIDriveOnTargetState(transfer),
 				new AICompleteMoveState(teamChange, transfer)
 			});
