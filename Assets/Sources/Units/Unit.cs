@@ -20,6 +20,8 @@ namespace CarSumo.Units
 	    }
 	    
 	    public Team Team => _team;
+	    
+	    public Vehicle Vehicle { get; private set; }
 
 	    public void InitializeVehicleBySelf(Vehicle vehicle)
 	    {
@@ -28,6 +30,8 @@ namespace CarSumo.Units
 		    _trackerOperations.Add(this);
 		    
 		    vehicle.transform.SetParent(transform);
+
+		    Vehicle = vehicle;
 	    }
     }
 }

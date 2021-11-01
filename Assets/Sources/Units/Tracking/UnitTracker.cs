@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CarSumo.Teams;
+using CarSumo.Vehicles;
 using UniRx;
 
 namespace CarSumo.Units.Tracking
 {
-	public class UnitTracker : IUnitTracker, IUnitTrackerOperations
+	public class UnitTracker : IUnitTracker, IUnitTrackerOperations, IVehicleTracker
 	{
 		private readonly Dictionary<Team, ReactiveProperty<int>> _unitsCount;
+		private readonly Dictionary<Team, List<IUnit>> _units;
 
 		public UnitTracker()
 		{
@@ -15,6 +18,12 @@ namespace CarSumo.Units.Tracking
 			{
 				{Team.Blue, new ReactiveProperty<int>(0)},
 				{Team.Red, new ReactiveProperty<int>(0)}
+			};
+
+			_units = new Dictionary<Team, List<IUnit>>()
+			{
+				{Team.Blue, new List<IUnit>()},
+				{Team.Red, new List<IUnit>()}
 			};
 		}
 		
@@ -35,6 +44,8 @@ namespace CarSumo.Units.Tracking
 			{
 				_unitsCount[key] = new ReactiveProperty<int>(1);
 			}
+			
+			_units[key].Add(unit);
 		}
 
 		public void Remove(IUnit unit)
@@ -52,6 +63,12 @@ namespace CarSumo.Units.Tracking
 			}
 
 			count.Value--;
+			_units[key].Remove(unit);
+		}
+
+		public IEnumerable<Vehicle> VehiclesBy(Team team)
+		{
+			return _units[team].Select(x => x.Vehicle);
 		}
 	}
 }
