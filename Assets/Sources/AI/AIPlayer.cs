@@ -16,15 +16,13 @@ namespace Sources.AI
 		
 		private const Team BotTeam = Team.Blue;
 		private const Team EnemyTeam = Team.Red;
-
-		private AIStateMachine _stateMachine;
-
+		
 		[Inject]
 		private void Construct(ITeamChange teamChange, IVehicleTracker tracker, ITeamPresenter teamPresenter)
 		{
 			var transfer = new PairTransfer();
 
-			_stateMachine = new AIStateMachine(new IAsyncState[]
+			var stateMachine = new AIStateMachine(new IAsyncState[]
 			{
 				new AIThinkDelayState(_thinkMillisecondsDelay),
 				new AISelectTargetState(tracker, transfer, BotTeam, EnemyTeam),
@@ -37,7 +35,7 @@ namespace Sources.AI
 			teamPresenter.ActiveTeam.Subscribe(team =>
 			{
 				if (team == BotTeam)
-					_stateMachine.RunAsync();
+					stateMachine.RunAsync();
 			});
 		}
 	}
