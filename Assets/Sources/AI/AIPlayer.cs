@@ -12,11 +12,13 @@ namespace Sources.AI
 {
 	public class AIPlayer : MonoBehaviour
 	{
+		[SerializeField] private int _thinkMillisecondsDelay;
+		
 		private const Team BotTeam = Team.Blue;
 		private const Team EnemyTeam = Team.Red;
 
 		private AIStateMachine _stateMachine;
-		
+
 		[Inject]
 		private void Construct(ITeamChange teamChange, IVehicleTracker tracker, ITeamPresenter teamPresenter)
 		{
@@ -24,6 +26,7 @@ namespace Sources.AI
 
 			_stateMachine = new AIStateMachine(new IAsyncState[]
 			{
+				new AIThinkDelayState(_thinkMillisecondsDelay),
 				new AISelectTargetState(tracker, transfer, BotTeam, EnemyTeam),
 				new AIDriveOnTargetState(transfer),
 				new AICompleteMoveState(teamChange, transfer)
