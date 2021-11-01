@@ -4,16 +4,16 @@ namespace AI.StateMachine.Common
 {
 	public class AIStateMachine
 	{
-		private readonly IEnumerable<IAsyncState> _states;
+		private readonly IEnumerable<IAsyncState> _sequence;
 
-		public AIStateMachine(IEnumerable<IAsyncState> states)
+		public AIStateMachine(IEnumerable<IAsyncState> sequence)
 		{
-			_states = states;
+			_sequence = sequence;
 		}
 
 		public async void RunAsync()
 		{
-			foreach (IAsyncState state in _states) 
+			foreach (IAsyncState state in _sequence) 
 				await state.DoAsync();
 		}
 	}
