@@ -23,7 +23,7 @@ namespace Sources.AI
 		private readonly CancellationTokenSource _source = new CancellationTokenSource();
 		
 		[Inject]
-		private void Construct(ITeamChange teamChange, IVehicleTracker tracker, ITeamPresenter teamPresenter)
+		private void Construct(ITeamChange teamChange, IVehicleTracker tracker, ITeamPresenter teamPresenter, IAsyncTimeOperationPerformer performer)
 		{
 			var transfer = new PairTransfer();
 
@@ -31,7 +31,7 @@ namespace Sources.AI
 			{
 				new AIThinkDelayState(_thinkMillisecondsDelay),
 				new AISelectTargetState(tracker, transfer, BotTeam, EnemyTeam),
-				new AIPrepareState(transfer, new UnityAsyncTimeOperationPerformer(), _prepareDuration),
+				new AIPrepareState(transfer, performer, _prepareDuration),
 				new AIThinkDelayState(_thinkMillisecondsDelay),
 				new AIDriveOnTargetState(transfer),
 				new AICompleteMoveState(teamChange, transfer)

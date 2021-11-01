@@ -3,6 +3,7 @@ using Game;
 using Infrastructure.Installers.Factories;
 using Infrastructure.Installers.SubContainers;
 using Services.Timer;
+using Sources.BaseData.Operations;
 using UnityEngine;
 using Zenject;
 
@@ -18,6 +19,7 @@ namespace Infrastructure.Installers.Game
             BindTimer();
             BindCoroutineExecutor();
             BindWinTrackerInterfaces();
+            BindAsyncOperationPerformer();
             ProcessSubContainers();
         }
 
@@ -57,6 +59,13 @@ namespace Infrastructure.Installers.Game
 	        Container
 		        .BindInterfacesAndSelfTo<WinTracker>()
 		        .AsSingle();
+        }
+
+        private void BindAsyncOperationPerformer()
+        {
+            Container
+                .BindInterfacesAndSelfTo<UnityAsyncTimeOperationPerformer>()
+                .AsSingle();
         }
     }
 }
