@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using AI.Structures;
 using CarSumo.Teams;
 using CarSumo.Teams.TeamChanging;
 using CarSumo.Units.Tracking;
@@ -29,7 +30,7 @@ namespace Sources.AI
 		{
 			VehiclePair closestPair = Pairs(_vehicleTracker.VehiclesBy(BotTeam),
 				_vehicleTracker.VehiclesBy(EnemyTeam))
-				.OrderBy(x => x.Distance)
+				.OrderBy(x => x.SqrDistance)
 				.First();
 
 			closestPair.Controlled.Rotation.RotateBy(-closestPair.Direction);
@@ -42,22 +43,6 @@ namespace Sources.AI
 			return controlled
 				.SelectMany(controlledVehicle => enemy, (controlledVehicle, enemyVehicle) =>
 						new VehiclePair(controlledVehicle, enemyVehicle));
-		}
-
-		private readonly struct VehiclePair
-		{
-			public readonly Vehicle Controlled;
-			public readonly Vehicle Target;
-
-			public VehiclePair(Vehicle controlled, Vehicle target)
-			{
-				Controlled = controlled;
-				Target = target;
-			}
-
-			public float Distance => (Target.transform.position - Controlled.transform.position).magnitude;
-
-			public Vector3 Direction => (Target.transform.position - Controlled.transform.position).normalized;
 		}
 	}
 }
