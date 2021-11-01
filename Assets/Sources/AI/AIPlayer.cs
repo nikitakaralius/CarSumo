@@ -4,12 +4,13 @@ using AI.Structures;
 using CarSumo.Teams;
 using CarSumo.Teams.TeamChanging;
 using CarSumo.Units.Tracking;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
 namespace Sources.AI
 {
-	public class BotPrototype : MonoBehaviour
+	public class AIPlayer : MonoBehaviour
 	{
 		private const Team BotTeam = Team.Blue;
 		private const Team EnemyTeam = Team.Red;
@@ -17,7 +18,7 @@ namespace Sources.AI
 		private AIStateMachine _stateMachine;
 		
 		[Inject]
-		private void Construct(ITeamChange teamChange, IVehicleTracker tracker)
+		private void Construct(ITeamChange teamChange, IVehicleTracker tracker, ITeamPresenter teamPresenter)
 		{
 			var transfer = new PairTransfer();
 
@@ -27,12 +28,12 @@ namespace Sources.AI
 				new AIDriveOnTargetState(transfer),
 				new AICompleteMoveState(teamChange, transfer)
 			});
-		}
-		
-		[ContextMenu(nameof(DriveOn))]
-		private void DriveOn()
-		{
-			_stateMachine.RunAsync();
+
+			teamPresenter.ActiveTeam.Subscribe(team =>
+			{
+				if (team == BotTeam)
+					_stateMachine.RunAsync();
+			});
 		}
 	}
 }
