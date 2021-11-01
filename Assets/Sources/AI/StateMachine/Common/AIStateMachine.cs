@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 
 namespace AI.StateMachine.Common
 {
@@ -11,10 +12,15 @@ namespace AI.StateMachine.Common
 			_sequence = sequence;
 		}
 
-		public async void RunAsync()
+		public async void RunAsync(CancellationToken token)
 		{
-			foreach (IAsyncState state in _sequence) 
+			foreach (IAsyncState state in _sequence)
+			{
+				if (token.IsCancellationRequested)
+					return;
+				
 				await state.DoAsync();
+			}
 		}
 	}
 }

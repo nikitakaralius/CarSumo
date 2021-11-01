@@ -1,4 +1,5 @@
-﻿using AI.StateMachine.Common;
+﻿using System.Threading;
+using AI.StateMachine.Common;
 using AI.StateMachine.States;
 using AI.Structures;
 using CarSumo.Teams;
@@ -16,6 +17,8 @@ namespace Sources.AI
 		
 		private const Team BotTeam = Team.Blue;
 		private const Team EnemyTeam = Team.Red;
+
+		private readonly CancellationTokenSource _source = new CancellationTokenSource();
 		
 		[Inject]
 		private void Construct(ITeamChange teamChange, IVehicleTracker tracker, ITeamPresenter teamPresenter)
@@ -29,14 +32,19 @@ namespace Sources.AI
 				new AIPrepareState(transfer),
 				new AIThinkDelayState(_thinkMillisecondsDelay),
 				new AIDriveOnTargetState(transfer),
-				new AICompleteMoveState(teamChange, transfer)
+				new AICompleteMoveState(teamChange, transfer, _source.Token)
 			});
 
 			teamPresenter.ActiveTeam.Subscribe(team =>
 			{
 				if (team == BotTeam)
-					stateMachine.RunAsync();
+					stateMachine.RunAsync(_source.Token);
 			});
+		}
+
+		private void OnDisable()
+		{
+			_source.Cancel();
 		}
 	}
 }
