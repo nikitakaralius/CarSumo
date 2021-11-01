@@ -8,7 +8,7 @@ namespace AI.Extensions
 	{
 		public static VehiclePair Closest(this IEnumerable<VehiclePair> pairs)
 		{
-			VehiclePair closest = pairs.First();
+			VehiclePair closest = pairs.FirstOrDefault();
 
 			foreach (VehiclePair pair in pairs)
 			{
