@@ -12,27 +12,30 @@ namespace AI
 {
 	public class AIPlayer : MonoBehaviour
 	{
-		[SerializeField] private int _thinkMillisecondsDelay;
-		[SerializeField] private float _prepareDuration;
-		
 		private const Team BotTeam = Team.Blue;
 		private const Team EnemyTeam = Team.Red;
 		
+		private AIStateMachine _stateMachine;
+
 		[Inject]
 		private void Construct(ITeamChange teamChange, IVehicleTracker tracker, ITeamPresenter teamPresenter, IAsyncTimeOperationPerformer performer)
 		{
-			AIStateMachine stateMachine = new AIStateMachine(new IAIState[]
+			_stateMachine = new AIStateMachine(new IAIState[]
 			{
 				new AISelectTargetState(tracker, BotTeam, EnemyTeam),
-				new AITestState()
+				new AIPrepareState()
 			});
 
 			teamPresenter.ActiveTeam.Subscribe(team =>
 			{
 				if (team == BotTeam)
-					stateMachine.Enter<AISelectTargetState>();
-
+					_stateMachine.Enter<AISelectTargetState>();
 			});
+		}
+
+		private void Update()
+		{
+			_stateMachine.Tick(Time.deltaTime);
 		}
 	}
 }

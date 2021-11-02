@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BaseData.Messaging;
+using AI.StateMachine.Messaging;
 using Sirenix.Utilities;
 
 namespace AI.StateMachine.Common
 {
-	public class AIStateMachine : ITickable
+	public class AIStateMachine
 	{
 		private readonly Dictionary<Type, IAIState> _states;
 		
@@ -46,7 +46,7 @@ namespace AI.StateMachine.Common
 
 		public void Tick(float deltaTime)
 		{
-			_tickables.ForEach(x => x.Tick(deltaTime));
+			_tickables.ForEach(x => x.Tick(this, deltaTime));
 		}
 	}
 }

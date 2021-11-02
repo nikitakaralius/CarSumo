@@ -33,7 +33,7 @@ namespace AI.StateMachine.States
 				.Closest();
 			
 			stateMachine.Transmit(closest);
-			stateMachine.Enter<AITestState>();
+			stateMachine.Enter<AIPrepareState>();
 		}
 
 		private IEnumerable<VehiclePair> Pairs(IEnumerable<Vehicle> controlledVehicles, IEnumerable<Vehicle> enemyVehicles) =>
