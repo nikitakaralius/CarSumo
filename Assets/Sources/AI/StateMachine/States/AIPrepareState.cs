@@ -10,21 +10,21 @@ namespace AI.StateMachine.States
 {
 	public class AIPrepareState : IAsyncState
 	{
-		private readonly PairTransfer _transfer;
+		private readonly IVehiclePairProvider _provider;
 		private readonly IAsyncTimeOperationPerformer _performer;
 		private readonly float _duration;
 
-		public AIPrepareState(PairTransfer transfer, IAsyncTimeOperationPerformer performer, float duration)
+		public AIPrepareState(IVehiclePairProvider provider, IAsyncTimeOperationPerformer performer, float duration)
 		{
-			_transfer = transfer;
+			_provider = provider;
 			_performer = performer;
 			_duration = duration;
 		}
 
 		private Vector3 TargetDirection =>
-			Vector3.ProjectOnPlane(_transfer.Pair.Direction * -1, ControlledVehicle.transform.up);
+			Vector3.ProjectOnPlane(_provider.Value.Direction * -1, ControlledVehicle.transform.up);
 
-		private Vehicle ControlledVehicle => _transfer.Pair.Controlled;
+		private Vehicle ControlledVehicle => _provider.Value.Controlled;
 
 		public async Task DoAsync(CancellationToken token)
 		{

@@ -10,7 +10,7 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Sources.AI
+namespace AI
 {
 	public class AIPlayer : MonoBehaviour
 	{
@@ -25,16 +25,15 @@ namespace Sources.AI
 		[Inject]
 		private void Construct(ITeamChange teamChange, IVehicleTracker tracker, ITeamPresenter teamPresenter, IAsyncTimeOperationPerformer performer)
 		{
-			var transfer = new PairTransfer();
-
+			IVehiclePairProvider provider = new ClosestVehiclePairProvider(tracker, BotTeam, EnemyTeam);
+			
 			var stateMachine = new AIStateMachine(new IAsyncState[]
 			{
 				new AIThinkDelayState(_thinkMillisecondsDelay),
-				new AISelectTargetState(tracker, transfer, BotTeam, EnemyTeam),
-				new AIPrepareState(transfer, performer, _prepareDuration),
+				new AIPrepareState(provider, performer, _prepareDuration),
 				new AIThinkDelayState(_thinkMillisecondsDelay),
-				new AIDriveOnTargetState(transfer),
-				new AICompleteMoveState(teamChange, transfer)
+				new AIDriveOnTargetState(provider),
+				new AICompleteMoveState(teamChange, provider)
 			});
 
 			teamPresenter.ActiveTeam.Subscribe(team =>

@@ -8,14 +8,14 @@ namespace AI.StateMachine.States
 {
 	public class AIDriveOnTargetState : IAsyncState
 	{
-		private readonly PairTransfer _transfer;
+		private readonly IVehiclePairProvider _provider;
 
-		public AIDriveOnTargetState(PairTransfer transfer)
+		public AIDriveOnTargetState(IVehiclePairProvider provider)
 		{
-			_transfer = transfer;
+			_provider = provider;
 		}
 		
-		private Vehicle ControlledVehicle => _transfer.Pair.Controlled;
+		private Vehicle ControlledVehicle => _provider.Value.Controlled;
 
 		public async Task DoAsync(CancellationToken token)
 		{

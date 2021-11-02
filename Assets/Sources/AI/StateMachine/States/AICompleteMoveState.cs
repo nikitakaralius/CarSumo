@@ -1,7 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using AI.StateMachine.Common;
-using AI.Structures;
 using CarSumo.Teams.TeamChanging;
 using CarSumo.Vehicles;
 
@@ -12,15 +11,15 @@ namespace AI.StateMachine.States
 		private const int DelayBeforeChecking = 500;
 
 		private readonly ITeamChange _teamChange;
-		private readonly PairTransfer _transfer;
+		private readonly IVehiclePairProvider _provider;
 		
-		public AICompleteMoveState(ITeamChange teamChange, PairTransfer transfer)
+		public AICompleteMoveState(ITeamChange teamChange, IVehiclePairProvider provider)
 		{
 			_teamChange = teamChange;
-			_transfer = transfer;
+			_provider = provider;
 		}
 
-		private Vehicle ControlledVehicle => _transfer.Pair.Controlled;
+		private Vehicle ControlledVehicle => _provider.Value.Controlled;
 
 		private bool IsMoving => ControlledVehicle.Engine.Stopped == false;
 
