@@ -9,14 +9,13 @@ namespace AI.StateMachine.Common
 	public class AIStateMachine
 	{
 		private readonly Dictionary<Type, IAIState> _states;
-		
-		private readonly List<ITickable> _tickables;
 		private readonly List<ITransferReceiver> _receivers;
 
+		private IAIState _current = new IAIState.None();
+		
 		public AIStateMachine(IEnumerable<IAIState> states)
 		{
 			_states = states.ToDictionary(state => state.GetType(), state => state);
-			_tickables = states.OfType<ITickable>().ToList();
 			_receivers = states.OfType<ITransferReceiver>().ToList();
 		}
 
@@ -26,8 +25,9 @@ namespace AI.StateMachine.Common
 
 			if (_states.TryGetValue(stateToEnter, out var instance) == false)
 				throw new InvalidOperationException("Trying to enter unregistered state");
-			
-			instance.Enter(this);
+
+			_current = instance;
+			_current.Enter(this);
 		}
 
 		public void Transmit(object package)
@@ -46,7 +46,8 @@ namespace AI.StateMachine.Common
 
 		public void Tick(float deltaTime)
 		{
-			_tickables.ForEach(x => x.Tick(this, deltaTime));
+			if (_current is ITickable tickable)
+				tickable.Tick(this, deltaTime);
 		}
 	}
 }

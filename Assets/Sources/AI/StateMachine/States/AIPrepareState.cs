@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using AI.StateMachine.Common;
+﻿using AI.StateMachine.Common;
 using AI.StateMachine.Messaging;
 using AI.Structures;
 using BaseData.Timers;
@@ -44,11 +43,11 @@ namespace AI.StateMachine.States
 			if (_package.Valid == false)
 				stateMachine.Enter<AISelectTargetState>();
 
+			if (_timer.Elapsed)
+				stateMachine.Enter<AIDriveOnState>();
+			
 			RotateTo(DirectionToTarget, _timer);
 			ConfigureBoost(_timer);
-
-			if (_timer.Elapsed)
-				stateMachine.Enter<AISelectTargetState>();
 		}
 
 		private void ConfigureBoost(ITimer timer)

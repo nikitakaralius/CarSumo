@@ -1,4 +1,5 @@
-﻿using AI.StateMachine.Common;
+﻿using System.Threading.Tasks;
+using AI.StateMachine.Common;
 using AI.StateMachine.States;
 using BaseData.Timers;
 using CarSumo.Teams;
@@ -24,7 +25,9 @@ namespace AI
 			_stateMachine = new AIStateMachine(new IAIState[]
 			{
 				new AISelectTargetState(tracker, BotTeam, EnemyTeam),
-				new AIPrepareState(new UnityTimer(), 1.2f)
+				new AIPrepareState(new UnityTimer(), 1.2f),
+				new AIDriveOnState(),
+				new AIConfirmMoveState(teamChange)
 			});
 
 			teamPresenter.ActiveTeam.Subscribe(team =>
