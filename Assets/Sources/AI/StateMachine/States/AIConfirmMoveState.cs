@@ -28,11 +28,16 @@ namespace AI.StateMachine.States
 		public void Tick(AIStateMachine stateMachine, float deltaTime)
 		{
 			if (ControlledVehicle.SafeIsUnityNull())
-				return;
+				Confirm(stateMachine);
 			
 			if (ControlledVehicle.Engine.Stopped == false)
 				return;
 
+			Confirm(stateMachine);
+		}
+
+		private void Confirm(AIStateMachine stateMachine)
+		{
 			_teamChange.ChangeOnNextTeam();
 			stateMachine.Enter<IAIState.None>();
 		}

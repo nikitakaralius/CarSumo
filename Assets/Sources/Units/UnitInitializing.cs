@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using BaseData.CompositeRoot.Common;
 using CarSumo.Teams;
 using CarSumo.Vehicles;
 using DataModel.GameData.Vehicles;
 using DataModel.Vehicles;
 using GameModes;
 using Services.Instantiate;
-using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -14,7 +15,7 @@ using Zenject;
 
 namespace CarSumo.Units
 {
-	public class UnitInitializing : SerializedMonoBehaviour
+	public class UnitInitializing : CompositionRoot
 	{
 		[SerializeField] private IReadOnlyDictionary<Team, IUnit[]> _units;
 
@@ -29,16 +30,16 @@ namespace CarSumo.Units
 			_gameModePreferences = gameModePreferences;
 			_instantiation = instantiation;
 		}
-		
-		private void OnEnable()
+
+		public override async Task ComposeAsync()
 		{
 			foreach (KeyValuePair<Team,IUnit[]> pair in _units)
 			{
-				CreateVehicles(pair.Key, pair.Value);
+				await CreateVehicles(pair.Key, pair.Value);
 			}
 		}
-
-		private async void CreateVehicles(Team team, IReadOnlyList<IUnit> units)
+		
+		private async Task CreateVehicles(Team team, IReadOnlyList<IUnit> units)
 		{
 			IVehicleLayout layout = _gameModePreferences.GetAccountByTeam(team).Value.VehicleLayout;
 			IReadOnlyReactiveCollection<VehicleId> layoutVehicles = layout.ActiveVehicles;

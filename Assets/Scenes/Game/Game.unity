@@ -1500,13 +1500,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920628252}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 351ceb20ef634201895f7d0bb475449b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _thinkMillisecondsDelay: 750
-  _prepareDuration: 1.2
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
 --- !u!1 &959467151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,6 +2266,7 @@ GameObject:
   - component: {fileID: 1714606416}
   - component: {fileID: 1714606417}
   - component: {fileID: 1714606418}
+  - component: {fileID: 1714606419}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -2355,6 +2363,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _assetsProvider: {fileID: 11400000, guid: e0a0b97c43ed7d347bcefdf2fd5ab536, type: 2}
+--- !u!114 &1714606419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714606413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd612f0466b403ea5b463d07a30a886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _roots:
+  - {fileID: 2010052914}
+  - {fileID: 920628254}
 --- !u!1 &1777856713
 GameObject:
   m_ObjectHideFlags: 0
@@ -2820,7 +2843,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010052912}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8df5686537f43799b753c97550bd0e4, type: 3}
   m_Name: 
