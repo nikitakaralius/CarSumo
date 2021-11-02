@@ -1,4 +1,5 @@
 ﻿using AI.StateMachine.Common;
+using AI.StateMachine.Messaging;
 using AI.Structures;
 using CarSumo.Teams.TeamChanging;
 using CarSumo.Vehicles;
@@ -6,7 +7,7 @@ using Sirenix.Utilities;
 
 namespace AI.StateMachine.States
 {
-	public class AIConfirmMoveState : IAIState, ITransferReceiver<VehiclePair>
+	public class AIConfirmMoveState : IAIState, ITickable, ITransferReceiver<VehiclePair>
 	{
 		private readonly ITeamChange _teamChange;
 		private VehiclePair _package;
@@ -22,8 +23,18 @@ namespace AI.StateMachine.States
 		{
 			if (ControlledVehicle.SafeIsUnityNull() == false)
 				ControlledVehicle.Engine.TurnOff();
+		}
+
+		public void Tick(AIStateMachine stateMachine, float deltaTime)
+		{
+			if (ControlledVehicle.SafeIsUnityNull())
+				return;
 			
+			if (ControlledVehicle.Engine.Stopped == false)
+				return;
+
 			_teamChange.ChangeOnNextTeam();
+			stateMachine.Enter<IAIState.None>();
 		}
 
 		public void Accept(VehiclePair package)

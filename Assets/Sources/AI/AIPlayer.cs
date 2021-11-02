@@ -24,6 +24,7 @@ namespace AI
 		{
 			_stateMachine = new AIStateMachine(new IAIState[]
 			{
+				new IAIState.None(),
 				new AISelectTargetState(tracker, BotTeam, EnemyTeam),
 				new AIPrepareState(new UnityTimer(), 1.2f),
 				new AIDriveOnState(),

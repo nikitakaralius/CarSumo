@@ -34,7 +34,7 @@ namespace AI.StateMachine.States
 
 		private Vector3 DirectionToTarget =>
 			Vector3.ProjectOnPlane(_package.Direction * ModelHasInvertedForwardVector,
-				ControlledVehicle.transform.up);
+				Vector3.up);
 
 		private Vehicle ControlledVehicle => _package.Controlled;
 
