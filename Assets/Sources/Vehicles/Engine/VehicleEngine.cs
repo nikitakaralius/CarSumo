@@ -73,6 +73,8 @@ namespace CarSumo.Vehicles.Engine
             _hornSound.Play();
         }
 
+        public bool Stopped => IsVehicleStopped();
+
         private IEnumerator ConfigureVelocity(float timeModifer, VehicleStats stats)
         {
 	        timeModifer = Mathf.Clamp01(timeModifer);

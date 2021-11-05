@@ -1,5 +1,4 @@
-﻿using System;
-using CarSumo.DataModel.Accounts;
+﻿using CarSumo.DataModel.Accounts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

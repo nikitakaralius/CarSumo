@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242c7b9f85ef4be2bd55c8cb863fb970, type: 3}
+  m_Name: AIAccountRepository
+  m_EditorClassIdentifier: 
+  _accounts:
+  - Name: John23
+    Icon: {fileID: 21300000, guid: a3196820b16eb4df588d8ef9f2671b8c, type: 3}
+    Layout: 000000000200000001000000
+  - Name: Dima_urazik228
+    Icon: {fileID: 21300000, guid: ca50a09402afe4058a4d3267095049d2, type: 3}
+    Layout: 000000000300000004000000
+  - Name: sorokailya0
+    Icon: {fileID: 21300000, guid: 7af9652001132497ba7088f0b27ebe03, type: 3}
+    Layout: 000000000100000002000000

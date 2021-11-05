@@ -1,8 +1,11 @@
-﻿using CarSumo.Coroutines;
+﻿using BaseData.Timers;
+using CarSumo.Coroutines;
 using Game;
+using Game.Mediation;
 using Infrastructure.Installers.Factories;
 using Infrastructure.Installers.SubContainers;
 using Services.Timer;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
@@ -10,11 +13,14 @@ namespace Infrastructure.Installers.Game
 {
     public class GameInstaller : MonoInstaller
     {
-        [SerializeField] private Camera _mainCamera;
-
+        [SerializeField, Required, SceneObjectsOnly] private Camera _mainCamera;
+        [SerializeField, Required, SceneObjectsOnly] private GameMediator _mediator;
+        
         public override void InstallBindings()
         {
             BindMainCamera();
+            BindGameMediator();
+            BindGameTimer();
             BindTimer();
             BindCoroutineExecutor();
             BindWinTrackerInterfaces();
@@ -28,35 +34,38 @@ namespace Infrastructure.Installers.Game
             UnitsInstaller.Install(Container);
         }
 
-        private void BindTimer()
-        {
+        private void BindGameTimer() =>
             Container
                 .BindInterfacesAndSelfTo<CountdownTimer>()
                 .FromFactory<CountdownTimer, CountdownTimerFactory>()
                 .AsSingle();
-        }
 
-        private void BindMainCamera()
-        {
+        private void BindTimer() =>
+            Container
+                .BindInterfacesTo<UnityTimer>()
+                .AsSingle();
+
+        private void BindMainCamera() =>
             Container
                 .Bind<Camera>()
                 .FromInstance(_mainCamera)
                 .AsSingle();
-        }
 
-        private void BindCoroutineExecutor()
-        {
+        private void BindCoroutineExecutor() =>
             Container
                 .Bind<CoroutineExecutor>()
                 .FromInstance(new CoroutineExecutor(this))
                 .AsSingle();
-        }
 
-        private void BindWinTrackerInterfaces()
-        {
-	        Container
-		        .BindInterfacesAndSelfTo<WinTracker>()
-		        .AsSingle();
-        }
+        private void BindWinTrackerInterfaces() =>
+            Container
+                .BindInterfacesAndSelfTo<WinTracker>()
+                .AsSingle();
+
+        private void BindGameMediator() =>
+            Container
+                .BindInterfacesTo<GameMediator>()
+                .FromInstance(_mediator)
+                .AsSingle();
     }
 }
