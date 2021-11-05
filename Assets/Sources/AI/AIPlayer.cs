@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using AI.StateMachine.Common;
 using AI.StateMachine.States;
+using AI.Structures;
 using BaseData.CompositeRoot.Common;
 using BaseData.Timers;
 using CarSumo.Teams;
@@ -14,20 +15,19 @@ namespace AI
 {
 	public class AIPlayer : CompositionRoot
 	{
-		private const Team BotTeam = Team.Red;
-		private const Team EnemyTeam = Team.Blue;
+		[SerializeField] private AIPreferences _preferences;
 		
 		private AIStateMachine _stateMachine;
 		private ITeamPresenter _teamPresenter;
 		
 		[Inject]
-		private void Construct(ITeamChange teamChange, IVehicleTracker tracker, ITeamPresenter teamPresenter)
+		private void Construct(ITeamChange teamChange, IVehicleTracker tracker, ITeamPresenter teamPresenter, ITimer timer)
 		{
 			_stateMachine = new AIStateMachine(new IAIState[]
 			{
 				new IAIState.None(),
-				new AISelectTargetState(tracker, BotTeam, EnemyTeam),
-				new AIPrepareState(new UnityTimer(), 1.2f),
+				new AISelectTargetState(tracker, _preferences.BotTeam, _preferences.EnemyTeam),
+				new AIPrepareState(timer, _preferences.PrepareDuration),
 				new AIDriveOnState(),
 				new AIConfirmMoveState(teamChange)
 			});
@@ -39,7 +39,7 @@ namespace AI
 		{
 			_teamPresenter.ActiveTeam.Subscribe(team =>
 			{
-				if (team == BotTeam)
+				if (team == _preferences.BotTeam)
 					_stateMachine.Enter<AISelectTargetState>();
 			});
 

@@ -1,4 +1,5 @@
-﻿using CarSumo.Coroutines;
+﻿using BaseData.Timers;
+using CarSumo.Coroutines;
 using Game;
 using Infrastructure.Installers.Factories;
 using Infrastructure.Installers.SubContainers;
@@ -16,6 +17,7 @@ namespace Infrastructure.Installers.Game
         public override void InstallBindings()
         {
             BindMainCamera();
+            BindGameTimer();
             BindTimer();
             BindCoroutineExecutor();
             BindWinTrackerInterfaces();
@@ -30,11 +32,18 @@ namespace Infrastructure.Installers.Game
             UnitsInstaller.Install(Container);
         }
 
-        private void BindTimer()
+        private void BindGameTimer()
         {
             Container
                 .BindInterfacesAndSelfTo<CountdownTimer>()
                 .FromFactory<CountdownTimer, CountdownTimerFactory>()
+                .AsSingle();
+        }
+
+        private void BindTimer()
+        {
+            Container
+                .BindInterfacesTo<UnityTimer>()
                 .AsSingle();
         }
 
