@@ -59,7 +59,7 @@ namespace Infrastructure.Installers.Bootstrap
         private void BindGameModeRegistryInterfaces()
         {
 	        Container
-		        .BindInterfacesTo<GameModeRegistry>()
+		        .BindInterfacesAndSelfTo<GameModeRegistry>()
 		        .FromFactory<GameModeRegistry, GameModeRegistryFactory>()
 		        .AsSingle();
         }

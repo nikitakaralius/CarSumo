@@ -4,9 +4,10 @@ namespace Game.GameModes.Composites
 {
 	public class SingleModeComposite : IGameComposite
 	{
-		public void Compose(IMediator mediator)
+		public async void Compose(IMediator mediator)
 		{
-			mediator.BootAsync();
+			await mediator.BootAsync();
+			mediator.DeployAI();
 		}
 	}
 }
