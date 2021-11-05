@@ -204,17 +204,6 @@ Transform:
   m_Father: {fileID: 2010052913}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &244829785 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-  m_PrefabInstance: {fileID: 683507170}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9651a77a66e4d4ab9aac0780c5f9c5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &312645511
 GameObject:
   m_ObjectHideFlags: 3
@@ -1500,20 +1489,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920628252}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 351ceb20ef634201895f7d0bb475449b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   _preferences: {fileID: 11400000, guid: 24ffa70ba7888614586f4c3f78ee5d88, type: 2}
 --- !u!1 &959467151
 GameObject:
@@ -1655,17 +1635,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &967811143 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-  m_PrefabInstance: {fileID: 1791674546}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9651a77a66e4d4ab9aac0780c5f9c5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &983416401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2087,28 +2056,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1248099245 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-  m_PrefabInstance: {fileID: 2102885792}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9651a77a66e4d4ab9aac0780c5f9c5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1428536964 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-  m_PrefabInstance: {fileID: 584009530}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9651a77a66e4d4ab9aac0780c5f9c5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1451727998
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,17 +2089,6 @@ Transform:
   m_Father: {fileID: 2010052913}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1478606747 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-  m_PrefabInstance: {fileID: 323971812}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9651a77a66e4d4ab9aac0780c5f9c5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1491961156
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,17 +2179,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1636107060 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2108667747407805959, guid: 9229f7c58546cc64a9190ecf6e136b65, type: 3}
-  m_PrefabInstance: {fileID: 1187974270}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9651a77a66e4d4ab9aac0780c5f9c5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1714606413
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,7 +2192,6 @@ GameObject:
   - component: {fileID: 1714606416}
   - component: {fileID: 1714606417}
   - component: {fileID: 1714606418}
-  - component: {fileID: 1714606419}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -2364,21 +2288,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _assetsProvider: {fileID: 11400000, guid: e0a0b97c43ed7d347bcefdf2fd5ab536, type: 2}
---- !u!114 &1714606419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714606413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfd612f0466b403ea5b463d07a30a886, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _roots:
-  - {fileID: 2010052914}
-  - {fileID: 920628254}
 --- !u!1 &1777856713
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,107 +2758,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8df5686537f43799b753c97550bd0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1478606747}
-    - {fileID: 1428536964}
-    - {fileID: 1248099245}
-    - {fileID: 1636107060}
-    - {fileID: 967811143}
-    - {fileID: 244829785}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _units
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[CarSumo.Teams.Team, Teams],[CarSumo.Units.IUnit[],
-        Units]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[CarSumo.Teams.Team,
-        Teams]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 0
-    - Name: $v
-      Entry: 7
-      Data: 2|CarSumo.Units.IUnit[], Units
-    - Name: 
-      Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
-    - Name: $v
-      Entry: 7
-      Data: 3|CarSumo.Units.IUnit[], Units
-    - Name: 
-      Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 10
-      Data: 4
-    - Name: 
-      Entry: 10
-      Data: 5
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
 --- !u!1001 &2102885792
 PrefabInstance:
   m_ObjectHideFlags: 0

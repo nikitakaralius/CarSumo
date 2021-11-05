@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseData.CompositeRoot.Common;
 using CarSumo.Teams;
 using CarSumo.Vehicles;
 using DataModel.GameData.Vehicles;
@@ -15,7 +14,7 @@ using Zenject;
 
 namespace CarSumo.Units
 {
-	public class UnitInitializing : CompositionRoot
+	public class UnitInitializing : MonoBehaviour
 	{
 		[SerializeField] private IReadOnlyDictionary<Team, IUnit[]> _units;
 
@@ -31,7 +30,7 @@ namespace CarSumo.Units
 			_instantiation = instantiation;
 		}
 
-		public override async Task ComposeAsync()
+		public async Task ComposeAsync()
 		{
 			foreach (KeyValuePair<Team,IUnit[]> pair in _units)
 			{

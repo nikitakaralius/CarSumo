@@ -2,9 +2,7 @@
 using AI.StateMachine.Common;
 using AI.StateMachine.States;
 using AI.Structures;
-using BaseData.CompositeRoot.Common;
 using BaseData.Timers;
-using CarSumo.Teams;
 using CarSumo.Teams.TeamChanging;
 using CarSumo.Units.Tracking;
 using UniRx;
@@ -13,7 +11,7 @@ using Zenject;
 
 namespace AI
 {
-	public class AIPlayer : CompositionRoot
+	public class AIPlayer : MonoBehaviour
 	{
 		[SerializeField] private AIPreferences _preferences;
 		
@@ -35,7 +33,7 @@ namespace AI
 			_teamPresenter = teamPresenter;
 		}
 
-		public override Task ComposeAsync()
+		public Task ComposeAsync()
 		{
 			_teamPresenter.ActiveTeam.Subscribe(team =>
 			{
