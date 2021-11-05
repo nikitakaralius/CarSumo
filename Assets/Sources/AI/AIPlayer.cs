@@ -14,8 +14,8 @@ namespace AI
 {
 	public class AIPlayer : CompositionRoot
 	{
-		private const Team BotTeam = Team.Blue;
-		private const Team EnemyTeam = Team.Red;
+		private const Team BotTeam = Team.Red;
+		private const Team EnemyTeam = Team.Blue;
 		
 		private AIStateMachine _stateMachine;
 		private ITeamPresenter _teamPresenter;
