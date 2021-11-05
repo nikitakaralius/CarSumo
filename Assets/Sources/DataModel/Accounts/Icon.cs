@@ -4,8 +4,8 @@ namespace CarSumo.DataModel.Accounts
 {
     public class Icon
     {
-        public Sprite Sprite { get; set; }
-        public string Asset { get; set; }
+        public readonly Sprite Sprite;
+        public readonly string Asset;
 
         public Icon(Sprite sprite, string asset)
         {

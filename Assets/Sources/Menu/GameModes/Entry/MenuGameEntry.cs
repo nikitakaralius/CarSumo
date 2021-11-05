@@ -8,7 +8,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
-namespace Menu.GameModes.OneDevice
+namespace Menu.GameModes.Entry
 {
 	public class MenuGameEntry : SerializedMonoBehaviour
 	{
