@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
-using AI.StateMachine.Common;
+﻿using AI.StateMachine.Common;
 using AI.StateMachine.States;
 using AI.Structures;
 using BaseData.Timers;
 using CarSumo.Teams.TeamChanging;
 using CarSumo.Units.Tracking;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 using Zenject;
 
@@ -14,12 +14,13 @@ namespace AI
 	public class AIPlayer : MonoBehaviour
 	{
 		[SerializeField] private AIPreferences _preferences;
-		
+
 		private AIStateMachine _stateMachine;
 		private ITeamPresenter _teamPresenter;
-		
+
 		[Inject]
-		private void Construct(ITeamChange teamChange, IVehicleTracker tracker, ITeamPresenter teamPresenter, ITimer timer)
+		private void Construct(ITeamChange teamChange, IVehicleTracker tracker, ITeamPresenter teamPresenter,
+			ITimer timer)
 		{
 			_stateMachine = new AIStateMachine(new IAIState[]
 			{
@@ -33,7 +34,7 @@ namespace AI
 			_teamPresenter = teamPresenter;
 		}
 
-		public Task ComposeAsync()
+		public void Enable()
 		{
 			_teamPresenter.ActiveTeam.Subscribe(team =>
 			{
@@ -41,12 +42,9 @@ namespace AI
 					_stateMachine.Enter<AISelectTargetState>();
 			});
 
-			return Task.CompletedTask;
-		}
-
-		private void Update()
-		{
-			_stateMachine.Tick(Time.deltaTime);
+			gameObject
+				.UpdateAsObservable()
+				.Subscribe(_ => _stateMachine.Tick(Time.deltaTime));
 		}
 	}
 }

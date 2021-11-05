@@ -7,6 +7,7 @@ using DataModel.GameData.Vehicles;
 using DataModel.Vehicles;
 using GameModes;
 using Services.Instantiate;
+using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -14,9 +15,9 @@ using Zenject;
 
 namespace CarSumo.Units
 {
-	public class UnitInitializing : MonoBehaviour
+	public class UnitInitializing : SerializedMonoBehaviour
 	{
-		[SerializeField] private IReadOnlyDictionary<Team, IUnit[]> _units;
+		[SerializeField] private IReadOnlyDictionary<Team, IUnit[]> _units = new Dictionary<Team, IUnit[]>();
 
 		private IVehicleAssetsProvider _assetsProvider;
 		private IGameModePreferences _gameModePreferences;
@@ -30,7 +31,7 @@ namespace CarSumo.Units
 			_instantiation = instantiation;
 		}
 
-		public async Task ComposeAsync()
+		public async Task InitializeAsync()
 		{
 			foreach (KeyValuePair<Team,IUnit[]> pair in _units)
 			{

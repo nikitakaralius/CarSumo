@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DataModel.Vehicles;
 
 namespace CarSumo.DataModel.Accounts
@@ -18,7 +19,7 @@ namespace CarSumo.DataModel.Accounts
         {
             Name = "Unregistered";
             Icon = null;
-            VehicleLayout = new VehicleId[0];
+            VehicleLayout = Array.Empty<VehicleId>();
         }
     }
 }
