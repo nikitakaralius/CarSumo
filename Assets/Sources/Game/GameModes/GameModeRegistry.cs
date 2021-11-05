@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CarSumo.DataModel.Accounts;
 using CarSumo.Teams;
+using Game.GameModes.Composites;
 using UniRx;
 
 namespace GameModes
@@ -18,7 +19,9 @@ namespace GameModes
 		}
 		
 		public float TimerTimeAmount { get; private set; }
-		
+
+		public IGameComposite Composite { get; private set; }
+
 		public IReadOnlyReactiveProperty<Account> GetAccountByTeam(Team team)
 		{
 			if (_registeredAccounts.TryGetValue(team, out var account) == false)
@@ -56,6 +59,11 @@ namespace GameModes
 			}
 
 			TimerTimeAmount = timeAmount;
+		}
+
+		public void ChooseGameComposite(IGameComposite composite)
+		{
+			Composite = composite;
 		}
 
 		private (bool, Team) AlreadyContainsSameAccount(Account account)

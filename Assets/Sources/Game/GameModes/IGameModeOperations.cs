@@ -1,5 +1,6 @@
 ﻿using CarSumo.DataModel.Accounts;
 using CarSumo.Teams;
+using Game.GameModes.Composites;
 
 namespace GameModes
 {
@@ -7,5 +8,6 @@ namespace GameModes
 	{
 		void RegisterAccount(Team team, Account account);
 		void ConfigureTimer(float timeAmount);
+		void ChooseGameComposite(IGameComposite composite);
 	}
 }
