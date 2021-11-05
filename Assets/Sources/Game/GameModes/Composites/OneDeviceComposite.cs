@@ -7,6 +7,7 @@ namespace Game.GameModes.Composites
 		public void Compose(IMediator mediator)
 		{
 			mediator.BootAsync();
+			mediator.RememberTeamCameraPosition(null, true);
 		}
 	}
 }

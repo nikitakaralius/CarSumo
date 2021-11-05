@@ -1,4 +1,5 @@
-﻿using Game.Mediation;
+﻿using CarSumo.Teams;
+using Game.Mediation;
 
 namespace Game.GameModes.Composites
 {
@@ -7,6 +8,7 @@ namespace Game.GameModes.Composites
 		public async void Compose(IMediator mediator)
 		{
 			await mediator.BootAsync();
+			mediator.RememberTeamCameraPosition(Team.Blue, remember: false);
 			mediator.DeployAI();
 		}
 	}
