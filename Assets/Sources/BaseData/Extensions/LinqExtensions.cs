@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityRandom = UnityEngine.Random;
 
 namespace CarSumo.Extensions
 {
@@ -12,5 +14,11 @@ namespace CarSumo.Extensions
 
             return source;
         }
+
+        public static TSource Random<TSource>(this IEnumerable<TSource> source) =>
+            Random(source.ToArray());
+
+        public static TSource Random<TSource>(this IReadOnlyList<TSource> source) => 
+            source[UnityRandom.Range(0, source.Count)];
     }
 }

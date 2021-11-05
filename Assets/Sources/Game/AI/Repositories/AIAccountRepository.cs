@@ -1,18 +1,32 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using CarSumo.DataModel.Accounts;
 using DataModel.GameData.Vehicles;
 using DataModel.Vehicles;
+using UnityEngine;
 
 namespace AI.Repositories
 {
-	public class AIAccountRepository : IAccountRepository
+	[CreateAssetMenu(fileName = "AIAccountRepository", menuName = "AI/Repository")]
+	public class AIAccountRepository : ScriptableObject, IAccountRepository
 	{
-		public IEnumerable<Account> Accounts => new[]
+		[Serializable]
+		private class UnityAccount
 		{
-			new Account("John", null, new BoundedVehicleLayout(3, new[]
-			{
-				VehicleId.Jeep, VehicleId.Jeep, VehicleId.Jeep
-			}))
-		};
+			public string Name;
+			public Sprite Icon;
+			public VehicleId[] Layout;
+
+			public Account ToAccount() => 
+				new Account(
+					Name,
+					new Icon(Icon, string.Empty),
+					new BoundedVehicleLayout(3, Layout));
+		}
+
+		[SerializeField] private UnityAccount[] _accounts = Array.Empty<UnityAccount>();
+		
+		public IEnumerable<Account> Accounts => _accounts.Select(x => x.ToAccount());
 	}
 }

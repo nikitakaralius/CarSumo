@@ -17592,6 +17592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entry: {fileID: 1329204892}
+  _repository: {fileID: 11400000, guid: f508e8877c35aca4fba2394516df5844, type: 2}
 --- !u!1 &1329539173
 GameObject:
   m_ObjectHideFlags: 0
