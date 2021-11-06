@@ -34,7 +34,7 @@ namespace Shop
 
 		protected IClientResourceOperations ResourceOperations { get; private set; }
 
-		private void OnValidate()
+		protected virtual void OnValidate()
 		{
 			foreach (KeyValuePair<ResourceId, TMP_Text> pair in _priceTexts)
 			{
