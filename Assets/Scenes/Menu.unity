@@ -3299,8 +3299,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 152.45999, y: -65}
-  m_SizeDelta: {x: 138.92, y: 110.257996}
+  m_AnchoredPosition: {x: 142.16501, y: -65}
+  m_SizeDelta: {x: 118.33, y: 110.257996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &227445422
 MonoBehaviour:
@@ -3322,7 +3322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1200
+  m_text: 400
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5c5ee151f9307453bad78be36b51a077, type: 2}
   m_sharedMaterial: {fileID: 2517202264660172603, guid: 5c5ee151f9307453bad78be36b51a077, type: 2}
@@ -11934,7 +11934,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: -0.000011683, y: 86.08966}
-  m_SizeDelta: {x: 221.92, y: 130}
+  m_SizeDelta: {x: 201.33, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &906812024
 MonoBehaviour:
@@ -24021,7 +24021,7 @@ GameObject:
   - component: {fileID: 1938102969}
   - component: {fileID: 1938102968}
   m_Layer: 5
-  m_Name: 1500Gold_Energy
+  m_Name: 400Gold_Energy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24194,7 +24194,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 3
-      Data: 1200
+      Data: 400
     - Name: 
       Entry: 8
       Data: 
@@ -32440,7 +32440,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 12000
+  m_text: 4000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 50c12c23294124aa48490c44ac65a9e4, type: 2}
   m_sharedMaterial: {fileID: 7746803525459343344, guid: 50c12c23294124aa48490c44ac65a9e4, type: 2}
@@ -34935,7 +34935,7 @@ MonoBehaviour:
   _purchasedCue: {fileID: 11400000, guid: 03efd34a6d0912b4f90424b028ad9c1b, type: 2}
   _canceledCue: {fileID: 11400000, guid: 46c3baadc1c35a940b4350d0a003588a, type: 2}
   _resource: 2
-  _amount: 12000
+  _amount: 4000
   _amountText: {fileID: 3864235641376453483}
 --- !u!114 &3864235642573129379
 MonoBehaviour:
@@ -35944,7 +35944,7 @@ MonoBehaviour:
   _purchasedCue: {fileID: 11400000, guid: 03efd34a6d0912b4f90424b028ad9c1b, type: 2}
   _canceledCue: {fileID: 11400000, guid: 46c3baadc1c35a940b4350d0a003588a, type: 2}
   _resource: 2
-  _amount: 4000
+  _amount: 1200
   _amountText: {fileID: 3864235642970087102}
 --- !u!114 &3864235642766614929
 MonoBehaviour:
@@ -36515,7 +36515,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 4000
+  m_text: 1200
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 50c12c23294124aa48490c44ac65a9e4, type: 2}
   m_sharedMaterial: {fileID: 7746803525459343344, guid: 50c12c23294124aa48490c44ac65a9e4, type: 2}
