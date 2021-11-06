@@ -1,19 +1,17 @@
 ﻿using System;
-using System.Collections;
-using CarSumo.Coroutines;
+using System.Threading.Tasks;
 using UniRx;
+using UnityTime = UnityEngine.Time;
 
 namespace Services.Timers.Realtime
 {
 	public class OfflineRealtimeTimer : IRealtimeTimer, IRealtimeTimerOperations
 	{
 		private readonly ReactiveProperty<DateTime> _timeLeft;
-		private readonly CoroutineExecutor _executor;
 
-		public OfflineRealtimeTimer(DateTime timeLeft, CoroutineExecutor executor)
+		public OfflineRealtimeTimer(DateTime timeLeft)
 		{
 			_timeLeft = new ReactiveProperty<DateTime>(timeLeft);
-			_executor = executor;
 		}
 
 		public event Action Elapsed;
@@ -22,17 +20,18 @@ namespace Services.Timers.Realtime
 
 		private DateTime Time => _timeLeft.Value;
 
-		public void Start(DateTime duration)
+		public async void Start(DateTime duration)
 		{
-			_executor.StartCoroutine(TickRoutine());
+			_timeLeft.Value = duration;
+			await TickAsync();
 		}
 
-		private IEnumerator TickRoutine()
+		private async Task TickAsync()
 		{
 			while (Time > DateTime.MinValue)
 			{
-				_timeLeft.Value = Time.AddSeconds(-UnityEngine.Time.deltaTime);
-				yield return null;
+				_timeLeft.Value = Time.AddSeconds(-UnityTime.deltaTime);
+				await Task.Yield();
 			}
 			
 			Elapsed?.Invoke();
