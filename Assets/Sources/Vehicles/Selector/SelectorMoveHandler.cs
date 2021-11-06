@@ -3,7 +3,7 @@ using CarSumo.Coroutines;
 using CarSumo.Input;
 using CarSumo.Teams.TeamChanging;
 using CarSumo.Vehicles.Speedometers;
-using Sources.Services.Timer.InGameTimer;
+using Services.Timer.InGameTimer;
 using UnityEngine;
 
 namespace CarSumo.Vehicles.Selector

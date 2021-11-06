@@ -4,8 +4,8 @@ using Game;
 using Game.Mediation;
 using Infrastructure.Installers.Factories;
 using Infrastructure.Installers.SubContainers;
+using Services.Timer.InGameTimer;
 using Sirenix.OdinInspector;
-using Sources.Services.Timer.InGameTimer;
 using UnityEngine;
 using Zenject;
 

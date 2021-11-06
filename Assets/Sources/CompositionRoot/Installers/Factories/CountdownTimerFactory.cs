@@ -1,6 +1,6 @@
 ﻿using CarSumo.Coroutines;
 using GameModes;
-using Sources.Services.Timer.InGameTimer;
+using Services.Timer.InGameTimer;
 using Zenject;
 
 namespace Infrastructure.Installers.Factories
