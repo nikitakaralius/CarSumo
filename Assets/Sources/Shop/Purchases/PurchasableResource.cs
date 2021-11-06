@@ -35,7 +35,7 @@ namespace Shop
 
 			return slotsAmount + _amount <= slotsLimit
 				? Bargain.Valid
-				: new Bargain($"The slot limit has been reached. Maximum number of slots is {slotsLimit}");
+				: new Bargain($"The resource limit has been reached. Maximum number of resource is {slotsLimit}");
 		}
 
 		protected override void OnPurchaseCompleted()
