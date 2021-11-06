@@ -1,6 +1,6 @@
 ﻿using CarSumo.Teams;
 using CarSumo.Teams.TeamChanging;
-using Services.Timer;
+using Sources.Services.Timer.InGameTimer;
 using Zenject;
 
 namespace Infrastructure.Installers.Factories

@@ -1,4 +1,4 @@
-﻿namespace Services.Timer
+﻿namespace Services.Timer.InGameTimer
 {
     public interface ITimerOperations
     {

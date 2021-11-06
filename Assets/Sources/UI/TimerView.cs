@@ -1,5 +1,5 @@
 ﻿using System;
-using Services.Timer;
+using Sources.Services.Timer.InGameTimer;
 using TMPro;
 using UniRx;
 using UnityEngine;
