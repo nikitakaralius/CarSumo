@@ -21,7 +21,7 @@ namespace DataModel.GameData.GameSave
 
 		public void Dispose() => Save();
 
-		private void Save()
+		public void Save()
 		{
 			SerializableResourceTimers timers = ToSerializableResourceTimers(_timers);
 			string path = _configuration.ResourceTimersFilePath;

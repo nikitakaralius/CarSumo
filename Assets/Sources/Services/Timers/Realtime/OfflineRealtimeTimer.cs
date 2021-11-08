@@ -1,46 +1,58 @@
 ﻿using System;
 using System.Threading.Tasks;
 using UniRx;
-using UnityTime = UnityEngine.Time;
+using UnityEngine;
 
 namespace Services.Timers.Realtime
 {
 	public class OfflineRealtimeTimer : IRealtimeTimer
 	{
-		private readonly ReactiveProperty<DateTime> _timeLeft;
-
-		public OfflineRealtimeTimer() : this(DateTime.MinValue)
-		{
-			
-		}
+		private const int CycleStep = 1;
 		
-		public OfflineRealtimeTimer(DateTime timeLeft)
+		private readonly TimeSpan _duration;
+		private readonly ReactiveProperty<TimeSpan> _timeLeft;
+		private readonly Subject<int> _cycles = new Subject<int>();
+		
+		private static readonly TimeSpan ZeroSpan = TimeSpan.FromSeconds(0);
+
+		public OfflineRealtimeTimer(TimeSpan duration, TimeSpan timeLeft, DateTime lastSession)
 		{
-			_timeLeft = new ReactiveProperty<DateTime>(timeLeft);
+			_duration = duration;
+
+			TimeSpan timePassedSinceLastSession = DateTime.Now - lastSession + timeLeft;
+			_cycles.OnNext((int) (timePassedSinceLastSession.TotalSeconds / duration.TotalSeconds));
+
+			TimeSpan timeLeftSinceLastSession = timeLeft - DateTime.Now.TimeOfDay;
+
+			_timeLeft = new ReactiveProperty<TimeSpan>(
+				timeLeftSinceLastSession.TotalSeconds >= 0
+				? timeLeftSinceLastSession
+				: ZeroSpan);
 		}
 
-		public event Action Elapsed;
+		public IReadOnlyReactiveProperty<TimeSpan> TimeLeft => _timeLeft;
 
-		public IReadOnlyReactiveProperty<DateTime> TimeLeft => _timeLeft;
+		public IObservable<int> ObserveCycles() => _cycles;
 
-		private DateTime Time => _timeLeft.Value;
-
-		public async void Start(DateTime duration)
+		public async void Start()
 		{
-			_timeLeft.Value = duration;
+			_timeLeft.SetValueAndForceNotify(_duration);
 			await TickAsync();
 		}
 
 		private async Task TickAsync()
 		{
-			while (Time > DateTime.MinValue)
+			while (_timeLeft.Value >= ZeroSpan)
 			{
-				_timeLeft.Value = Time.AddSeconds(-UnityTime.deltaTime);
+				_timeLeft
+					.SetValueAndForceNotify(_timeLeft.Value
+					.Subtract(TimeSpan.FromSeconds(Time.deltaTime)));
+				
 				await Task.Yield();
 			}
 			
-			Elapsed?.Invoke();
-			_timeLeft.Value = DateTime.MinValue;
+			_cycles.OnNext(CycleStep);
+			_timeLeft.SetValueAndForceNotify(ZeroSpan);
 		}
 	}
 }
