@@ -9,6 +9,11 @@ namespace Services.Timers.Realtime
 	{
 		private readonly ReactiveProperty<DateTime> _timeLeft;
 
+		public OfflineRealtimeTimer() : this(DateTime.MinValue)
+		{
+			
+		}
+		
 		public OfflineRealtimeTimer(DateTime timeLeft)
 		{
 			_timeLeft = new ReactiveProperty<DateTime>(timeLeft);

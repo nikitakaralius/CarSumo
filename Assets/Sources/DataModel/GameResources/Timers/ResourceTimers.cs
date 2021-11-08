@@ -8,7 +8,7 @@ namespace Menu.Resources
 	public class ResourceTimers
 	{
 		private readonly IReadOnlyDictionary<TimedResource, IRealtimeTimer> _timers;
-
+		
 		public ResourceTimers(IReadOnlyDictionary<TimedResource, IRealtimeTimer> timers)
 		{
 			_timers = timers;

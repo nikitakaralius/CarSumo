@@ -3,5 +3,6 @@
     public interface IResourcesConfiguration
     {
         string ResourcesFilePath { get; }
+        string ResourceTimersFilePath { get; }
     }
 }

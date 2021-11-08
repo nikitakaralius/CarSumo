@@ -29,7 +29,8 @@ namespace Infrastructure.Settings
         [SerializeField] private string _resourcesFileName;
         [SerializeField] private string _accountStorageFileName;
         [SerializeField] private string _vehicleStorageFileName;
-
+        [SerializeField] private string _resourceTimersFileName;
+        
         public string RootDirectoryName => Path.Combine(GetAssetsPath(), _rootDirectoryName);
         
         public string MusicVolumeParameter => _musicVolumeParameter;
@@ -39,6 +40,8 @@ namespace Infrastructure.Settings
         public string AudioFilePath => GetFilePath(_audioFileName);
 
         public string ResourcesFilePath => GetFilePath(_resourcesFileName);
+
+        public string ResourceTimersFilePath => GetFilePath(_resourceTimersFileName);
 
         public string AccountStorageFilePath => GetFilePath(_accountStorageFileName);
 
