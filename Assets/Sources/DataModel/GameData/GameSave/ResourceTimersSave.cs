@@ -31,11 +31,12 @@ namespace DataModel.GameData.GameSave
 		private SerializableResourceTimers ToSerializableResourceTimers(ResourceTimers timers) =>
 			new SerializableResourceTimers
 			{
-				// ResourceTimeLeft = timers
-				// 	.All()
-				// 	.ToDictionary(
-				// 		x => x.Item2,
-				// 		x => x.Item1.TimeLeft.Value)
+				ResourceTimeLeft = timers
+					.All()
+					.ToDictionary(
+						x => x.Item2,
+						x => x.Item1.TimeLeft.Value),
+				LastSession = DateTime.Now
 			};
 	}
 }

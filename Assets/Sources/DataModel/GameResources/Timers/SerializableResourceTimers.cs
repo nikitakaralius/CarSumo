@@ -5,6 +5,7 @@ namespace Menu.Resources
 {
 	public class SerializableResourceTimers
 	{
-		public Dictionary<TimedResource, DateTime> ResourceTimeLeft { get; set; }
+		public Dictionary<TimedResource, TimeSpan> ResourceTimeLeft { get; set; }
+		public DateTime LastSession { get; set; }
 	}
 }

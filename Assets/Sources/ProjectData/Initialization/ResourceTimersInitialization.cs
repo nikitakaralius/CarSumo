@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CarSumo.DataModel.GameResources;
@@ -13,15 +14,21 @@ namespace Infrastructure.Initialization
 	public class ResourceTimersInitialization : IAsyncInitializable
 	{
 		private readonly DiContainer _container;
-		private readonly IResourcesConfiguration _configuration;
+		private readonly TimersConfiguration _timersConfiguration;
+		private readonly IResourcesConfiguration _fileConfiguration;
 		private readonly IAsyncFileService _fileService;
 
-		public ResourceTimersInitialization(DiContainer container, IResourcesConfiguration configuration, IAsyncFileService fileService)
+		public ResourceTimersInitialization(DiContainer container,
+											TimersConfiguration timersConfiguration,
+											IResourcesConfiguration fileConfiguration,
+											IAsyncFileService fileService)
 		{
 			_container = container;
-			_configuration = configuration;
+			_timersConfiguration = timersConfiguration;
+			_fileConfiguration = fileConfiguration;
 			_fileService = fileService;
 		}
+		
 		public async Task InitializeAsync()
 		{
 			SerializableResourceTimers serializableModel = await LoadModelFromFileAsync();
@@ -36,15 +43,18 @@ namespace Infrastructure.Initialization
 		private ResourceTimers EnsureCreated() =>
 			new ResourceTimers(new Dictionary<TimedResource, IRealtimeTimer>
 			{
-				//{TimedResource.GameEnergy, new OfflineRealtimeTimer()},
-				//{TimedResource.RewardedStoreEnergy, new OfflineRealtimeTimer()}
+				{TimedResource.GameEnergy, new OfflineRealtimeTimer(DurationOf(TimedResource.GameEnergy))},
+				{TimedResource.RewardedStoreEnergy, new OfflineRealtimeTimer(DurationOf(TimedResource.RewardedStoreEnergy))}
 			});
 
 		private ResourceTimers CreateFrom(SerializableResourceTimers model) =>
 			new ResourceTimers(
 				model.ResourceTimeLeft.ToDictionary(
 					resourceTimeLeft => resourceTimeLeft.Key,
-					resourceTimeLeft => null as IRealtimeTimer/*new OfflineRealtimeTimer(resourceTimeLeft.Value) as IRealtimeTimer*/));
+					resourceTimeLeft => new OfflineRealtimeTimer(
+						DurationOf(TimedResource.RewardedStoreEnergy),
+						resourceTimeLeft.Value,
+						model.LastSession) as IRealtimeTimer));
 
 		private void BindToContainer(ResourceTimers timers) =>
 			_container
@@ -65,8 +75,10 @@ namespace Infrastructure.Initialization
 		
 		private async Task<SerializableResourceTimers> LoadModelFromFileAsync()
 		{
-			string path = _configuration.ResourceTimersFilePath;
+			string path = _fileConfiguration.ResourceTimersFilePath;
 			return await _fileService.LoadAsync<SerializableResourceTimers>(path);
 		}
+
+		private TimeSpan DurationOf(TimedResource resource) => _timersConfiguration.RollbackDurationOf(resource);
 	}
 }

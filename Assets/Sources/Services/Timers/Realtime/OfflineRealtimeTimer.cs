@@ -15,6 +15,11 @@ namespace Services.Timers.Realtime
 		
 		private static readonly TimeSpan ZeroSpan = TimeSpan.FromSeconds(0);
 
+		public OfflineRealtimeTimer(TimeSpan duration) : this(duration, duration, DateTime.Now)
+		{
+			
+		}
+		
 		public OfflineRealtimeTimer(TimeSpan duration, TimeSpan timeLeft, DateTime lastSession)
 		{
 			_duration = duration;
