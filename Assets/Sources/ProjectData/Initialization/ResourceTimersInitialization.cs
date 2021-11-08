@@ -36,15 +36,15 @@ namespace Infrastructure.Initialization
 		private ResourceTimers EnsureCreated() =>
 			new ResourceTimers(new Dictionary<TimedResource, IRealtimeTimer>
 			{
-				{TimedResource.GameEnergy, new OfflineRealtimeTimer()},
-				{TimedResource.RewardedStoreEnergy, new OfflineRealtimeTimer()}
+				//{TimedResource.GameEnergy, new OfflineRealtimeTimer()},
+				//{TimedResource.RewardedStoreEnergy, new OfflineRealtimeTimer()}
 			});
 
 		private ResourceTimers CreateFrom(SerializableResourceTimers model) =>
 			new ResourceTimers(
 				model.ResourceTimeLeft.ToDictionary(
 					resourceTimeLeft => resourceTimeLeft.Key,
-					resourceTimeLeft => new OfflineRealtimeTimer(resourceTimeLeft.Value) as IRealtimeTimer));
+					resourceTimeLeft => null as IRealtimeTimer/*new OfflineRealtimeTimer(resourceTimeLeft.Value) as IRealtimeTimer*/));
 
 		private void BindToContainer(ResourceTimers timers) =>
 			_container
