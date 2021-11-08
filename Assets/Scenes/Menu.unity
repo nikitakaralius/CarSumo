@@ -25475,7 +25475,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2038435395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414f8b327fca4dac9a7d57c27ed0fc5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 95d2654e9e964153aab2638a911ebc62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -25486,60 +25486,7 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: _resourceRollbackTime
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Menu.Resources.TimedResource,
-        GameResources],[Menu.Hub.Timers+SerializedDateTime, Menu]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Menu.Resources.TimedResource,
-        GameResources]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 0
-    - Name: $v
-      Entry: 7
-      Data: 2|Menu.Hub.Timers+SerializedDateTime, Menu
-    - Name: Days
-      Entry: 4
-      Data: 0
-    - Name: Hours
-      Entry: 4
-      Data: 0
-    - Name: Minutes
-      Entry: 4
-      Data: 3
-    - Name: Seconds
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
 --- !u!1 &2040288162
 GameObject:
   m_ObjectHideFlags: 0

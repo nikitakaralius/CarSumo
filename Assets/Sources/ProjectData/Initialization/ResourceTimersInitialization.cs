@@ -7,6 +7,7 @@ using DataModel.FileData;
 using DataModel.GameData.GameSave;
 using Menu.Resources;
 using Services.Timers.Realtime;
+using Sirenix.Utilities;
 using Zenject;
 
 namespace Infrastructure.Initialization
@@ -33,12 +34,20 @@ namespace Infrastructure.Initialization
 		{
 			SerializableResourceTimers serializableModel = await LoadModelFromFileAsync();
 
-			BindToContainer(serializableModel is null
+			ResourceTimers timers = serializableModel is null
 				? EnsureCreated()
-				: CreateFrom(serializableModel));
+				: CreateFrom(serializableModel);
 			
+			BindToContainer(timers);
 			BindSaves();
+			Start(timers);
 		}
+
+		private static void Start(ResourceTimers timers) =>
+			timers
+				.All()
+				.Select(x => x.Item1)
+				.ForEach(timer => timer.Start());
 
 		private ResourceTimers EnsureCreated() =>
 			new ResourceTimers(new Dictionary<TimedResource, IRealtimeTimer>

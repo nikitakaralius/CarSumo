@@ -48,7 +48,7 @@ namespace Services.Timers.Realtime
 		{
 			while (true)
 			{
-				if (_timeLeft.Value >= ZeroSpan)
+				if (_timeLeft.Value <= ZeroSpan)
 				{
 					_cycleObservable.OnNext(_cycles++);
 					_timeLeft.SetValueAndForceNotify(cycleDuration);
