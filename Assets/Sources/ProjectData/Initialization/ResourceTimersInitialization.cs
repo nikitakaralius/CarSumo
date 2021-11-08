@@ -34,7 +34,7 @@ namespace Infrastructure.Initialization
 		}
 
 		private ResourceTimers EnsureCreated() =>
-			new ResourceTimers(new Dictionary<TimedResource, IRealtimeTimer>()
+			new ResourceTimers(new Dictionary<TimedResource, IRealtimeTimer>
 			{
 				{TimedResource.GameEnergy, new OfflineRealtimeTimer()},
 				{TimedResource.RewardedStoreEnergy, new OfflineRealtimeTimer()}

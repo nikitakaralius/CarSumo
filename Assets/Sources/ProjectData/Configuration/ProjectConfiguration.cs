@@ -47,16 +47,15 @@ namespace Infrastructure.Settings
 
         public string VehicleStorageFilePath => GetFilePath(_vehicleStorageFileName);
 
-        public IEnumerable<string> GetDataFilePaths()
-        {
-            return new[]
+        public IEnumerable<string> GetDataFilePaths() =>
+            new[]
             {
                 AudioFilePath,
                 ResourcesFilePath,
+                ResourceTimersFilePath,
                 AccountStorageFilePath,
                 VehicleStorageFilePath
             };
-        }
 
         private string GetFilePath(string fileName)
         {
