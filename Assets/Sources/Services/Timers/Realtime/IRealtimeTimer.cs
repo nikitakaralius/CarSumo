@@ -7,10 +7,6 @@ namespace Services.Timers.Realtime
 	{
 		event Action Elapsed;
 		IReadOnlyReactiveProperty<DateTime> TimeLeft { get; }
-	}
-
-	public interface IRealtimeTimerOperations
-	{
 		void Start(DateTime duration);
 	}
 }

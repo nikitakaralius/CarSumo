@@ -5,7 +5,7 @@ using UnityTime = UnityEngine.Time;
 
 namespace Services.Timers.Realtime
 {
-	public class OfflineRealtimeTimer : IRealtimeTimer, IRealtimeTimerOperations
+	public class OfflineRealtimeTimer : IRealtimeTimer
 	{
 		private readonly ReactiveProperty<DateTime> _timeLeft;
 
