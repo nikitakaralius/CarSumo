@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CarSumo.DataModel.GameResources;
 using DataModel.FileData;
+using DataModel.GameData.GameSave;
 using Menu.Resources;
 using Services.Timers.Realtime;
 using Zenject;
@@ -25,11 +26,11 @@ namespace Infrastructure.Initialization
 		{
 			SerializableResourceTimers serializableModel = await LoadModelFromFileAsync();
 
-			ResourceTimers timers = serializableModel is null
+			BindToContainer(serializableModel is null
 				? EnsureCreated()
-				: CreateFrom(serializableModel);
+				: CreateFrom(serializableModel));
 			
-			BindToContainer(timers);
+			BindSaves();
 		}
 
 		private ResourceTimers EnsureCreated() =>
@@ -51,6 +52,17 @@ namespace Infrastructure.Initialization
 				.AsSingle()
 				.NonLazy();
 
+		private void BindSaves()
+		{
+			_container
+				.Bind<ResourceTimersSave>()
+				.FromNew()
+				.AsSingle()
+				.NonLazy();
+
+			_container.Resolve<ResourceTimersSave>();
+		}
+		
 		private async Task<SerializableResourceTimers> LoadModelFromFileAsync()
 		{
 			string path = _configuration.ResourceTimersFilePath;
