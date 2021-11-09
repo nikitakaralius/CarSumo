@@ -59,7 +59,7 @@ MonoBehaviour:
       Data: 0
     - Name: Minutes
       Entry: 3
-      Data: 3
+      Data: 1
     - Name: Seconds
       Entry: 3
       Data: 0

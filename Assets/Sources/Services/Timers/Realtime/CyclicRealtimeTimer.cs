@@ -9,11 +9,10 @@ namespace Services.Timers.Realtime
 	{
 		private readonly TimeSpan _cycleDuration;
 		private readonly ReactiveProperty<TimeSpan> _timeLeft;
-		private readonly Subject<int> _cycleObservable = new Subject<int>();
-		
+		private readonly ReactiveProperty<int> _cycles;
+
 		private static readonly TimeSpan ZeroSpan = TimeSpan.FromSeconds(0);
-		private int _cycles;
-		
+
 		public CyclicRealtimeTimer(TimeSpan cycleDuration) : this(cycleDuration, cycleDuration, DateTime.Now)
 		{
 			
@@ -24,19 +23,19 @@ namespace Services.Timers.Realtime
 			_cycleDuration = cycleDuration;
 
 			TimeSpan timePassedSinceLastSession = DateTime.Now - lastSession + timeLeft;
-			_cycles = (int) (timePassedSinceLastSession.TotalSeconds / cycleDuration.TotalSeconds);
+			_cycles = new ReactiveProperty<int>((int) (timePassedSinceLastSession.TotalSeconds / cycleDuration.TotalSeconds) - 1);
 
-			TimeSpan timeLeftSinceLastSession = timeLeft - DateTime.Now.TimeOfDay;
-
-			_timeLeft = new ReactiveProperty<TimeSpan>(
-				timeLeftSinceLastSession.TotalSeconds >= 0
-				? timeLeftSinceLastSession
-				: ZeroSpan);
+			
+			_timeLeft = new ReactiveProperty<TimeSpan>(TimeLeftSinceLastSession(cycleDuration, timeLeft, timePassedSinceLastSession));
 		}
 
-		public IReadOnlyReactiveProperty<TimeSpan> TimeLeft() => _timeLeft;
+		private static TimeSpan TimeLeftSinceLastSession(TimeSpan cycleDuration, TimeSpan timeLeft, TimeSpan timePassedSinceLastSession) =>
+			TimeSpan.FromSeconds(
+				Math.Abs(timePassedSinceLastSession.TotalSeconds - timeLeft.TotalSeconds) / cycleDuration.TotalSeconds);
 
-		public IObservable<int> ObserveCycles() => _cycleObservable;
+		public IReadOnlyReactiveProperty<TimeSpan> TimeLeft() => _timeLeft;
+		
+		public IReadOnlyReactiveProperty<int> Cycles() => _cycles;
 
 		public async void Start()
 		{
@@ -44,7 +43,7 @@ namespace Services.Timers.Realtime
 			await TickAsync(_cycleDuration);
 		}
 
-		public void FlushCycles() => _cycles = 0;
+		public void FlushCycles() => _cycles.Value = 0;
 
 		private async Task TickAsync(TimeSpan cycleDuration)
 		{
@@ -52,7 +51,7 @@ namespace Services.Timers.Realtime
 			{
 				if (_timeLeft.Value <= ZeroSpan)
 				{
-					_cycleObservable.OnNext(_cycles++);
+					_cycles.Value++;
 					_timeLeft.SetValueAndForceNotify(cycleDuration);
 				}
 				

@@ -61,7 +61,7 @@ namespace Infrastructure.Initialization
 				model.ResourceTimeLeft.ToDictionary(
 					resourceTimeLeft => resourceTimeLeft.Key,
 					resourceTimeLeft => new CyclicRealtimeTimer(
-						DurationOf(TimedResource.RewardedStoreEnergy),
+						DurationOf(resourceTimeLeft.Key),
 						resourceTimeLeft.Value,
 						model.LastSession) as IRealtimeTimer));
 

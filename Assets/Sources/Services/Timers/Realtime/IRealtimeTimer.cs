@@ -6,7 +6,7 @@ namespace Services.Timers.Realtime
 	public interface IRealtimeTimer
 	{
 		IReadOnlyReactiveProperty<TimeSpan> TimeLeft();
-		IObservable<int> ObserveCycles();
+		IReadOnlyReactiveProperty<int> Cycles();
 		void Start();
 		void FlushCycles();
 	}
