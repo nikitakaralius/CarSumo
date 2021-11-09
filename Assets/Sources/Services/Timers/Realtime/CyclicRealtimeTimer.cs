@@ -44,6 +44,8 @@ namespace Services.Timers.Realtime
 			await TickAsync(_cycleDuration);
 		}
 
+		public void FlushCycles() => _cycles = 0;
+
 		private async Task TickAsync(TimeSpan cycleDuration)
 		{
 			while (true)
