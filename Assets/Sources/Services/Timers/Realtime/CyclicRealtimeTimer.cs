@@ -34,7 +34,7 @@ namespace Services.Timers.Realtime
 				: ZeroSpan);
 		}
 
-		public IReadOnlyReactiveProperty<TimeSpan> TimeLeft => _timeLeft;
+		public IReadOnlyReactiveProperty<TimeSpan> TimeLeft() => _timeLeft;
 
 		public IObservable<int> ObserveCycles() => _cycleObservable;
 

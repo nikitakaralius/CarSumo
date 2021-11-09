@@ -35,7 +35,7 @@ namespace DataModel.GameData.GameSave
 					.All()
 					.ToDictionary(
 						x => x.Item2,
-						x => x.Item1.TimeLeft.Value),
+						x => x.Item1.TimeLeft().Value),
 				LastSession = DateTime.Now
 			};
 	}

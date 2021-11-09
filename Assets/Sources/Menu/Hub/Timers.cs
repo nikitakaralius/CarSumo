@@ -16,6 +16,6 @@ namespace Menu.Hub
 		}
 
 		[Button(Style = ButtonStyle.FoldoutButton), DisableInEditorMode]
-		private void LogResourceTimeLeft(TimedResource resource) => Debug.Log(_timers.TimerOf(resource).TimeLeft);
+		private void LogResourceTimeLeft(TimedResource resource) => Debug.Log(_timers.TimerOf(resource).TimeLeft());
 	}
 }
