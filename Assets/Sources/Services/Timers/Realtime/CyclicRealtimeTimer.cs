@@ -25,23 +25,14 @@ namespace Services.Timers.Realtime
 			TimeSpan timePassedSinceLastSession = DateTime.Now - lastSession + timeLeft;
 			_cycles = new ReactiveProperty<int>((int) (timePassedSinceLastSession.TotalSeconds / cycleDuration.TotalSeconds) - 1);
 
-			
-			_timeLeft = new ReactiveProperty<TimeSpan>(TimeLeftSinceLastSession(cycleDuration, timeLeft, timePassedSinceLastSession));
+			_timeLeft = new ReactiveProperty<TimeSpan>(TimeLeftSinceLastSession(cycleDuration, timeLeft, lastSession));
 		}
-
-		private static TimeSpan TimeLeftSinceLastSession(TimeSpan cycleDuration, TimeSpan timeLeft, TimeSpan timePassedSinceLastSession) =>
-			TimeSpan.FromSeconds(
-				Math.Abs(timePassedSinceLastSession.TotalSeconds - timeLeft.TotalSeconds) / cycleDuration.TotalSeconds);
 
 		public IReadOnlyReactiveProperty<TimeSpan> TimeLeft() => _timeLeft;
-		
+
 		public IReadOnlyReactiveProperty<int> Cycles() => _cycles;
 
-		public async void Start()
-		{
-			_timeLeft.SetValueAndForceNotify(_cycleDuration);
-			await TickAsync(_cycleDuration);
-		}
+		public async void Start() => await TickAsync(_cycleDuration);
 
 		public void FlushCycles() => _cycles.Value = 0;
 
@@ -62,5 +53,8 @@ namespace Services.Timers.Realtime
 				await Task.Yield();
 			}
 		}
+
+		private TimeSpan TimeLeftSinceLastSession(TimeSpan cycleDuration, TimeSpan timeLeft, DateTime lastSession) => 
+			TimeSpan.FromSeconds(Math.Abs((DateTime.Now - lastSession - timeLeft).TotalSeconds) / cycleDuration.TotalSeconds);
 	}
 }
