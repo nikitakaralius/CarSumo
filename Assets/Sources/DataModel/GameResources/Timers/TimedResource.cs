@@ -2,7 +2,6 @@
 {
 	public enum TimedResource
 	{
-		GameEnergy,
-		RewardedStoreEnergy
+		GameEnergy
 	}
 }

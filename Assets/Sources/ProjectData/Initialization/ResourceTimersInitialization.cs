@@ -53,7 +53,6 @@ namespace Infrastructure.Initialization
 			new ResourceTimers(new Dictionary<TimedResource, IRealtimeTimer>
 			{
 				{TimedResource.GameEnergy, new CyclicRealtimeTimer(DurationOf(TimedResource.GameEnergy))},
-				{TimedResource.RewardedStoreEnergy, new CyclicRealtimeTimer(DurationOf(TimedResource.RewardedStoreEnergy))}
 			});
 
 		private ResourceTimers CreateFrom(SerializableResourceTimers model) =>
