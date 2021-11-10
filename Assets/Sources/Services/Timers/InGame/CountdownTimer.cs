@@ -5,7 +5,7 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Services.Timer
+namespace Services.Timer.InGameTimer
 {
     public class CountdownTimer : ITimer, ITimerOperations, IConfiguredTimerOperations, IInitializable
     {

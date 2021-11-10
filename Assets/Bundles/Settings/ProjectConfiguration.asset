@@ -19,3 +19,4 @@ MonoBehaviour:
   _resourcesFileName: Resources
   _accountStorageFileName: Accounts
   _vehicleStorageFileName: Vehicles
+  _resourceTimersFileName: Timers

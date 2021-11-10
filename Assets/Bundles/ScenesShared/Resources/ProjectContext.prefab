@@ -73,4 +73,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3644b808274e4ee3bc9f8fb73372e8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _configuration: {fileID: 11400000, guid: 989f3b22575b7cc49a71cfaba627726a, type: 2}
+  _projectConfiguration: {fileID: 11400000, guid: 989f3b22575b7cc49a71cfaba627726a, type: 2}
+  _timersConfiguration: {fileID: 11400000, guid: 1dec93c65d8121e40914ea27391992b1, type: 2}

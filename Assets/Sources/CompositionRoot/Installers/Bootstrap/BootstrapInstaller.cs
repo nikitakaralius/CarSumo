@@ -2,6 +2,7 @@
 using Infrastructure.Installers.Factories;
 using Infrastructure.Installers.SubContainers;
 using Infrastructure.Settings;
+using Menu.Resources;
 using Services.SceneManagement;
 using UnityEngine;
 using Zenject;
@@ -10,11 +11,13 @@ namespace Infrastructure.Installers.Bootstrap
 {
     public class BootstrapInstaller : MonoInstaller
     {
-        [SerializeField] private ProjectConfiguration _configuration;
+        [SerializeField] private ProjectConfiguration _projectConfiguration;
+        [SerializeField] private TimersConfiguration _timersConfiguration;
         
         public override void InstallBindings()
         {
             BindProjectConfiguration();
+            BindTimersConfiguration();
             BindSceneLoading();
             BindGameModeRegistryInterfaces();
             ProcessSubContainers();
@@ -51,7 +54,16 @@ namespace Infrastructure.Installers.Bootstrap
         {
             Container
                 .BindInterfacesAndSelfTo<ProjectConfiguration>()
-                .FromInstance(_configuration)
+                .FromInstance(_projectConfiguration)
+                .AsSingle()
+                .NonLazy();
+        }
+        
+        private void BindTimersConfiguration()
+        {
+            Container
+                .Bind<TimersConfiguration>()
+                .FromInstance(_timersConfiguration)
                 .AsSingle()
                 .NonLazy();
         }

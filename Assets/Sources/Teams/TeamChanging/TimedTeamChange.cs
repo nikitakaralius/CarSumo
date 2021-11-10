@@ -1,4 +1,4 @@
-﻿using Services.Timer;
+﻿using Services.Timer.InGameTimer;
 using UniRx;
 
 namespace CarSumo.Teams.TeamChanging

@@ -32,20 +32,16 @@ namespace Infrastructure.Initialization
         public async Task InitializeAsync()
         {
             SerializableResources serializableResources = await LoadSerializableResourcesAsync();
-            
-            GameResourceStorage resourceStorage = serializableResources is null
-                ? EnsureCreated()
-                : _storageBinding.BindFrom(serializableResources);
 
-            BindResourceStorageInterfaces(resourceStorage);
+            BindResourceStorageInterfaces(serializableResources is null
+                ? EnsureCreated()
+                : _storageBinding.BindFrom(serializableResources));
+            
             BindResourcesSave();
         }
 
-        private GameResourceStorage EnsureCreated()
-        {
-            return _initialResourceStorage.GetInitialStorage();
-        }
-        
+        private GameResourceStorage EnsureCreated() => _initialResourceStorage.GetInitialStorage();
+
         private void BindResourcesSave()
         {
             _container
@@ -57,14 +53,12 @@ namespace Infrastructure.Initialization
             _container.Resolve<ResourcesSave>();
         }
 
-        private void BindResourceStorageInterfaces(GameResourceStorage resourceStorage)
-        {
+        private void BindResourceStorageInterfaces(GameResourceStorage resourceStorage) =>
             _container
                 .BindInterfacesAndSelfTo<GameResourceStorage>()
                 .FromInstance(resourceStorage)
                 .AsSingle()
                 .NonLazy();
-        }
 
         private async Task<SerializableResources> LoadSerializableResourcesAsync()
         {

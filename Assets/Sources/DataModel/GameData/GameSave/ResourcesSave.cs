@@ -10,7 +10,6 @@ namespace DataModel.GameData.GameSave
     {
         private readonly IResourceStorage _storage;
         private readonly IResourcesConfiguration _configuration;
-        private readonly IResourceStorageMessages _storageMessages;
         private readonly IFileService _fileService;
 
         public ResourcesSave(IResourceStorage storage, 
@@ -20,16 +19,14 @@ namespace DataModel.GameData.GameSave
         {
             _storage = storage;
             _configuration = configuration;
-            _storageMessages = storageMessages;
             _fileService = fileService;
 
-            _storageMessages.ObserveResourceChanged().Subscribe(_ => Save());
+            storageMessages
+                .ObserveResourceChanged()
+                .Subscribe(_ => Save());
         }
         
-        public void Dispose()
-        {
-            Save();
-        }
+        public void Dispose() => Save();
 
         private void Save()
         {
@@ -56,7 +53,7 @@ namespace DataModel.GameData.GameSave
                 limits.Add(resource, limit);
             }
 
-            return new SerializableResources()
+            return new SerializableResources
             {
                 Amounts = amounts,
                 Limits = limits
