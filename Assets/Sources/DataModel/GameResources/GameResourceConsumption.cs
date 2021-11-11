@@ -8,22 +8,23 @@ namespace CarSumo.DataModel.GameResources
 	{
 		[SerializeField, Min(0)] private int _gameEntryEnergy;
 		
-		private IResourceStorage _storage;
-		private IClientResourceOperations _operations;
-
+		private LazyInject<IResourceStorage> _storage;
+		private LazyInject<IClientResourceOperations> _operations;
+		
 		[Inject]
-		private void Construct(IClientResourceOperations operations)
+		private void Initialize(LazyInject<IResourceStorage> storage, LazyInject<IClientResourceOperations> operations)
 		{
+			_storage = storage;
 			_operations = operations;
 		}
 
 		public bool ConsumeIfEnoughToEnterGame()
 		{
-			int energyAmount = _storage.GetResourceAmount(ResourceId.Energy).Value;
+			int energyAmount = _storage.Value.GetResourceAmount(ResourceId.Energy).Value;
 			bool enoughEnergy = energyAmount - _gameEntryEnergy >= 0;
 
 			if (enoughEnergy)
-				_operations.TrySpend(ResourceId.Energy, _gameEntryEnergy);
+				_operations.Value.TrySpend(ResourceId.Energy, _gameEntryEnergy);
 			
 			return enoughEnergy;
 		}

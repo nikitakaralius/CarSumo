@@ -1,23 +1,15 @@
 ﻿using GameModes;
 using Infrastructure.Installers.Factories;
 using Infrastructure.Installers.SubContainers;
-using Infrastructure.Settings;
-using Menu.Resources;
 using Services.SceneManagement;
-using UnityEngine;
 using Zenject;
 
 namespace Infrastructure.Installers.Bootstrap
 {
     public class BootstrapInstaller : MonoInstaller
     {
-        [SerializeField] private ProjectConfiguration _projectConfiguration;
-        [SerializeField] private TimersConfiguration _timersConfiguration;
-        
         public override void InstallBindings()
         {
-            BindProjectConfiguration();
-            BindTimersConfiguration();
             BindSceneLoading();
             BindGameModeRegistryInterfaces();
             ProcessSubContainers();
@@ -34,46 +26,22 @@ namespace Infrastructure.Installers.Bootstrap
             AdvertisementInstaller.Install(Container);
         }
 
-        private void BindProjectInitialization()
-        {
+        private void BindProjectInitialization() =>
             Container
                 .Bind<ProjectInitialization>()
                 .FromNew()
                 .AsSingle();
-        }
 
-        private void BindSceneLoading()
-        {
+        private void BindSceneLoading() =>
             Container
                 .BindInterfacesAndSelfTo<AddressableSceneLoading>()
                 .AsSingle()
                 .NonLazy();
-        }
 
-        private void BindProjectConfiguration()
-        {
+        private void BindGameModeRegistryInterfaces() =>
             Container
-                .BindInterfacesAndSelfTo<ProjectConfiguration>()
-                .FromInstance(_projectConfiguration)
-                .AsSingle()
-                .NonLazy();
-        }
-        
-        private void BindTimersConfiguration()
-        {
-            Container
-                .Bind<TimersConfiguration>()
-                .FromInstance(_timersConfiguration)
-                .AsSingle()
-                .NonLazy();
-        }
-
-        private void BindGameModeRegistryInterfaces()
-        {
-	        Container
-		        .BindInterfacesAndSelfTo<GameModeRegistry>()
-		        .FromFactory<GameModeRegistry, GameModeRegistryFactory>()
-		        .AsSingle();
-        }
+                .BindInterfacesAndSelfTo<GameModeRegistry>()
+                .FromFactory<GameModeRegistry, GameModeRegistryFactory>()
+                .AsSingle();
     }
 }
