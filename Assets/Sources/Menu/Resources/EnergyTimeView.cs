@@ -18,6 +18,7 @@ namespace Menu.Resources
 		[Header("View"), SerializeField] private TextMeshProUGUI _timer;
 		[Header("Animation"), SerializeField] private TweenData<Vector2> _positioningAnimation;
 
+		private readonly CompositeDisposable _disposables = new CompositeDisposable(2);
 		private IResourceStorage _resourceStorage;
 		private Tween _animation;
 		
@@ -29,15 +30,21 @@ namespace Menu.Resources
 			timers
 				.TimerOf(Resource)
 				.TimeLeft()
-				.Subscribe(ChangeTimerText);
+				.Subscribe(ChangeTimerText)
+				.AddTo(_disposables);
 
 			timers
 				.TimerOf(Resource)
 				.Cycles()
-				.Subscribe(ConfigureVisibility);
+				.Subscribe(ConfigureVisibility)
+				.AddTo(_disposables);
 		}
 
-		private void OnDisable() => _animation?.Kill();
+		private void OnDisable()
+		{
+			_disposables.Dispose();
+			_animation?.Kill();
+		}
 
 		private void ChangeTimerText(TimeSpan timeSpan) => _timer.text = timeSpan.ToString("mm\\:ss");
 
