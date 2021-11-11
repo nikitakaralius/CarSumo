@@ -1,4 +1,4 @@
-﻿namespace Game.Resources
+﻿namespace CarSumo.DataModel.GameResources
 {
 	public interface IResourceConsumption
 	{

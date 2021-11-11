@@ -1,8 +1,7 @@
-﻿using CarSumo.DataModel.GameResources;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
-namespace Game.Resources
+namespace CarSumo.DataModel.GameResources
 {
 	[CreateAssetMenu(fileName = "GameResourceConsumption", menuName = "Game/GameResourceConsumption")]
 	public class GameResourceConsumption : ScriptableObject, IResourceConsumption
