@@ -1,4 +1,5 @@
-﻿using Services.SceneManagement;
+﻿using CarSumo.DataModel.GameResources;
+using Services.SceneManagement;
 using UnityEngine.SceneManagement;
 using Zenject;
 
@@ -8,11 +9,13 @@ namespace CarSumo.StateMachine.States
     {
         private readonly IAsyncSceneLoading _sceneLoading;
         private readonly LazyInject<GameStateMachine> _stateMachine;
-
-        public GameEntryState(IAsyncSceneLoading sceneLoading, LazyInject<GameStateMachine> stateMachine)
+        private readonly IResourceConsumer _entryConsumer;
+        
+        public GameEntryState(IAsyncSceneLoading sceneLoading, LazyInject<GameStateMachine> stateMachine, IResourceConsumer entryConsumer)
         {
             _sceneLoading = sceneLoading;
             _stateMachine = stateMachine;
+            _entryConsumer = entryConsumer;
         }
 
         private SceneLoadData Game => new SceneLoadData("Game", LoadSceneMode.Single);
@@ -22,6 +25,8 @@ namespace CarSumo.StateMachine.States
         {
             await _sceneLoading.LoadAsync(Game);
             await _sceneLoading.LoadAsync(Ui);
+            
+            _entryConsumer.Consume(ResourceId.Energy);
             _stateMachine.Value.Enter<GameState>();
         }
 
