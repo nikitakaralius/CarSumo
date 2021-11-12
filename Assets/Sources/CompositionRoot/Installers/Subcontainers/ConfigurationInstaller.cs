@@ -35,7 +35,7 @@ namespace Infrastructure.Installers.SubContainers
 
 		private void BindResourceConsumption()
 		{
-			Container.Inject(_resourceConsumption);
+			Container.QueueForInject(_resourceConsumption);
 			
 			Container
 				.Bind<IResourceConsumption>()
