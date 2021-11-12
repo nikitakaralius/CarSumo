@@ -2,7 +2,6 @@
 using CarSumo.DataModel.GameResources;
 using DG.Tweening;
 using Sirenix.OdinInspector;
-using TMPro;
 using TweenAnimations;
 using UniRx;
 using UnityEngine;
@@ -10,17 +9,17 @@ using Zenject;
 
 namespace Menu.Resources
 {
-	public class EnergyTimeView : MonoBehaviour
+	public class EnergyStatsAnimation : MonoBehaviour
 	{
 		private const ResourceId Id = ResourceId.Energy;
 		private const TimedResource Resource = TimedResource.GameEnergy;
-		
-		[Header("View"), SerializeField] private TextMeshProUGUI _timer;
-		[Header("Animation"), SerializeField] private TweenData<Vector2> _positioningAnimation;
 
-		private readonly CompositeDisposable _disposables = new CompositeDisposable(2);
+		[SerializeField] private TweenData<Vector2> _positioning;
+
+		private readonly CompositeDisposable _disposables = new CompositeDisposable(1);
+		
 		private IResourceStorage _resourceStorage;
-		private Tween _animation;
+		private Sequence _sequence;
 		
 		[Inject]
 		private void Construct(ResourceTimers timers, IResourceStorage storage)
@@ -29,24 +28,18 @@ namespace Menu.Resources
 			
 			timers
 				.TimerOf(Resource)
-				.TimeLeft()
-				.Subscribe(ChangeTimerText)
-				.AddTo(_disposables);
-
-			timers
-				.TimerOf(Resource)
 				.Cycles()
 				.Subscribe(ConfigureVisibility)
 				.AddTo(_disposables);
 		}
 
+		private void OnEnable() => _sequence = DOTween.Sequence();
+
 		private void OnDisable()
 		{
 			_disposables.Dispose();
-			_animation?.Kill();
+			_sequence?.Kill();
 		}
-
-		private void ChangeTimerText(TimeSpan timeSpan) => _timer.text = timeSpan.ToString("mm\\:ss");
 
 		private void ConfigureVisibility(int cycles)
 		{
@@ -56,19 +49,17 @@ namespace Menu.Resources
 			if (limit.HasValue == false)
 				throw new InvalidOperationException($"{Id} limit must be specified");
 
-			ApplyAnimation(amount + cycles >= limit.Value);
+			Apply(amount + cycles >= limit.Value);
 		}
 
-		[Button, DisableInEditorMode]
-		private void ApplyAnimation(bool hide)
-		{
-			_animation?.Kill();
 
-			_animation = (transform as RectTransform)
+		[Button(Style = ButtonStyle.FoldoutButton), DisableInEditorMode]
+		private void Apply(bool hide) =>
+			_sequence.Append(
+				(transform as RectTransform)
 				.DOAnchorPos(hide
-					? _positioningAnimation.To
-					: _positioningAnimation.From, _positioningAnimation.Duration)
-				.SetEase(_positioningAnimation.Ease);
-		}
+					? _positioning.To
+					: _positioning.From, _positioning.Duration)
+				.SetEase(_positioning.Ease));
 	}
 }
