@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UniRx;
+using UnityEngine;
 using Zenject;
 
 namespace CarSumo.DataModel.GameResources
@@ -7,26 +9,24 @@ namespace CarSumo.DataModel.GameResources
 	public class GameResourceConsumption : ScriptableObject, IResourceConsumption
 	{
 		[SerializeField, Min(0)] private int _gameEntryEnergy;
-		
-		private LazyInject<IResourceStorage> _storage;
+
+		private readonly Subject<bool> _enterGameConsumption = new Subject<bool>();
+
 		private LazyInject<IClientResourceOperations> _operations;
 		
 		[Inject]
-		private void Initialize(LazyInject<IResourceStorage> storage, LazyInject<IClientResourceOperations> operations)
+		private void Initialize(LazyInject<IClientResourceOperations> operations)
 		{
-			_storage = storage;
 			_operations = operations;
 		}
 
 		public bool ConsumeIfEnoughToEnterGame()
 		{
-			int energyAmount = _storage.Value.GetResourceAmount(ResourceId.Energy).Value;
-			bool enoughEnergy = energyAmount - _gameEntryEnergy >= 0;
-
-			if (enoughEnergy)
-				_operations.Value.TrySpend(ResourceId.Energy, _gameEntryEnergy);
-			
-			return enoughEnergy;
+			bool enoughMoney = _operations.Value.TrySpend(ResourceId.Energy, _gameEntryEnergy);
+			_enterGameConsumption.OnNext(enoughMoney);
+			return enoughMoney;
 		}
+
+		public IObservable<bool> ObserveEnterGameConsumption() => _enterGameConsumption;
 	}
 }
