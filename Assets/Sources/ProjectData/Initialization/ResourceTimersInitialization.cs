@@ -66,14 +66,15 @@ namespace Infrastructure.Initialization
 
 		private void BindToContainer(ResourceTimers timers) =>
 			_container
-				.BindInstance(timers)
+				.BindInterfacesAndSelfTo<ResourceTimers>()
+				.FromInstance(timers)
 				.AsSingle()
 				.NonLazy();
 
 		private void BindSaves()
 		{
 			_container
-				.Bind<ResourceTimersSave>()
+				.BindInterfacesAndSelfTo<ResourceTimersSave>()
 				.FromNew()
 				.AsSingle()
 				.NonLazy();

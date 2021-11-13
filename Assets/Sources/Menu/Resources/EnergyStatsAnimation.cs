@@ -38,7 +38,7 @@ namespace Menu.Resources
 		private void OnDisable()
 		{
 			_disposables.Dispose();
-			_sequence?.Kill();
+			_sequence.Kill();
 		}
 
 		private void ConfigureVisibility(int cycles)

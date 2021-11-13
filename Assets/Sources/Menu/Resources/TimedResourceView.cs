@@ -8,16 +8,15 @@ namespace Menu.Resources
 {
 	public class TimedResourceView : MonoBehaviour
 	{
-		private const TimedResource Resource = TimedResource.GameEnergy;
-		
 		[Header("View"), SerializeField] private TextMeshProUGUI _timer;
-
+		[Header("Preferences"), SerializeField] private TimedResource _resource;
+		
 		private readonly CompositeDisposable _disposables = new CompositeDisposable(1);
 		
 		[Inject]
 		private void Construct(ResourceTimers timers) =>
 			timers
-				.TimerOf(Resource)
+				.TimerOf(_resource)
 				.TimeLeft()
 				.Subscribe(ChangeTimerText)
 				.AddTo(_disposables);
