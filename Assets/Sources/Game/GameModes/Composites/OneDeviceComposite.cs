@@ -1,4 +1,5 @@
 ﻿using Game.Mediation;
+using Game.Rules;
 
 namespace Game.GameModes.Composites
 {
@@ -8,6 +9,7 @@ namespace Game.GameModes.Composites
 		{
 			mediator.BootAsync();
 			mediator.RememberTeamCameraPosition(null, true);
+			mediator.ConfigureSelector<OneDeviceMode.PickerRules>();
 		}
 	}
 }

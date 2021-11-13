@@ -44,19 +44,21 @@ namespace CarSumo.Vehicles.Selector
 
         public VehicleCollection LastValidVehicles { get; private set; }
 
-        private void Awake()
+        public void Initialize(VehiclePicker.IRules rules)
         {
             var executor = new CoroutineExecutor(this);
 
             LastValidVehicles = new VehicleCollection();
             _speedometer = new SelectorSpeedometer(_data);
 
-            _vehiclePicker = new VehiclePicker(_camera, LastValidVehicles, _speedometer, _teamPresenter);
+            _vehiclePicker = new VehiclePicker(_camera, LastValidVehicles, _speedometer, rules);
             _boost = new VehicleBoostConfiguration(_camera, _speedometer);
             _moveHandler = new SelectorMoveHandler(_teamChange, _speedometer, _data, executor, _timer);
+
+            ReceiveInput();
         }
 
-        private void OnEnable()
+        private void ReceiveInput()
         {
             _screen.Begun += OnScreenSwipeBegun;
             _screen.Swiping += OnScreenSwiping;
