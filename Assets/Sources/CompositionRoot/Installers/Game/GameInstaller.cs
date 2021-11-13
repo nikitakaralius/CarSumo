@@ -34,6 +34,7 @@ namespace Infrastructure.Installers.Game
             InstantiationInstaller.Install(Container);
             TeamsInstaller.Install(Container);
             UnitsInstaller.Install(Container);
+            TimersInstaller.Install(Container);
         }
 
         private void BindGameTimer() =>

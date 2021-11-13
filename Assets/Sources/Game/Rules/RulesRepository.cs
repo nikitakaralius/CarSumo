@@ -29,7 +29,7 @@ namespace Game.Rules
 
 		private IEnumerable<object> RegisterRules(ITeamPresenter teamPresenter)
 		{
-			yield return new SingleMode.PickerRules(Team.Red);
+			yield return new SingleMode.PickerRules(Team.Red, teamPresenter);
 			yield return new OneDeviceMode.PickerRules(teamPresenter);
 		}
 	}
