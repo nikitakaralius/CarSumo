@@ -2,25 +2,40 @@
 using System.Linq;
 using CarSumo.DataModel.GameResources;
 using DataModel.FileData;
+using DataModel.GameData.Infrastructure;
 using Menu.Resources;
+using UniRx;
 
 namespace DataModel.GameData.GameSave
 {
-	public class ResourceTimersSave : IDisposable
+	public class ResourceTimersSave
 	{
 		private readonly ResourceTimers _timers;
 		private readonly IResourcesConfiguration _configuration;
 		private readonly IAsyncFileService _fileService;
 
-		public ResourceTimersSave(ResourceTimers timers, IResourcesConfiguration configuration, IAsyncFileService fileService)
+		public ResourceTimersSave(ResourceTimers timers,
+									IResourcesConfiguration configuration,
+									IAsyncFileService fileService,
+									IApplicationEvents events)
 		{
 			_timers = timers;
 			_configuration = configuration;
 			_fileService = fileService;
+
+			events
+				.ObserveQuit()
+				.Subscribe(_ => Save());
+
+			events
+				.ObservePaused()
+				.Subscribe(pausedStatus =>
+				{
+					if (pausedStatus)
+						Save();
+				});
 		}
-
-		public void Dispose() => Save();
-
+		
 		public void Save()
 		{
 			SerializableResourceTimers timers = ToSerializableResourceTimers(_timers);

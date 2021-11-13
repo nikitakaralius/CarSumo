@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: ScriptableObjects
+  m_EditorClassIdentifier: 
+  m_GroupName: ScriptableObjects
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 4d571d71222471d44b224b6c2832e9c3
+  m_SerializeEntries:
+  - m_GUID: 2401e30595bdf9b45b124efd65fa931d
+    m_Address: Assets/ScriptableObjects/Advertisement
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e5fce738396590741a9f2303b5f5f000
+    m_Address: Assets/ScriptableObjects/AI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1a03d960ecad6184786470882892ad5b
+    m_Address: Assets/ScriptableObjects/Game
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9f90b6ab6e08e174abefe63622a65795
+    m_Address: Assets/ScriptableObjects/Reources
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 4948ba55cf128c04098da6187d7004b1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 52cf5b1e7f997a049aea27639baced1b, type: 2}
+    - {fileID: 11400000, guid: d8118f6c2b1f44b42a3af9b50df5269c, type: 2}

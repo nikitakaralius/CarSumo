@@ -24,8 +24,8 @@ namespace Game.Level
 		public async Task BootAsync()
 		{
 			await _unitInitializing.InitializeAsync();
-			_timer.Start();
 			_blackScreen.CrossFadeAlpha(0, 1, false);
+			_timer.Start();
 		}
 	}
 }
