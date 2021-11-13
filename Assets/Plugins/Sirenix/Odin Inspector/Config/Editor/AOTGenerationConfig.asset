@@ -16,57 +16,109 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 637650557090552825
+  lastScan: 637724409811728078
   supportSerializedTypes:
+  - TypeName: System.Collections.Generic.Dictionary`2[[CarSumo.DataModel.GameResources.ResourceId,
+      GameResources],[System.Int32, mscorlib]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[CarSumo.DataModel.GameResources.ResourceId,
+      GameResources],[TMPro.TMP_Text, Unity.TextMeshPro]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[Shop.ShopTab, Shop],[Menu.Tabs.TabElement,
+      Menu]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[CarSumo.Teams.Team, Teams],[CarSumo.Units.IUnit[],
+      Game]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[Menu.Resources.TimedResource,
+      GameResources],[Menu.Resources.TimersConfiguration+SerializableTimeSpan, GameResources]],
+      mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[CarSumo.DataModel.GameResources.ResourceId,
+      GameResources]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[Shop.ShopTab, Shop]],
+      mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[Menu.Resources.TimedResource,
+      GameResources]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IEqualityComparer`1[[CarSumo.DataModel.GameResources.ResourceId,
+      GameResources]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IEqualityComparer`1[[Shop.ShopTab, Shop]],
+      mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IEqualityComparer`1[[Menu.Resources.TimedResource,
+      GameResources]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Game.GameModes.Composites.IGameComposite, Game
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[CarSumo.DataModel.GameResources.ResourceId,
+      GameResources],[System.Int32, mscorlib]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[CarSumo.DataModel.GameResources.ResourceId,
+      GameResources],[TMPro.TMP_Text, Unity.TextMeshPro]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[Shop.ShopTab, Shop],[Menu.Tabs.TabElement,
+      Menu]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[CarSumo.Teams.Team,
+      Teams],[CarSumo.Units.IUnit[], Game]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[Menu.Resources.TimedResource,
+      GameResources],[Menu.Resources.TimersConfiguration+SerializableTimeSpan, GameResources]],
+      mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: CarSumo.Units.IUnit[], Game
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Game.GameModes.Composites.OneDeviceComposite, Game
+    IsCustom: 0
+    Emit: 1
+  - TypeName: CarSumo.DataModel.GameResources.ResourceId, GameResources
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Shop.ShopTab, Shop
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Game.GameModes.Composites.SingleModeComposite, Game
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Menu.Tabs.TabElement, Menu
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Menu.Resources.TimedResource, GameResources
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Menu.Resources.TimersConfiguration+SerializableTimeSpan, GameResources
+    IsCustom: 0
+    Emit: 1
+  - TypeName: TMPro.TMP_Text, Unity.TextMeshPro
+    IsCustom: 0
+    Emit: 1
   - TypeName: Menu.Accounts.AccountChangerButton+ButtonTitle, Menu
     IsCustom: 0
     Emit: 1
   - TypeName: Menu.Accounts.AccountOperationsProvider+AccountOperationException,
       Menu
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Collections.Generic.Dictionary`2[[Menu.Accounts.AccountChangerButton+ButtonTitle,
-      Menu],[System.String, mscorlib]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Collections.Generic.Dictionary`2[[Menu.Accounts.AccountOperationsProvider+AccountOperationException,
-      Menu],[System.String, mscorlib]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[Menu.Accounts.AccountChangerButton+ButtonTitle,
-      Menu]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[Menu.Accounts.AccountOperationsProvider+AccountOperationException,
-      Menu]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Menu.Accounts.AccountEditor.IAccountEditor, Menu
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Menu.Accounts.AccountExceptionPopup.IAccountExceptionPopup, Menu
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Collections.Generic.IEqualityComparer`1[[Menu.Accounts.AccountChangerButton+ButtonTitle,
-      Menu]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Collections.Generic.IEqualityComparer`1[[Menu.Accounts.AccountOperationsProvider+AccountOperationException,
-      Menu]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Menu.Accounts.INewAccountRecorder, Menu
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[Menu.Accounts.AccountChangerButton+ButtonTitle,
-      Menu],[System.String, mscorlib]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[Menu.Accounts.AccountOperationsProvider+AccountOperationException,
-      Menu],[System.String, mscorlib]], mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.String, mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: AdvancedAudioSystem.Configuration.AssetAudioConfiguration, AdvancedAudioSystem
@@ -91,12 +143,16 @@ MonoBehaviour:
   - TypeName: System.Boolean, mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Collections.Generic.Dictionary`2[[CarSumo.Teams.Team, Teams],[System.Single,
-      mscorlib]], mscorlib
+  - TypeName: System.Collections.Generic.Dictionary`2[[Menu.Accounts.AccountChangerButton+ButtonTitle,
+      Menu],[System.String, mscorlib]], mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Collections.Generic.Dictionary`2[[CarSumo.Teams.Team, Teams],[CarSumo.Units.IUnit[],
-      Units]], mscorlib
+  - TypeName: System.Collections.Generic.Dictionary`2[[Menu.Accounts.AccountOperationsProvider+AccountOperationException,
+      Menu],[System.String, mscorlib]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[CarSumo.Teams.Team, Teams],[System.Single,
+      mscorlib]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.Dictionary`2[[CarSumo.Teams.Team, Teams],[UnityEngine.Material,
@@ -106,11 +162,25 @@ MonoBehaviour:
   - TypeName: AdvancedAudioSystem.Configuration.DistanceConfiguration, AdvancedAudioSystem
     IsCustom: 0
     Emit: 1
+  - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[Menu.Accounts.AccountChangerButton+ButtonTitle,
+      Menu]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[Menu.Accounts.AccountOperationsProvider+AccountOperationException,
+      Menu]], mscorlib
+    IsCustom: 0
+    Emit: 1
   - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[CarSumo.Teams.Team,
       Teams]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: System.Single, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Menu.Accounts.AccountEditor.IAccountEditor, Menu
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Menu.Accounts.AccountExceptionPopup.IAccountExceptionPopup, Menu
     IsCustom: 0
     Emit: 1
   - TypeName: AdvancedAudioSystem.Configuration.IAudioConfiguration, AdvancedAudioSystem
@@ -126,15 +196,30 @@ MonoBehaviour:
       mscorlib]], mscorlib
     IsCustom: 0
     Emit: 1
+  - TypeName: System.Collections.Generic.IEqualityComparer`1[[Menu.Accounts.AccountChangerButton+ButtonTitle,
+      Menu]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IEqualityComparer`1[[Menu.Accounts.AccountOperationsProvider+AccountOperationException,
+      Menu]], mscorlib
+    IsCustom: 0
+    Emit: 1
   - TypeName: System.Collections.Generic.IEqualityComparer`1[[CarSumo.Teams.Team,
       Teams]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Menu.Accounts.INewAccountRecorder, Menu
     IsCustom: 0
     Emit: 1
   - TypeName: System.Int32, mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[CarSumo.Teams.Team,
-      Teams],[CarSumo.Units.IUnit[], Units]], mscorlib
+  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[Menu.Accounts.AccountChangerButton+ButtonTitle,
+      Menu],[System.String, mscorlib]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[Menu.Accounts.AccountOperationsProvider+AccountOperationException,
+      Menu],[System.String, mscorlib]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[CarSumo.Teams.Team,
@@ -144,10 +229,7 @@ MonoBehaviour:
   - TypeName: TweenAnimations.ITweenAnimation, TweenAnimations
     IsCustom: 0
     Emit: 1
-  - TypeName: CarSumo.Units.IUnit, Units
-    IsCustom: 0
-    Emit: 1
-  - TypeName: CarSumo.Units.IUnit[], Units
+  - TypeName: CarSumo.Units.IUnit, Game
     IsCustom: 0
     Emit: 1
   - TypeName: DataModel.GameData.Vehicles.IVehicleAssetsProvider, GameData
@@ -190,6 +272,9 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: AdvancedAudioSystem.Configuration.SpreadConfiguration, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.String, mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: CarSumo.Teams.Team, Teams

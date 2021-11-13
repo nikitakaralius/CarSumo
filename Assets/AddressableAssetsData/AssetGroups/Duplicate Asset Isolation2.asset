@@ -1,0 +1,181 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Duplicate Asset Isolation2
+  m_EditorClassIdentifier: 
+  m_GroupName: Duplicate Asset Isolation2
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 20c3f2e584861a144bd337696d868adb
+  m_SerializeEntries:
+  - m_GUID: 5c80d49013691df48ac94280337e88ce
+    m_Address: Assets/Third Party/Assets/Sky/Customizable Skybox/Stylized Sky/Materials/Day2.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 73f7d4d2ab8b7254caf96b59eb9a36cd
+    m_Address: Assets/Scenes/Game/Lightning/Gamee Cloudy.lighting
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 362cdbc283a1c43a7abec33080b04398
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Common/button_sky.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 995bab93062004ed5a4ce113ac1930cc
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Lobby_UserInfo/btn_icon_edit.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f6a78c692cf27471f8a5e16609281d22
+    m_Address: Assets/Bundles/Menu/Sprites/ranking_character_sample_0.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 605433b68313d491a8ab88bc03a41651
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Fonts/LilitaOne-Regular
+      Outline 54 SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8ecd17aeceaba4c10b42ac497ccbfcff
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Fonts/LilitaOne-Regular
+      Outline_Extended ASCII_54 SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6ecbe1defc55a463ba1172f67f84844b
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Fonts/LilitaOne-Regular
+      Outline_Extended ASCII_72 SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: eb3db5b0868bc4f348e3d3a1dfbf32a8
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Popup/popup_bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4e9baab14e03b4b1c9219bb1a838f001
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Popup/popup_btn_close.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 391584432233c4e0a864435a50a098c5
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Common/btn_icon_ad.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 86ad28a37b0134b33b88df67b42b7fe0
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Common/button_purple.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cb37917483ee24fea8fab306393441e5
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Common/button_green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 072fc1e433b92438e915c6c10bfd2994
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Character_List_Select/character_list_frame_purple.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6731b0963109040fcb82ad50cbbef63c
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/OfflineReward/title_bg_orange.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2bc701b63b63f40e0893a9fabeaa0a78
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Common/button_orange.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8f88b4c68e3074e71bd62403c6a8b7e2
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/ItemIcons/backup/256/common
+      icon_gem_purple.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 91d37967864564f818aaf9326fcf0302
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Character_List_Select/character_list_frame_blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f143e6b7f1ee14c9c8385475d718d2e6
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/OfflineReward/title_bg_green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 228b09b7fa1c5455eab8432a85fac4ee
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Popup/popup_title_line.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5be23c1877e9a40e28a1f3e28352d894
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/OfflineReward/title_bg_blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 284f99482071f47839549747513b612b
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Character_List_Select/character_list_frame_orange.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a13948f8f3f6c492498d476fe3431028
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Common/common_bg_glow_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 08be456a6ddbf458784cf3a37e52822f
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Character_List_Select/character_list_frame_green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a3fd677a471ef4626b9ebdd065a6ee84
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/ItemIcons/128/common_icon_boxing_gloves.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f7439fba4235245d38f4eddc537e469b
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/ItemIcons/backup/256/common
+      icon_gold.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ccb9cb3d26ff0491da27678834d72789
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Mission/mission_list_bg_complete.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6bbcba4e267be464998897741b81d508
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Common/button_blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1672025ec5ecf4aeebe093f9588af382
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Common/common_dimed.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 804461bef59b141dba258fc997c8ca15
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Common/button_yellow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8e29b5fe7ce3149e8aae1ee7b88d87b3
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Character_List_Select/character_select_shadow_white.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 681db73f19fb24efe843aad713eccb43
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/Common/button_red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 53a1ea3f1d6424c05b8510d75554f3f5
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/OfflineReward/title_bg_purple.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9e80f99f282d34d1f82d85a60bd1b938
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Sprite/_Icons/ItemIcons/128/common_icon_oil.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: be2c5d62ca95142e3b9dc4d4a638b2b6
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Fonts/LilitaOne-Regular
+      Outline_Extended ASCII_72 SDF Atlas.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dd36f1e4d1d8145d4ae67ed98e44ce90
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Fonts/LilitaOne-Regular
+      Outline_Extended ASCII_54 SDF Atlas.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 35891abd43bca4b8dbaff570b5c0c53d
+    m_Address: Assets/Third Party/GUI Kit Casual Game/ResourcesData/Fonts/LilitaOne-Regular
+      Outline 54 SDF Atlas.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 4948ba55cf128c04098da6187d7004b1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c4b864c81c3ac104eb2e9e0ff6885047, type: 2}
+    - {fileID: 11400000, guid: c6d8461838049e240bcb4c1eb2ab441a, type: 2}
