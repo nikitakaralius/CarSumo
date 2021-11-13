@@ -20,15 +20,15 @@ namespace UI.Accounts
 
         private TMP_Text _score;
         private ITeamPresenter _teamPresenter;
-        private IUnitTracker _unitTracker;
+        private IUnitTracking _unitTracking;
 
         private readonly CompositeDisposable _subscriptions = new CompositeDisposable();
 
         [Inject]
-        private void Construct(ITeamPresenter teamPresenter, IUnitTracker unitTracker)
+        private void Construct(ITeamPresenter teamPresenter, IUnitTracking unitTracking)
         {
             _teamPresenter = teamPresenter;
-            _unitTracker = unitTracker;
+            _unitTracking = unitTracking;
         }
 
         private void Start()
@@ -39,8 +39,9 @@ namespace UI.Accounts
 	            .Subscribe(ChangeScoreColor)
 	            .AddTo(_subscriptions);
 
-            _unitTracker
-	            .GetUnitsAlive(_team)
+            _unitTracking
+	            .UnitsAlive(_team)
+                .ObserveCountChanged()
 	            .Subscribe(count => _score.text = $"{count}")
 	            .AddTo(_subscriptions);
         }

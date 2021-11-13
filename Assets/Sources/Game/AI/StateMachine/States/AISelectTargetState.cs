@@ -11,21 +11,21 @@ namespace AI.StateMachine.States
 {
 	public class AISelectTargetState : IAIState
 	{
-		private readonly IVehicleTracker _tracker;
+		private readonly IUnitTracking _tracker;
 
 		private readonly Team _aiTeam;
 		private readonly Team _enemyTeam;
 
-		public AISelectTargetState(IVehicleTracker tracker, Team aiTeam, Team enemyTeam)
+		public AISelectTargetState(IUnitTracking tracker, Team aiTeam, Team enemyTeam)
 		{
 			_tracker = tracker;
 			_aiTeam = aiTeam;
 			_enemyTeam = enemyTeam;
 		}
 
-		private IEnumerable<Vehicle> Controlled => _tracker.VehiclesBy(_aiTeam);
+		private IEnumerable<Vehicle> Controlled => _tracker.UnitsAlive(_aiTeam).Select(unit => unit.Vehicle);
 
-		private IEnumerable<Vehicle> Enemy => _tracker.VehiclesBy(_enemyTeam);
+		private IEnumerable<Vehicle> Enemy => _tracker.UnitsAlive(_enemyTeam).Select(unit => unit.Vehicle);
 
 		public void Enter(AIStateMachine stateMachine)
 		{
