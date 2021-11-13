@@ -1,4 +1,5 @@
-﻿using GameModes;
+﻿using DataModel.GameData.Infrastructure;
+using GameModes;
 using Infrastructure.Installers.Factories;
 using Infrastructure.Installers.SubContainers;
 using Services.SceneManagement;
@@ -14,6 +15,7 @@ namespace Infrastructure.Installers.Bootstrap
             BindGameModeRegistryInterfaces();
             ProcessSubContainers();
             BindProjectInitialization();
+            BindApplicationEvents();
         }
 
         private void ProcessSubContainers()
@@ -43,5 +45,12 @@ namespace Infrastructure.Installers.Bootstrap
                 .BindInterfacesAndSelfTo<GameModeRegistry>()
                 .FromFactory<GameModeRegistry, GameModeRegistryFactory>()
                 .AsSingle();
+
+        private void BindApplicationEvents() =>
+            Container
+                .BindInterfacesTo<ApplicationEvents>()
+                .FromNewComponentOnNewGameObject()
+                .AsSingle()
+                .NonLazy();
     }
 }
