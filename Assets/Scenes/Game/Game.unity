@@ -169,6 +169,7 @@ MonoBehaviour:
   _unitInitializing: {fileID: 2010052914}
   _aiPlayer: {fileID: 920628254}
   _camera: {fileID: 1777856717}
+  _selector: {fileID: 677822513}
 --- !u!1 &92998009
 GameObject:
   m_ObjectHideFlags: 0

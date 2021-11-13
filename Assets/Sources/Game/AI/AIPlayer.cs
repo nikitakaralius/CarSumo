@@ -19,7 +19,7 @@ namespace AI
 		private ITeamPresenter _teamPresenter;
 
 		[Inject]
-		private void Construct(ITeamChange teamChange, IVehicleTracker tracker, ITeamPresenter teamPresenter,
+		private void Construct(ITeamChange teamChange, IUnitTracking tracker, ITeamPresenter teamPresenter,
 			ITimer timer)
 		{
 			_stateMachine = new AIStateMachine(new IAIState[]

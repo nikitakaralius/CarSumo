@@ -11,12 +11,12 @@ namespace CarSumo.Units
     {
 	    [SerializeField] private Team _team;
 
-	    private IUnitTrackerOperations _trackerOperations;
+	    private IUnitTrackingOperations _trackingOperations;
 
 	    [Inject]
-	    private void Construct(IUnitTrackerOperations trackerOperations)
+	    private void Construct(IUnitTrackingOperations trackingOperations)
 	    {
-		    _trackerOperations = trackerOperations;
+		    _trackingOperations = trackingOperations;
 	    }
 	    
 	    public Team Team => _team;
@@ -26,8 +26,8 @@ namespace CarSumo.Units
 	    public void InitializeVehicleBySelf(Vehicle vehicle)
 	    {
 		    var worldPlacement = new WorldPlacement(transform.position, -transform.forward);
-		    vehicle.Initialize(_team, worldPlacement, () => _trackerOperations.Remove(this));
-		    _trackerOperations.Add(this);
+		    vehicle.Initialize(_team, worldPlacement, () => _trackingOperations.Remove(this));
+		    _trackingOperations.Add(this);
 		    
 		    vehicle.transform.SetParent(transform);
 

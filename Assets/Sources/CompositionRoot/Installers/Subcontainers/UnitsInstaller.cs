@@ -13,7 +13,7 @@ namespace Infrastructure.Installers.SubContainers
 	    private void BindUnitTrackerInterfaces()
 	    {
 		    Container
-			    .BindInterfacesTo<UnitTracker>()
+			    .BindInterfacesTo<UnitTracking>()
 			    .AsSingle();
 	    }
     }

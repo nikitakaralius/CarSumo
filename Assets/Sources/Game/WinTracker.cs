@@ -12,29 +12,31 @@ namespace Game
 {
 	public class WinTracker : IWinMessage, IInitializable, IDisposable
 	{
-		private readonly IUnitTracker _unitTracker;
+		private readonly IUnitTracking _unitTracking;
 		private readonly IGameModePreferences _gameModePreferences;
 		private readonly GameStateMachine _stateMachine;
 
 		private readonly Subject<Account> _winObserver = new Subject<Account>();
 		private readonly CompositeDisposable _subscriptions = new CompositeDisposable();
 		
-		public WinTracker(IUnitTracker unitTracker, IGameModePreferences gameModePreferences, GameStateMachine stateMachine)
+		public WinTracker(IUnitTracking unitTracking, IGameModePreferences gameModePreferences, GameStateMachine stateMachine)
 		{
-			_unitTracker = unitTracker;
+			_unitTracking = unitTracking;
 			_gameModePreferences = gameModePreferences;
 			_stateMachine = stateMachine;
 		}
 
 		public void Initialize()
 		{
-			_unitTracker
-				.GetUnitsAlive(Team.Blue)
+			_unitTracking
+				.UnitsAlive(Team.Blue)
+				.ObserveCountChanged()
 				.Subscribe(unitsAlive => TryMakeTeamWin(Team.Red, unitsAlive))
 				.AddTo(_subscriptions);
 			
-			_unitTracker
-				.GetUnitsAlive(Team.Red)
+			_unitTracking
+				.UnitsAlive(Team.Red)
+				.ObserveCountChanged()
 				.Subscribe(unitsAlive => TryMakeTeamWin(Team.Blue, unitsAlive))
 				.AddTo(_subscriptions);
 		}

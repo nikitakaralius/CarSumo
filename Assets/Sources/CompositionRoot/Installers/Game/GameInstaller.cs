@@ -2,6 +2,7 @@
 using CarSumo.Coroutines;
 using Game;
 using Game.Mediation;
+using Game.Rules;
 using Infrastructure.Installers.Factories;
 using Infrastructure.Installers.SubContainers;
 using Services.Timer.InGameTimer;
@@ -24,6 +25,7 @@ namespace Infrastructure.Installers.Game
             BindTimer();
             BindCoroutineExecutor();
             BindWinTrackerInterfaces();
+            BindRulesRepository();
             ProcessSubContainers();
         }
 
@@ -32,6 +34,7 @@ namespace Infrastructure.Installers.Game
             InstantiationInstaller.Install(Container);
             TeamsInstaller.Install(Container);
             UnitsInstaller.Install(Container);
+            TimersInstaller.Install(Container);
         }
 
         private void BindGameTimer() =>
@@ -66,6 +69,11 @@ namespace Infrastructure.Installers.Game
             Container
                 .BindInterfacesTo<GameMediator>()
                 .FromInstance(_mediator)
+                .AsSingle();
+
+        private void BindRulesRepository() =>
+            Container
+                .Bind<RulesRepository>()
                 .AsSingle();
     }
 }
