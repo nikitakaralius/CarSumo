@@ -12,8 +12,13 @@ namespace Services.Timers.Realtime
 		private readonly ReactiveProperty<int> _cycles;
 
 		private ITickable _tickable = new FakeTickable();
-		
-		public CyclicRealtimeTimer(TimeSpan cycleDuration) : this(cycleDuration, cycleDuration, DateTime.Now) { }
+
+		public CyclicRealtimeTimer(TimeSpan cycleDuration)
+		{
+			_cycleDuration = cycleDuration;
+			_cycles = new ReactiveProperty<int>(0);
+			_timeLeft = new ReactiveProperty<TimeSpan>(_cycleDuration);
+		}
 		public CyclicRealtimeTimer(TimeSpan cycleDuration, TimeSpan timeLeft, DateTime lastSession)
 		{
 			_cycleDuration = cycleDuration;

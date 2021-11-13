@@ -26,7 +26,10 @@ namespace CarSumo.StateMachine.States
         public async void Enter()
         {
             if (_resourceConsumption.ConsumeIfEnoughToEnterGame() == false)
+            {
                 _stateMachine.Value.Enter<MenuState>();
+                return;
+            }
             
             await _sceneLoading.LoadAsync(Game);
             await _sceneLoading.LoadAsync(Ui);
