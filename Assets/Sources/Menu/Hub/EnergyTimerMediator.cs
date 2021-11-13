@@ -10,23 +10,29 @@ using Zenject;
 
 namespace Menu.Hub
 {
-	public class Timers : SerializedMonoBehaviour
+	public class EnergyTimerMediator : SerializedMonoBehaviour
 	{
+		private IResourceStorage _storage;
 		private ResourceTimers _timers;
 		private ResourceTimersSave _save;
 		private IClientResourceOperations _resourceOperations;
 		
 		[Inject]
-		private void Construct(ResourceTimers timers, ResourceTimersSave save, IClientResourceOperations operations)
+		private void Construct(ResourceTimers timers,
+								ResourceTimersSave save,
+								IClientResourceOperations operations,
+								IResourceStorage storage)
 		{
 			_timers = timers;
 			_save = save;
 			_resourceOperations = operations;
+			_storage = storage;
 		}
 
-		private void Start() => BindRewards();
+		private void Start() => HandleCallbacks();
 
-		private void BindRewards() =>
+		private void HandleCallbacks()
+		{
 			_timers
 				.TimerOf(TimedResource.GameEnergy)
 				.Cycles(out IRealtimeTimer timer)
@@ -35,6 +41,17 @@ namespace Menu.Hub
 					_resourceOperations.Receive(ResourceId.Energy, cycles);
 					timer.FlushCycles();
 				});
+			
+			_storage
+				.GetResourceAmount(ResourceId.Energy)
+				.Subscribe(value =>
+				{
+					if (value < _storage.GetResourceLimit(ResourceId.Energy).Value)
+						timer.Start();
+					else
+						timer.Stop();
+				});
+		}
 
 		[Button(Style = ButtonStyle.FoldoutButton), DisableInEditorMode]
 		private void LogResourceTimeLeft(TimedResource resource) =>

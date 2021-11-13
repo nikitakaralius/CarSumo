@@ -21,7 +21,7 @@ namespace Menu.Resources
 				.Subscribe(ChangeTimerText)
 				.AddTo(_disposables);
 
-		private void OnDisable() => _disposables.Dispose();
+		private void OnDestroy() => _disposables.Dispose();
 
 		private void ChangeTimerText(TimeSpan timeSpan) => _timer.text = timeSpan.ToString("mm\\:ss");
 	}
