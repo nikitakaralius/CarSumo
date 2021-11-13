@@ -1,4 +1,4 @@
-﻿namespace Menu.OtherLayout
+﻿namespace Menu.Other
 {
     public interface IPopup
     {

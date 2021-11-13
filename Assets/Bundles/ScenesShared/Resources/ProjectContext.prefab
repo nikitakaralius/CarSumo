@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4610754878231972088}
   - component: {fileID: 5306675881141624969}
   - component: {fileID: 1671438638638210972}
+  - component: {fileID: 3299463293014015530}
   m_Layer: 0
   m_Name: ProjectContext
   m_TagString: Untagged
@@ -47,6 +48,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 1671438638638210972}
+  - {fileID: 3299463293014015530}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0
@@ -73,5 +75,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3644b808274e4ee3bc9f8fb73372e8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _resourceConsumption: {fileID: 11400000, guid: 62ed1f4b484415544b9bac3d72cc9a96, type: 2}
+--- !u!114 &3299463293014015530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991258550976704829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b595b6bc22144d5b9d78d1d8893445f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _projectConfiguration: {fileID: 11400000, guid: 989f3b22575b7cc49a71cfaba627726a, type: 2}
   _timersConfiguration: {fileID: 11400000, guid: 1dec93c65d8121e40914ea27391992b1, type: 2}
+  _resourceConsumption: {fileID: 11400000, guid: 62ed1f4b484415544b9bac3d72cc9a96, type: 2}

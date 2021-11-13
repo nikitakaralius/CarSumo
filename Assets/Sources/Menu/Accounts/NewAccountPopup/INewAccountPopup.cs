@@ -1,4 +1,4 @@
-﻿using Menu.OtherLayout;
+﻿using Menu.Other;
 
 namespace Menu.Accounts
 {
