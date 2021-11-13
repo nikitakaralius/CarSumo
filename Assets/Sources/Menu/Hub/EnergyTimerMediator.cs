@@ -1,4 +1,5 @@
 ﻿using CarSumo.DataModel.GameResources;
+using CarSumo.DataModel.GameResources.Extensions;
 using DataModel.GameData.GameSave;
 using Menu.Resources;
 using Services.Timers.Extensions;
@@ -46,10 +47,10 @@ namespace Menu.Hub
 				.GetResourceAmount(ResourceId.Energy)
 				.Subscribe(value =>
 				{
-					if (value < _storage.GetResourceLimit(ResourceId.Energy).Value)
-						timer.Start();
-					else
+					if (_storage.OnItsLimit(ResourceId.Energy))
 						timer.Stop();
+					else
+						timer.Start();
 				});
 		}
 
