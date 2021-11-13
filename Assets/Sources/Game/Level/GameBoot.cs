@@ -1,25 +1,31 @@
-﻿using Game.GameModes.Composites;
-using Game.Mediation;
-using GameModes;
+﻿using System.Threading.Tasks;
+using CarSumo.Units;
+using Services.Timer.InGameTimer;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace Game.Level
 {
 	public class GameBoot : MonoBehaviour
 	{
-		private IGameModePreferences _preferences;
-		private IMediator _mediator;
+		[SerializeField, Required, SceneObjectsOnly] private UnitInitializing _unitInitializing;
+		[SerializeField, Required, SceneObjectsOnly] private Image _blackScreen;
+
+		private IConfiguredTimerOperations _timer;
 
 		[Inject]
-		private void Construct(IGameModePreferences preferences, IMediator mediator)
+		private void Construct(IConfiguredTimerOperations timer)
 		{
-			_mediator = mediator;
-			_preferences = preferences;
+			_timer = timer;
 		}
-
-		private IGameComposite Composite => _preferences.Composite;
-
-		private void OnEnable() => Composite.Compose(_mediator);
+		
+		public async Task BootAsync()
+		{
+			await _unitInitializing.InitializeAsync();
+			_timer.Start();
+			_blackScreen.CrossFadeAlpha(0, 1, false);
+		}
 	}
 }

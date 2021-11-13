@@ -19,6 +19,7 @@ namespace UI.Accounts
         [SerializeField] private ITweenAnimation _scoreAnimation;
 
         private TMP_Text _score;
+        
         private ITeamPresenter _teamPresenter;
         private IUnitTracking _unitTracking;
 
@@ -30,11 +31,12 @@ namespace UI.Accounts
             _teamPresenter = teamPresenter;
             _unitTracking = unitTracking;
         }
-
-        private void Start()
+        
+        private void Awake()
         {
             _score = GetComponent<TMP_Text>();
-            
+            _score.text = $"{_unitTracking.UnitsAlive(_team).Count}";
+
             _teamPresenter.ActiveTeam
 	            .Subscribe(ChangeScoreColor)
 	            .AddTo(_subscriptions);

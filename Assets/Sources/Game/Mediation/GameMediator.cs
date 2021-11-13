@@ -2,8 +2,8 @@
 using AI;
 using CarSumo.Cameras;
 using CarSumo.Teams;
-using CarSumo.Units;
 using CarSumo.Vehicles.Selector;
+using Game.Level;
 using Game.Rules;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -23,12 +23,12 @@ namespace Game.Mediation
 	{
 		[Inject] private readonly RulesRepository _rulesRepository;
 		
-		[SerializeField, Required, SceneObjectsOnly] private UnitInitializing _unitInitializing;
+		[SerializeField, Required, SceneObjectsOnly] private GameBoot _boot;
 		[SerializeField, Required, SceneObjectsOnly] private AIPlayer _aiPlayer;
 		[SerializeField, Required, SceneObjectsOnly] private CameraTeamTransposer _camera;
 		[SerializeField, Required, SceneObjectsOnly] private VehicleSelector _selector;
 		
-		[Button, DisableInEditorMode] public async Task BootAsync() => await _unitInitializing.InitializeAsync();
+		[Button, DisableInEditorMode] public async Task BootAsync() => await _boot.BootAsync();
 		[Button, DisableInEditorMode] public void DeployAI() => _aiPlayer.Enable();
 		[Button, DisableInEditorMode] public void RememberTeamCameraPosition(Team? targetTeam, bool remember) => _camera.RememberPosition(targetTeam, remember);
 		public void ConfigureSelector<TPickerRules>() where TPickerRules : VehiclePicker.IRules => _selector.Initialize(_rulesRepository.InstanceOf<TPickerRules>());

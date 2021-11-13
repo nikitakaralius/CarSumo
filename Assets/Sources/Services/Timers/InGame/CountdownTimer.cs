@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Services.Timer.InGameTimer
 {
-    public class CountdownTimer : ITimer, ITimerOperations, IConfiguredTimerOperations, IInitializable
+    public class CountdownTimer : ITimer, ITimerOperations, IConfiguredTimerOperations
     {
         private readonly float _defaultSecondsToElapse;
         private readonly CoroutineExecutor _coroutineExecutor;
@@ -29,12 +29,7 @@ namespace Services.Timer.InGameTimer
             Stop();
             _timerRoutine = _coroutineExecutor.StartCoroutine(StartTimer(secondsToElapse));
         }
-
-        public void Initialize()
-        {
-            Start();
-        }
-
+        
         public void Start()
         {
             Start(_defaultSecondsToElapse);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CarSumo.Teams;
+using CarSumo.Units.Tracking;
 using CarSumo.Vehicles;
 using DataModel.GameData.Vehicles;
 using DataModel.Vehicles;
@@ -24,7 +25,9 @@ namespace CarSumo.Units
 		private IAsyncInstantiation _instantiation;
 		
 		[Inject]
-		private void Construct(IVehicleAssetsProvider assetsProvider, IGameModePreferences gameModePreferences, IAsyncInstantiation instantiation)
+		private void Construct(IVehicleAssetsProvider assetsProvider,
+								IGameModePreferences gameModePreferences,
+								IAsyncInstantiation instantiation)
 		{
 			_assetsProvider = assetsProvider;
 			_gameModePreferences = gameModePreferences;

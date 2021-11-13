@@ -31,6 +31,7 @@ namespace Infrastructure.Installers.Game
 
         private void ProcessSubContainers()
         {
+            SignalBusInstaller.Install(Container);
             InstantiationInstaller.Install(Container);
             TeamsInstaller.Install(Container);
             UnitsInstaller.Install(Container);
