@@ -24,7 +24,7 @@ namespace Services.Timers.Realtime
 			_cycleDuration = cycleDuration;
 
 			TimeSpan timePassedSinceLastSession = DateTime.Now - lastSession + timeLeft;
-			_cycles = new ReactiveProperty<int>((int) (timePassedSinceLastSession.TotalSeconds / cycleDuration.TotalSeconds) - 1);
+			_cycles = new ReactiveProperty<int>((int) (timePassedSinceLastSession.TotalSeconds / cycleDuration.TotalSeconds));
 
 			_timeLeft = new ReactiveProperty<TimeSpan>(TimeLeftSinceLastSession(cycleDuration, timeLeft, lastSession));
 		}
@@ -41,7 +41,7 @@ namespace Services.Timers.Realtime
 		public void FlushCycles() => _cycles.Value = 0;
 
 		private TimeSpan TimeLeftSinceLastSession(TimeSpan cycleDuration, TimeSpan timeLeft, DateTime lastSession) => 
-			TimeSpan.FromSeconds(Math.Abs((DateTime.Now - lastSession - timeLeft).TotalSeconds) / cycleDuration.TotalSeconds);
+			TimeSpan.FromSeconds(Math.Abs((DateTime.Now - lastSession - timeLeft).TotalSeconds) % cycleDuration.TotalSeconds);
 
 		private class Tickable : ITickable
 		{

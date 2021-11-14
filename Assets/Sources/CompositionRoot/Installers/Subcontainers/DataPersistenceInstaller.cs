@@ -1,22 +1,19 @@
 ﻿using DataModel.DataPersistence;
-using Infrastructure.Initialization;
 using Zenject;
 
 namespace Infrastructure.Installers.SubContainers
 {
-    public class FileDataInstaller : Installer<FileDataInstaller>
+    public class DataPersistenceInstaller : Installer<DataPersistenceInstaller>
     {
         public override void InstallBindings()
         {
             BindFileService();
         }
 
-        private void BindFileService()
-        {
+        private void BindFileService() =>
             Container
-                .BindInterfacesAndSelfTo<JsonNetFileService>()
+                .BindInterfacesAndSelfTo<EncryptedJsonNetFileService>()
                 .AsSingle()
                 .NonLazy();
-        }
     }
 }

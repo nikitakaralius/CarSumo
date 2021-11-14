@@ -1,25 +1,29 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using DataModel.DataPersistence.Extensions;
 using Newtonsoft.Json;
 
 namespace DataModel.DataPersistence
 {
 	public class EncryptedJsonNetFileService : IFileService, IAsyncFileService
 	{
-		private const string KeysExtension = ".keys";
+		private const string KeysExtension = "keys";
 		private const char KeysSeparator = '*'; 
 
 		public TModel Load<TModel>(string path)
 		{
-			string json = Decrypt(LoadEncrypted(path));
+			EncryptedFilesData encryptedFilesData = LoadEncrypted(path);
+			string json = encryptedFilesData.Corrupted ? string.Empty : Decrypt(encryptedFilesData);
 			return JsonConvert.DeserializeObject<TModel>(json);
 		}
 
 		public async Task<TModel> LoadAsync<TModel>(string path)
 		{
-			string json = await DecryptAsync(await LoadEncryptedAsync(path));
+			EncryptedFilesData encryptedFilesData = await LoadEncryptedAsync(path);
+			string json = encryptedFilesData.Corrupted ? string.Empty : await DecryptAsync(encryptedFilesData);
 			return JsonConvert.DeserializeObject<TModel>(json);
 		}
 
@@ -64,7 +68,7 @@ namespace DataModel.DataPersistence
 				{
 					await streamWriter.WriteAsync(BitConverter.ToString(encrypted));
 				}
-				using (var streamWriter = new StreamWriter(path + KeysExtension))
+				using (var streamWriter = new StreamWriter(KeysFile(path)))
 				{
 					await streamWriter.WriteAsync(KeysFileData(aes));
 				}
@@ -73,7 +77,7 @@ namespace DataModel.DataPersistence
 
 		private static string KeysFileData(Aes aes) => $"{BitConverter.ToString(aes.Key)}{KeysSeparator}{BitConverter.ToString(aes.IV)}";
 
-		private static string KeysFile(string path) => path + KeysExtension;
+		public static string KeysFile(string path) => path.ChangeFileExtensionTo(KeysExtension);
 
 		private static byte[] Encrypt(string json, ICryptoTransform encryptor)
 		{
@@ -123,9 +127,12 @@ namespace DataModel.DataPersistence
 			{
 				_model = model;
 				string[] splitKeys = keys.Split(KeysSeparator);
-				_key = splitKeys[0];
-				_iv = splitKeys[1];
+				
+				_key = splitKeys.Length > 1 ? splitKeys[0] : string.Empty;
+				_iv = splitKeys.Length > 1 ? splitKeys[1] : string.Empty;
 			}
+
+			public bool Corrupted => string.IsNullOrEmpty(_model);
 
 			public byte[] Model => ConvertBinaryFile(_model);
 
