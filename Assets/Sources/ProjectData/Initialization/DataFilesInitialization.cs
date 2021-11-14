@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using DataModel.DataPersistence;
 using Infrastructure.Settings;
 
 namespace Infrastructure.Initialization
@@ -34,8 +35,9 @@ namespace Infrastructure.Initialization
         {
             if (File.Exists(filePath))
                 return;
-            
-            using var stream = new FileStream(filePath, FileMode.CreateNew);
+
+            using var jsonStream = new FileStream(filePath, FileMode.CreateNew);
+            using var keysStream = new FileStream(JsonNetFileEncryptedService.KeysFile(filePath), FileMode.CreateNew);
         }
     }
 }

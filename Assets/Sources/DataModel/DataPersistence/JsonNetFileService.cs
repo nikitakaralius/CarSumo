@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace DataModel.FileData
+namespace DataModel.DataPersistence
 {
     public class JsonNetFileService : IFileService, IAsyncFileService
     {

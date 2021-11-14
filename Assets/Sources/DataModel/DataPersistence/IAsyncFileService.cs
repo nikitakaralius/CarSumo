@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace DataModel.FileData
+namespace DataModel.DataPersistence
 {
     public interface IAsyncFileService
     {

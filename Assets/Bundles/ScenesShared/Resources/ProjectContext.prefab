@@ -75,7 +75,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3644b808274e4ee3bc9f8fb73372e8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resourceConsumption: {fileID: 11400000, guid: 62ed1f4b484415544b9bac3d72cc9a96, type: 2}
 --- !u!114 &3299463293014015530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b595b6bc22144d5b9d78d1d8893445f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectConfiguration: {fileID: 11400000, guid: 989f3b22575b7cc49a71cfaba627726a, type: 2}
+  _debugConfiguration: {fileID: 11400000, guid: 989f3b22575b7cc49a71cfaba627726a, type: 2}
+  _releaseConfiguration: {fileID: 11400000, guid: 089e17f6257a30e4fb2b4719cc3bc98a, type: 2}
   _timersConfiguration: {fileID: 11400000, guid: 1dec93c65d8121e40914ea27391992b1, type: 2}
   _resourceConsumption: {fileID: 11400000, guid: 62ed1f4b484415544b9bac3d72cc9a96, type: 2}

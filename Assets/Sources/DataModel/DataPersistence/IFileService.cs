@@ -1,4 +1,4 @@
-﻿namespace DataModel.FileData
+﻿namespace DataModel.DataPersistence
 {
     public interface IFileService
     {

@@ -8,7 +8,9 @@ namespace Infrastructure.Installers.SubContainers
 {
 	public class ConfigurationInstaller : MonoInstaller
 	{
-		[SerializeField] private ProjectConfiguration _projectConfiguration;
+		[SerializeField] private ProjectConfiguration _debugConfiguration;
+		[SerializeField] private ProjectConfiguration _releaseConfiguration;
+		
 		[SerializeField] private TimersConfiguration _timersConfiguration;
 		[SerializeField] private GameResourceConsumption _resourceConsumption;
 		
@@ -22,7 +24,9 @@ namespace Infrastructure.Installers.SubContainers
 		private void BindProjectConfiguration() =>
 			Container
 				.BindInterfacesAndSelfTo<ProjectConfiguration>()
-				.FromInstance(_projectConfiguration)
+				.FromInstance(Application.isEditor
+					? _debugConfiguration 
+					: _releaseConfiguration)
 				.AsSingle()
 				.NonLazy();
 

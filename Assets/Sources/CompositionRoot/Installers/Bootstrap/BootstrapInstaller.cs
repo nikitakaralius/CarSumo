@@ -20,7 +20,7 @@ namespace Infrastructure.Installers.Bootstrap
 
         private void ProcessSubContainers()
         {
-            FileDataInstaller.Install(Container);
+            DataPersistenceInstaller.Install(Container);
             VehiclesInstaller.Install(Container);
             AccountsInstaller.Install(Container);
             ResourcesInstaller.Install(Container);

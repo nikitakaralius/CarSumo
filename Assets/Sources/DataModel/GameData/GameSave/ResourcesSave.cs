@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CarSumo.DataModel.GameResources;
-using DataModel.FileData;
+using DataModel.DataPersistence;
 using UniRx;
 
 namespace DataModel.GameData.GameSave
