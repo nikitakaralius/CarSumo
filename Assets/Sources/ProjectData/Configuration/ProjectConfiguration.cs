@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using CarSumo.DataModel.Accounts;
 using CarSumo.DataModel.GameResources;
 using CarSumo.DataModel.Settings;
 using DataModel.GameData.Vehicles;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Infrastructure.Settings
@@ -16,7 +18,7 @@ namespace Infrastructure.Settings
                                         IProjectConfiguration,
                                         IVehicleStorageConfiguration
     {
-        private const string Format = ".JSON";
+        private const string Format = ".bin";
 
         [Header("Audio Configuration")]
         [SerializeField] private string _musicVolumeParameter;
@@ -65,11 +67,11 @@ namespace Infrastructure.Settings
             return path;
         }
 
-        private static string GetAssetsPath()
-        {
-            return Application.isEditor
+        private static string GetAssetsPath() =>
+            Application.isEditor
                 ? Application.dataPath
                 : Application.persistentDataPath;
-        }
+
+        [Button(ButtonStyle.FoldoutButton)] private string GenerateGuid() => Guid.NewGuid().ToString();
     }
 }

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee5934692b534af5818d537359f90366, type: 3}
-  m_Name: ProjectConfiguration
+  m_Name: ProjectConfigurationRelease
   m_EditorClassIdentifier: 
   _musicVolumeParameter: MusicVolume
   _sfxVolumeParameter: SfxVolume
-  _rootDirectoryName: Data
-  _audioFileName: Audio
-  _resourcesFileName: Resources
-  _accountStorageFileName: Accounts
-  _vehicleStorageFileName: Vehicles
-  _resourceTimersFileName: Timers
+  _rootDirectoryName: 2720153d-ab2b-46e5-a590-d7688e931142
+  _audioFileName: 4f126f10-1bd5-4685-aacb-9ea9d582736f
+  _resourcesFileName: 9528dc3d-d4fb-4bc8-a3b6-c0f2f91fa9a3
+  _accountStorageFileName: b3639e1b-048d-4dc3-81f5-63cc4d648340
+  _vehicleStorageFileName: dd804f7f-aa68-497e-8622-92ffafafb5ae
+  _resourceTimersFileName: ff1b1a0e-bcbe-4974-9c9f-dfddb08b76ad
