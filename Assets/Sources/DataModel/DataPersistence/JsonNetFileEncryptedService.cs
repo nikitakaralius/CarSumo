@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using DataModel.DataPersistence.Extensions;
@@ -8,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace DataModel.DataPersistence
 {
-	public class EncryptedJsonNetFileService : IFileService, IAsyncFileService
+	public class JsonNetFileEncryptedService : IFileService, IAsyncFileService
 	{
 		private const string KeysExtension = "keys";
 		private const char KeysSeparator = '*'; 
