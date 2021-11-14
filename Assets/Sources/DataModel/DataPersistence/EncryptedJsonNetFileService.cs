@@ -71,11 +71,11 @@ namespace DataModel.DataPersistence
 			}
 		}
 
-		private string KeysFileData(Aes aes) => $"{BitConverter.ToString(aes.Key)}{KeysSeparator}{BitConverter.ToString(aes.IV)}";
+		private static string KeysFileData(Aes aes) => $"{BitConverter.ToString(aes.Key)}{KeysSeparator}{BitConverter.ToString(aes.IV)}";
 
 		private static string KeysFile(string path) => path + KeysExtension;
 
-		private byte[] Encrypt(string json, ICryptoTransform encryptor)
+		private static byte[] Encrypt(string json, ICryptoTransform encryptor)
 		{
 			byte[] bytes;
 			
@@ -136,7 +136,7 @@ namespace DataModel.DataPersistence
 			private static byte[] ConvertBinaryFile(string binary) => Array.ConvertAll(binary.Split('-'), x => Convert.ToByte(x, 16));
 		}
 
-		private EncryptedFilesData LoadEncrypted(string path)
+		private static EncryptedFilesData LoadEncrypted(string path)
 		{
 			string model;
 			using (var streamReader = new StreamReader(path))
@@ -152,7 +152,7 @@ namespace DataModel.DataPersistence
 			return new EncryptedFilesData(model, keys);
 		}
 		
-		private async Task<EncryptedFilesData> LoadEncryptedAsync(string path)
+		private static async Task<EncryptedFilesData> LoadEncryptedAsync(string path)
 		{
 			string model;
 			using (var streamReader = new StreamReader(path))
@@ -168,7 +168,7 @@ namespace DataModel.DataPersistence
 			return new EncryptedFilesData(model, keys);
 		}
 
-		private string Decrypt(EncryptedFilesData encrypted)
+		private static string Decrypt(EncryptedFilesData encrypted)
 		{
 			string decrypted;
 			using (var aes = Aes.Create())
@@ -192,7 +192,7 @@ namespace DataModel.DataPersistence
 			return decrypted;
 		}
 		
-		private async Task<string> DecryptAsync(EncryptedFilesData encrypted)
+		private static async Task<string> DecryptAsync(EncryptedFilesData encrypted)
 		{
 			string decrypted;
 			using (var aes = Aes.Create())
