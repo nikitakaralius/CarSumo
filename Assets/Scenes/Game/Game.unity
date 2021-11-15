@@ -2298,7 +2298,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitInitializing: {fileID: 2010052914}
   _blackScreen: {fileID: 1817666141}
-  _startGameTimer: {fileID: 0}
 --- !u!1 &1654136322
 GameObject:
   m_ObjectHideFlags: 0
@@ -2742,7 +2741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1817666140
 RectTransform:
   m_ObjectHideFlags: 0
