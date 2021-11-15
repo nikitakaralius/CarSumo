@@ -495,8 +495,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 69841739}
+  - component: {fileID: 69841740}
+  - component: {fileID: 69841741}
   m_Layer: 5
-  m_Name: WinnerInfo
+  m_Name: WinnerView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -523,6 +525,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 242.8}
   m_SizeDelta: {x: 605, y: 659.1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &69841740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69841738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1581795df5da4118a93cbdf7d904701c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _view: {fileID: 69841741}
+--- !u!114 &69841741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69841738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9ec3ffb42db474782a9d737d0e48c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: {fileID: 1178445534}
+  _icon: {fileID: 1510214490}
 --- !u!1 &94508177
 GameObject:
   m_ObjectHideFlags: 0
@@ -11319,8 +11348,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1337550774}
+  - component: {fileID: 1337550775}
+  - component: {fileID: 1337550776}
   m_Layer: 5
-  m_Name: WinnerInfo
+  m_Name: WinnerView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11347,6 +11378,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 242.8}
   m_SizeDelta: {x: 605, y: 659.1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1337550775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337550773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1581795df5da4118a93cbdf7d904701c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _view: {fileID: 1337550776}
+--- !u!114 &1337550776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337550773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9ec3ffb42db474782a9d737d0e48c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: {fileID: 1080850129}
+  _icon: {fileID: 48701902}
 --- !u!1 &1345661126
 GameObject:
   m_ObjectHideFlags: 0
@@ -23958,8 +24016,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2108081361}
+  - component: {fileID: 2108081362}
+  - component: {fileID: 2108081363}
   m_Layer: 5
-  m_Name: WinnerInfo
+  m_Name: WinnerView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23986,6 +24046,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 242.8}
   m_SizeDelta: {x: 605, y: 659.1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2108081362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108081360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1581795df5da4118a93cbdf7d904701c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _view: {fileID: 2108081363}
+--- !u!114 &2108081363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108081360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9ec3ffb42db474782a9d737d0e48c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: {fileID: 1162721779}
+  _icon: {fileID: 318658142}
 --- !u!1 &2111616265
 GameObject:
   m_ObjectHideFlags: 0
@@ -24227,7 +24314,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 558311648717942484}
-  - component: {fileID: 558311648717942488}
   m_Layer: 5
   m_Name: EndGame
   m_TagString: Untagged
@@ -24235,20 +24321,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &558311648717942488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558311648717942487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78fd9f70a51d47809872709064ad07af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _winnerAccountPresenter: {fileID: 0}
-  _window: {fileID: 0}
 --- !u!114 &1389174573206782372
 MonoBehaviour:
   m_ObjectHideFlags: 0

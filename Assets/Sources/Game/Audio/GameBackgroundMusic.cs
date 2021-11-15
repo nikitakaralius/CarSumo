@@ -16,15 +16,15 @@ namespace Game.Audio
 		[Header("Sound Emitter")]
 		[SerializeField] private MonoSoundEmitter _soundEmitter;
 
-		private IWinMessage _winMessage;
+		private IEndGameMessage _endGameMessage;
 
 		private IDisposable _winSubscription;
 		private AudioCue _playingCue;
 
 		[Inject]
-		private void Construct(IWinMessage winMessage)
+		private void Construct(IEndGameMessage endGameMessage)
 		{
-			_winMessage = winMessage;
+			_endGameMessage = endGameMessage;
 		}
 		
 		private void Start()
@@ -35,8 +35,8 @@ namespace Game.Audio
 			
 			_soundEmitter.FinishedPlaying += PlayNextClip;
 
-			_winSubscription = _winMessage
-				.ObserveWin()
+			_winSubscription = _endGameMessage
+				.ObserveEnding()
 				.Subscribe(_ =>
 				{
 					_soundEmitter.Stop();

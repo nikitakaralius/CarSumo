@@ -3,8 +3,8 @@ using CarSumo.DataModel.Accounts;
 
 namespace Game
  {
-	public interface IWinMessage
+	public interface IEndGameMessage
 	{
-		IObservable<Account> ObserveWin();
+		IObservable<Account> ObserveEnding();
 	}
 }

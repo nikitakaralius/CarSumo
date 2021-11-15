@@ -12,19 +12,19 @@ namespace UI.Endgame.Win
 		[SerializeField] private WinnerAccountPresenter _winnerAccountPresenter;
 		[SerializeField] private GameObject _window;
 		
-		private IWinMessage _winMessage;
+		private IEndGameMessage _endGameMessage;
 		private IDisposable _winSubscription;
 		
 		[Inject]
-		private void Construct(IWinMessage winMessage)
+		private void Construct(IEndGameMessage endGameMessage)
 		{
-			_winMessage = winMessage;
+			_endGameMessage = endGameMessage;
 		}
 
 		private void OnEnable()
 		{
-			_winSubscription = _winMessage
-				.ObserveWin()
+			_winSubscription = _endGameMessage
+				.ObserveEnding()
 				.Subscribe(OnPlayerWon);
 		}
 
