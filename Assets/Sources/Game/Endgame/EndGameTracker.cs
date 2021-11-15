@@ -8,7 +8,7 @@ using GameModes;
 using UniRx;
 using Zenject;
 
-namespace Game
+namespace Game.Endgame
 {
 	public class EndGameTracker : IEndGameMessage, IInitializable, IDisposable
 	{

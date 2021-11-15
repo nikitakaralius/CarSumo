@@ -1,7 +1,7 @@
 ﻿using System;
 using CarSumo.DataModel.Accounts;
 
-namespace Game
+namespace Game.Endgame
  {
 	public interface IEndGameMessage
 	{

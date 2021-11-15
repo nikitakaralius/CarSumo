@@ -7,6 +7,7 @@ using Infrastructure.Installers.Factories;
 using Infrastructure.Installers.SubContainers;
 using Services.Timer.InGameTimer;
 using Sirenix.OdinInspector;
+using Game.Endgame;
 using UnityEngine;
 using Zenject;
 

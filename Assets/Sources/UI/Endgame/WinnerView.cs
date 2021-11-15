@@ -1,11 +1,12 @@
 ﻿using Game;
 using GuiBaseData.Accounts;
 using Sirenix.OdinInspector;
+using Game.Endgame;
 using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Sources.UI.Endgame
+namespace UI.Endgame
 {
 	public class WinnerView : MonoBehaviour
 	{

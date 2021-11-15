@@ -10741,7 +10741,7 @@ GameObject:
   - component: {fileID: 1172169670}
   - component: {fileID: 1172169671}
   m_Layer: 5
-  m_Name: WinnerWindowOneDeviceMode
+  m_Name: OneDevice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10764,7 +10764,7 @@ RectTransform:
   - {fileID: 69841739}
   - {fileID: 50149335}
   m_Father: {fileID: 558311648717942484}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -10783,7 +10783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56efd8fe7b1b44568ef811d6c5e718df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameplayElements: {fileID: 1158077415}
 --- !u!1 &1178445532
 GameObject:
   m_ObjectHideFlags: 0
@@ -16540,7 +16539,7 @@ GameObject:
   - component: {fileID: 1442588926}
   - component: {fileID: 1442588927}
   m_Layer: 5
-  m_Name: LoseWindowSingleMode
+  m_Name: SingleModeLose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16563,7 +16562,7 @@ RectTransform:
   - {fileID: 2108081361}
   - {fileID: 455708058}
   m_Father: {fileID: 558311648717942484}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -16582,7 +16581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56efd8fe7b1b44568ef811d6c5e718df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameplayElements: {fileID: 1158077415}
 --- !u!1001 &1448531962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24323,8 +24321,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7140712155388821207}
-  - {fileID: 1172169670}
   - {fileID: 1442588926}
+  - {fileID: 1172169670}
   m_Father: {fileID: 1455461107}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24342,6 +24340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 558311648717942484}
+  - component: {fileID: 558311648717942488}
   m_Layer: 5
   m_Name: EndGame
   m_TagString: Untagged
@@ -24349,6 +24348,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &558311648717942488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558311648717942487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b370295574744ab1b7a9881b29db2f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameplayElements: {fileID: 1158077415}
+  _singleModeWin: {fileID: 7140712155388821205}
+  _singleModeLose: {fileID: 1442588927}
+  _oneDeviceModeEndGame: {fileID: 1172169671}
 --- !u!114 &1389174573206782372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25766,7 +25781,7 @@ GameObject:
   - component: {fileID: 7140712155388821207}
   - component: {fileID: 7140712155388821205}
   m_Layer: 5
-  m_Name: WinnerWindowSingleMode
+  m_Name: SingleModeWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25784,7 +25799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56efd8fe7b1b44568ef811d6c5e718df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameplayElements: {fileID: 1158077415}
 --- !u!224 &7140712155388821207
 RectTransform:
   m_ObjectHideFlags: 0
