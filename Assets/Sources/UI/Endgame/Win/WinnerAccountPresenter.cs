@@ -1,6 +1,6 @@
 ﻿using GuiBaseData.Accounts;
 
-namespace UI.Accounts
+namespace UI.Endgame.Win
 {
 	public class WinnerAccountPresenter : AccountView
 	{

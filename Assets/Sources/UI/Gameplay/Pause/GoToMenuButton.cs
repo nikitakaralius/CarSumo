@@ -5,10 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UI.Pause
+namespace UI.Gameplay.Pause
 {
     [RequireComponent(typeof(Button))]
-    public class ExitButton : MonoBehaviour
+    public class GoToMenuButton : MonoBehaviour
     {
         private GameStateMachine _stateMachine;
         private IAudioPlayer _audioPlayer;

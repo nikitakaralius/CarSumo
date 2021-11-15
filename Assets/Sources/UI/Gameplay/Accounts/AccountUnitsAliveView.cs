@@ -8,7 +8,7 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace UI.Accounts
+namespace UI.Gameplay.Accounts
 {
     [RequireComponent(typeof(TMP_Text))]
     public class AccountUnitsAliveView : SerializedMonoBehaviour
@@ -48,10 +48,7 @@ namespace UI.Accounts
 	            .AddTo(_subscriptions);
         }
 
-        private void OnDestroy()
-        {
-            _subscriptions.Dispose();
-        }
+        private void OnDestroy() => _subscriptions.Dispose();
 
         private void ChangeScoreColor(Team activeTeam)
         {

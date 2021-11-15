@@ -5,7 +5,7 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace UI.Accounts
+namespace UI.Endgame.Win
 {
 	public class WinWindow : MonoBehaviour
 	{
