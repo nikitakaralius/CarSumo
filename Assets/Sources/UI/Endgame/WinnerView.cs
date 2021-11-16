@@ -1,5 +1,4 @@
-﻿using Game;
-using GuiBaseData.Accounts;
+﻿using GuiBaseData.Accounts;
 using Sirenix.OdinInspector;
 using Game.Endgame;
 using UniRx;
@@ -18,7 +17,7 @@ namespace UI.Endgame
 		private void Construct(IEndGameMessage message) =>
 			message
 				.ObserveEnding()
-				.Subscribe(_view.ChangeAccount)
+				.Subscribe(status => _view.ChangeAccount(status.Winner))
 				.AddTo(_subscriptions);
 
 		private void OnDestroy() => _subscriptions.Dispose();

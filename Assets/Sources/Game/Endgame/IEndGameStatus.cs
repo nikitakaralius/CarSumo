@@ -1,22 +1,47 @@
-﻿namespace Game.Endgame
+﻿using System;
+using CarSumo.DataModel.Accounts;
+
+namespace Game.Endgame
 {
-	public interface IEndGameStatus
+	public abstract class PersonalizedEndGameStatus
 	{
-		void Accept(IEndGameStatusVisitor visitor);
+		public readonly Account Winner;
+
+		protected PersonalizedEndGameStatus(Account winner) => Winner = winner;
+
+		public void Match(
+			Action<SingleModeWin> singleModeWinMatch,
+			Action<SingleModeLose> singleModeLoseMatch,
+			Action<OneDeviceEndGame> oneDeviceEndGameMatch)
+		{
+			
+			switch (this)
+			{
+				case SingleModeWin win:
+					singleModeWinMatch.Invoke(win);
+					break;
+				case SingleModeLose lose:
+					singleModeLoseMatch.Invoke(lose);
+					break;
+				case OneDeviceEndGame oneDevice:
+					oneDeviceEndGameMatch.Invoke(oneDevice);
+					break;
+			}
+		}
 	}
 
-	public class SingleModeWin : IEndGameStatus
+	public class SingleModeWin : PersonalizedEndGameStatus
 	{
-		public void Accept(IEndGameStatusVisitor visitor) => visitor.Visit(this);
+		public SingleModeWin(Account winner) : base(winner) { }
 	}
 	
-	public class SingleModeLose : IEndGameStatus
+	public class SingleModeLose : PersonalizedEndGameStatus
 	{
-		public void Accept(IEndGameStatusVisitor visitor) => visitor.Visit(this);
+		public SingleModeLose(Account winner) : base(winner) { }
 	}
 	
-	public class OneDeviceEndGame : IEndGameStatus
+	public class OneDeviceEndGame : PersonalizedEndGameStatus
 	{
-		public void Accept(IEndGameStatusVisitor visitor) => visitor.Visit(this);
+		public OneDeviceEndGame(Account winner) : base(winner) { }
 	}
 }

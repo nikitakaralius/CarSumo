@@ -64,7 +64,7 @@ namespace Infrastructure.Installers.Game
 
         private void BindWinTrackerInterfaces() =>
             Container
-                .BindInterfacesAndSelfTo<OneDeviceEndGameTracker>()
+                .BindInterfacesAndSelfTo<EndGameTracking>()
                 .AsSingle();
 
         private void BindGameMediator() =>

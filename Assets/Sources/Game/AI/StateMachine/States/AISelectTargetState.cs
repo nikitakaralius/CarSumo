@@ -23,9 +23,9 @@ namespace AI.StateMachine.States
 			_enemyTeam = enemyTeam;
 		}
 
-		private IEnumerable<Vehicle> Controlled => _tracker.UnitsAlive(_aiTeam).Select(unit => unit.Vehicle);
+		private IEnumerable<Vehicle> Controlled => _tracker.UnitsAliveOf(_aiTeam).Select(unit => unit.Vehicle);
 
-		private IEnumerable<Vehicle> Enemy => _tracker.UnitsAlive(_enemyTeam).Select(unit => unit.Vehicle);
+		private IEnumerable<Vehicle> Enemy => _tracker.UnitsAliveOf(_enemyTeam).Select(unit => unit.Vehicle);
 
 		public void Enter(AIStateMachine stateMachine)
 		{
