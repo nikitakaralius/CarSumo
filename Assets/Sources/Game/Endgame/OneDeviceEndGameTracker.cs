@@ -10,16 +10,16 @@ using Zenject;
 
 namespace Game.Endgame
 {
-	public class EndGameTracker : IEndGameMessage, IInitializable, IDisposable
+	public class OneDeviceEndGameTracker : IEndGameMessage, IInitializable, IDisposable
 	{
 		private readonly IUnitTracking _unitTracking;
 		private readonly IGameModePreferences _gameModePreferences;
 		private readonly GameStateMachine _stateMachine;
 
-		private readonly Subject<Account> _winObserver = new Subject<Account>();
+		private readonly Subject<Account> _endObserver = new Subject<Account>();
 		private readonly CompositeDisposable _subscriptions = new CompositeDisposable();
 		
-		public EndGameTracker(IUnitTracking unitTracking, IGameModePreferences gameModePreferences, GameStateMachine stateMachine)
+		public OneDeviceEndGameTracker(IUnitTracking unitTracking, IGameModePreferences gameModePreferences, GameStateMachine stateMachine)
 		{
 			_unitTracking = unitTracking;
 			_gameModePreferences = gameModePreferences;
@@ -43,17 +43,17 @@ namespace Game.Endgame
 
 		public void Dispose() => _subscriptions.Dispose();
 
-		public IObservable<Account> ObserveEnding() => _winObserver;
+		public IObservable<Account> ObserveEnding() => _endObserver;
 
 		private void TryMakeTeamWin(Team winTeam, int enemyUnitsAlive)
 		{
 			if (enemyUnitsAlive == 0)
 			{
-				_stateMachine.Enter<WinState>();
+				_stateMachine.Enter<EndGameState>();
 
 				Account winnerAccount = _gameModePreferences.GetAccountByTeam(winTeam).Value;
 				
-				_winObserver.OnNext(winnerAccount);
+				_endObserver.OnNext(winnerAccount);
 			}
 		}
 	}

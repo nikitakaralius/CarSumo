@@ -29,7 +29,7 @@ namespace Infrastructure.Installers.Factories
                 _container.Instantiate<MenuState>(),
                 _container.Instantiate<GameState>(),
                 _container.Instantiate<PauseState>(),
-                _container.Instantiate<WinState>(),
+                _container.Instantiate<EndGameState>(),
                 _container.Instantiate<AdvertisedMenuEntryState>()
             };
         }
