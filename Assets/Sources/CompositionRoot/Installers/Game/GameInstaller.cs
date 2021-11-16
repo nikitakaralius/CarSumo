@@ -1,6 +1,5 @@
 ﻿using BaseData.Timers;
 using CarSumo.Coroutines;
-using Game;
 using Game.Mediation;
 using Game.Rules;
 using Infrastructure.Installers.Factories;

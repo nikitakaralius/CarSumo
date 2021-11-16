@@ -10,7 +10,7 @@ using Zenject;
 
 namespace Game.Endgame
 {
-	public abstract class EndGameTracking : IEndGameMessage, IInitializable, IDisposable
+	public class EndGameTracking : IEndGameMessage, IInitializable, IDisposable
 	{
 		private readonly IUnitTracking _unitTracking;
 		private readonly IGameModePreferences _preferences;
@@ -18,6 +18,8 @@ namespace Game.Endgame
 
 		private readonly Subject<PersonalizedEndGameStatus> _endObserver = new Subject<PersonalizedEndGameStatus>();
 		private readonly CompositeDisposable _subscriptions = new CompositeDisposable();
+
+		private IEndgameStatusProvider _provider;
 		
 		protected EndGameTracking(IUnitTracking unitTracking, IGameModePreferences preferences, GameStateMachine stateMachine)
 		{
@@ -45,8 +47,8 @@ namespace Game.Endgame
 
 		public void Dispose() => _subscriptions.Dispose();
 
-		protected abstract PersonalizedEndGameStatus Status(Team winningTeam, Account account);
-
+		public void Bind(IEndgameStatusProvider provider) => _provider = provider;
+		
 		private void TryMakeWinner(Team team, int enemiesAlive)
 		{
 			if (enemiesAlive != 0)
@@ -54,7 +56,7 @@ namespace Game.Endgame
 			
 			_stateMachine.Enter<EndGameState>();
 			Account winnerAccount = _preferences.GetAccountByTeam(team).Value;
-			_endObserver.OnNext(Status(team, winnerAccount));
+			_endObserver.OnNext(_provider.Status(team, winnerAccount));
 		}
 	}
 }
