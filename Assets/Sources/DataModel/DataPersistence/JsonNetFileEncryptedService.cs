@@ -1,13 +1,13 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 using DataModel.DataPersistence.Extensions;
 using Newtonsoft.Json;
 
 namespace DataModel.DataPersistence
 {
-	public class JsonNetFileEncryptedService : IFileService, IAsyncFileService
+		public class JsonNetFileEncryptedService : IFileService, IAsyncFileService
 	{
 		private const string KeysExtension = "keys";
 		private const char KeysSeparator = '*'; 
@@ -41,7 +41,7 @@ namespace DataModel.DataPersistence
 
 				using (var streamWriter = new StreamWriter(path))
 				{
-					streamWriter.Write(Encoding.Default.GetString(encrypted));
+					streamWriter.Write(BytesToString(encrypted));
 				}
 				using (var streamWriter = new StreamWriter(KeysFile(path)))
 				{
@@ -65,7 +65,7 @@ namespace DataModel.DataPersistence
 
 				using (var streamWriter = new StreamWriter(path))
 				{
-					await streamWriter.WriteAsync(Encoding.Default.GetString(encrypted));
+					await streamWriter.WriteAsync(BytesToString(encrypted));
 				}
 				using (var streamWriter = new StreamWriter(KeysFile(path)))
 				{
@@ -74,7 +74,9 @@ namespace DataModel.DataPersistence
 			}
 		}
 
-		private static string KeysFileData(Aes aes) => $"{Encoding.Default.GetString(aes.Key)}{KeysSeparator}{Encoding.Default.GetString(aes.IV)}";
+		private static string KeysFileData(Aes aes) => $"{BitConverter.ToString(aes.Key)}{KeysSeparator}{BitConverter.ToString(aes.IV)}";
+
+		private static string BytesToString(byte[] values) => BitConverter.ToString(values);
 
 		public static string KeysFile(string path) => path.ChangeFileExtensionTo(KeysExtension);
 
@@ -133,11 +135,13 @@ namespace DataModel.DataPersistence
 
 			public bool Corrupted => string.IsNullOrEmpty(_model);
 
-			public byte[] Model => Encoding.Default.GetBytes(_model);
+			public byte[] Model => ConvertBinaryFile(_model);
 
-			public byte[] Key => Encoding.Default.GetBytes(_key);
+			public byte[] Key => ConvertBinaryFile(_key);
 
-			public byte[] IV => Encoding.Default.GetBytes(_iv);
+			public byte[] IV => ConvertBinaryFile(_iv);
+			
+			private static byte[] ConvertBinaryFile(string binary) => Array.ConvertAll(binary.Split('-'), x => Convert.ToByte(x, 16));
 		}
 
 		private static EncryptedFilesData LoadEncrypted(string path)
