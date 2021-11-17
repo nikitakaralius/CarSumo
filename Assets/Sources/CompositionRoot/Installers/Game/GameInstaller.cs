@@ -1,12 +1,12 @@
 ﻿using BaseData.Timers;
 using CarSumo.Coroutines;
-using Game;
 using Game.Mediation;
 using Game.Rules;
 using Infrastructure.Installers.Factories;
 using Infrastructure.Installers.SubContainers;
 using Services.Timer.InGameTimer;
 using Sirenix.OdinInspector;
+using Game.Endgame;
 using UnityEngine;
 using Zenject;
 
@@ -63,7 +63,7 @@ namespace Infrastructure.Installers.Game
 
         private void BindWinTrackerInterfaces() =>
             Container
-                .BindInterfacesAndSelfTo<WinTracker>()
+                .BindInterfacesAndSelfTo<EndGameTracking>()
                 .AsSingle();
 
         private void BindGameMediator() =>

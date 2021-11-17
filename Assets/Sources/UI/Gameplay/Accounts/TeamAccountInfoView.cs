@@ -6,9 +6,9 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace UI.Accounts
+namespace UI.Gameplay.Accounts
 {
-	public class UiAccountPresenter : AccountView
+	public class TeamAccountInfoView : AccountView
 	{
 		[SerializeField] private Team _team;
 
@@ -16,21 +16,13 @@ namespace UI.Accounts
 		private IDisposable _accountSubscription;
 
 		[Inject]
-		private void Construct(IGameModePreferences preferences)
-		{
-			_gameModePreferences = preferences;
-		}
-		
-		private void OnEnable()
-		{
+		private void Construct(IGameModePreferences preferences) => _gameModePreferences = preferences;
+
+		private void OnEnable() =>
 			_accountSubscription = _gameModePreferences
 				.GetAccountByTeam(_team)
 				.Subscribe(ChangeAccount);
-		}
 
-		private void OnDisable()
-		{
-			_accountSubscription?.Dispose();
-		}
+		private void OnDisable() => _accountSubscription?.Dispose();
 	}
 }

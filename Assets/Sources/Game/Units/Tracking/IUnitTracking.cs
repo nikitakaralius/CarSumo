@@ -5,6 +5,6 @@ namespace CarSumo.Units.Tracking
 {
 	public interface IUnitTracking
 	{
-		IReadOnlyReactiveCollection<IUnit> UnitsAlive(Team team);
+		IReadOnlyReactiveCollection<IUnit> UnitsAliveOf(Team team);
 	}
 }

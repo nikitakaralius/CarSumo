@@ -15,7 +15,7 @@ namespace CarSumo.Units.Tracking
 				{Team.Red, new ReactiveCollection<IUnit>()}
 			};
 
-		public IReadOnlyReactiveCollection<IUnit> UnitsAlive(Team team) => _units[team];
+		public IReadOnlyReactiveCollection<IUnit> UnitsAliveOf(Team team) => _units[team];
 
 		public void Add(IUnit unit) => _units[unit.Team].Add(unit);
 

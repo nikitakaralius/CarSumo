@@ -8,7 +8,7 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace UI.Accounts
+namespace UI.Gameplay.Accounts
 {
     [RequireComponent(typeof(TMP_Text))]
     public class AccountUnitsAliveView : SerializedMonoBehaviour
@@ -35,23 +35,20 @@ namespace UI.Accounts
         private void Awake()
         {
             _score = GetComponent<TMP_Text>();
-            _score.text = $"{_unitTracking.UnitsAlive(_team).Count}";
+            _score.text = $"{_unitTracking.UnitsAliveOf(_team).Count}";
 
             _teamPresenter.ActiveTeam
 	            .Subscribe(ChangeScoreColor)
 	            .AddTo(_subscriptions);
 
             _unitTracking
-	            .UnitsAlive(_team)
+	            .UnitsAliveOf(_team)
                 .ObserveCountChanged()
 	            .Subscribe(count => _score.text = $"{count}")
 	            .AddTo(_subscriptions);
         }
 
-        private void OnDestroy()
-        {
-            _subscriptions.Dispose();
-        }
+        private void OnDestroy() => _subscriptions.Dispose();
 
         private void ChangeScoreColor(Team activeTeam)
         {

@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 namespace GuiBaseData.Accounts
 {
-    public abstract class AccountView : MonoBehaviour
+    public class AccountView : MonoBehaviour
     {
-        [Header("Account View")]
         [SerializeField] private TMP_Text _name;
         [SerializeField] private Image _icon;
 
@@ -17,9 +16,9 @@ namespace GuiBaseData.Accounts
             _icon.sprite = account.Icon.Value.Sprite;
         }
 
-        protected void ChangeViewValues(string name, Sprite icon)
+        protected void ChangeViewValues(string accountName, Sprite icon)
         {
-	        _name.text = name;
+	        _name.text = accountName;
 	        _icon.sprite = icon;
         }
     }

@@ -2,7 +2,7 @@
 
 namespace CarSumo.StateMachine.States
 {
-	public class WinState : IState
+	public class EndGameState : IState
 	{
 		private float _enteredTimeScale;
         

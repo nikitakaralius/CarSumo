@@ -5,34 +5,34 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UI.Pause
+namespace UI.Gameplay.Pause
 {
     [RequireComponent(typeof(Button))]
-    public class ClosePauseButton : MonoBehaviour
+    public class PauseButton : MonoBehaviour
     {
         [SerializeField] private GameObject _pausePopup;
 
         private GameStateMachine _stateMachine;
         private IAudioPlayer _audioPlayer;
-        
+
         [Inject]
         private void Construct(GameStateMachine stateMachine, IAudioPlayer audioPlayer)
         {
             _stateMachine = stateMachine;
             _audioPlayer = audioPlayer;
         }
-
+        
         private void Start()
         {
             Button button = GetComponent<Button>();
-            button.onClick.AddListener(ExitPauseState);
+            button.onClick.AddListener(EnterPauseState);
             button.onClick.AddListener(_audioPlayer.Play);
         }
-
-        private void ExitPauseState()
+        
+        private void EnterPauseState()
         {
-            _pausePopup.SetActive(false);
-            _stateMachine.Enter<GameState>();
+            _pausePopup.SetActive(true);
+            _stateMachine.Enter<PauseState>();
         }
     }
 }
