@@ -3,6 +3,8 @@
 	public enum RewardedPlacement
 	{
 		ExtraAccountSlot,
-		ExtraEnergy
+		ExtraEnergy,
+		EndgameRewards,
+		EndgameEnergyRestore
 	}
 }

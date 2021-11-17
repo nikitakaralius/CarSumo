@@ -5960,6 +5960,52 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &141959280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 141959281}
+  - component: {fileID: 141959282}
+  m_Layer: 0
+  m_Name: Mediator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &141959281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141959280}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1811898373}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &141959282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141959280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44397b2d8f9549d3a27561e6bd207570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reward: {fileID: 11400000, guid: 7b0ca5c66071f6749ac9c301a060dac3, type: 2}
+  _adRewardModifier: 2
+  _energyToRestore: 1
 --- !u!1 &169211168
 GameObject:
   m_ObjectHideFlags: 0
@@ -6256,7 +6302,6 @@ GameObject:
   - component: {fileID: 253626106}
   - component: {fileID: 253626105}
   - component: {fileID: 253626104}
-  - component: {fileID: 253626103}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -6284,18 +6329,6 @@ RectTransform:
   m_AnchoredPosition: {x: 221.45264, y: -145}
   m_SizeDelta: {x: 442.90527, y: 145}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &253626103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 253626101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4626eec8d76c43d2a1e452340f68cb76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &253626104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6336,10 +6369,34 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 253626105}
+  m_TargetGraphic: {fileID: 836750980}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 951002784}
+        m_TargetAssemblyTypeName: AdvancedAudioSystem.MonoAudioCuePlayer, AdvancedAudioSystem
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 141959282}
+        m_TargetAssemblyTypeName: UI.UIMediator, UI
+        m_MethodName: LoadMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &253626105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8410,7 +8467,6 @@ GameObject:
   - component: {fileID: 771990667}
   - component: {fileID: 771990666}
   - component: {fileID: 771990665}
-  - component: {fileID: 771990664}
   m_Layer: 5
   m_Name: EnergyButton
   m_TagString: Untagged
@@ -8439,18 +8495,6 @@ RectTransform:
   m_AnchoredPosition: {x: 689.3579, y: -145}
   m_SizeDelta: {x: 442.9053, y: 145}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &771990664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771990662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4626eec8d76c43d2a1e452340f68cb76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &771990665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8494,7 +8538,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 771990666}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 951002784}
+        m_TargetAssemblyTypeName: AdvancedAudioSystem.MonoAudioCuePlayer, AdvancedAudioSystem
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 141959282}
+        m_TargetAssemblyTypeName: UI.UIMediator, UI
+        m_MethodName: RestoreEnergyWithAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 141959282}
+        m_TargetAssemblyTypeName: UI.UIMediator, UI
+        m_MethodName: LoadMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &771990666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8624,7 +8704,6 @@ GameObject:
   - component: {fileID: 830151439}
   - component: {fileID: 830151438}
   - component: {fileID: 830151437}
-  - component: {fileID: 830151436}
   m_Layer: 5
   m_Name: ADClaimButton
   m_TagString: Untagged
@@ -8653,18 +8732,6 @@ RectTransform:
   m_AnchoredPosition: {x: 689.3579, y: -145}
   m_SizeDelta: {x: 442.9053, y: 145}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &830151436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830151434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4626eec8d76c43d2a1e452340f68cb76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &830151437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8708,7 +8775,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 830151438}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 951002784}
+        m_TargetAssemblyTypeName: AdvancedAudioSystem.MonoAudioCuePlayer, AdvancedAudioSystem
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 141959282}
+        m_TargetAssemblyTypeName: UI.UIMediator, UI
+        m_MethodName: ReceiveRewardWithAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 141959282}
+        m_TargetAssemblyTypeName: UI.UIMediator, UI
+        m_MethodName: LoadMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &830151438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8834,7 +8937,6 @@ GameObject:
   - component: {fileID: 836750981}
   - component: {fileID: 836750980}
   - component: {fileID: 836750979}
-  - component: {fileID: 836750978}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -8862,18 +8964,6 @@ RectTransform:
   m_AnchoredPosition: {x: 221.45264, y: -145}
   m_SizeDelta: {x: 442.90527, y: 145}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &836750978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836750976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4626eec8d76c43d2a1e452340f68cb76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &836750979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8917,7 +9007,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 836750980}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 951002784}
+        m_TargetAssemblyTypeName: AdvancedAudioSystem.MonoAudioCuePlayer, AdvancedAudioSystem
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 141959282}
+        m_TargetAssemblyTypeName: UI.UIMediator, UI
+        m_MethodName: LoadMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &836750980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22731,6 +22845,7 @@ Transform:
   - {fileID: 786333397}
   - {fileID: 846418384}
   - {fileID: 951002786}
+  - {fileID: 141959281}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22880,7 +22995,6 @@ GameObject:
   - component: {fileID: 1866380415}
   - component: {fileID: 1866380414}
   - component: {fileID: 1866380413}
-  - component: {fileID: 1866380412}
   m_Layer: 5
   m_Name: ClaimButton
   m_TagString: Untagged
@@ -22908,18 +23022,6 @@ RectTransform:
   m_AnchoredPosition: {x: 221.45264, y: -145}
   m_SizeDelta: {x: 442.90527, y: 145}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &1866380412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866380410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4626eec8d76c43d2a1e452340f68cb76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1866380413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22963,7 +23065,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1866380414}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 951002784}
+        m_TargetAssemblyTypeName: AdvancedAudioSystem.MonoAudioCuePlayer, AdvancedAudioSystem
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 141959282}
+        m_TargetAssemblyTypeName: UI.UIMediator, UI
+        m_MethodName: ReceiveReward
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 141959282}
+        m_TargetAssemblyTypeName: UI.UIMediator, UI
+        m_MethodName: LoadMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1866380414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24186,7 +24324,6 @@ GameObject:
   - component: {fileID: 2146361564}
   - component: {fileID: 2146361563}
   - component: {fileID: 2146361562}
-  - component: {fileID: 2146361561}
   m_Layer: 5
   m_Name: EnergyButton
   m_TagString: Untagged
@@ -24215,18 +24352,6 @@ RectTransform:
   m_AnchoredPosition: {x: 689.3579, y: -145}
   m_SizeDelta: {x: 442.9053, y: 145}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &2146361561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2146361559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4626eec8d76c43d2a1e452340f68cb76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2146361562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24267,10 +24392,46 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2146361563}
+  m_TargetGraphic: {fileID: 771990666}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 951002784}
+        m_TargetAssemblyTypeName: AdvancedAudioSystem.MonoAudioCuePlayer, AdvancedAudioSystem
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 141959282}
+        m_TargetAssemblyTypeName: UI.UIMediator, UI
+        m_MethodName: RestoreEnergyWithAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 141959282}
+        m_TargetAssemblyTypeName: UI.UIMediator, UI
+        m_MethodName: LoadMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2146361563
 MonoBehaviour:
   m_ObjectHideFlags: 0
