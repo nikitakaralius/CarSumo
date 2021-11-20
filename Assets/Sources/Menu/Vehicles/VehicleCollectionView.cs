@@ -14,7 +14,7 @@ namespace Menu.Vehicles
 {
     public abstract class VehicleCollectionView<T> : SerializedMonoBehaviour where T : Component
     {
-        [SerializeField] private IVehicleAssetsProvider _assetsProvider;
+        [SerializeField] private IVehicleAssets _assets;
 
         private IAsyncInstantiation _instantiation;
         private List<T> _items = new List<T>();
@@ -60,7 +60,7 @@ namespace Menu.Vehicles
             var vehicles = new List<T>();
             foreach (VehicleId vehicleId in vehicleIds)
             {
-                AssetReferenceGameObject asset = _assetsProvider.GetAssetByVehicleId(vehicleId);
+                AssetReferenceGameObject asset = _assets.GetAssetByVehicleId(vehicleId);
                 T vehicleItem = await _instantiation.InstantiateAsync<T>(asset, parent);
                 vehicles.Add(vehicleItem);
             }

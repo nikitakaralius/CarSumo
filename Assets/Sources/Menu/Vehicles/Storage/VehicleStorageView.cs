@@ -42,12 +42,17 @@ namespace Menu.Vehicles.Storage
         {
             BoughtVehicles
                 .ObserveCountChanged()
-                .Subscribe(async _ => await SpawnPreparedCollectionAsync(Layout))
+                .Subscribe(_ => SpawnPreparedCollectionAsync())
                 .AddTo(_subscriptions);
 
             _accountStorage.ActiveAccount
 	            .Subscribe(OnActiveAccountChanged)
 	            .AddTo(_subscriptions);
+        }
+
+        private async void SpawnPreparedCollectionAsync()
+        {
+	        await SpawnPreparedCollectionAsync(Layout);
         }
 
         private void OnDisable()
@@ -102,8 +107,9 @@ namespace Menu.Vehicles.Storage
 
 	        await SpawnPreparedCollectionAsync(account.VehicleLayout);
 	        
-	        _layoutSubscription = Layout.ObserveLayoutCompletedChanging()
-		        .Subscribe(async _ => await SpawnPreparedCollectionAsync(Layout));
+	        _layoutSubscription = Layout
+		        .ObserveLayoutCompletedChanging()
+		        .Subscribe(_ =>  SpawnPreparedCollectionAsync());
         }
     }
 }

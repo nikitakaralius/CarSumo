@@ -8,7 +8,7 @@ using UnityEngine.AddressableAssets;
 namespace DataModel.GameData.Vehicles
 {
     [CreateAssetMenu(fileName = "VehicleAssetsProvider", menuName = "CarSumo/Vehicles/VehicleAssetsProvider")]
-    public class VehicleAssetsProviderSo : ScriptableObject, IVehicleAssetsProvider
+    public class VehicleAssetsSo : ScriptableObject, IVehicleAssets
     {
         //Odin has issues serializing AssetReference dictionary
         [Serializable]

@@ -6,7 +6,7 @@ namespace Infrastructure.Installers.SubContainers
 {
 	public class VehicleAssetsProviderInstaller : MonoInstaller
 	{
-		[SerializeField] private VehicleAssetsProviderSo _assetsProvider;
+		[SerializeField] private VehicleAssetsSo _assets;
 		
 		public override void InstallBindings()
 		{
@@ -16,8 +16,8 @@ namespace Infrastructure.Installers.SubContainers
 		private void BindVehicleAssetsProvider()
 		{
 			Container
-				.Bind<IVehicleAssetsProvider>()
-				.FromInstance(_assetsProvider)
+				.Bind<IVehicleAssets>()
+				.FromInstance(_assets)
 				.AsSingle();
 		}
 	}

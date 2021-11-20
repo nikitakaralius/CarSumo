@@ -17,7 +17,7 @@ namespace Menu.Vehicles.Layout
 	{
 		[Header("View Components")] 
 		[SerializeField] private Transform _layoutRoot;
-		[SerializeField] private LayoutGroup _contentLayoutGroup;
+		[SerializeField] private HorizontalLayoutGroup _contentLayoutGroup;
 
 		[Header("Card Select Handle Components")] 
 		[SerializeField] private CardVehicleLayoutScaling _vehicleScaling;
@@ -38,7 +38,7 @@ namespace Menu.Vehicles.Layout
 
 		private void OnDisable()
 		{
-			_contentLayoutGroup.EnableElementsUpdate();
+			_contentLayoutGroup.enabled = true;
 			UpdateLayout(GetSortedLayoutVehicles());
 			_selectedCard = null;
 		}
@@ -47,7 +47,7 @@ namespace Menu.Vehicles.Layout
 		{
 			Transform cardTransform = element.transform;
 
-			_contentLayoutGroup.DisableElementsUpdate();
+			_contentLayoutGroup.enabled = false;
 
 			_vehicleScaling.ApplySelectedAnimation(cardTransform);
 
@@ -69,7 +69,7 @@ namespace Menu.Vehicles.Layout
 		protected override void ProcessCreatedCollection(IEnumerable<VehicleCard> layout)
 		{
 			_selectedCard = null;
-			_contentLayoutGroup.EnableElementsUpdate();
+			_contentLayoutGroup.enabled = true;
 
 			foreach (VehicleCard vehicleCard in layout)
 			{
