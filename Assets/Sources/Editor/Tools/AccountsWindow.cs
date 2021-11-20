@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CarSumo.DataModel.Accounts;
-using CarSumo.Teams;
+using DataModel.Vehicles;
 using UnityEditor;
 using UnityEngine;
 using Zenject;
@@ -12,28 +11,71 @@ namespace CustomEditors.Tools
 	{
 		[MenuItem("Tools/Accounts")]
 		public static AccountsWindow FocusOrCreateWindow() => GetWindow<AccountsWindow>("Accounts");
-
-		private Team _team;
 		
+		private readonly List<Account> _accountsToRender = new List<Account>();
+
 		private DiContainer GlobalContainer => ProjectContext.Instance.Container;
 
 		private void OnGUI()
 		{
-			DisplayVehicleLayout();
+			using (new GUILayout.VerticalScope(EditorStyles.helpBox))
+			{
+				UpdateAccountList();
+				RenderAccountList();
+			}
 		}
 
-		private void DisplayVehicleLayout()
+		private void OnDisable() => SaveChanges();
+
+		private void UpdateAccountList()
 		{
-			using (new GUILayout.HorizontalScope(EditorStyles.helpBox))
+			bool showVehicleLayoutClicked = GUILayout.Button("Show All Accounts");
+
+			if (showVehicleLayoutClicked)
 			{
-				bool showVehicleLayoutClicked = GUILayout.Button("Show vehicle layout");
-
-				IEnumerable<Account> accounts = Array.Empty<Account>();
-
-				if (showVehicleLayoutClicked)
+				if (EditorApplication.isPlaying == false)
 				{
-					var repository = GlobalContainer.TryResolve<IAccountRepository>();
+					Debug.Log("You should enter play mode to use this tool");
+					return;
 				}
+				
+				var repository = GlobalContainer.TryResolve<IAccountStorage>();
+
+				if (repository.AllAccounts != null)
+				{
+					_accountsToRender.Clear();
+					_accountsToRender.AddRange(repository.AllAccounts);
+				}
+			}
+		}
+
+		private void RenderAccountList()
+		{
+			foreach (var account in _accountsToRender)
+			{
+				using (new GUILayout.HorizontalScope())
+				{
+					GUILayout.Box(new GUIContent(account.Icon.Value.Sprite.texture), new GUIStyle()
+					{
+						fixedHeight = 100,
+						fixedWidth = 100
+					});
+
+					using (new GUILayout.VerticalScope(EditorStyles.helpBox))
+					{
+						GUILayout.Label(account.Name.Value, new GUIStyle(EditorStyles.helpBox)
+						{
+							fontSize = 24,
+							fontStyle = FontStyle.Bold
+						});
+
+						foreach (VehicleId vehicle in account.VehicleLayout.ActiveVehicles)
+						{
+							GUILayout.Label(vehicle.ToString());
+						}
+					}
+				}
+				GUILayout.Space(20);
 			}
 		}
 	}
