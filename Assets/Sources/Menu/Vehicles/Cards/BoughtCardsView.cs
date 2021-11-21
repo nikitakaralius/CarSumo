@@ -12,7 +12,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;
 
-namespace Menu.Vehicles.Refactoring
+namespace Sources.Menu.Vehicles.Cards
 {
 	public class BoughtCardsView : SerializedMonoBehaviour
 	{

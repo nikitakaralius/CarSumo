@@ -7,7 +7,7 @@ using UnityEngine;
 using Zenject;
 using VehicleCard = Sources.Cards.VehicleCard;
 
-namespace Menu.Vehicles.Refactoring
+namespace Sources.Menu.Vehicles.Cards
 {
 	public class VehicleCardView : SelectableButton<VehicleCardView>
 	{
