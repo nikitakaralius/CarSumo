@@ -6,7 +6,7 @@ namespace Sources.Cards
 	[Serializable]
 	public struct VehicleCard
 	{
-		[Min(0)] public int Strength;
+		[Min(0)] public int Power;
 		[Min(0)] public int Fuel;
 	}
 }

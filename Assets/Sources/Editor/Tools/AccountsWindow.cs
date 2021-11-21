@@ -9,8 +9,7 @@ namespace CustomEditors.Tools
 {
 	public class AccountsWindow : EditorWindow
 	{
-		[MenuItem("Tools/Accounts")]
-		public static AccountsWindow FocusOrCreateWindow() => GetWindow<AccountsWindow>("Accounts");
+		[MenuItem("Tools/Accounts")] public static AccountsWindow FocusOrCreateWindow() => GetWindow<AccountsWindow>("Accounts");
 		
 		private readonly List<Account> _accountsToRender = new List<Account>();
 
