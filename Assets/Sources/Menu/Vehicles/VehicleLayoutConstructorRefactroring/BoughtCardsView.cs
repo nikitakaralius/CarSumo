@@ -5,7 +5,6 @@ using CarSumo.DataModel.Accounts;
 using DataModel.GameData.Vehicles;
 using DataModel.Vehicles;
 using Menu.Extensions;
-using Menu.Vehicles.Cards;
 using Services.Instantiate;
 using Sirenix.OdinInspector;
 using UniRx;

@@ -25,7 +25,7 @@ namespace Menu
 
         protected Transform ContentParent { get; private set; }
 
-        protected Transform DraggingParent { get; private set; }
+        private Transform _draggingParent;
 
         protected IReadOnlyReactiveProperty<bool> CanDrag => _canDrag;
 
@@ -37,7 +37,7 @@ namespace Menu
         protected void Initialize(Transform contentParent, Transform draggingParent, LayoutGroup layoutGroup)
         {
             ContentParent = contentParent;
-            DraggingParent = draggingParent;
+            _draggingParent = draggingParent;
             _layoutGroup = layoutGroup;
         }
 
@@ -51,14 +51,14 @@ namespace Menu
 
         private void BeginDrag()
         {
-	        OnBeforeBeginDrag();
+	        OnBeforeBeginDragging();
             _canDrag.Value = true;
 
             _itemIndexes = PrepareLayoutItemIndexes(ContentParent);
-            transform.SetParent(DraggingParent);
+            transform.SetParent(_draggingParent);
 
             _layoutGroup.enabled = false;
-            OnAfterBeginDrag();
+            OnAfterBeginDragging();
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -85,7 +85,7 @@ namespace Menu
             _layoutGroup.enabled = true;
             transform.SetSiblingIndex(closestIndex);
 
-            OnAfterEndDrag();
+            OnAfterEndDragging();
 
             _pointerDown = false;
             _canDrag.Value = false;
@@ -93,11 +93,11 @@ namespace Menu
 
         protected abstract void OnDragUpdate(PointerEventData eventData);
 
-        protected virtual void OnBeforeBeginDrag() { }
+        protected virtual void OnBeforeBeginDragging() { }
         
-        protected virtual void OnAfterBeginDrag() { }
+        protected virtual void OnAfterBeginDragging() { }
 
-        protected virtual void OnAfterEndDrag() { }
+        protected virtual void OnAfterEndDragging() { }
 
         protected void SetRequiredHoldTime(float requiredHoldTime)
         {

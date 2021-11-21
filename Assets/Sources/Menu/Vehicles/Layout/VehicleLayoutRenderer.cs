@@ -30,8 +30,10 @@ namespace Menu.Vehicles.Layout
                 .Subscribe(OnActiveAccountChanged);
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
+            base.OnDisable();
+            
             _accountChangedSubscription?.Dispose();
             _layoutChangedSubscription?.Dispose();
         }
@@ -43,11 +45,12 @@ namespace Menu.Vehicles.Layout
             await SpawnCollectionAsync(Layout);
             
             _layoutChangedSubscription = account
-	            .VehicleLayout.ObserveLayoutCompletedChanging()
-	            .Subscribe(OnNext);
+	            .VehicleLayout
+                .ObserveLayoutCompletedChanging()
+	            .Subscribe(SpawnCollection);
         }
 
-        private async void OnNext(IEnumerable<VehicleId> _)
+        private async void SpawnCollection(IEnumerable<VehicleId> _)
         {
             await SpawnCollectionAsync(Layout);
         }

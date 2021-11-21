@@ -24,6 +24,7 @@ namespace Infrastructure.Installers.Menu
 		private void BindVehicleCardsRepository() =>
 			Container
 				.BindInterfacesTo<VehicleCardsRepository>()
+				.FromInstance(_cards)
 				.AsSingle();
 	}
 }

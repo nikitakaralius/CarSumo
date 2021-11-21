@@ -55,8 +55,10 @@ namespace Menu.Vehicles.Storage
 	        await SpawnPreparedCollectionAsync(Layout);
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
+	        base.OnDisable();
+	        
             _subscriptions.Dispose();
             _layoutSubscription?.Dispose();
         }

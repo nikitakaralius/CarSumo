@@ -27,17 +27,17 @@ namespace Menu.Vehicles.Cards
 			transform.position = new Vector3(eventData.position.x, transform.position.y);
 		}
 
-		protected override void OnBeforeBeginDrag()
+		protected override void OnBeforeBeginDragging()
 		{
 			_onBeforeBeginDrag?.Invoke();
 		}
 
-		protected override void OnAfterBeginDrag()
+		protected override void OnAfterBeginDragging()
 		{
 			_button.enabled = false;
 		}
 
-		protected override void OnAfterEndDrag()
+		protected override void OnAfterEndDragging()
 		{
 			_button.enabled = true;
 		}

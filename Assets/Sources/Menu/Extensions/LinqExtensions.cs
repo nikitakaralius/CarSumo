@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityObject = UnityEngine.Object;
 
 namespace Menu.Extensions
@@ -15,7 +16,12 @@ namespace Menu.Extensions
 			return collectionWithoutFirstOccurrences;
 		}
 
-		public static void DestroyAndClear<TSource>(this List<TSource> list) where TSource : UnityObject
+		public static void DestroyAndClear<TComponent>(this List<TComponent> list) where TComponent : Component
+		{
+			list.ForEach(x => UnityObject.Destroy(x.gameObject));
+			list.Clear();
+		}
+		public static void DestroyAndClear(this List<GameObject> list)
 		{
 			list.ForEach(UnityObject.Destroy);
 			list.Clear();
