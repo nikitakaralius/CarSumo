@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using CarSumo.DataModel.Accounts;
 using CarSumo.DataModel.GameData.Accounts;
@@ -71,7 +72,7 @@ namespace Infrastructure.Initialization
         {
             Account activeAccount = await _accountBinding.ToAccountAsync(storage.ActiveAccount);
             IEnumerable<Account> allAccounts = await GetBoundAccountsAsync(storage);
-            return new GameAccountStorage(activeAccount, allAccounts);
+            return new GameAccountStorage(allAccounts.First(account => account.Equals(activeAccount)), allAccounts);
         }
 
         private async Task<IEnumerable<Account>> GetBoundAccountsAsync(SerializableAccountStorage storage)

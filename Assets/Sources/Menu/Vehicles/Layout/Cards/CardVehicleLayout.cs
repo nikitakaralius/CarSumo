@@ -117,7 +117,11 @@ namespace Menu.Vehicles.Layout
 
 		private void UpdateLayout(IReadOnlyList<VehicleId> newLayout)
 		{
-			_accountStorage.ActiveAccount.Value.VehicleLayout.ChangeLayout(newLayout);
+			_accountStorage
+				.ActiveAccount
+				.Value
+				.VehicleLayout
+				.ChangeLayout(newLayout);
 		}
 
 		private VehicleId[] GetSortedLayoutVehicles() =>
