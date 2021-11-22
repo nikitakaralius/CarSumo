@@ -1509,7 +1509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ImpulseDefinition:
     m_ImpulseChannel: 1
-    m_RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+    m_RawSignal: {fileID: 11400000, guid: 4afdef7542abf56468b1b46efa7a0847, type: 2}
     m_AmplitudeGain: 10
     m_FrequencyGain: 10
     m_RepeatMode: 0
@@ -2440,7 +2440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cfdb1573c114b40a2e1c9ac194c232e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _assetsProvider: {fileID: 11400000, guid: e0a0b97c43ed7d347bcefdf2fd5ab536, type: 2}
+  _assets: {fileID: 11400000, guid: e0a0b97c43ed7d347bcefdf2fd5ab536, type: 2}
 --- !u!1 &1777856713
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,9 +2451,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1777856715}
   - component: {fileID: 1777856714}
-  - component: {fileID: 1777856718}
   - component: {fileID: 1777856716}
   - component: {fileID: 1777856717}
+  - component: {fileID: 1777856718}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -2619,7 +2619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ApplyAfter: 1
+  m_ApplyAfter: 2
   m_ChannelMask: 1
   m_Gain: 1
   m_Use2DDistance: 0

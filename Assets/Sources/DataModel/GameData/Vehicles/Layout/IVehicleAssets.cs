@@ -3,7 +3,7 @@ using UnityEngine.AddressableAssets;
 
 namespace DataModel.GameData.Vehicles
 {
-    public interface IVehicleAssetsProvider
+    public interface IVehicleAssets
     {
         AssetReferenceGameObject GetAssetByVehicleId(VehicleId id);
     }

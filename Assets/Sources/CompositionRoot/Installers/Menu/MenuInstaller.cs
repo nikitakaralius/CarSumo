@@ -1,13 +1,17 @@
 ﻿using Infrastructure.Installers.SubContainers;
+using Sources.Cards;
+using UnityEngine;
 using Zenject;
 
 namespace Infrastructure.Installers.Menu
 {
 	public class MenuInstaller : MonoInstaller
 	{
+		[SerializeField] private VehicleCardsRepository _cards;
 		
 		public override void InstallBindings()
 		{
+			BindVehicleCardsRepository();
 			ProcessSubContainers();
 		}
 
@@ -16,5 +20,11 @@ namespace Infrastructure.Installers.Menu
 			InstantiationInstaller.Install(Container);
 			TimersInstaller.Install(Container);
 		}
+
+		private void BindVehicleCardsRepository() =>
+			Container
+				.BindInterfacesTo<VehicleCardsRepository>()
+				.FromInstance(_cards)
+				.AsSingle();
 	}
 }

@@ -108,6 +108,7 @@ namespace CarSumo.Vehicles.Selector
                 return;
 
             _moveHandler.HandleVehiclePush(_selectedVehicle, swipeData);
+            _selectedVehicle = null;
         }
     }
 }

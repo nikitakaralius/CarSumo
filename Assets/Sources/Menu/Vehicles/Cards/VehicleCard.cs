@@ -13,7 +13,7 @@ namespace Menu.Vehicles.Cards
 
         public void Initialize(IVehicleCardSelectHandler selectHandler)
         {
-	        Initialize(this, selectHandler, false);
+	        // Initialize(this, selectHandler, false);
 	        UpdateSiblingIndex();
         }
 

@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 7697197111582562203}
   - component: {fileID: -8611291891474841225}
   m_Layer: 0
-  m_Name: Van
+  m_Name: VanMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

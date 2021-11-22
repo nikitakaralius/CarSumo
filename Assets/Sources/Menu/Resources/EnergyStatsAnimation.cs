@@ -16,29 +16,30 @@ namespace Menu.Resources
 
 		[SerializeField] private TweenData<Vector2> _positioning;
 
-		private readonly CompositeDisposable _disposables = new CompositeDisposable(1);
-		
+		private readonly CompositeDisposable _disposables = new CompositeDisposable();
+
+		private ResourceTimers _timers;
 		private IResourceStorage _resourceStorage;
-		private Sequence _sequence;
+		private Tween _animation;
 		
 		[Inject]
 		private void Construct(ResourceTimers timers, IResourceStorage storage)
 		{
 			_resourceStorage = storage;
-			
-			timers
+			_timers = timers;
+		}
+
+		private void OnEnable() =>
+			_timers
 				.TimerOf(Resource)
 				.Cycles()
 				.Subscribe(ConfigureVisibility)
 				.AddTo(_disposables);
-		}
-
-		private void OnEnable() => _sequence = DOTween.Sequence();
 
 		private void OnDisable()
 		{
+			_animation?.Kill();
 			_disposables.Dispose();
-			_sequence.Kill();
 		}
 
 		private void ConfigureVisibility(int cycles)
@@ -54,12 +55,15 @@ namespace Menu.Resources
 
 
 		[Button(Style = ButtonStyle.FoldoutButton), DisableInEditorMode]
-		private void Apply(bool hide) =>
-			_sequence.Append(
-				(transform as RectTransform)
+		private void Apply(bool hide)
+		{
+			_animation?.Kill();
+			
+			_animation = (transform as RectTransform)
 				.DOAnchorPos(hide
 					? _positioning.To
 					: _positioning.From, _positioning.Duration)
-				.SetEase(_positioning.Ease));
+				.SetEase(_positioning.Ease);
+		}
 	}
 }

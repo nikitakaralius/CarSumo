@@ -20,16 +20,16 @@ namespace CarSumo.Units
 	{
 		[SerializeField] private IReadOnlyDictionary<Team, IUnit[]> _units = new Dictionary<Team, IUnit[]>();
 
-		private IVehicleAssetsProvider _assetsProvider;
+		private IVehicleAssets _assets;
 		private IGameModePreferences _gameModePreferences;
 		private IAsyncInstantiation _instantiation;
 		
 		[Inject]
-		private void Construct(IVehicleAssetsProvider assetsProvider,
+		private void Construct(IVehicleAssets assets,
 								IGameModePreferences gameModePreferences,
 								IAsyncInstantiation instantiation)
 		{
-			_assetsProvider = assetsProvider;
+			_assets = assets;
 			_gameModePreferences = gameModePreferences;
 			_instantiation = instantiation;
 		}
@@ -55,7 +55,7 @@ namespace CarSumo.Units
 			for (var i = 0; i < layoutVehicles.Count; i++)
 			{
 				VehicleId id = layoutVehicles[i];
-				AssetReferenceGameObject vehicleAsset = _assetsProvider.GetAssetByVehicleId(id);
+				AssetReferenceGameObject vehicleAsset = _assets.GetAssetByVehicleId(id);
 
 				Vehicle vehicle = await _instantiation.InstantiateAsync<Vehicle>(vehicleAsset);
 				units[i].InitializeVehicleBySelf(vehicle);

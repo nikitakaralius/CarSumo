@@ -36,6 +36,7 @@ namespace CarSumo.Vehicles.Selector
                 return;
             
             _activeVehicle.Engine.TurnOff();
+            _activeVehicle = null;
         }
         
         private Vector3 GetTransformedDirection(Camera camera, Vector2 swipeDirection)

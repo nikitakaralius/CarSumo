@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7904052269276078100, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
+      propertyPath: _vehicle
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 689686403769437065, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -183,7 +187,8 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 8014260723648156991, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8014260723648156991, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
 --- !u!114 &779639859262477715 stripped
 MonoBehaviour:

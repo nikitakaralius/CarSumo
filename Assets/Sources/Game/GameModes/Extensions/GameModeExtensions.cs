@@ -15,5 +15,11 @@ namespace GameModes.Extensions
 		{
 			return teams.All(team => gameModePreferences.GetAccountByTeam(team).Value != null);
 		}
+
+		public static void ClearRegistrations(this IGameModeOperations operations)
+		{
+			operations.RegisterAccount(Team.Blue, null);
+			operations.RegisterAccount(Team.Red, null);
+		}
 	}
 }

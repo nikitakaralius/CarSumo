@@ -33,6 +33,10 @@ MonoBehaviour:
     m_Address: Assets/ScriptableObjects/Reources
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 223b505411181cc478397af43d73aa32
+    m_Address: Assets/ScriptableObjects/Cinemachine
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4948ba55cf128c04098da6187d7004b1, type: 2}
   m_SchemaSet:
