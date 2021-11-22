@@ -45,17 +45,10 @@ namespace CarSumo.Vehicles
         private IEnumerator PlayUntilRoutine(Func<bool> cancel, IVehicleSpeedometer speedometer)
         {
             _emitter.Play(_engineCue);
-
-            Debug.Log($"[Pre] Cancel: {cancel.Invoke()}");
-            Debug.Log($"[Pre] ShouldStop: {_shouldStop}");
             
             while (cancel.Invoke() == false && _shouldStop == false)
             {
                 ConfigureEngineSound(speedometer.PowerPercentage);
-
-                Debug.Log($"[Post] Cancel: {cancel.Invoke()}");
-                Debug.Log($"[Post] ShouldStop: {_shouldStop}");
-
                 yield return null;
             }
 

@@ -1,0 +1,3 @@
+Product ID,Published State,Purchase Type,Auto Translate,Locale; Title; Description,Auto Fill Prices,Price,Pricing Template ID
+bunch_of_gems,published,managed_by_android,false,en_US;A bunch of gems;Get a bunch of gems for quick progress,true,369990000,
+bag_of_gems,published,managed_by_android,false,en_US;Bag of gems;Get a bag of gems for quick progress,true,899990000,
