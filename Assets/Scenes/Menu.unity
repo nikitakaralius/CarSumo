@@ -47760,7 +47760,7 @@ GameObject:
   - component: {fileID: 5857635362157322558}
   - component: {fileID: 5857635362157322555}
   - component: {fileID: 5857635362157322556}
-  - component: {fileID: 5857635362157322546}
+  - component: {fileID: 5857635362157322545}
   m_Layer: 5
   m_Name: Vehicles
   m_TagString: Untagged
@@ -47768,7 +47768,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4
   m_IsActive: 1
---- !u!114 &5857635362157322546
+--- !u!114 &5857635362157322545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47777,7 +47777,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5857635362157322544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c064b17108c7442b9481fc6446d5db06, type: 3}
+  m_Script: {fileID: 11500000, guid: bf56c389abb648c58c6390083b0a3df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -47785,6 +47785,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 2fa714d0b2edcc14197cd78375a65b38, type: 2}
+    - {fileID: 107066610}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -47793,7 +47794,10 @@ MonoBehaviour:
     - Name: _assets
       Entry: 10
       Data: 0
-  _root: {fileID: 5857635362438841528}
+    - Name: _layoutChanger
+      Entry: 10
+      Data: 1
+  _layoutRoot: {fileID: 5857635362438841528}
 --- !u!222 &5857635362157322555
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -6,13 +6,14 @@ using CarSumo.DataModel.Accounts;
 using DataModel.Vehicles;
 using Menu.Vehicles.Cards;
 using Menu.Vehicles.Layout;
+using Sources.Menu.Vehicles.Cards;
 using UniRx;
 using UnityEngine;
 using Zenject;
 
 namespace Menu.Vehicles.Storage
 {
-    public class VehicleStorageView : VehicleCollectionView<VehicleCard>, IVehicleCardSelectHandler
+    public class VehicleStorageView : VehicleCollectionView<VehicleCardView>, IVehicleCardSelectHandler
     {
 	    [Header("View Components")]
         [SerializeField] private Transform _layoutRoot;
@@ -63,19 +64,19 @@ namespace Menu.Vehicles.Storage
             _layoutSubscription?.Dispose();
         }
         
-        public void OnButtonSelected(VehicleCard element)
+        public void OnButtonSelected(VehicleCardView element)
         {
-	        _layoutChanger.AddVehicleToChange(element.VehicleId);
+	        _layoutChanger.AddVehicleToChange(element.Vehicle);
         }
-
-        public void OnButtonDeselected(VehicleCard element)
+        
+        public void OnButtonDeselected(VehicleCardView element)
         {
 	        
         }
 
-        protected override void ProcessCreatedCollection(IEnumerable<VehicleCard> layout)
+        protected override void ProcessCreatedCollection(IEnumerable<VehicleCardView> layout)
         {
-	        foreach (VehicleCard card in layout)
+	        foreach (VehicleCardView card in layout)
 	        {
 		        card.Initialize(this);
 	        }
