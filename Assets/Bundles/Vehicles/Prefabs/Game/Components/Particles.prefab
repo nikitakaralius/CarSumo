@@ -342,6 +342,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6190161809095873645, guid: e7d2e8a4758bb9c48bf0529b8389295f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2517202264660172603, guid: 4995422ffdb954b70a642f73eb1442ea, type: 2}
+    - target: {fileID: 6190161809095873646, guid: e7d2e8a4758bb9c48bf0529b8389295f, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4995422ffdb954b70a642f73eb1442ea, type: 2}
+    - target: {fileID: 6190161809095873646, guid: e7d2e8a4758bb9c48bf0529b8389295f, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2517202264660172603, guid: 4995422ffdb954b70a642f73eb1442ea, type: 2}
     - target: {fileID: 6190161809095873647, guid: e7d2e8a4758bb9c48bf0529b8389295f, type: 3}
       propertyPath: m_Name
       value: Push Force Text
