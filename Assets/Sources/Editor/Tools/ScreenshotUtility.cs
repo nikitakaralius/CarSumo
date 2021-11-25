@@ -30,5 +30,11 @@ namespace CustomEditors.Tools
 
 			Debug.Log("New Screenshot taken");
 		}
+		
+		[MenuItem("Tools/Take Screenshot %&x")]
+		public static void TakeScreenshotShortcut()
+		{
+			GetWindow<ScreenshotUtility>().TakeScreenshot();
+		}
 	}
 }
