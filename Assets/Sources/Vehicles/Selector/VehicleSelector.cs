@@ -74,32 +74,32 @@ namespace CarSumo.Vehicles.Selector
             _screen.Released -= OnScreenSwipeReleased;
         }
 
-        private void OnScreenSwipeBegun(SwipeData swipeData)
+        private void OnScreenSwipeBegun(Swipe swipe)
         {
             if (_moveHandler.CanPerformMove() == false)
                 return;
 
-            _selectedVehicle = _vehiclePicker.GetVehicleBySwipe(swipeData);
+            _selectedVehicle = _vehiclePicker.GetVehicleBySwipe(swipe);
         }
 
-        private void OnScreenSwiping(SwipeData swipeData)
+        private void OnScreenSwiping(Swipe swipe)
         {
             if (_moveHandler.CanPerformMove() == false)
                 return;
 
             if (_vehiclePicker.IsValid(_selectedVehicle) == false)
             {
-                _selectedVehicle = _vehiclePicker.GetVehicleBySwipe(swipeData);
+                _selectedVehicle = _vehiclePicker.GetVehicleBySwipe(swipe);
                 return;
             }
 
-            if (swipeData.Distance <= _data.MinSelectDistance)
+            if (swipe.Distance <= _data.MinSelectDistance)
                 return;
 
-            _boost.ConfigureBoost(_selectedVehicle, swipeData);
+            _boost.ConfigureBoost(_selectedVehicle, swipe);
         }
 
-        private void OnScreenSwipeReleased(SwipeData swipeData)
+        private void OnScreenSwipeReleased(Swipe swipe)
         {
             if (_moveHandler.CanPerformMove() == false)
                 return;
@@ -107,7 +107,7 @@ namespace CarSumo.Vehicles.Selector
             if (_vehiclePicker.IsValid(_selectedVehicle) == false)
                 return;
 
-            _moveHandler.HandleVehiclePush(_selectedVehicle, swipeData);
+            _moveHandler.HandleVehiclePush(_selectedVehicle, swipe);
             _selectedVehicle = null;
         }
     }

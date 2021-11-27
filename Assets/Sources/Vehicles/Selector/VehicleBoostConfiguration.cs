@@ -19,12 +19,12 @@ namespace CarSumo.Vehicles.Selector
             _speedometer = speedometer;
         }
 
-        public void ConfigureBoost(Vehicle vehicle, SwipeData swipeData)
+        public void ConfigureBoost(Vehicle vehicle, Swipe swipe)
         {
             _activeVehicle = vehicle;
-            var transformedDirection = GetTransformedDirection(_camera, swipeData.Direction);
+            var transformedDirection = GetTransformedDirection(_camera, swipe.Direction);
             vehicle.Rotation.RotateBy(transformedDirection);
-            _speedometer.CalculatePowerBySwipeData(swipeData);
+            _speedometer.CalculatePowerBySwipeData(swipe);
         }
 
         public void TurnOffActiveVehicle()
