@@ -47,15 +47,6 @@ namespace Infrastructure.Initialization
 	                VehicleId.Jeep,
 	                VehicleId.Jeep,
 	                VehicleId.Jeep,
-	            
-	                VehicleId.Wagon,
-	                VehicleId.Wagon,
-
-	                VehicleId.OldCar,
-	                
-	                VehicleId.Van,
-	                
-	                VehicleId.Ute,
                 }
             };
         }
