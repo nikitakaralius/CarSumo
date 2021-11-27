@@ -2,7 +2,7 @@
 
 namespace CarSumo.Input
 {
-    public struct SwipeData
+    public struct Swipe
     {
         public Vector2 StartPosition { get; }
         public Vector2 EndPosition { get; }
@@ -11,7 +11,7 @@ namespace CarSumo.Input
         public float Distance => Vector2.Distance(StartPosition, EndPosition);
         public Vector2 Direction => EndPosition - StartPosition;
 
-        public SwipeData(Vector2 startPosition, Vector2 endPosition, Vector2 delta)
+        public Swipe(Vector2 startPosition, Vector2 endPosition, Vector2 delta)
         {
             StartPosition = startPosition;
             EndPosition = endPosition;

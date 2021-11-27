@@ -1165,7 +1165,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627056646}
-  m_LocalRotation: {x: 0.3619193, y: -0, z: -0, w: 0.93220943}
+  m_LocalRotation: {x: 0.3619193, y: 1e-45, z: -0, w: 0.93220943}
   m_LocalPosition: {x: 0, y: 32, z: -35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2451,9 +2451,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1777856715}
   - component: {fileID: 1777856714}
+  - component: {fileID: 1777856718}
   - component: {fileID: 1777856716}
   - component: {fileID: 1777856717}
-  - component: {fileID: 1777856718}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -2506,7 +2506,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777856713}
-  m_LocalRotation: {x: 0.3619193, y: -0, z: -0, w: 0.93220943}
+  m_LocalRotation: {x: 0.3619193, y: 1e-45, z: -0, w: 0.93220943}
   m_LocalPosition: {x: 0, y: 32, z: -35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2535,6 +2535,8 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  _virtualCamera: {fileID: 1777856714}
+  _fullScreenSwipeRotation: 180
 --- !u!114 &1777856717
 MonoBehaviour:
   m_ObjectHideFlags: 0

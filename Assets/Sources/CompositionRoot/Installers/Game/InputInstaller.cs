@@ -1,5 +1,5 @@
-﻿using CarSumo.Input;
-using Cinemachine;
+﻿using CarSumo.Cameras;
+using CarSumo.Input;
 using UnityEngine;
 using Zenject;
 
@@ -12,14 +12,14 @@ namespace Infrastructure.Installers.Game
 
         public override void InstallBindings()
         {
-            BindInputAxisProvider();
+            BindInputCameraInput();
             BindSwipeInputScreen();
         }
 
-        private void BindInputAxisProvider()
+        private void BindInputCameraInput()
         {
             Container
-                .Bind<AxisState.IInputAxisProvider>()
+                .Bind<CameraInput>()
                 .FromComponentInNewPrefab(_axisProviderPrefab)
                 .AsSingle();
         }

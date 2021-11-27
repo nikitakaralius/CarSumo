@@ -31,7 +31,7 @@ namespace CarSumo.Vehicles.Selector
             _timer = timer;
         }
 
-        public void HandleVehiclePush(Vehicle vehicle, SwipeData swipeData)
+        public void HandleVehiclePush(Vehicle vehicle, Swipe swipe)
         {
             if (_isMovePerforming)
                 return;
@@ -42,7 +42,7 @@ namespace CarSumo.Vehicles.Selector
                 return;
             }
 
-            var timeModifier = CalculateDrivingTimeModifier(swipeData);
+            var timeModifier = CalculateDrivingTimeModifier(swipe);
             
             vehicle.Engine.SpeedUp(timeModifier);
             _executor.StartCoroutine(PerformMove());
@@ -53,9 +53,9 @@ namespace CarSumo.Vehicles.Selector
             return _isMovePerforming == false;
         }
 
-        private float CalculateDrivingTimeModifier(SwipeData swipeData)
+        private float CalculateDrivingTimeModifier(Swipe swipe)
         {
-            var clampedDistance = Mathf.Clamp(swipeData.Distance, _data.MinSelectDistance, _data.MaxSelectDistance);
+            var clampedDistance = Mathf.Clamp(swipe.Distance, _data.MinSelectDistance, _data.MaxSelectDistance);
 
             var part = (clampedDistance - _data.MinSelectDistance) / (_data.MaxSelectDistance - _data.MinSelectDistance);
             

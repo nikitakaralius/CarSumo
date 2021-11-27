@@ -15,9 +15,9 @@ namespace CarSumo.Vehicles.Speedometers
             _data = data;
         }
 
-        public void CalculatePowerBySwipeData(SwipeData swipeData)
+        public void CalculatePowerBySwipeData(Swipe swipe)
         {
-            PowerPercentage = CalculatePowerByDistance(swipeData.Distance);
+            PowerPercentage = CalculatePowerByDistance(swipe.Distance);
         }
 
         private float CalculatePowerByDistance(float distance)

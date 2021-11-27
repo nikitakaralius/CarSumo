@@ -25,9 +25,9 @@ namespace CarSumo.Vehicles.Selector
             _rules = rules;
         }
 
-        public Vehicle GetVehicleBySwipe(SwipeData swipeData)
+        public Vehicle GetVehicleBySwipe(Swipe swipe)
         {
-            if (TryPickVehicle(swipeData, out var vehicle))
+            if (TryPickVehicle(swipe, out var vehicle))
             {
                 vehicle.Engine.TurnOn(_speedometer);
                 var team = vehicle.Stats.Team;
@@ -42,9 +42,9 @@ namespace CarSumo.Vehicles.Selector
             return vehicle != null && CanPickVehicle(vehicle);
         }
 
-        private bool TryPickVehicle(SwipeData swipeData, out Vehicle vehicle)
+        private bool TryPickVehicle(Swipe swipe, out Vehicle vehicle)
         {
-            return _camera.TryGetComponentWithRaycast(swipeData.EndPosition, out vehicle)
+            return _camera.TryGetComponentWithRaycast(swipe.EndPosition, out vehicle)
                    && CanPickVehicle(vehicle);
         }
 
