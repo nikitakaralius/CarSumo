@@ -27442,7 +27442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 58267393062172297}
   - component: {fileID: 7494705674809844954}
-  - component: {fileID: 8898727938737468753}
+  - component: {fileID: 58267393062172298}
   m_Layer: 5
   m_Name: WagonVehicleCard
   m_TagString: Untagged
@@ -27471,6 +27471,30 @@ RectTransform:
   m_AnchoredPosition: {x: 780, y: -344.5}
   m_SizeDelta: {x: 415, y: 585}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &58267393062172298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58267393062172296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb72174bfab418189c19c07a47110d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _vehicle: 4
+  _power: {fileID: 45199181738256809}
+  _fuel: {fileID: 4567516726522346967}
 --- !u!114 &58267393602911072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27953,28 +27977,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &363143841364456610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9132039374213035899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd3ef8ef4c3f4843bf707801a2e7f7c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  _vehicleId: 2
 --- !u!114 &381642533699756387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30625,28 +30627,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2676023731836250368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6814655888937347801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd3ef8ef4c3f4843bf707801a2e7f7c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  _vehicleId: 0
 --- !u!114 &2678874978603372431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36886,28 +36866,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3518988182045820619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5432560579394700562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd3ef8ef4c3f4843bf707801a2e7f7c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  _vehicleId: 1
 --- !u!224 &3546481242124681303
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43088,28 +43046,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4545896690794585722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4947174501911649699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd3ef8ef4c3f4843bf707801a2e7f7c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  _vehicleId: 3
 --- !u!114 &4546426751552862453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44657,7 +44593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4947174501911649698}
   - component: {fileID: 3200491463389482993}
-  - component: {fileID: 4545896690794585722}
+  - component: {fileID: 4947174501911649700}
   m_Layer: 5
   m_Name: VanVehicleCard
   m_TagString: Untagged
@@ -44665,6 +44601,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4947174501911649700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4947174501911649699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb72174bfab418189c19c07a47110d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _vehicle: 3
+  _power: {fileID: 4956336149032370818}
+  _fuel: {fileID: 8866445679503988476}
 --- !u!222 &4947174502871115723
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -45911,7 +45871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5432560579394700563}
   - component: {fileID: 2569831252094670656}
-  - component: {fileID: 3518988182045820619}
+  - component: {fileID: 5432560579394700564}
   m_Layer: 5
   m_Name: OldCarVehicleCard
   m_TagString: Untagged
@@ -45940,6 +45900,30 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: -1164.5}
   m_SizeDelta: {x: 415, y: 585}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5432560579394700564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5432560579394700562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb72174bfab418189c19c07a47110d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _vehicle: 1
+  _power: {fileID: 5407627538019932723}
+  _fuel: {fileID: 8415047035193724493}
 --- !u!114 &5434608276497388690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50157,7 +50141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6814655888937347800}
   - component: {fileID: 3917867329248180363}
-  - component: {fileID: 2676023731836250368}
+  - component: {fileID: 6814655888937347802}
   m_Layer: 5
   m_Name: JeepVehicleCard
   m_TagString: Untagged
@@ -50165,6 +50149,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6814655888937347802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6814655888937347801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb72174bfab418189c19c07a47110d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _vehicle: 0
+  _power: {fileID: 6844645583675897336}
+  _fuel: {fileID: 7007197280676864390}
 --- !u!114 &6844645583675897336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55110,28 +55118,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8898727938737468753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 58267393062172296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd3ef8ef4c3f4843bf707801a2e7f7c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  _vehicleId: 4
 --- !u!1 &8908640684593740445
 GameObject:
   m_ObjectHideFlags: 0
@@ -55848,7 +55834,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9132039374213035898}
   - component: {fileID: 1618498251873936681}
-  - component: {fileID: 363143841364456610}
+  - component: {fileID: 9132039374213035900}
   m_Layer: 5
   m_Name: UteVehicleCard
   m_TagString: Untagged
@@ -55856,6 +55842,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9132039374213035900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132039374213035899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb72174bfab418189c19c07a47110d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _vehicle: 2
+  _power: {fileID: 9138948121387722842}
+  _fuel: {fileID: 4690376745623796772}
 --- !u!114 &9138948121387722842
 MonoBehaviour:
   m_ObjectHideFlags: 0
