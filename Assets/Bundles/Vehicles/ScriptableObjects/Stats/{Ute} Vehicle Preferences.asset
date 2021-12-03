@@ -78,27 +78,36 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 15
-      inSlope: 1.0991479
-      outSlope: 1.0991479
-      tangentMode: 0
+      value: 20
+      inSlope: 0
+      outSlope: -0.07213548
+      tangentMode: 1
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.47019014
+      outWeight: 0.5498425
     - serializedVersion: 3
-      time: 0.50410926
-      value: 12.612749
-      inSlope: -16.383821
-      outSlope: -16.383821
-      tangentMode: 0
+      time: 0.4210735
+      value: 15.213612
+      inSlope: 0.25274816
+      outSlope: -0.26399386
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.34749678
+      outWeight: 0.45497665
+    - serializedVersion: 3
+      time: 0.72897637
+      value: 13.589955
+      inSlope: -25.863312
+      outSlope: -25.863312
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -23.41796
-      outSlope: -23.41796
+      inSlope: -46.45335
+      outSlope: -46.45335
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -106,5 +115,46 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _drivingTime: 1.8
+  _normalizedDrivingTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.4864016
+      outSlope: 3.4864016
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.12738052
+      value: 0.44409963
+      inSlope: 1.9864779
+      outSlope: 1.9864779
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.85463005
+      value: 0.797946
+      inSlope: 0.005672096
+      outSlope: 0.005672096
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.768703
+    - serializedVersion: 3
+      time: 1
+      value: 0.8
+      inSlope: 0.29420534
+      outSlope: 0.29420534
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.13523346
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   _rotationalSpeed: 20

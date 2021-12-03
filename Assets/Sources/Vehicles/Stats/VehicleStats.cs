@@ -5,19 +5,18 @@ namespace CarSumo.Vehicles.Stats
 {
 	public readonly struct VehicleStats
 	{
-		public Team Team { get; }
+		public readonly Team Team;
 		
-		public AnimationCurve NormalizedDrivingSpeed { get; }
+		public readonly AnimationCurve NormalizedDrivingSpeed;
+		public readonly AnimationCurve NormalizedDrivingTime;
 		
-		public float DrivingTime { get; }
-		
-		public float RotationalSpeed { get; }
+		public readonly float RotationalSpeed;
 
-		public VehicleStats(Team team, AnimationCurve normalizedDrivingSpeed, float drivingTime, float rotationalSpeed)
+		public VehicleStats(Team team, AnimationCurve normalizedDrivingSpeed, AnimationCurve normalizedDrivingTime, float rotationalSpeed)
 		{
 			Team = team;
 			NormalizedDrivingSpeed = normalizedDrivingSpeed;
-			DrivingTime = drivingTime;
+			NormalizedDrivingTime = normalizedDrivingTime;
 			RotationalSpeed = rotationalSpeed;
 		}
 	}

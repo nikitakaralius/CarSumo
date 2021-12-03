@@ -83,11 +83,11 @@ namespace CarSumo.Vehicles.Engine
 	        float timePassed = 0.0f;
 	        Vector3 direction = transform.forward;
 
-	        float drivingTime = stats.DrivingTime * timeModifer;
+	        float drivingTime = stats.NormalizedDrivingTime.Evaluate(timeModifer);
 	        
 	        while (Time.time <= enterTime + drivingTime)
 	        {
-		        Vector3 velocity = direction * GetDrivingSpeedValue(stats, timePassed);
+		        Vector3 velocity = direction * GetDrivingSpeedValue(stats, timePassed, drivingTime);
 
 		        _rigidbody.velocity = ProcessVelocityDirection(velocity);
 		        
@@ -107,9 +107,9 @@ namespace CarSumo.Vehicles.Engine
 	        return _invertedForwardVector ? -originalVelocity : originalVelocity;
         }
 
-        private float GetDrivingSpeedValue(VehicleStats stats, float timePassed)
+        private float GetDrivingSpeedValue(VehicleStats stats, float timePassed, float drivingTime)
         {
-	        return stats.NormalizedDrivingSpeed.Evaluate(timePassed / stats.DrivingTime);
+	        return stats.NormalizedDrivingSpeed.Evaluate(timePassed / drivingTime);
         }
     }
 }

@@ -115,10 +115,10 @@ MonoBehaviour:
       Data: Sources.Cards.VehicleCard, Vehicles
     - Name: Power
       Entry: 3
-      Data: 7
+      Data: 3
     - Name: Fuel
       Entry: 3
-      Data: 3
+      Data: 10
     - Name: 
       Entry: 8
       Data: 

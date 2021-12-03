@@ -12,7 +12,7 @@ namespace DataModel.GameData.Resources
             {
                 {ResourceId.Energy, new ReactiveProperty<int>(25)},
                 {ResourceId.Gold, new ReactiveProperty<int>(500)},
-                {ResourceId.Gems, new ReactiveProperty<int>(10)},
+                {ResourceId.Gems, new ReactiveProperty<int>(5)},
                 {ResourceId.AccountSlots, new ReactiveProperty<int>(4)}
             };
             var limits = new Dictionary<ResourceId, ReactiveProperty<int?>>()

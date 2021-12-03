@@ -59,7 +59,7 @@ namespace CarSumo.Vehicles.Selector
 
             var part = (clampedDistance - _data.MinSelectDistance) / (_data.MaxSelectDistance - _data.MinSelectDistance);
             
-            return _data.MAXAccelerationTimeMultiplier * part;
+            return part;
         }
 
         private IEnumerator PerformMove()
