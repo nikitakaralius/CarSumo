@@ -9,7 +9,7 @@ namespace CarSumo.Vehicles.Stats
 	public class VehiclePreferencesSo : SerializedScriptableObject, IVehicleStatsProvider
 	{
 		[SerializeField] private AnimationCurve _normalizedDrivingSpeed;
-		[SerializeField] private float _drivingTime;
+		[SerializeField] private AnimationCurve _normalizedDrivingTime;
 		[SerializeField] private float _rotationalSpeed;
 
 		[SerializeField] private IReadOnlyDictionary<Team, Material> _materials = new Dictionary<Team, Material>(0);
@@ -21,7 +21,10 @@ namespace CarSumo.Vehicles.Stats
 		
 		public VehicleStats GetStats()
 		{
-			return new VehicleStats(Team.Blue, _normalizedDrivingSpeed, _drivingTime, _rotationalSpeed);
+			return new VehicleStats(Team.Blue,
+				_normalizedDrivingSpeed,
+				_normalizedDrivingTime,
+				_rotationalSpeed);
 		}
 	}
 }

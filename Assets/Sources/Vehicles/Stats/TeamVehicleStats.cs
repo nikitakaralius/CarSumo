@@ -19,7 +19,7 @@ namespace CarSumo.Vehicles.Stats
 			
 			return new VehicleStats(_team,
 				wrappedEntityStats.NormalizedDrivingSpeed,
-				wrappedEntityStats.DrivingTime,
+				wrappedEntityStats.NormalizedDrivingTime,
 				wrappedEntityStats.RotationalSpeed);
 		}
 	}
