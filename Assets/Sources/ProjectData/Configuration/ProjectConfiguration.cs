@@ -18,7 +18,7 @@ namespace Infrastructure.Settings
                                         IProjectConfiguration,
                                         IVehicleStorageConfiguration
     {
-        private const string Format = ".bin";
+        private const string Format = ".json";
 
         [Header("Audio Configuration")]
         [SerializeField] private string _musicVolumeParameter;
