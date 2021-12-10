@@ -37,7 +37,7 @@ namespace Infrastructure.Initialization
                 return;
 
             using var jsonStream = new FileStream(filePath, FileMode.CreateNew);
-            using var keysStream = new FileStream(JsonNetFileEncryptedService.KeysFile(filePath), FileMode.CreateNew);
+            // using var keysStream = new FileStream(JsonNetFileEncryptedService.KeysFile(filePath), FileMode.CreateNew);
         }
     }
 }

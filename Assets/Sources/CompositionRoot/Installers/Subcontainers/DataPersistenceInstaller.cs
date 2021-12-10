@@ -12,7 +12,7 @@ namespace Infrastructure.Installers.SubContainers
 
         private void BindFileService() =>
             Container
-                .BindInterfacesAndSelfTo<JsonNetFileEncryptedService>()
+                .BindInterfacesAndSelfTo<JsonNetFileService>()
                 .AsSingle()
                 .NonLazy();
     }
