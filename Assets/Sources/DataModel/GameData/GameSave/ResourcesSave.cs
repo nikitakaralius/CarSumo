@@ -39,8 +39,11 @@ namespace DataModel.GameData.GameSave
         {
             int registeredResources = Enum.GetNames(typeof(ResourceId)).Length;
             
-            Dictionary<ResourceId, int> amounts = new Dictionary<ResourceId, int>(registeredResources);
-            Dictionary<ResourceId, int?> limits = new Dictionary<ResourceId, int?>(registeredResources);
+            // Dictionary<ResourceId, int> amounts = new Dictionary<ResourceId, int>(registeredResources);
+            // Dictionary<ResourceId, int?> limits = new Dictionary<ResourceId, int?>(registeredResources);
+
+            var amounts = new List<ResourceAmount>(registeredResources);
+            var limits = new List<ResourceLimit>(registeredResources);
 
             for (int i = 0; i < registeredResources; i++)
             {
@@ -49,8 +52,8 @@ namespace DataModel.GameData.GameSave
                 int amount = storage.GetResourceAmount(resource).Value;
                 int? limit = storage.GetResourceLimit(resource).Value;
                 
-                amounts.Add(resource, amount);
-                limits.Add(resource, limit);
+                amounts.Add(new ResourceAmount(resource, amount));
+                limits.Add(new ResourceLimit(resource, limit));
             }
 
             return new SerializableResources
