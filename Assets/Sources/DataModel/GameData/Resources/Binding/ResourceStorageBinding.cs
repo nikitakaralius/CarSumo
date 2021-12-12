@@ -10,10 +10,10 @@ namespace DataModel.GameData.Resources.Binding
         public GameResourceStorage BindFrom(SerializableResources resources)
         {
             Dictionary<ResourceId, ReactiveProperty<int>> amounts = resources.Amounts
-                .ToDictionary(amount => amount.Key, amount => new ReactiveProperty<int>(amount.Value));
+                .ToDictionary(amount => amount.Id, amount => new ReactiveProperty<int>(amount.Value));
 
             Dictionary<ResourceId, ReactiveProperty<int?>> limits = resources.Limits
-                .ToDictionary(limit => limit.Key, limit => new ReactiveProperty<int?>(limit.Value));
+                .ToDictionary(limit => limit.Id, limit => new ReactiveProperty<int?>(limit.Value));
 
             return new GameResourceStorage(amounts, limits);
         }

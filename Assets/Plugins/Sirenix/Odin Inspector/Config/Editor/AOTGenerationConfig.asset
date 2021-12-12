@@ -16,7 +16,7 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 637741484532174473
+  lastScan: 637749337031142848
   supportSerializedTypes:
   - TypeName: Menu.Accounts.AccountChangerButton+ButtonTitle, Menu
     IsCustom: 0
