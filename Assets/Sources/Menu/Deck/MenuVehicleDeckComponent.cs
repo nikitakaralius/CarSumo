@@ -12,9 +12,9 @@ namespace Menu.Deck
 		private MenuVehicleDeck _menuDeck;
 
 		[Inject]
-		private void Construct(IVehicleDeck deck, IVehicleDeckOperations operations, ICardRepository repository)
+		private void Construct(IVehicleDeck deck, ICardRepository repository)
 		{
-			_menuDeck = new MenuVehicleDeck(_placement, deck, operations, repository);
+			_menuDeck = new MenuVehicleDeck(_placement, deck, repository);
 		}
 		
 		private void Start()

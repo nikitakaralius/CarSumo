@@ -14,7 +14,6 @@ namespace Tests.PlayModeTests
 	public class MenuVehicleDeckTests
 	{
 		private IPlacement _placement;
-		private IVehicleDeckOperations _operations;
 		private IVehicleDeck _playerDeck;
 		private ICardRepository _repository;
 		
@@ -22,7 +21,6 @@ namespace Tests.PlayModeTests
 		public void SetUp()
 		{
 			_placement = Substitute.For<IPlacement>();
-			_operations = Substitute.For<IVehicleDeckOperations>();
 			_playerDeck = Substitute.For<IVehicleDeck>();
 			_repository = Substitute.For<ICardRepository>();
 			_placement.Add(null).Returns(new GameObject());
@@ -37,7 +35,7 @@ namespace Tests.PlayModeTests
 		[Test]
 		public void WhenReplacingCard_AndMenuDeckIsNotInitialized_ThenExceptionShouldBeThrown()
 		{
-			var menuDeck = new MenuVehicleDeck(_placement, _playerDeck, _operations, _repository);
+			var menuDeck = new MenuVehicleDeck(_placement, _playerDeck, _repository);
 			ICard card = Substitute.For<ICard>();
 			card.VehicleId.Returns(VehicleId.Ute);
 			
@@ -49,7 +47,7 @@ namespace Tests.PlayModeTests
 		[Test]
 		public void WhenReplacingCard_AndUsingPositionAboveDeckSize_ThenExceptionShouldBeThrown()
 		{
-			var menuDeck = new MenuVehicleDeck(_placement, _playerDeck, _operations, _repository);
+			var menuDeck = new MenuVehicleDeck(_placement, _playerDeck, _repository);
 			menuDeck.Initialize();
 			ICard card = Substitute.For<ICard>();
 			card.VehicleId.Returns(VehicleId.Jeep);
@@ -62,7 +60,6 @@ namespace Tests.PlayModeTests
 		[Test]
 		public void WhenReplacingCards_AndAllCardsToReplaceAreUtes_ThenPlayerDeckShouldOnlyContainUtes()
 		{
-			// Arrange
 			var playerDeck = Substitute.For<IVehicleDeck>();
 			playerDeck.ActiveVehicles.Returns(new ReactiveCollection<VehicleId>(new[]
 			{
@@ -70,7 +67,7 @@ namespace Tests.PlayModeTests
 				VehicleId.Ute,
 				VehicleId.Van
 			}));
-			var menuDeck = new MenuVehicleDeck(_placement, playerDeck, _operations, _repository);
+			var menuDeck = new MenuVehicleDeck(_placement, playerDeck, _repository);
 			menuDeck.Initialize();
 			ICard card = Substitute.For<ICard>();
 			card.VehicleId.Returns(VehicleId.Ute);
@@ -97,7 +94,7 @@ namespace Tests.PlayModeTests
 				VehicleId.Ute,
 				VehicleId.Van
 			}));
-			var menuDeck = new MenuVehicleDeck(_placement, playerDeck, _operations, _repository);
+			var menuDeck = new MenuVehicleDeck(_placement, playerDeck, _repository);
 			
 			menuDeck.Initialize();
 

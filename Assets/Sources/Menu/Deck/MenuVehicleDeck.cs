@@ -11,14 +11,12 @@ namespace Menu.Deck
 		private readonly List<CardInDeck> _cards = new List<CardInDeck>();
 		
 		private readonly IPlacement _placement;
-		private readonly IVehicleDeckOperations _operations;
 		private readonly IVehicleDeck _deck;
 		private readonly ICardRepository _repository;
 
-		public MenuVehicleDeck(IPlacement placement, IVehicleDeck deck, IVehicleDeckOperations operations, ICardRepository repository)
+		public MenuVehicleDeck(IPlacement placement, IVehicleDeck deck, ICardRepository repository)
 		{
 			_placement = placement;
-			_operations = operations;
 			_deck = deck;
 			_repository = repository;
 		}
@@ -44,7 +42,7 @@ namespace Menu.Deck
 			}
 			CardInDeck cardInDeck = CreateCard(card);
 			_cards[position] = cardInDeck;
-			_operations.ChangeLayout(Ids);
+			_deck.ChangeLayout(Ids);
 		}
 
 		private CardInDeck CreateCard(VehicleId vehicle)
