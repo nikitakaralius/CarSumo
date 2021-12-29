@@ -2,35 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using DataModel.Vehicles;
-using Menu.Deck.Extensions;
-using Sirenix.OdinInspector;
-using UnityEngine;
 using UnityEngine.AddressableAssets;
-using Zenject;
 
 namespace Menu.Deck
 {
-	public class MenuVehicleDeck : SerializedMonoBehaviour
+	public class MenuVehicleDeck
 	{
-		[SerializeField] private IPlacement _placement; 
-		
 		private readonly List<CardInDeck> _cards = new List<CardInDeck>();
+		
+		private readonly IPlacement _placement;
+		private readonly IVehicleDeckOperations _operations;
+		private readonly IVehicleDeck _deck;
+		private readonly ICardRepository _repository;
 
-		private IVehicleDeckOperations _operations;
-		private IVehicleDeck _deck;
-		private ICardRepository _repository;
-
-		[Inject]
-		private void Construct(IVehicleDeck deck, IVehicleDeckOperations operations, ICardRepository repository)
+		public MenuVehicleDeck(IPlacement placement, IVehicleDeck deck, IVehicleDeckOperations operations, ICardRepository repository)
 		{
-			_deck = deck;
+			_placement = placement;
 			_operations = operations;
+			_deck = deck;
 			_repository = repository;
 		}
-		
+
 		private IReadOnlyList<VehicleId> Ids => _cards.Select(card => card.VehicleId).ToArray();
 
-		private void Start()
+		public void Initialize()
 		{
 			foreach (VehicleId vehicle in _deck.ActiveVehicles)
 			{
@@ -45,6 +40,7 @@ namespace Menu.Deck
 			{
 				throw new InvalidOperationException(nameof(position));
 			}
+
 			CardInDeck cardInDeck = CreateCard(card);
 			_cards[position] = cardInDeck;
 			_operations.ChangeLayout(Ids);
@@ -63,3 +59,4 @@ namespace Menu.Deck
 		}
 	}
 }
+		

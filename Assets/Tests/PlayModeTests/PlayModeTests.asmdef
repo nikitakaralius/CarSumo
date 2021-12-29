@@ -8,7 +8,10 @@
         "BoundfoxStudios.FluentAssertions",
         "AdvancedAudioSystem",
         "Vehicles",
-        "Teams"
+        "Teams",
+        "Zenject",
+        "Menu",
+        "Unity.Addressables"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -17,7 +20,9 @@
     "precompiledReferences": [
         "nunit.framework.dll",
         "DOTween.dll",
-        "Sirenix.Serialization.dll"
+        "Sirenix.Serialization.dll",
+        "NSubstitute.dll",
+        "System.Threading.Tasks.Extensions.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [
