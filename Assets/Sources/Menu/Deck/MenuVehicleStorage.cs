@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using DataModel.Vehicles;
 using Menu.Extensions;
 using UniRx;
@@ -26,6 +25,8 @@ namespace Menu.Deck
 			_placement = placement;
 		}
 
+		public IEnumerable<ICard> Cards => _cards;
+
 		public void Initialize()
 		{
 			_deck
@@ -39,10 +40,10 @@ namespace Menu.Deck
 			_subscriptions.Dispose();
 		}
 
-		private void DrawCards(IEnumerable<VehicleId> deck)
+		public void DrawCards(IEnumerable<VehicleId> deck)
 		{
 			_cards.DestroyAndClear();
-			IEnumerable<VehicleId> storageToDraw = _storage.BoughtVehicles.Except(deck);
+			IEnumerable<VehicleId> storageToDraw = _storage.BoughtVehicles.Without(deck, (a, b) => a == b);
 			foreach (VehicleId vehicle in storageToDraw)
 			{
 				_cards.Add(_placement

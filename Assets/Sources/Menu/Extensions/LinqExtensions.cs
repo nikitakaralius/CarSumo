@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityObject = UnityEngine.Object;
 
@@ -25,6 +27,22 @@ namespace Menu.Extensions
 		{
 			list.ForEach(UnityObject.Destroy);
 			list.Clear();
+		}
+
+		public static IEnumerable<TSource> Without<TSource>(this IEnumerable<TSource> source, IEnumerable<TSource> values, Func<TSource, TSource, bool> equalityComparer)
+		{
+			List<TSource> cachedValues = new List<TSource>(values);
+
+			foreach (TSource element in source)
+			{
+				if (cachedValues.Any(cachedElement => equalityComparer.Invoke(cachedElement, element)))
+				{
+					cachedValues.Remove(element);
+					continue;
+				}
+
+				yield return element;
+			}
 		}
 	}
 }
