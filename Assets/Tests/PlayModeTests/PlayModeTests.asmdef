@@ -11,7 +11,8 @@
         "Teams",
         "Zenject",
         "Menu",
-        "Unity.Addressables"
+        "Unity.Addressables",
+        "UniRx"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

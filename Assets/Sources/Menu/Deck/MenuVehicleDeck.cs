@@ -23,6 +23,8 @@ namespace Menu.Deck
 			_repository = repository;
 		}
 
+		public IEnumerable<ICard> Cards => _cards;
+
 		private IReadOnlyList<VehicleId> Ids => _cards.Select(card => card.VehicleId).ToArray();
 
 		public void Initialize()
@@ -40,7 +42,6 @@ namespace Menu.Deck
 			{
 				throw new InvalidOperationException(nameof(position));
 			}
-
 			CardInDeck cardInDeck = CreateCard(card);
 			_cards[position] = cardInDeck;
 			_operations.ChangeLayout(Ids);
@@ -49,7 +50,10 @@ namespace Menu.Deck
 		private CardInDeck CreateCard(VehicleId vehicle)
 		{
 			AssetReferenceGameObject view = _repository.ViewOf(vehicle);
-			CardInDeck cardInDeck = _placement.Add(view).AddComponent<CardInDeck>();
+			CardInDeck cardInDeck = _placement
+				.Add(view)
+				.AddComponent<CardInDeck>()
+				.Initialize(vehicle);
 			return cardInDeck;
 		}
 
