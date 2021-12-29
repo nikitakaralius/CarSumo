@@ -22,7 +22,7 @@ namespace AI.Repositories
 				new Account(
 					Name,
 					new Icon(Icon, string.Empty),
-					new BoundedVehicleLayout(3, Layout));
+					new BoundedVehicleDeck(3, Layout));
 		}
 
 		[SerializeField] private UnityAccount[] _accounts = Array.Empty<UnityAccount>();

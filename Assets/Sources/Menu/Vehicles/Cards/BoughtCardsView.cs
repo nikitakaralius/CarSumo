@@ -41,7 +41,7 @@ namespace Sources.Menu.Vehicles.Cards
 					_accountSubscriptions.Clear();
 
 					account
-						.VehicleLayout
+						.VehicleDeck
 						.ObserveLayoutCompletedChanging()
 						.Subscribe(_ => RebuildAvailableVehicles(account))
 						.AddTo(_accountSubscriptions);
@@ -66,7 +66,7 @@ namespace Sources.Menu.Vehicles.Cards
 		{
 			IEnumerable<VehicleId> vehiclesToRender = _vehicleStorage
 				.BoughtVehicles
-				.RemoveFirstOccurrences(activeAccount.VehicleLayout.ActiveVehicles);
+				.RemoveFirstOccurrences(activeAccount.VehicleDeck.ActiveVehicles);
 
 			_instances.DestroyAndClear();
 

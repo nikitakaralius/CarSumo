@@ -1,10 +1,10 @@
 ﻿using DataModel.Vehicles;
-using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Menu.Deck
 {
 	public interface ICardRepository
 	{
-		GameObject ViewBy(VehicleId id);
+		AssetReferenceGameObject ViewOf(VehicleId id);
 	}
 }

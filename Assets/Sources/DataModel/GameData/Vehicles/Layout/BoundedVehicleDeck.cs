@@ -7,12 +7,12 @@ using UniRx;
 
 namespace DataModel.GameData.Vehicles
 {
-    public class BoundedVehicleLayout : IVehicleLayout
+    public class BoundedVehicleDeck : IVehicleDeck
     {
         private readonly ReactiveCollection<VehicleId> _activeVehicles;
         private readonly Subject<IEnumerable<VehicleId>> _layoutCompletedChanging;
 
-        public BoundedVehicleLayout(int slotsAmount, IEnumerable<VehicleId> vehicles)
+        public BoundedVehicleDeck(int slotsAmount, IEnumerable<VehicleId> vehicles)
         {
             if (vehicles.Count() > slotsAmount)
             {

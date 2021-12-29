@@ -44,8 +44,8 @@ namespace CarSumo.Units
 		
 		private async Task CreateVehicles(Team team, IReadOnlyList<IUnit> units)
 		{
-			IVehicleLayout layout = _gameModePreferences.GetAccountByTeam(team).Value.VehicleLayout;
-			IReadOnlyReactiveCollection<VehicleId> layoutVehicles = layout.ActiveVehicles;
+			IVehicleDeck deck = _gameModePreferences.GetAccountByTeam(team).Value.VehicleDeck;
+			IReadOnlyReactiveCollection<VehicleId> layoutVehicles = deck.ActiveVehicles;
 			
 			if (units.Count != layoutVehicles.Count)
 			{

@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Menu.Deck
 {
 	public interface IPlacement
 	{
-		void Add(GameObject gameObject);
+		GameObject Add(AssetReferenceGameObject gameObject);
 	}
 }

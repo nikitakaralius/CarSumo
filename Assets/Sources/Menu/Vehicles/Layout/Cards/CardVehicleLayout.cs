@@ -120,7 +120,7 @@ namespace Menu.Vehicles.Layout
 			_accountStorage
 				.ActiveAccount
 				.Value
-				.VehicleLayout
+				.VehicleDeck
 				.ChangeLayout(newLayout);
 		}
 

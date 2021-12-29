@@ -37,7 +37,7 @@ namespace Menu.Vehicles.Storage
 
         private IReadOnlyReactiveCollection<VehicleId> BoughtVehicles => _vehicleStorage.BoughtVehicles;
 
-        private IVehicleLayout Layout => _accountStorage.ActiveAccount.Value.VehicleLayout;
+        private IVehicleDeck Deck => _accountStorage.ActiveAccount.Value.VehicleDeck;
 
         private void OnEnable()
         {
@@ -53,7 +53,7 @@ namespace Menu.Vehicles.Storage
 
         private async void SpawnPreparedCollectionAsync()
         {
-	        await SpawnPreparedCollectionAsync(Layout);
+	        await SpawnPreparedCollectionAsync(Deck);
         }
 
         protected override void OnDisable()
@@ -82,15 +82,15 @@ namespace Menu.Vehicles.Storage
 	        }
         }
 
-        private async Task SpawnPreparedCollectionAsync(IVehicleLayout layout)
+        private async Task SpawnPreparedCollectionAsync(IVehicleDeck deck)
         {
-            IEnumerable<VehicleId> vehicles = GetVehiclesExceptLayout(layout);
+            IEnumerable<VehicleId> vehicles = GetVehiclesExceptLayout(deck);
             await SpawnCollectionAsync(vehicles);
         }
 
-        private IEnumerable<VehicleId> GetVehiclesExceptLayout(IVehicleLayout layout)
+        private IEnumerable<VehicleId> GetVehiclesExceptLayout(IVehicleDeck deck)
         {
-            List<VehicleId> cachedLayout = new List<VehicleId>(layout.ActiveVehicles);
+            List<VehicleId> cachedLayout = new List<VehicleId>(deck.ActiveVehicles);
 
             foreach (VehicleId vehicle in BoughtVehicles)
             {
@@ -108,9 +108,9 @@ namespace Menu.Vehicles.Storage
         {
 	        _layoutSubscription?.Dispose();
 
-	        await SpawnPreparedCollectionAsync(account.VehicleLayout);
+	        await SpawnPreparedCollectionAsync(account.VehicleDeck);
 	        
-	        _layoutSubscription = Layout
+	        _layoutSubscription = Deck
 		        .ObserveLayoutCompletedChanging()
 		        .Subscribe(_ =>  SpawnPreparedCollectionAsync());
         }

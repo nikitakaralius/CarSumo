@@ -63,7 +63,7 @@ namespace DataModel.GameData.GameSave
 	        Save();
 	        
 	        _layoutChangedSubscription = account
-		        .VehicleLayout.ObserveLayoutCompletedChanging()
+		        .VehicleDeck.ObserveLayoutCompletedChanging()
 		        .Subscribe(_ => Save());
         }
     }

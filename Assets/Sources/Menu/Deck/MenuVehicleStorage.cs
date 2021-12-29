@@ -2,7 +2,7 @@
 
 namespace Menu.Deck
 {
-	public class VehicleStorage : MonoBehaviour
+	public class MenuVehicleStorage : MonoBehaviour
 	{
 		
 	}

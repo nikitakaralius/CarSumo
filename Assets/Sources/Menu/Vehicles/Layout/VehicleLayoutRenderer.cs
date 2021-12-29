@@ -22,7 +22,7 @@ namespace Menu.Vehicles.Layout
         }
         
         private IReadOnlyReactiveProperty<Account> ActiveAccount => _accountStorage.ActiveAccount;
-        private IEnumerable<VehicleId> Layout => _accountStorage.ActiveAccount.Value.VehicleLayout.ActiveVehicles;
+        private IEnumerable<VehicleId> Layout => _accountStorage.ActiveAccount.Value.VehicleDeck.ActiveVehicles;
 
         private void OnEnable()
         {
@@ -45,7 +45,7 @@ namespace Menu.Vehicles.Layout
             await SpawnCollectionAsync(Layout);
             
             _layoutChangedSubscription = account
-	            .VehicleLayout
+	            .VehicleDeck
                 .ObserveLayoutCompletedChanging()
 	            .Subscribe(SpawnCollection);
         }

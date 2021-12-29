@@ -2,7 +2,7 @@
 
 namespace DataModel.Vehicles
 {
-    public interface IVehicleLayout : IVehicleLayoutOperations
+    public interface IVehicleDeck : IVehicleDeckOperations
     {
         IReadOnlyReactiveCollection<VehicleId> ActiveVehicles { get; }
     }

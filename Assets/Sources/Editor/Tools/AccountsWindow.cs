@@ -68,7 +68,7 @@ namespace CustomEditors.Tools
 							fontStyle = FontStyle.Bold
 						});
 
-						foreach (VehicleId vehicle in account.VehicleLayout.ActiveVehicles)
+						foreach (VehicleId vehicle in account.VehicleDeck.ActiveVehicles)
 						{
 							GUILayout.Label(vehicle.ToString());
 						}

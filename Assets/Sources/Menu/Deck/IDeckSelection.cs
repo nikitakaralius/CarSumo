@@ -2,5 +2,6 @@
 {
 	public interface IDeckSelection
 	{
+		void Select(CardInStorage card);
 	}
 }
