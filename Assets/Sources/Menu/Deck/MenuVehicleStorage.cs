@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DataModel.Vehicles;
 using Menu.Extensions;
-using UniRx;
-using Zenject;
 
 namespace Menu.Deck
 {
-	public class MenuVehicleStorage : IInitializable, IDisposable
+	public class MenuVehicleStorage
 	{
 		private readonly List<CardInStorage> _cards = new List<CardInStorage>();
-		private readonly CompositeDisposable _subscriptions = new CompositeDisposable();
 		
-		private readonly IVehicleDeck _deck;
 		private readonly ICardRepository _repository;
 		private readonly IVehicleStorage _storage;
 		private readonly IPlacement _placement;
 
-		public MenuVehicleStorage(IVehicleDeck deck, ICardRepository repository, IVehicleStorage storage, IPlacement placement)
+		public MenuVehicleStorage(ICardRepository repository, IVehicleStorage storage, IPlacement placement)
 		{
-			_deck = deck;
 			_repository = repository;
 			_storage = storage;
 			_placement = placement;
@@ -27,17 +21,9 @@ namespace Menu.Deck
 
 		public IEnumerable<ICard> Cards => _cards;
 
-		public void Initialize()
+		public void DrawCards(IVehicleDeck deck)
 		{
-			_deck
-				.ObserveLayoutCompletedChanging()
-				.Subscribe(DrawCards)
-				.AddTo(_subscriptions);
-		}
-
-		public void Dispose()
-		{
-			_subscriptions.Dispose();
+			DrawCards(deck.ActiveVehicles);
 		}
 
 		public void DrawCards(IEnumerable<VehicleId> deck)

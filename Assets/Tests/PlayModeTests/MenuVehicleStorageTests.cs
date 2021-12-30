@@ -37,13 +37,11 @@ namespace Tests.PlayModeTests
 			var storage = Substitute.For<IVehicleStorage>();
 			storage.BoughtVehicles.Returns(new ReactiveCollection<VehicleId>(vehicles));
 			deck.ActiveVehicles.Returns(new ReactiveCollection<VehicleId>(vehicles));
-			var menuStorage = new MenuVehicleStorage(deck, _repository, storage, _placement);
-			menuStorage.Initialize();
+			var menuStorage = new MenuVehicleStorage(_repository, storage, _placement);
 
-			menuStorage.DrawCards(deck.ActiveVehicles);
+			menuStorage.DrawCards(deck);
 			
 			menuStorage.Cards.Should().BeEmpty();
-			menuStorage.Dispose();
 		}
 
 		[Test]
@@ -53,10 +51,9 @@ namespace Tests.PlayModeTests
 			var storage = Substitute.For<IVehicleStorage>();
 			deck.ActiveVehicles.Returns(new ReactiveCollection<VehicleId>(Enumerable.Repeat(VehicleId.Jeep, 3)));
 			storage.BoughtVehicles.Returns(new ReactiveCollection<VehicleId>(Enumerable.Repeat(VehicleId.Jeep, 5)));
-			var menuStorage = new MenuVehicleStorage(deck, _repository, storage, _placement);
-			menuStorage.Initialize();
+			var menuStorage = new MenuVehicleStorage(_repository, storage, _placement);
 
-			menuStorage.DrawCards(deck.ActiveVehicles);
+			menuStorage.DrawCards(deck);
 
 			menuStorage.Cards.Should().HaveCount(2);
 			menuStorage.Cards.Select(card => card.VehicleId).Should().Contain(Enumerable.Repeat(VehicleId.Jeep, 2));
@@ -81,10 +78,10 @@ namespace Tests.PlayModeTests
 				VehicleId.Jeep, VehicleId.Jeep, VehicleId.Jeep,
 				VehicleId.Ute, VehicleId.Ute, VehicleId.Ute
 			}));
-			var menuStorage = new MenuVehicleStorage(deck1, _repository, storage, _placement);
+			var menuStorage = new MenuVehicleStorage(_repository, storage, _placement);
 
-			menuStorage.DrawCards(deck1.ActiveVehicles);
-			menuStorage.DrawCards(deck2.ActiveVehicles);
+			menuStorage.DrawCards(deck1);
+			menuStorage.DrawCards(deck2);
 			
 			menuStorage.Cards.Should().HaveCount(3);
 			menuStorage.Cards.Select(card => card.VehicleId).Should().NotContain(new[]
