@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using DataModel.Vehicles;
-using UnityEngine.AddressableAssets;
 
 namespace Menu.Deck
 {
@@ -47,12 +46,10 @@ namespace Menu.Deck
 
 		private CardInDeck CreateCard(VehicleId vehicle)
 		{
-			AssetReferenceGameObject view = _repository.ViewOf(vehicle);
-			CardInDeck cardInDeck = _placement
-				.Add(view)
+			return _placement
+				.Add(_repository.ViewOf(vehicle))
 				.AddComponent<CardInDeck>()
 				.Initialize(vehicle);
-			return cardInDeck;
 		}
 
 		private CardInDeck CreateCard(ICard card)
