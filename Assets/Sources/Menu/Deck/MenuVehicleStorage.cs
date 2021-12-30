@@ -11,14 +11,16 @@ namespace Menu.Deck
 		private readonly ICardRepository _repository;
 		private readonly IVehicleStorage _storage;
 		private readonly IPlacement _placement;
+		private readonly IDeckSelection _deckSelection;
 
-		public MenuVehicleStorage(ICardRepository repository, IVehicleStorage storage, IPlacement placement)
+		public MenuVehicleStorage(ICardRepository repository, IVehicleStorage storage, IPlacement placement, IDeckSelection deckSelection)
 		{
 			_repository = repository;
 			_storage = storage;
 			_placement = placement;
+			_deckSelection = deckSelection;
 		}
-
+		
 		public IEnumerable<ICard> Cards => _cards;
 
 		public void DrawCards(IVehicleDeck deck)
@@ -35,7 +37,7 @@ namespace Menu.Deck
 				_cards.Add(_placement
 					.Add(_repository.ViewOf(vehicle))
 					.AddComponent<CardInStorage>()
-					.Initialize(vehicle));
+					.Initialize(vehicle, _deckSelection));
 			}
 		}
 	}

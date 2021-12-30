@@ -14,12 +14,14 @@ namespace Tests.PlayModeTests
 	{
 		private ICardRepository _repository;
 		private IPlacement _placement;
+		private IDeckSelection _deckSelection;
 		
 		[SetUp]
 		public void SetUp()
 		{
 			_repository = Substitute.For<ICardRepository>();
 			_placement = Substitute.For<IPlacement>();
+			_deckSelection = Substitute.For<IDeckSelection>();
 			_placement.Add(null).ReturnsForAnyArgs(new GameObject());
 		}
 
@@ -37,7 +39,7 @@ namespace Tests.PlayModeTests
 			var storage = Substitute.For<IVehicleStorage>();
 			storage.BoughtVehicles.Returns(new ReactiveCollection<VehicleId>(vehicles));
 			deck.ActiveVehicles.Returns(new ReactiveCollection<VehicleId>(vehicles));
-			var menuStorage = new MenuVehicleStorage(_repository, storage, _placement);
+			var menuStorage = new MenuVehicleStorage(_repository, storage, _placement, _deckSelection);
 
 			menuStorage.DrawCards(deck);
 			
@@ -51,7 +53,7 @@ namespace Tests.PlayModeTests
 			var storage = Substitute.For<IVehicleStorage>();
 			deck.ActiveVehicles.Returns(new ReactiveCollection<VehicleId>(Enumerable.Repeat(VehicleId.Jeep, 3)));
 			storage.BoughtVehicles.Returns(new ReactiveCollection<VehicleId>(Enumerable.Repeat(VehicleId.Jeep, 5)));
-			var menuStorage = new MenuVehicleStorage(_repository, storage, _placement);
+			var menuStorage = new MenuVehicleStorage(_repository, storage, _placement, _deckSelection);
 
 			menuStorage.DrawCards(deck);
 
@@ -78,7 +80,7 @@ namespace Tests.PlayModeTests
 				VehicleId.Jeep, VehicleId.Jeep, VehicleId.Jeep,
 				VehicleId.Ute, VehicleId.Ute, VehicleId.Ute
 			}));
-			var menuStorage = new MenuVehicleStorage(_repository, storage, _placement);
+			var menuStorage = new MenuVehicleStorage(_repository, storage, _placement, _deckSelection);
 
 			menuStorage.DrawCards(deck1);
 			menuStorage.DrawCards(deck2);

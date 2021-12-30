@@ -9,6 +9,7 @@ namespace Menu.Deck
 	public class MenuVehicleStorageComponent : SerializedMonoBehaviour
 	{
 		[SerializeField] private IPlacement _placement;
+		[SerializeField] private IDeckSelection _deckSelection;
 		
 		private IVehicleDeck _deck;
 		private MenuVehicleStorage _storage;
@@ -18,7 +19,7 @@ namespace Menu.Deck
 		[Inject]
 		private void Construct(ICardRepository repository, IVehicleStorage storage, IVehicleDeck deck)
 		{
-			_storage = new MenuVehicleStorage(repository, storage, _placement);
+			_storage = new MenuVehicleStorage(repository, storage, _placement, _deckSelection);
 			_deck = deck;
 		}
 
