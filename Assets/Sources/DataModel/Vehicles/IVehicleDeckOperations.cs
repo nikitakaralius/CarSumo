@@ -5,7 +5,7 @@ namespace DataModel.Vehicles
 {
 	public interface IVehicleDeckOperations
 	{
-		IObservable<IEnumerable<VehicleId>> ObserveLayoutCompletedChanging();
-		void ChangeLayout(IReadOnlyList<VehicleId> layout);
+		IObservable<IEnumerable<Vehicle>> ObserveLayoutCompletedChanging();
+		void ChangeLayout(IReadOnlyList<Vehicle> layout);
 	}
 }

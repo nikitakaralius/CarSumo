@@ -5,6 +5,6 @@ namespace DataModel.GameData.Vehicles
 {
     public interface IVehicleLayoutBuilder
     {
-        IVehicleDeck Create(IEnumerable<VehicleId> vehicles);
+        IVehicleDeck Create(IEnumerable<Vehicle> vehicles);
     }
 }

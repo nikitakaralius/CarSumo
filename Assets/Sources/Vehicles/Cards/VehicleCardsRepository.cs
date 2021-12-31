@@ -9,9 +9,9 @@ namespace Sources.Cards
 	[CreateAssetMenu(menuName = "Vehicles/VehicleCardsRepository", fileName = "VehicleCardsRepository")]
 	public class VehicleCardsRepository : SerializedScriptableObject, IVehicleCardsRepository
 	{
-		[SerializeField] private IReadOnlyDictionary<VehicleId, VehicleCard> _cards = new Dictionary<VehicleId, VehicleCard>();
+		[SerializeField] private IReadOnlyDictionary<Vehicle, VehicleCard> _cards = new Dictionary<Vehicle, VehicleCard>();
 
-		public VehicleCard StatsOf(VehicleId vehicle)
+		public VehicleCard StatsOf(Vehicle vehicle)
 		{
 			if (_cards.TryGetValue(vehicle, out var card))
 			{

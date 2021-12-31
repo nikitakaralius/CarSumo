@@ -14,13 +14,13 @@ namespace DataModel.GameData.Vehicles
         [Serializable]
         private struct VehicleAsset
         {
-            public VehicleId Id;
+            public Vehicle Id;
             public AssetReferenceGameObject AssetReference;
         }
 
         [SerializeField] private VehicleAsset[] _vehicleAssets;
 
-        private IReadOnlyDictionary<VehicleId, AssetReferenceGameObject> _assets;
+        private IReadOnlyDictionary<Vehicle, AssetReferenceGameObject> _assets;
 
         private void OnValidate()
         {
@@ -37,7 +37,7 @@ namespace DataModel.GameData.Vehicles
             _assets = _vehicleAssets.ToDictionary(x => x.Id, x => x.AssetReference);
         }
 
-        public AssetReferenceGameObject GetAssetByVehicleId(VehicleId id)
+        public AssetReferenceGameObject GetAssetByVehicleId(Vehicle id)
         {
             return _assets[id];
         }

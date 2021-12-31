@@ -4,6 +4,6 @@ namespace Sources.Cards
 {
 	public interface IVehicleCardsRepository
 	{
-		VehicleCard StatsOf(VehicleId vehicle);
+		VehicleCard StatsOf(Vehicle vehicle);
 	}
 }

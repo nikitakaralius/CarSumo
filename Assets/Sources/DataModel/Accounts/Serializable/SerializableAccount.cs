@@ -9,7 +9,7 @@ namespace CarSumo.DataModel.Accounts
         
         public string Icon { get; set; }
 
-        public IEnumerable<VehicleId> VehicleLayout { get; set; }
+        public IEnumerable<Vehicle> VehicleLayout { get; set; }
     }
     
     public class UnregisteredSerializableAccount : SerializableAccount
@@ -18,7 +18,7 @@ namespace CarSumo.DataModel.Accounts
         {
             Name = "Unregistered";
             Icon = null;
-            VehicleLayout = new[] {VehicleId.Jeep, VehicleId.Jeep, VehicleId.Jeep};
+            VehicleLayout = new[] {Vehicle.Jeep, Vehicle.Jeep, Vehicle.Jeep};
         }
     }
 }

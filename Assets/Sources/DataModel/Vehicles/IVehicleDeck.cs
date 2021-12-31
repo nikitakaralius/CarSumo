@@ -4,6 +4,6 @@ namespace DataModel.Vehicles
 {
     public interface IVehicleDeck : IVehicleDeckOperations
     {
-        IReadOnlyReactiveCollection<VehicleId> ActiveVehicles { get; }
+        IReadOnlyReactiveCollection<Vehicle> ActiveVehicles { get; }
     }
 }

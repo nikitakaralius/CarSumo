@@ -4,6 +4,6 @@ namespace DataModel.Vehicles
 {
     public class SerializableVehicleStorage
     {
-        public IEnumerable<VehicleId> Vehicles { get; set; }
+        public IEnumerable<Vehicle> Vehicles { get; set; }
     }
 }

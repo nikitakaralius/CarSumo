@@ -16,7 +16,7 @@ namespace AI.Repositories
 		{
 			public string Name;
 			public Sprite Icon;
-			public VehicleId[] Layout;
+			public Vehicle[] Layout;
 
 			public Account ToAccount() => 
 				new Account(

@@ -9,30 +9,30 @@ namespace DataModel.GameData.Vehicles
 {
     public class BoundedVehicleDeck : IVehicleDeck
     {
-        private readonly ReactiveCollection<VehicleId> _activeVehicles;
-        private readonly Subject<IEnumerable<VehicleId>> _layoutCompletedChanging;
+        private readonly ReactiveCollection<Vehicle> _activeVehicles;
+        private readonly Subject<IEnumerable<Vehicle>> _layoutCompletedChanging;
 
-        public BoundedVehicleDeck(int slotsAmount, IEnumerable<VehicleId> vehicles)
+        public BoundedVehicleDeck(int slotsAmount, IEnumerable<Vehicle> vehicles)
         {
             if (vehicles.Count() > slotsAmount)
             {
                 throw new InvalidOperationException("Amount of vehicles can not be greater than slots");
             }
             
-            _activeVehicles = new ReactiveCollection<VehicleId>(vehicles);
+            _activeVehicles = new ReactiveCollection<Vehicle>(vehicles);
             _activeVehicles.SetLength(slotsAmount);
 
-            _layoutCompletedChanging = new Subject<IEnumerable<VehicleId>>();
+            _layoutCompletedChanging = new Subject<IEnumerable<Vehicle>>();
         }
         
-        public IReadOnlyReactiveCollection<VehicleId> ActiveVehicles => _activeVehicles;
+        public IReadOnlyReactiveCollection<Vehicle> ActiveVehicles => _activeVehicles;
 
-        public IObservable<IEnumerable<VehicleId>> ObserveLayoutCompletedChanging()
+        public IObservable<IEnumerable<Vehicle>> ObserveLayoutCompletedChanging()
         {
 	        return _layoutCompletedChanging;
         }
 
-        public void ChangeLayout(IReadOnlyList<VehicleId> layout)
+        public void ChangeLayout(IReadOnlyList<Vehicle> layout)
         {
 	        if (layout.Count != _activeVehicles.Count)
 	        {

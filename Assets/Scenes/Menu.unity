@@ -2100,10 +2100,6 @@ GameObject:
   - component: {fileID: 107066606}
   - component: {fileID: 107066608}
   - component: {fileID: 107066607}
-  - component: {fileID: 107066610}
-  - component: {fileID: 107066609}
-  - component: {fileID: 107066611}
-  - component: {fileID: 107066612}
   m_Layer: 5
   m_Name: Deck
   m_TagString: Untagged
@@ -2169,90 +2165,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107066605}
   m_CullTransparentMesh: 1
---- !u!114 &107066609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107066605}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fcfa035544843d8aaea0d9672b1426c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sizeData:
-    From: {x: 0.75, y: 0.75, z: 0.75}
-    To: {x: 0.9, y: 0.9, z: 0.9}
-    Duration: 0.3
-    Ease: 19
---- !u!114 &107066610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107066605}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2ed316b55e84c8dae11d6c159a7693b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 2fa714d0b2edcc14197cd78375a65b38, type: 2}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _assets
-      Entry: 10
-      Data: 0
-  _layoutRoot: {fileID: 2090160403}
-  _contentLayoutGroup: {fileID: 2090160404}
-  _vehicleScaling: {fileID: 107066609}
-  _holdTimeToDrag: 0.3
---- !u!114 &107066611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107066605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8cd5b954c7c4f8e8e676ffa399e3946, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 107066612}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _placement
-      Entry: 10
-      Data: 0
---- !u!114 &107066612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107066605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a753b9bc36b24abb919442a2ae3bba89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _root: {fileID: 2090160403}
 --- !u!1 &200344741
 GameObject:
   m_ObjectHideFlags: 0
@@ -10870,7 +10782,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cards: {fileID: 11400000, guid: 7effbc4cf17408043bf3d047290fb4b8, type: 2}
-  _repository: {fileID: 11400000, guid: 912e94c9d6725534d8133a9fa4340f48, type: 2}
 --- !u!114 &803184304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47785,9 +47696,6 @@ GameObject:
   - component: {fileID: 5857635362157322558}
   - component: {fileID: 5857635362157322555}
   - component: {fileID: 5857635362157322556}
-  - component: {fileID: 5857635362157322545}
-  - component: {fileID: 5857635362157322546}
-  - component: {fileID: 5857635362157322547}
   m_Layer: 5
   m_Name: Vehicles
   m_TagString: Untagged
@@ -47795,77 +47703,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4
   m_IsActive: 1
---- !u!114 &5857635362157322545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5857635362157322544}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf56c389abb648c58c6390083b0a3df0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 2fa714d0b2edcc14197cd78375a65b38, type: 2}
-    - {fileID: 107066610}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _assets
-      Entry: 10
-      Data: 0
-    - Name: _layoutChanger
-      Entry: 10
-      Data: 1
-  _layoutRoot: {fileID: 5857635362438841528}
---- !u!114 &5857635362157322546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5857635362157322544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26780b18f5914f6993b7b8ec0607add8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 5857635362157322547}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _placement
-      Entry: 10
-      Data: 0
-    - Name: _deckSelection
-      Entry: 6
-      Data: 
---- !u!114 &5857635362157322547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5857635362157322544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a753b9bc36b24abb919442a2ae3bba89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _root: {fileID: 5857635362438841528}
 --- !u!222 &5857635362157322555
 CanvasRenderer:
   m_ObjectHideFlags: 0

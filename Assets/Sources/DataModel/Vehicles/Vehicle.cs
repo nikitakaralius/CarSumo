@@ -1,6 +1,6 @@
 ﻿namespace DataModel.Vehicles
 {
-    public enum VehicleId
+    public enum Vehicle
     {
         Jeep,
         OldCar,

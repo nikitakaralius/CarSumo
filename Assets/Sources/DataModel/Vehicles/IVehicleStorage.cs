@@ -4,6 +4,6 @@ namespace DataModel.Vehicles
 {
     public interface IVehicleStorage
     {
-        IReadOnlyReactiveCollection<VehicleId> BoughtVehicles { get; }
+        IReadOnlyReactiveCollection<Vehicle> BoughtVehicles { get; }
     }
 }
