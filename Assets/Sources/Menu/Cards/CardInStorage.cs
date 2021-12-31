@@ -8,10 +8,11 @@ namespace Menu.Cards
 	{
 		private IStorageSelection _selection;
 		
-		public void Initialize(Vehicle vehicle, IStorageSelection selection)
+		public CardInStorage Initialize(Vehicle vehicle, IStorageSelection selection)
 		{
 			Vehicle = vehicle;
 			_selection = selection;
+			return this;
 		}
 		
 		public Vehicle Vehicle { get; private set; }
