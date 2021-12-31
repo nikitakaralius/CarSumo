@@ -9,10 +9,11 @@ namespace Menu.Cards
 	{
 		private int _position;
 		
-		public void Initialize(Vehicle vehicle, int position)
+		public CardInDeck Initialize(Vehicle vehicle, int position)
 		{
 			Vehicle = vehicle;
 			_position = position;
+			return this;
 		}
 
 		public event Action<int> Clicked; 
