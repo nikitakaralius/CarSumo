@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CarSumo.Vehicles;
 using DataModel.Vehicles;
 using Sirenix.Utilities;
 using UniRx;
+using Vehicle = DataModel.Vehicles.Vehicle;
 
 namespace DataModel.GameData.Vehicles
 {
     public class BoundedVehicleDeck : IVehicleDeck
     {
         private readonly ReactiveCollection<Vehicle> _activeVehicles;
-        private readonly Subject<IEnumerable<Vehicle>> _layoutCompletedChanging;
+        private readonly Subject<IVehicleDeck> _layoutCompletedChanging;
 
         public BoundedVehicleDeck(int slotsAmount, IEnumerable<Vehicle> vehicles)
         {
@@ -22,12 +24,12 @@ namespace DataModel.GameData.Vehicles
             _activeVehicles = new ReactiveCollection<Vehicle>(vehicles);
             _activeVehicles.SetLength(slotsAmount);
 
-            _layoutCompletedChanging = new Subject<IEnumerable<Vehicle>>();
+            _layoutCompletedChanging = new Subject<IVehicleDeck>();
         }
         
         public IReadOnlyReactiveCollection<Vehicle> ActiveVehicles => _activeVehicles;
 
-        public IObservable<IEnumerable<Vehicle>> ObserveLayoutCompletedChanging()
+        public IObservable<IVehicleDeck> ObserveLayoutCompletedChanging()
         {
 	        return _layoutCompletedChanging;
         }
@@ -38,13 +40,11 @@ namespace DataModel.GameData.Vehicles
 	        {
 		        throw new InvalidOperationException("Trying to change layout with different size");
 	        }
-
 	        for (var i = 0; i < _activeVehicles.Count; i++)
 	        {
 		        _activeVehicles[i] = layout[i];
 	        }
-	        
-	        _layoutCompletedChanging.OnNext(_activeVehicles);
+	        _layoutCompletedChanging.OnNext(this);
         }
     }
 }
