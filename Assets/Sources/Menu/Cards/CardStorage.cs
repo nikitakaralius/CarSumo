@@ -18,6 +18,8 @@ namespace Menu.Cards
 			_repository = repository;
 		}
 
+		public IEnumerable<ICard> Cards => _cards;
+
 		public void Draw(IVehicleStorage storage, IVehicleDeck deck)
 		{
 			_cards.DestroyAndClear();
