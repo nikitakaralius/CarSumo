@@ -10,7 +10,7 @@ namespace Menu.Cards
 	{
 		[SerializeField] private Vehicle _vehicle;
 		[SerializeField] private TextMeshProUGUI _force;
-		[SerializeField] private TextMeshProUGUI _speed;
+		[SerializeField] private TextMeshProUGUI _fuel;
 
 		private ICardStatsRepository _repository;
 
@@ -30,7 +30,7 @@ namespace Menu.Cards
 		private void Bind(VerboseVehicleStats stats)
 		{
 			_force.text = stats.Force.ToString();
-			_speed.text = stats.Speed.ToString();
+			_fuel.text = stats.Fuel.ToString();
 		}
 	}
 }

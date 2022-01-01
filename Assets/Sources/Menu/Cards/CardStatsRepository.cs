@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using DataModel.Vehicles;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Menu.Cards
 {
 	[CreateAssetMenu(fileName = "CardStatsRepository", menuName = "Cards/CardStatsRepository")]
-	public class CardStatsRepository : ScriptableObject, ICardStatsRepository
+	public class CardStatsRepository : SerializedScriptableObject, ICardStatsRepository
 	{
 		[SerializeField] private IReadOnlyDictionary<Vehicle, VerboseVehicleStats> _stats;
 		

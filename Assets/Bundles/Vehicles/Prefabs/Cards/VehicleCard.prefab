@@ -36,10 +36,10 @@ RectTransform:
   m_Father: {fileID: 1479995022716098279}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 415, y: 585}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2762430525944847718
 CanvasRenderer:
@@ -312,7 +312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1479995022716098279}
   - component: {fileID: 8954410985775858868}
-  - component: {fileID: -7904052269276078100}
+  - component: {fileID: 5471318388636773560}
   m_Layer: 5
   m_Name: VehicleCard
   m_TagString: Untagged
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &-7904052269276078100
+--- !u!114 &5471318388636773560
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -394,11 +394,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1479995022716098278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddb72174bfab418189c19c07a47110d0, type: 3}
+  m_Script: {fileID: 11500000, guid: f45c81d4cedf41c593ed087f5dcda507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   _vehicle: 0
-  _power: {fileID: 1506007852085807559}
+  _force: {fileID: 1506007852085807559}
   _fuel: {fileID: 3109148404717411769}
 --- !u!1 &1479995022811924171
 GameObject:

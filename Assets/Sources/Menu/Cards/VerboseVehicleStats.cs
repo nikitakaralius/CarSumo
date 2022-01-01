@@ -6,6 +6,6 @@ namespace Menu.Cards
 	public struct VerboseVehicleStats
 	{
 		public int Force;
-		public int Speed;
+		public int Fuel;
 	}
 }

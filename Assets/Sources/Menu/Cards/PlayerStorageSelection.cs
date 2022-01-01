@@ -10,7 +10,7 @@ namespace Menu.Cards
 {
 	public class PlayerStorageSelection : SerializedMonoBehaviour, IStorageSelection
 	{
-		[SerializeField] private IPlacement _placement;
+		[SerializeField] private IPlacement _storagePlacement;
 		[SerializeField] private ICardDeck _cardDeck;
 
 		private IAccountStorage _accountStorage;
@@ -38,7 +38,7 @@ namespace Menu.Cards
 
 		public void Change()
 		{
-			_placement.Hide();
+			_storagePlacement.Hide();
 			
 			foreach (CardInDeck card in _cardDeck.Cards)
 			{
@@ -61,7 +61,7 @@ namespace Menu.Cards
 
 		private void CompleteChanging()
 		{
-			_placement.Show();
+			_storagePlacement.Show();
 			_subscriptions.Dispose();
 			foreach (CardInDeck card in _cardDeck.Cards)
 			{
