@@ -1,12 +1,15 @@
 ﻿using System;
 using DataModel.Vehicles;
 using Sirenix.OdinInspector;
+using UniRx;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Menu.Cards
 {
 	public class CardInDeck : SerializedMonoBehaviour, ICard, IPointerClickHandler
 	{
+		private readonly Subject<int> _clicked = new Subject<int>();
 		private int _position;
 		
 		public CardInDeck Initialize(Vehicle vehicle, int position)
@@ -15,19 +18,24 @@ namespace Menu.Cards
 			_position = position;
 			return this;
 		}
-
-		public event Action<int> Clicked; 
-
+		
 		public Vehicle Vehicle { get; private set; }
 
 		public void OnPointerClick(PointerEventData eventData)
 		{
-			Clicked?.Invoke(_position);
+			_clicked.OnNext(_position);
 		}
+
+		public IObservable<int> OnClicked() => _clicked; 
 
 		public void PlayReadyToChangeAnimation()
 		{
-			throw new NotImplementedException();
+			Debug.LogError("Animation is not set up");
+		}
+
+		public void StopPlayingReadyToChangeAnimation()
+		{
+			Debug.LogError("Animation is not set up");
 		}
 	}
 }
