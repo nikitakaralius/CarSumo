@@ -12,7 +12,11 @@
         "Zenject",
         "Menu",
         "Unity.Addressables",
-        "UniRx"
+        "UniRx",
+        "Core",
+        "Services",
+        "Unity.TextMeshPro",
+        "Unity.ResourceManager"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
