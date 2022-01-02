@@ -3,9 +3,9 @@
 namespace Sources.Core.Tests
 {
 	[AttributeUsage(AttributeTargets.Field)]
-	public class FindInTestAttribute : Attribute
+	public class TestField : Attribute
 	{
-		public FindInTestAttribute(string id)
+		public TestField(string id)
 		{
 			Id = id;
 		}

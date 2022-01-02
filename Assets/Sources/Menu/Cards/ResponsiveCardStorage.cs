@@ -39,6 +39,11 @@ namespace Menu.Cards
 				.ObserveCountChanged()
 				.Subscribe(x => _cardStorage.Draw(_vehicleStorage, Deck))
 				.AddTo(_subscriptions);
+
+			Deck
+				.ObserveLayoutCompletedChanging()
+				.Subscribe(deck => _cardStorage.Draw(_vehicleStorage, deck))
+				.AddTo(_subscriptions);
 		}
 
 		private void OnDisable()

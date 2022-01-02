@@ -13,7 +13,7 @@ namespace Sources.Core.Tests.Extensions
 			FieldInfo[] fields = component.GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
 			foreach (FieldInfo field in fields)
 			{
-				var attribute = field.GetCustomAttribute<FindInTestAttribute>();
+				var attribute = field.GetCustomAttribute<TestField>();
 				if (attribute is null)
 				{
 					continue;

@@ -17,7 +17,8 @@ namespace Tests.PlayModeTests
 	public class CardWithStatsTests : ZenjectUnitTestFixture
 	{
 		private const ICard Any = null;
-		
+		private const string AssetPath = "Assets/Bundles/Vehicles/Prefabs/Cards/VehicleCard.prefab";
+
 		[SetUp]
 		public void InstallBindings()
 		{
@@ -46,7 +47,7 @@ namespace Tests.PlayModeTests
 				});
 
 			AsyncOperationHandle<GameObject> resource = Addressables
-				.LoadAssetAsync<GameObject>("Assets/Bundles/Vehicles/Prefabs/Cards/VehicleCard.prefab");
+				.LoadAssetAsync<GameObject>(AssetPath);
 			yield return resource;
 			CardWithStats cardWithStats = Container.InstantiatePrefabForComponent<CardWithStats>(resource.Result);
 
