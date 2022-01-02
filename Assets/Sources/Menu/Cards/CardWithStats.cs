@@ -1,5 +1,6 @@
 ﻿using DataModel.Vehicles;
 using Sirenix.OdinInspector;
+using Sources.Core.Tests;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -9,8 +10,8 @@ namespace Menu.Cards
 	public class CardWithStats : SerializedMonoBehaviour, ICard
 	{
 		[SerializeField] private Vehicle _vehicle;
-		[SerializeField] private TextMeshProUGUI _force;
-		[SerializeField] private TextMeshProUGUI _fuel;
+		[SerializeField, ChildGameObjectsOnly, FindInTest("ForceText")] private TextMeshProUGUI _force;
+		[SerializeField, ChildGameObjectsOnly, FindInTest("FuelText")] private TextMeshProUGUI _fuel;
 
 		private ICardStatsRepository _repository;
 
