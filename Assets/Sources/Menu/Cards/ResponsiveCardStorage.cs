@@ -17,7 +17,7 @@ namespace Menu.Cards
 		
 		private CardStorage _cardStorage;
 
-		private readonly CompositeDisposable _subscriptions = new CompositeDisposable();
+		private CompositeDisposable _subscriptions;
 		
 		[Inject]
 		private void Construct(IAccountStorage accountStorage, IVehicleStorage vehicleStorage, ICardViewRepository repository)
@@ -29,24 +29,28 @@ namespace Menu.Cards
 
 		private IVehicleDeck Deck => _accountStorage.ActiveAccount.Value.VehicleDeck;
 
-		private void Start()
+		private void OnEnable()
 		{
+			_subscriptions = new CompositeDisposable();
 			_accountStorage.ActiveAccount
-				.Subscribe(x => _cardStorage.Draw(_vehicleStorage, Deck))
+				.Subscribe(x =>
+				{
+					_cardStorage.Draw(_vehicleStorage, Deck);
+					x.VehicleDeck
+						.ObserveLayoutCompletedChanging()
+						.Subscribe(deck => _cardStorage.Draw(_vehicleStorage, deck))
+						.AddTo(_subscriptions);
+
+				})
 				.AddTo(_subscriptions);
 
 			_vehicleStorage.BoughtVehicles
 				.ObserveCountChanged()
 				.Subscribe(x => _cardStorage.Draw(_vehicleStorage, Deck))
 				.AddTo(_subscriptions);
-
-			Deck
-				.ObserveLayoutCompletedChanging()
-				.Subscribe(deck => _cardStorage.Draw(_vehicleStorage, deck))
-				.AddTo(_subscriptions);
 		}
 
-		private void OnDestroy()
+		private void OnDisable()
 		{
 			_subscriptions.Dispose();		
 		}
