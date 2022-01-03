@@ -47849,6 +47849,7 @@ GameObject:
   - component: {fileID: 5857635362157322545}
   - component: {fileID: 5857635362157322546}
   - component: {fileID: 5857635362157322547}
+  - component: {fileID: 5857635362157322548}
   m_Layer: 5
   m_Name: Storage
   m_TagString: Untagged
@@ -47924,6 +47925,35 @@ MonoBehaviour:
       Entry: 10
       Data: 0
   _elementScale: {x: 1, y: 1, z: 1}
+--- !u!114 &5857635362157322548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5857635362157322544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d0d595e95c44da69c69c179306ccd6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scrollRect: {fileID: 5857635362157322558}
+  _deltaToInvokeEvent: {x: 0, y: 0.01}
+  _valueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1127751037}
+        m_TargetAssemblyTypeName: Sources.Core.Interfaces.Visible, Core
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &5857635362157322555
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -47991,7 +48021,19 @@ MonoBehaviour:
   m_VerticalScrollbarSpacing: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1127751036}
+        m_TargetAssemblyTypeName: Menu.Cards.PlayerStorageSelection, Menu
+        m_MethodName: UpdatePosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &5857635362157322559
 RectTransform:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ namespace Menu.Cards
 		private IAccountStorage _accountStorage;
 		private CardInStorage _selectedCard;
 
-		private CompositeDisposable _subscriptions;
+		private CompositeDisposable _cardSubscriptions = new CompositeDisposable();
 		
 		[Inject]
 		private void Construct(IAccountStorage accountStorage)
@@ -47,13 +47,23 @@ namespace Menu.Cards
 
 		public void Change()
 		{
-			_subscriptions = new CompositeDisposable();
+			_cardSubscriptions = new CompositeDisposable();
 			foreach (CardInDeck card in _cardDeck.Cards)
 			{
+				card.PlayReadyToChangeAnimation();
 				card.OnClicked()
 					.Subscribe(OnCardInDeckClicked)
-					.AddTo(_subscriptions);
+					.AddTo(_cardSubscriptions);
 			}
+		}
+
+		public void UpdatePosition()
+		{
+			if (_selectedCard is null)
+			{
+				return;
+			}
+			transform.position = _selectedCard.transform.position;
 		}
 
 		private void OnCardInDeckClicked(int position)
@@ -68,13 +78,13 @@ namespace Menu.Cards
 
 		private void CompleteChanging()
 		{
-			_storagePlacement.Show();
-			_subscriptions.Dispose();
+			_cardSubscriptions.Dispose();
 			_view.Hide();
 			foreach (CardInDeck card in _cardDeck.Cards)
 			{
 				card.StopPlayingReadyToChangeAnimation();
 			}
+			_selectedCard = null;
 		}
 	}
 }
