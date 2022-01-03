@@ -28,8 +28,8 @@ namespace CarSumo.DataModel.GameData.Accounts
         {
             Sprite sprite = await LoadAccountIcon(account.Icon);
             Icon icon = new Icon(sprite, account.Icon);
-            IVehicleLayout vehicleLayout = _layoutBuilder.Create(account.VehicleLayout);
-            return new Account(account.Name, icon, vehicleLayout);
+            IVehicleDeck vehicleDeck = _layoutBuilder.Create(account.VehicleLayout);
+            return new Account(account.Name, icon, vehicleDeck);
         }
 
         private async Task<Sprite> LoadAccountIcon(string key)

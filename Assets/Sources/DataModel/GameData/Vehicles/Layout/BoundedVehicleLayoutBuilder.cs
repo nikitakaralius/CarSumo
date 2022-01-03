@@ -12,9 +12,9 @@ namespace DataModel.GameData.Vehicles
             _slotsAmount = slotsAmount;
         }
 
-        public IVehicleLayout Create(IEnumerable<VehicleId> vehicles)
+        public IVehicleDeck Create(IEnumerable<Vehicle> vehicles)
         {
-            return new BoundedVehicleLayout(_slotsAmount, vehicles);
+            return new BoundedVehicleDeck(_slotsAmount, vehicles);
         }
     }
 }

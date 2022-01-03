@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7904052269276078100, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: -7904052269276078100, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
     - target: {fileID: 1479995022716098278, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
       propertyPath: m_Name
       value: JeepVehicleCard
@@ -129,6 +133,10 @@ PrefabInstance:
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[1]
       value: 
       objectReference: {fileID: 9033229241721728355}
+    - target: {fileID: 5471318388636773560, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5471318388636773560, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
     - target: {fileID: 5899222260818741695, guid: 03aaa8387d9138b46bcda6ba6e1f8472, type: 3}
       propertyPath: m_IsActive
       value: 0

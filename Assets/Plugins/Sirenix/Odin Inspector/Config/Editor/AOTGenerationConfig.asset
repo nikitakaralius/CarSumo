@@ -16,8 +16,11 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 637749337031142848
+  lastScan: 637768236003445669
   supportSerializedTypes:
+  - TypeName: DataModel.GameData.Vehicles.IVehicleAssets, GameData
+    IsCustom: 0
+    Emit: 1
   - TypeName: Menu.Accounts.AccountChangerButton+ButtonTitle, Menu
     IsCustom: 0
     Emit: 1
@@ -84,8 +87,12 @@ MonoBehaviour:
       mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Collections.Generic.Dictionary`2[[DataModel.Vehicles.VehicleId,
-      Vehicles],[Sources.Cards.VehicleCard, Vehicles]], mscorlib
+  - TypeName: System.Collections.Generic.Dictionary`2[[DataModel.Vehicles.Vehicle,
+      Vehicles],[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.Dictionary`2[[DataModel.Vehicles.Vehicle,
+      Vehicles],[Menu.Cards.VerboseVehicleStats, Menu]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: AdvancedAudioSystem.Configuration.DistanceConfiguration, AdvancedAudioSystem
@@ -115,11 +122,14 @@ MonoBehaviour:
       GameResources]], mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[DataModel.Vehicles.VehicleId,
+  - TypeName: System.Collections.Generic.EnumEqualityComparer`1[[DataModel.Vehicles.Vehicle,
       Vehicles]], mscorlib
     IsCustom: 0
     Emit: 1
   - TypeName: System.Single, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.GameObject, UnityEngine.CoreModule
     IsCustom: 0
     Emit: 1
   - TypeName: Menu.Accounts.AccountEditor.IAccountEditor, Menu
@@ -135,6 +145,9 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: AdvancedAudioSystem.Sequences.IAudioSequence, AdvancedAudioSystem
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Menu.Cards.ICardDeck, Menu
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.IDictionary`2[[CarSumo.Teams.Team, Teams],[System.Single,
@@ -165,7 +178,7 @@ MonoBehaviour:
       GameResources]], mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Collections.Generic.IEqualityComparer`1[[DataModel.Vehicles.VehicleId,
+  - TypeName: System.Collections.Generic.IEqualityComparer`1[[DataModel.Vehicles.Vehicle,
       Vehicles]], mscorlib
     IsCustom: 0
     Emit: 1
@@ -176,6 +189,9 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: System.Int32, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Menu.Cards.IPlacement, Menu
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[Menu.Accounts.AccountChangerButton+ButtonTitle,
@@ -211,8 +227,19 @@ MonoBehaviour:
       mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[DataModel.Vehicles.VehicleId,
+  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[DataModel.Vehicles.Vehicle,
+      Vehicles],[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[DataModel.Vehicles.Vehicle,
       Vehicles],[Sources.Cards.VehicleCard, Vehicles]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IReadOnlyDictionary`2[[DataModel.Vehicles.Vehicle,
+      Vehicles],[Menu.Cards.VerboseVehicleStats, Menu]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Menu.Cards.IStorageSelection, Menu
     IsCustom: 0
     Emit: 1
   - TypeName: TweenAnimations.ITweenAnimation, TweenAnimations
@@ -224,10 +251,7 @@ MonoBehaviour:
   - TypeName: CarSumo.Units.IUnit[], Game
     IsCustom: 0
     Emit: 1
-  - TypeName: DataModel.GameData.Vehicles.IVehicleAssets, GameData
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Menu.Vehicles.Layout.IVehicleLayoutChanger, Menu
+  - TypeName: Sources.Core.Interfaces.IVisible, Core
     IsCustom: 0
     Emit: 1
   - TypeName: System.Collections.Generic.List`1[[AdvancedAudioSystem.Configuration.IAudioConfiguration,
@@ -296,10 +320,13 @@ MonoBehaviour:
   - TypeName: TMPro.TMP_Text, Unity.TextMeshPro
     IsCustom: 0
     Emit: 1
+  - TypeName: DataModel.Vehicles.Vehicle, Vehicles
+    IsCustom: 0
+    Emit: 1
   - TypeName: Sources.Cards.VehicleCard, Vehicles
     IsCustom: 0
     Emit: 1
-  - TypeName: DataModel.Vehicles.VehicleId, Vehicles
+  - TypeName: Menu.Cards.VerboseVehicleStats, Menu
     IsCustom: 0
     Emit: 1
   - TypeName: AdvancedAudioSystem.Configuration.VolumeConfiguration, AdvancedAudioSystem

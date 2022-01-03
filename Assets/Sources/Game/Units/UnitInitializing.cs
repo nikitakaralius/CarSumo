@@ -13,6 +13,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;
+using Vehicle = DataModel.Vehicles.Vehicle;
 
 namespace CarSumo.Units
 {
@@ -44,8 +45,8 @@ namespace CarSumo.Units
 		
 		private async Task CreateVehicles(Team team, IReadOnlyList<IUnit> units)
 		{
-			IVehicleLayout layout = _gameModePreferences.GetAccountByTeam(team).Value.VehicleLayout;
-			IReadOnlyReactiveCollection<VehicleId> layoutVehicles = layout.ActiveVehicles;
+			IVehicleDeck deck = _gameModePreferences.GetAccountByTeam(team).Value.VehicleDeck;
+			IReadOnlyReactiveCollection<Vehicle> layoutVehicles = deck.ActiveVehicles;
 			
 			if (units.Count != layoutVehicles.Count)
 			{
@@ -54,10 +55,10 @@ namespace CarSumo.Units
 			
 			for (var i = 0; i < layoutVehicles.Count; i++)
 			{
-				VehicleId id = layoutVehicles[i];
+				Vehicle id = layoutVehicles[i];
 				AssetReferenceGameObject vehicleAsset = _assets.GetAssetByVehicleId(id);
 
-				Vehicle vehicle = await _instantiation.InstantiateAsync<Vehicle>(vehicleAsset);
+				Vehicles.Vehicle vehicle = await _instantiation.InstantiateAsync<Vehicles.Vehicle>(vehicleAsset);
 				units[i].InitializeVehicleBySelf(vehicle);
 			}
 		}

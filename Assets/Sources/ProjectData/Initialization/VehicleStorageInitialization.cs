@@ -44,10 +44,10 @@ namespace Infrastructure.Initialization
             {
                 Vehicles = new[]
                 {
-	                VehicleId.Jeep,
-	                VehicleId.Jeep,
-	                VehicleId.Jeep,
-	                VehicleId.Wagon
+	                Vehicle.Jeep,
+	                Vehicle.Jeep,
+	                Vehicle.Jeep,
+	                Vehicle.Wagon
                 }
             };
         }
@@ -63,7 +63,7 @@ namespace Infrastructure.Initialization
 	        _container.Resolve<VehicleStorageSave>();
         }
 
-        private void BindVehicleStorageInterfaces(IEnumerable<VehicleId> vehicles)
+        private void BindVehicleStorageInterfaces(IEnumerable<Vehicle> vehicles)
         {
             var vehicleStorage = new GameVehicleStorage(vehicles);
 

@@ -4,11 +4,11 @@ using DataModel.Vehicles;
 
 namespace DataModel.GameData.Vehicles
 {
-    public class DefaultVehicleLayout : IEnumerable<VehicleId>
+    public class DefaultVehicleLayout : IEnumerable<Vehicle>
     {
-        private readonly IEnumerable<VehicleId> _layout = new VehicleId[0];
+        private readonly IEnumerable<Vehicle> _layout = new Vehicle[0];
         
-        public IEnumerator<VehicleId> GetEnumerator()
+        public IEnumerator<Vehicle> GetEnumerator()
         {
             return _layout.GetEnumerator();
         }

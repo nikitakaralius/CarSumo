@@ -2100,10 +2100,11 @@ GameObject:
   - component: {fileID: 107066606}
   - component: {fileID: 107066608}
   - component: {fileID: 107066607}
-  - component: {fileID: 107066610}
   - component: {fileID: 107066609}
+  - component: {fileID: 107066610}
+  - component: {fileID: 107066611}
   m_Layer: 5
-  m_Name: Layout
+  m_Name: Deck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2176,14 +2177,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 107066605}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fcfa035544843d8aaea0d9672b1426c, type: 3}
+  m_Script: {fileID: 11500000, guid: beaae39e0c544c6fa50f331a8edaba21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sizeData:
-    From: {x: 0.75, y: 0.75, z: 0.75}
-    To: {x: 0.9, y: 0.9, z: 0.9}
-    Duration: 0.3
-    Ease: 19
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 107066611}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _placement
+      Entry: 10
+      Data: 0
 --- !u!114 &107066610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2193,26 +2202,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 107066605}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2ed316b55e84c8dae11d6c159a7693b, type: 3}
+  m_Script: {fileID: 11500000, guid: 886b5ccfdc114932befabeb5196e534f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _root: {fileID: 2090160403}
+--- !u!114 &107066611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107066605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c79778aad34e909aab74e79630c0b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 2fa714d0b2edcc14197cd78375a65b38, type: 2}
+    - {fileID: 107066610}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _assets
+    - Name: _placement
       Entry: 10
       Data: 0
-  _layoutRoot: {fileID: 2090160403}
-  _contentLayoutGroup: {fileID: 2090160404}
-  _vehicleScaling: {fileID: 107066609}
-  _holdTimeToDrag: 0.3
+  _elementScale: {x: 0.75, y: 0.75, z: 0.75}
 --- !u!1 &200344741
 GameObject:
   m_ObjectHideFlags: 0
@@ -10829,7 +10848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fb3d10858c4844b61e1987eb22e898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cards: {fileID: 11400000, guid: 7effbc4cf17408043bf3d047290fb4b8, type: 2}
+  _statsRepository: {fileID: 11400000, guid: 22d729c0a021dcb4b80f1ffcceb54de0, type: 2}
+  _viewRepository: {fileID: 11400000, guid: 4788e2fe7135e6d4db5a36ebd94df423, type: 2}
 --- !u!114 &803184304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11035,8 +11055,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1978990204}
-        m_TargetAssemblyTypeName: Menu.Vehicles.VehicleLayoutPreview, Menu
-        m_MethodName: ChangeOnPrevious
+        m_TargetAssemblyTypeName: Menu.Environment.EnvironmentVehicleDeckPreview,
+          Menu
+        m_MethodName: Previous
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14579,6 +14600,213 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1127751033
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5857635362488453268}
+    m_Modifications:
+    - target: {fileID: 978953834428681562, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 978953834428681562, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 978953834428681562, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 978953834428681562, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1127751036}
+    - target: {fileID: 978953834428681562, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 941786101}
+    - target: {fileID: 978953834428681562, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 978953834428681562, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 978953834428681562, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Change
+      objectReference: {fileID: 0}
+    - target: {fileID: 978953834428681562, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 978953834428681562, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Menu.Cards.PlayerStorageSelection, Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 978953834428681562, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AdvancedAudioSystem.MonoAudioCuePlayer, AdvancedAudioSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 978953834428681562, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 978953834428681562, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 464.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 681
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -359.50003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784297737264687554, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_Name
+      value: Selection
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193690022406147127, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -70.2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+--- !u!224 &1127751034 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1717454421619397287, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+  m_PrefabInstance: {fileID: 1127751033}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1127751035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1784297737264687554, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+  m_PrefabInstance: {fileID: 1127751033}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1127751036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127751035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cea6ae765ab44aca916de52a3169edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 5857635362157322546}
+    - {fileID: 107066609}
+    - {fileID: 1127751037}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _storagePlacement
+      Entry: 10
+      Data: 0
+    - Name: _cardDeck
+      Entry: 10
+      Data: 1
+    - Name: _view
+      Entry: 10
+      Data: 2
+--- !u!114 &1127751037 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5168840742140210464, guid: 0c2c898302cff9d4d9c0921ad9199121, type: 3}
+  m_PrefabInstance: {fileID: 1127751033}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f99848ef52f430da2065ac248e11bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1131647034
 GameObject:
   m_ObjectHideFlags: 0
@@ -14977,8 +15205,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1978990204}
-        m_TargetAssemblyTypeName: Menu.Vehicles.VehicleLayoutPreview, Menu
-        m_MethodName: ChangeOnNext
+        m_TargetAssemblyTypeName: Menu.Environment.EnvironmentVehicleDeckPreview,
+          Menu
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25138,7 +25367,7 @@ GameObject:
   - component: {fileID: 1978990203}
   - component: {fileID: 1978990204}
   m_Layer: 0
-  m_Name: VehicleLayoutPreview
+  m_Name: VehicleDeckPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25167,7 +25396,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1978990202}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc72e8adfc046f2a5460e8494b0ab9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c0d698375f54843bb7751440ebf686a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -25183,6 +25412,7 @@ MonoBehaviour:
     - Name: _assets
       Entry: 10
       Data: 0
+  _root: {fileID: 1978990203}
 --- !u!1 &1983052680
 GameObject:
   m_ObjectHideFlags: 0
@@ -26654,7 +26884,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -1080, y: 75}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2090160404
 MonoBehaviour:
@@ -26671,16 +26901,16 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
+    m_Top: 75
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: -80
+  m_Spacing: 15
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
+  m_ChildScaleWidth: 1
+  m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
 --- !u!114 &2090160405
 MonoBehaviour:
@@ -26694,7 +26924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
+  m_HorizontalFit: 2
   m_VerticalFit: 2
 --- !u!1 &2110964388
 GameObject:
@@ -27442,7 +27672,6 @@ GameObject:
   m_Component:
   - component: {fileID: 58267393062172297}
   - component: {fileID: 7494705674809844954}
-  - component: {fileID: 58267393062172298}
   m_Layer: 5
   m_Name: WagonVehicleCard
   m_TagString: Untagged
@@ -27471,30 +27700,6 @@ RectTransform:
   m_AnchoredPosition: {x: 780, y: -344.5}
   m_SizeDelta: {x: 415, y: 585}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &58267393062172298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 58267393062172296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddb72174bfab418189c19c07a47110d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  _vehicle: 4
-  _power: {fileID: 45199181738256809}
-  _fuel: {fileID: 4567516726522346967}
 --- !u!114 &58267393602911072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36797,7 +37002,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3000
+  m_text: 1250
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
   m_sharedMaterial: {fileID: 3074828514974314926, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
@@ -42977,7 +43182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2500
+  m_text: 1500
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
   m_sharedMaterial: {fileID: 3074828514974314926, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
@@ -44593,7 +44798,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4947174501911649698}
   - component: {fileID: 3200491463389482993}
-  - component: {fileID: 4947174501911649700}
   m_Layer: 5
   m_Name: VanVehicleCard
   m_TagString: Untagged
@@ -44601,30 +44805,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4947174501911649700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4947174501911649699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddb72174bfab418189c19c07a47110d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  _vehicle: 3
-  _power: {fileID: 4956336149032370818}
-  _fuel: {fileID: 8866445679503988476}
 --- !u!222 &4947174502871115723
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -45871,7 +46051,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5432560579394700563}
   - component: {fileID: 2569831252094670656}
-  - component: {fileID: 5432560579394700564}
   m_Layer: 5
   m_Name: OldCarVehicleCard
   m_TagString: Untagged
@@ -45900,30 +46079,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: -1164.5}
   m_SizeDelta: {x: 415, y: 585}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5432560579394700564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5432560579394700562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddb72174bfab418189c19c07a47110d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  _vehicle: 1
-  _power: {fileID: 5407627538019932723}
-  _fuel: {fileID: 8415047035193724493}
 --- !u!114 &5434608276497388690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47745,8 +47900,11 @@ GameObject:
   - component: {fileID: 5857635362157322555}
   - component: {fileID: 5857635362157322556}
   - component: {fileID: 5857635362157322545}
+  - component: {fileID: 5857635362157322546}
+  - component: {fileID: 5857635362157322547}
+  - component: {fileID: 5857635362157322548}
   m_Layer: 5
-  m_Name: Vehicles
+  m_Name: Storage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47761,27 +47919,94 @@ MonoBehaviour:
   m_GameObject: {fileID: 5857635362157322544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf56c389abb648c58c6390083b0a3df0, type: 3}
+  m_Script: {fileID: 11500000, guid: bf7415df3feb49438cd99a85d92854a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 2fa714d0b2edcc14197cd78375a65b38, type: 2}
-    - {fileID: 107066610}
+    - {fileID: 5857635362157322547}
+    - {fileID: 1127751036}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _assets
+    - Name: _placement
       Entry: 10
       Data: 0
-    - Name: _layoutChanger
+    - Name: _selection
       Entry: 10
       Data: 1
-  _layoutRoot: {fileID: 5857635362438841528}
+--- !u!114 &5857635362157322546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5857635362157322544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886b5ccfdc114932befabeb5196e534f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _root: {fileID: 5857635362438841528}
+--- !u!114 &5857635362157322547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5857635362157322544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c79778aad34e909aab74e79630c0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 5857635362157322546}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _placement
+      Entry: 10
+      Data: 0
+  _elementScale: {x: 1, y: 1, z: 1}
+--- !u!114 &5857635362157322548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5857635362157322544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d0d595e95c44da69c69c179306ccd6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scrollRect: {fileID: 5857635362157322558}
+  _deltaToInvokeEvent: {x: 0, y: 0.01}
+  _valueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1127751037}
+        m_TargetAssemblyTypeName: Sources.Core.Interfaces.Visible, Core
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &5857635362157322555
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -47849,7 +48074,19 @@ MonoBehaviour:
   m_VerticalScrollbarSpacing: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1127751036}
+        m_TargetAssemblyTypeName: Menu.Cards.PlayerStorageSelection, Menu
+        m_MethodName: UpdatePosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &5857635362157322559
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48024,6 +48261,7 @@ RectTransform:
   - {fileID: 107066606}
   - {fileID: 5857635362157322559}
   - {fileID: 5857635361870933644}
+  - {fileID: 1127751034}
   m_Father: {fileID: 2059186930}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50141,7 +50379,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6814655888937347800}
   - component: {fileID: 3917867329248180363}
-  - component: {fileID: 6814655888937347802}
   m_Layer: 5
   m_Name: JeepVehicleCard
   m_TagString: Untagged
@@ -50149,30 +50386,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6814655888937347802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6814655888937347801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddb72174bfab418189c19c07a47110d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  _vehicle: 0
-  _power: {fileID: 6844645583675897336}
-  _fuel: {fileID: 7007197280676864390}
 --- !u!114 &6844645583675897336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53715,7 +53928,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 500
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
   m_sharedMaterial: {fileID: 3074828514974314926, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
@@ -55834,7 +56047,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9132039374213035898}
   - component: {fileID: 1618498251873936681}
-  - component: {fileID: 9132039374213035900}
   m_Layer: 5
   m_Name: UteVehicleCard
   m_TagString: Untagged
@@ -55842,30 +56054,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &9132039374213035900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9132039374213035899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddb72174bfab418189c19c07a47110d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  _vehicle: 2
-  _power: {fileID: 9138948121387722842}
-  _fuel: {fileID: 4690376745623796772}
 --- !u!114 &9138948121387722842
 MonoBehaviour:
   m_ObjectHideFlags: 0

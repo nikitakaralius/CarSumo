@@ -16,13 +16,13 @@ namespace AI.Repositories
 		{
 			public string Name;
 			public Sprite Icon;
-			public VehicleId[] Layout;
+			public Vehicle[] Layout;
 
 			public Account ToAccount() => 
 				new Account(
 					Name,
 					new Icon(Icon, string.Empty),
-					new BoundedVehicleLayout(3, Layout));
+					new BoundedVehicleDeck(3, Layout));
 		}
 
 		[SerializeField] private UnityAccount[] _accounts = Array.Empty<UnityAccount>();

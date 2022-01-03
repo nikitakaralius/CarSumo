@@ -5,6 +5,6 @@ namespace DataModel.GameData.Vehicles
 {
     public interface IVehicleAssets
     {
-        AssetReferenceGameObject GetAssetByVehicleId(VehicleId id);
+        AssetReferenceGameObject GetAssetByVehicleId(Vehicle id);
     }
 }

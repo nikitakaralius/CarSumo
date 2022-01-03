@@ -8,13 +8,13 @@ namespace CarSumo.DataModel.Accounts
     {
         public IReactiveProperty<string> Name { get; }
         public IReactiveProperty<Icon> Icon { get; }
-        public IVehicleLayout VehicleLayout { get; }
+        public IVehicleDeck VehicleDeck { get; }
 
-        public Account(string name, Icon icon, IVehicleLayout vehicleLayout)
+        public Account(string name, Icon icon, IVehicleDeck vehicleDeck)
         {
             Name = new ReactiveProperty<string>(name);
             Icon = new ReactiveProperty<Icon>(icon);
-            VehicleLayout = vehicleLayout;
+            VehicleDeck = vehicleDeck;
         }
 
         public bool Equals(Account other)

@@ -7,7 +7,7 @@ namespace Shop
 	public class PurchasableVehicle : Purchasable
 	{
 		[Header("Vehicle Preferences")]
-		[SerializeField] private VehicleId _vehicle;
+		[SerializeField] private Vehicle _vehicle;
 		
 		private IVehicleStorageOperations _storageOperations;
 

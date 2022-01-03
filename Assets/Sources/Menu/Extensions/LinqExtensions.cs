@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using DataModel.Vehicles;
 using UnityEngine;
 using UnityObject = UnityEngine.Object;
 
@@ -25,6 +28,27 @@ namespace Menu.Extensions
 		{
 			list.ForEach(UnityObject.Destroy);
 			list.Clear();
+		}
+
+		public static IEnumerable<Vehicle> Without(this IVehicleStorage storage, IVehicleDeck deck)
+		{
+			return storage.BoughtVehicles.Without(deck.ActiveVehicles, (a, b) => a == b);
+		}
+		
+		public static IEnumerable<TSource> Without<TSource>(this IEnumerable<TSource> source, IEnumerable<TSource> values, Func<TSource, TSource, bool> equalityComparer)
+		{
+			List<TSource> cachedValues = new List<TSource>(values);
+
+			foreach (TSource element in source)
+			{
+				if (cachedValues.Any(cachedElement => equalityComparer.Invoke(cachedElement, element)))
+				{
+					cachedValues.Remove(element);
+					continue;
+				}
+
+				yield return element;
+			}
 		}
 	}
 }
