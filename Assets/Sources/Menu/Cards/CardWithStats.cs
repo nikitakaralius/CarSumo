@@ -1,7 +1,6 @@
 ﻿using DataModel.Vehicles;
 using Sirenix.OdinInspector;
 using Sources.Core.Tests;
-using Sources.Core.Tests.Extensions;
 using TMPro;
 using UnityEngine;
 using Zenject;

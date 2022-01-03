@@ -51,7 +51,7 @@ namespace Menu.Cards
 			foreach (CardInDeck card in _cardDeck.Cards)
 			{
 				card.PlayReadyToChangeAnimation();
-				card.OnClicked()
+				card.ObserveOnClicked()
 					.Subscribe(OnCardInDeckClicked)
 					.AddTo(_cardSubscriptions);
 			}
