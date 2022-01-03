@@ -2,6 +2,7 @@
 using CarSumo.DataModel.Accounts;
 using DataModel.Vehicles;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using Sources.Core.Interfaces;
 using UniRx;
 using UnityEngine;
@@ -40,6 +41,8 @@ namespace Menu.Cards
 
 		public void Select(CardInStorage card)
 		{
+			_cardDeck.Cards.ForEach(x => x.StopPlayingReadyToChangeAnimation());
+			_cardSubscriptions.Dispose();
 			_view.Show();
 			_selectedCard = card;
 			transform.position = card.transform.position;
@@ -80,10 +83,7 @@ namespace Menu.Cards
 		{
 			_cardSubscriptions.Dispose();
 			_view.Hide();
-			foreach (CardInDeck card in _cardDeck.Cards)
-			{
-				card.StopPlayingReadyToChangeAnimation();
-			}
+			_cardDeck.Cards.ForEach(x => x.StopPlayingReadyToChangeAnimation());
 			_selectedCard = null;
 		}
 	}

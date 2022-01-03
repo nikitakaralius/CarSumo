@@ -39,10 +39,12 @@ namespace Menu.Cards
 
 		public void PlayReadyToChangeAnimation()
 		{
+			Vector3 initialScale = transform.localScale;
 			_animation = RectTransform
 				.DOScale(transform.localScale + Vector3.one * 0.05f, 1.0f)
 				.SetEase(Ease.InOutBack)
-				.SetLoops(-1, LoopType.Yoyo);
+				.SetLoops(-1, LoopType.Yoyo)
+				.OnKill(() => transform.localScale = initialScale);
 		}
 
 		public void StopPlayingReadyToChangeAnimation()
