@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CarSumo.DataModel.Accounts;
 using DataModel.Vehicles;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
+using Sources.Core.Interfaces;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -14,7 +13,7 @@ namespace Menu.Cards
 	{
 		[SerializeField] private IPlacement _storagePlacement;
 		[SerializeField] private ICardDeck _cardDeck;
-		[SerializeField] private GameObject[] _viewElements = Array.Empty<GameObject>();
+		[SerializeField] private IVisible _view;
 
 		private IAccountStorage _accountStorage;
 		private CardInStorage _selectedCard;
@@ -31,7 +30,7 @@ namespace Menu.Cards
 
 		private void OnEnable()
 		{
-			HideView();
+			_view.Hide();
 		}
 		
 		private void OnDisable()
@@ -41,7 +40,7 @@ namespace Menu.Cards
 
 		public void Select(CardInStorage card)
 		{
-			ShowView();
+			_view.Show();
 			_selectedCard = card;
 			transform.position = card.transform.position;
 		}
@@ -71,21 +70,11 @@ namespace Menu.Cards
 		{
 			_storagePlacement.Show();
 			_subscriptions.Dispose();
-			HideView();
+			_view.Hide();
 			foreach (CardInDeck card in _cardDeck.Cards)
 			{
 				card.StopPlayingReadyToChangeAnimation();
 			}
-		}
-
-		private void HideView()
-		{
-			_viewElements.ForEach(x => x.SetActive(false));
-		}
-		
-		private void ShowView()
-		{
-			_viewElements.ForEach(x => x.SetActive(true));
 		}
 	}
 }
