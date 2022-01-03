@@ -11054,9 +11054,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Menu.Vehicles.VehicleLayoutPreview, Menu
-        m_MethodName: ChangeOnPrevious
+      - m_Target: {fileID: 1978990204}
+        m_TargetAssemblyTypeName: Menu.Environment.EnvironmentVehicleDeckPreview,
+          Menu
+        m_MethodName: Previous
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15179,9 +15180,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Menu.Vehicles.VehicleLayoutPreview, Menu
-        m_MethodName: ChangeOnNext
+      - m_Target: {fileID: 1978990204}
+        m_TargetAssemblyTypeName: Menu.Environment.EnvironmentVehicleDeckPreview,
+          Menu
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25339,8 +25341,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1978990203}
+  - component: {fileID: 1978990204}
   m_Layer: 0
-  m_Name: VehicleLayoutPreview
+  m_Name: VehicleDeckPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25360,6 +25363,32 @@ Transform:
   m_Father: {fileID: 1118976391}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &1978990204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978990202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0d698375f54843bb7751440ebf686a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 656f00b4f1d950b43bd1b62e8fcc940f, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _assets
+      Entry: 10
+      Data: 0
+  _root: {fileID: 1978990203}
 --- !u!1 &1983052680
 GameObject:
   m_ObjectHideFlags: 0
