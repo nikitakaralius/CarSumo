@@ -27,7 +27,7 @@ namespace Menu.Cards
 
 		private IReadOnlyReactiveProperty<Account> ActiveAccount => _storage.ActiveAccount;
 
-		private void OnEnable()
+		private void Start()
 		{
 			ActiveAccount
 				.Subscribe(x => _deck.Draw(x.VehicleDeck))
@@ -39,7 +39,7 @@ namespace Menu.Cards
 				.AddTo(_subscriptions);
 		}
 
-		private void OnDisable()
+		private void OnDestroy()
 		{
 			_subscriptions.Dispose();
 		}

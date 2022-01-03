@@ -29,7 +29,7 @@ namespace Menu.Cards
 
 		private IVehicleDeck Deck => _accountStorage.ActiveAccount.Value.VehicleDeck;
 
-		private void OnEnable()
+		private void Start()
 		{
 			_accountStorage.ActiveAccount
 				.Subscribe(x => _cardStorage.Draw(_vehicleStorage, Deck))
@@ -46,7 +46,7 @@ namespace Menu.Cards
 				.AddTo(_subscriptions);
 		}
 
-		private void OnDisable()
+		private void OnDestroy()
 		{
 			_subscriptions.Dispose();		
 		}

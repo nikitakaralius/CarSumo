@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using CarSumo.DataModel.Accounts;
 using DataModel.Vehicles;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -12,11 +14,12 @@ namespace Menu.Cards
 	{
 		[SerializeField] private IPlacement _storagePlacement;
 		[SerializeField] private ICardDeck _cardDeck;
+		[SerializeField] private GameObject[] _viewElements = Array.Empty<GameObject>();
 
 		private IAccountStorage _accountStorage;
 		private CardInStorage _selectedCard;
 
-		private readonly CompositeDisposable _subscriptions = new CompositeDisposable();
+		private CompositeDisposable _subscriptions;
 		
 		[Inject]
 		private void Construct(IAccountStorage accountStorage)
@@ -26,6 +29,11 @@ namespace Menu.Cards
 
 		private IVehicleDeck Deck => _accountStorage.ActiveAccount.Value.VehicleDeck;
 
+		private void OnEnable()
+		{
+			HideView();
+		}
+		
 		private void OnDisable()
 		{
 			CompleteChanging();
@@ -33,16 +41,16 @@ namespace Menu.Cards
 
 		public void Select(CardInStorage card)
 		{
+			ShowView();
 			_selectedCard = card;
+			transform.position = card.transform.position;
 		}
 
 		public void Change()
 		{
-			_storagePlacement.Hide();
-			
+			_subscriptions = new CompositeDisposable();
 			foreach (CardInDeck card in _cardDeck.Cards)
 			{
-				card.PlayReadyToChangeAnimation();
 				card.OnClicked()
 					.Subscribe(OnCardInDeckClicked)
 					.AddTo(_subscriptions);
@@ -63,10 +71,21 @@ namespace Menu.Cards
 		{
 			_storagePlacement.Show();
 			_subscriptions.Dispose();
+			HideView();
 			foreach (CardInDeck card in _cardDeck.Cards)
 			{
 				card.StopPlayingReadyToChangeAnimation();
 			}
+		}
+
+		private void HideView()
+		{
+			_viewElements.ForEach(x => x.SetActive(false));
+		}
+		
+		private void ShowView()
+		{
+			_viewElements.ForEach(x => x.SetActive(true));
 		}
 	}
 }
